@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-primary">
         <Navbar />
-        <main className="pt-[72px] md:pt-0 md:pl-[280px] min-h-screen pb-20 md:pb-0">{children}</main>
+        <main className="pt-[72px] md:pl-[280px] min-h-screen pb-20 md:pb-0">{children}</main>
       </body>
     </html>
   );
