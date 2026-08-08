@@ -82,9 +82,13 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   const token = signUserToken(user);
+  await user.populate({ path: 'favorites', select: 'title slug posterUrl backdropUrl year' });
   res.json({
     success: true,
-    data: { token, user: { id: user._id, name: user.name, email: user.email } },
+    data: {
+      token,
+      user: { id: user._id, name: user.name, email: user.email, favorites: user.favorites },
+    },
   });
 });
 

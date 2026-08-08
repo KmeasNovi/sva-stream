@@ -47,10 +47,10 @@ export default function MinhaListaPage() {
     <div className="container mx-auto px-container-margin py-12">
       <h1 className="font-display text-headline-lg mb-8 text-on-background">Minha Lista</h1>
       <div className="flex flex-wrap gap-4">
-        {user.favorites.map((movie) => (
+        {(user.favorites || []).map((movie) => (
           <MovieCard key={movie._id} movie={movie} />
         ))}
-        {!user.favorites.length ? (
+        {!user.favorites?.length ? (
           <p className="font-body text-body-md text-on-surface-variant">
             Você ainda não favoritou nenhum filme. Clique no coração de um filme para adicioná-lo aqui.
           </p>
