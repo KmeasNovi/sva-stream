@@ -66,6 +66,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Bosko, the Talk Ink Kid (1929).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -183,6 +184,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ain't Nature Grand (1931).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -369,6 +371,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Red Headed Baby (1931).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -419,6 +422,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ups 'n Downs (1931).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -440,7 +444,7 @@ module.exports = [
   },
   {
     title: "You Don't Know What You're Doin!",
-    slug: "you-don-t-know-what-you-re-doin-1931",
+    slug: "you-don-t-know-what-you-re-doin-1931-redrawn",
     synopsis: "Curta de animação da Warner Bros., 1931, em domínio público.",
     year: 1931,
     genres: [
@@ -452,6 +456,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/You Don't Know What You're Doin! (1931, Redrawn and Colorized).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -519,6 +524,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Big Hearted Bosko (1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -705,6 +711,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Crosby, Columbo and Vallee (1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -789,6 +796,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/It's Got Me Again! (1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -805,6 +813,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Moonlight for Two (1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -838,6 +847,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ride Him, Bosko! (Bosko, Honey)(1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -871,6 +881,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Three's a Crowd (1932).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -904,6 +915,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Shanty Where Santy Claus Lives (1933).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1122,6 +1134,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Bars and Stripes Forever (1939).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1172,6 +1185,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hamateur Night (1939).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1188,6 +1202,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Prest-O Change-O (1939).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1204,6 +1219,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Robin Hood Makes Good (1939).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1219,6 +1235,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Mickey's Surprise Party (1939).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -1235,6 +1252,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ali-Baba Bound (1940).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1251,6 +1269,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Early Worm Gets the Bird (1940).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1267,6 +1286,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Timid Toreador (1940).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1283,6 +1303,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Coy Decoy (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1299,6 +1320,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/All This and Rabbit Stew (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1315,6 +1337,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Farm Frolics (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1331,6 +1354,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Joe Glow, the Firefly (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1347,6 +1371,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Meet John Doughboy (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1363,6 +1388,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Notes to You (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1379,6 +1405,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Ant (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1395,6 +1422,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Bear Facts (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1411,6 +1439,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Midnight Matinee (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1427,6 +1456,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Pooch (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1443,6 +1473,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Preview (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1459,6 +1490,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Prize Pony (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1475,6 +1507,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Robinson Crusoe Jr. (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1491,6 +1524,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Rookie Revue (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1507,6 +1541,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Sport Chumpions (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1523,6 +1558,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Haunted Mouse (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1539,6 +1575,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Henpecked Duck (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1555,6 +1592,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/We, the Animals - Squeak! (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1570,6 +1608,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Thrifty Pig (1941).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -1586,6 +1625,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Tale of Two Kitties (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1602,6 +1642,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Case of the Missing Hare (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1618,6 +1659,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Daffy's Southern Exposure (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1634,6 +1676,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ding Dog Daddy (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1650,6 +1693,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Eatin' on the Cuff or, The Moth Who Came to Dinner (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1666,6 +1710,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Foney Fables (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1682,6 +1727,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Fox Pop (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1698,6 +1744,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Fresh Hare (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1714,6 +1761,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Gopher Goofy (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1730,6 +1778,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hobby Horse Laffs (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1746,6 +1795,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Nutty News (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1762,11 +1812,12 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Cafe (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
     title: "Porky's Café",
-    slug: "porky-s-cafe-1942",
+    slug: "porky-s-cafe-1942-redrawn",
     synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
     year: 1942,
     genres: [
@@ -1778,6 +1829,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Café (1942, Redrawn and Colorized).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1794,6 +1846,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Pastry Pirates (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1810,6 +1863,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Daffy Duckaroo (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1826,6 +1880,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Dover Boys At Pimento University or The Rivals of Roquefort Hall (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1842,6 +1897,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Ducktators (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1858,6 +1914,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Impatient Patient (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1874,6 +1931,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Sheepish Wolf (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1890,6 +1948,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Wabbit Who Came To Supper (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1906,6 +1965,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Wacky Wabbit (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1922,6 +1982,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Wacky Blackout (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1938,6 +1999,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Who's Who in the Zoo (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -1953,6 +2015,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/All Together (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -1968,6 +2031,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Donald's Decision (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -1983,6 +2047,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Out Of The Frying Pan Into The Firing Line (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -1998,6 +2063,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Any Bonds Today (1942).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   },
   {
@@ -2014,6 +2080,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Corny Concerto (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2030,6 +2097,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Confusions of a Nutzy Spy (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2046,6 +2114,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Daffy - The Commando (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2062,6 +2131,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Falling Hare (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2078,6 +2148,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hop and Go (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2094,6 +2165,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Inki and the Minah Bird (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2110,6 +2182,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Pigs in a Polka (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2126,6 +2199,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky Pig's Feat (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2142,6 +2216,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Puss N' Booty (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2158,6 +2233,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Scrap Happy Daffy (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2174,6 +2250,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Fifth-Column Mouse (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2190,6 +2267,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/To Duck Or Not To Duck (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2206,6 +2284,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Tokio Jokio (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2222,6 +2301,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Wackiki Wabbit (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2238,6 +2318,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Yankee Doodle Daffy (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
     featured: false
   },
   {
@@ -2253,6 +2334,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Education for Death (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2268,6 +2350,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Spirit Of '43 (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2283,6 +2366,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Winged Scourge (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2298,6 +2382,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Point Rationing of Foods (1943).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   },
   {
@@ -2313,6 +2398,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Cleanliness Brings Health (1945).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2328,6 +2414,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/So Much For So Little (1949).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   },
   {
@@ -2343,6 +2430,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Susie, The Little Blue Coupe (1952).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2358,6 +2446,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/A Hitch in Time (1955).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   },
   {
@@ -2373,6 +2462,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Hooked Bear (1956).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
     featured: false
   },
   {
@@ -2388,6 +2478,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/90 Day Wondering (1956).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   },
   {
@@ -2403,6 +2494,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Drafty, Isn't It (1957).mp4"
     },
+    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
     featured: false
   }
 ];

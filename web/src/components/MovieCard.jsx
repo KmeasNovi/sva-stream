@@ -4,10 +4,10 @@ export default function MovieCard({ movie }) {
   return (
     <Link href={`/movie/${movie.slug}`} className="flex-none w-[160px] md:w-[220px] snap-start cursor-pointer group">
       <div className="relative aspect-[2/3] rounded-2xl overflow-hidden border border-white/5 bg-surface-container">
-        {movie.posterUrl ? (
+        {movie.posterUrl || movie.backdropUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={movie.posterUrl}
+            src={movie.posterUrl || movie.backdropUrl}
             alt={movie.title}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
