@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
+import { UserProvider } from '../context/UserContext';
 
 export const metadata = {
   title: 'CulStream',
@@ -14,8 +15,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-primary">
-        <Navbar />
-        <main className="pt-[72px] md:pl-[280px] min-h-screen pb-20 md:pb-0">{children}</main>
+        <UserProvider>
+          <Navbar />
+          <main className="pt-[72px] md:pl-[280px] min-h-screen pb-20 md:pb-0">{children}</main>
+        </UserProvider>
       </body>
     </html>
   );

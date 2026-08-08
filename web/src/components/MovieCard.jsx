@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import FavoriteButton from './FavoriteButton';
 
 export default function MovieCard({ movie }) {
   return (
     <Link href={`/movie/${movie.slug}`} className="flex-none w-[160px] md:w-[220px] snap-start cursor-pointer group">
       <div className="relative aspect-[2/3] rounded-2xl overflow-hidden border border-white/5 bg-surface-container">
+        <FavoriteButton movieId={movie._id} className="absolute top-2 right-2 z-10 w-8 h-8" />
         {movie.posterUrl || movie.backdropUrl ? (
           <Image
             src={movie.posterUrl || movie.backdropUrl}

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { api } from '../../../lib/api';
 import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
+import FavoriteButton from '../../../components/FavoriteButton';
 
 export default async function MoviePage({ params }) {
   const { slug } = await params;
@@ -43,7 +44,10 @@ export default async function MoviePage({ params }) {
             </span>
           ))}
         </div>
-        <h1 className="font-display text-headline-lg-mobile md:text-headline-lg text-on-background">{movie.title}</h1>
+        <div className="flex items-center gap-4">
+          <h1 className="font-display text-headline-lg-mobile md:text-headline-lg text-on-background">{movie.title}</h1>
+          <FavoriteButton movieId={movie._id} className="w-10 h-10 flex-none" />
+        </div>
         <p className="font-body text-body-md text-on-surface-variant">
           {[movie.year, movie.director, movie.runtimeMinutes && `${movie.runtimeMinutes} min`].filter(Boolean).join(' · ')}
         </p>

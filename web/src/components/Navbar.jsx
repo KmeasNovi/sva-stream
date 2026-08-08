@@ -2,12 +2,49 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useUser } from '../context/UserContext';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home', icon: 'home' },
   { href: '/search', label: 'Explorar', icon: 'explore' },
   { href: '/catalogo', label: 'Catálogo', icon: 'video_library' },
+  { href: '/minha-lista', label: 'Minha Lista', icon: 'favorite' },
 ];
+
+function AccountControl() {
+  const { user, logout } = useUser();
+  const router = useRouter();
+
+  if (!user) {
+    return (
+      <Link
+        href="/entrar"
+        className="font-body text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap"
+      >
+        Entrar
+      </Link>
+    );
+  }
+
+  function handleLogout() {
+    logout();
+    router.push('/');
+  }
+
+  return (
+    <div className="flex items-center gap-3">
+      <span className="hidden md:inline font-body text-label-bold text-on-background">{user.name.split(' ')[0]}</span>
+      <button
+        type="button"
+        onClick={handleLogout}
+        aria-label="Sair"
+        className="text-on-surface-variant hover:text-error transition-colors"
+      >
+        <span className="material-symbols-outlined">logout</span>
+      </button>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -68,9 +105,12 @@ export default function Navbar() {
             type="search"
           />
         </form>
-        <Link href="/search" className="md:hidden text-on-surface-variant hover:text-secondary transition-colors">
-          <span className="material-symbols-outlined">search</span>
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link href="/search" className="md:hidden text-on-surface-variant hover:text-secondary transition-colors">
+            <span className="material-symbols-outlined">search</span>
+          </Link>
+          <AccountControl />
+        </div>
       </header>
 
       {/* Bottom Nav (Mobile) */}

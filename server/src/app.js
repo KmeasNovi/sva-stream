@@ -8,6 +8,7 @@ const compression = require('compression');
 const movieRoutes = require('./routes/movieRoutes');
 const authRoutes = require('./routes/authRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
+const userRoutes = require('./routes/userRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -33,6 +34,7 @@ app.use('/subtitles', express.static(path.join(__dirname, '..', 'public', 'subti
 app.use('/api/movies', movieRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/api/users', userRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Rota não encontrada' });
