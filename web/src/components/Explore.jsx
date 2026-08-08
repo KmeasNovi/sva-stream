@@ -87,9 +87,13 @@ export default function Explore({ genreTiles }) {
                 className="relative overflow-hidden rounded-2xl aspect-[4/3] group cursor-pointer glow-hover transition-all duration-300 border border-white/5"
               >
                 {cover ? (
+                  // Aspas dentro do url() são necessárias — alguns covers vêm
+                  // de nomes de arquivo do archive.org com parênteses/vírgula
+                  // (ex: "Nome (1942, Redrawn).jpg"), que sem aspas quebram a
+                  // sintaxe do CSS url().
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${cover})` }}
+                    style={{ backgroundImage: `url("${cover}")` }}
                   />
                 ) : (
                   <div className="absolute inset-0 bg-surface-container" />
