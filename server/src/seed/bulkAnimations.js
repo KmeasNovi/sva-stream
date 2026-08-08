@@ -55,7 +55,7 @@ module.exports = [
   {
     title: "Bosko, the Talk Ink Kid",
     slug: "bosko-the-talk-ink-kid-1929",
-    synopsis: "Curta de animação da Warner Bros., 1929, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1929.",
     year: 1929,
     genres: [
       "Animação",
@@ -173,7 +173,7 @@ module.exports = [
   {
     title: "Ain't Nature Grand",
     slug: "ain-t-nature-grand-1931",
-    synopsis: "Curta de animação da Warner Bros., 1931, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -360,7 +360,7 @@ module.exports = [
   {
     title: "Red Headed Baby",
     slug: "red-headed-baby-1931",
-    synopsis: "Curta de animação da Warner Bros., 1931, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -411,7 +411,7 @@ module.exports = [
   {
     title: "Ups 'N Downs",
     slug: "ups-n-downs-1931",
-    synopsis: "Curta de animação da Warner Bros., 1931, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -445,7 +445,7 @@ module.exports = [
   {
     title: "You Don't Know What You're Doin!",
     slug: "you-don-t-know-what-you-re-doin-1931-redrawn",
-    synopsis: "Curta de animação da Warner Bros., 1931, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -513,7 +513,7 @@ module.exports = [
   {
     title: "Big Hearted Bosko",
     slug: "big-hearted-bosko-1932",
-    synopsis: "Curta de animação da Warner Bros., 1932, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1932.",
     year: 1932,
     genres: [
       "Animação",
@@ -700,7 +700,7 @@ module.exports = [
   {
     title: "Crosby, Columbo and Vallee",
     slug: "crosby-columbo-and-vallee-1932",
-    synopsis: "Curta de animação da Warner Bros., 1932, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1932.",
     year: 1932,
     genres: [
       "Animação",
@@ -836,7 +836,7 @@ module.exports = [
   {
     title: "Ride Him, Bosko! (Bosko, Honey)",
     slug: "ride-him-bosko-bosko-honey-1932",
-    synopsis: "Curta de animação da Warner Bros., 1932, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1932.",
     year: 1932,
     genres: [
       "Animação",
@@ -1123,7 +1123,7 @@ module.exports = [
   {
     title: "Bars and Stripes Forever",
     slug: "bars-and-stripes-forever-1939",
-    synopsis: "Curta de animação da Warner Bros., 1939, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1939.",
     year: 1939,
     genres: [
       "Animação",
@@ -1174,7 +1174,7 @@ module.exports = [
   {
     title: "Hamateur Night",
     slug: "hamateur-night-1939",
-    synopsis: "Curta de animação da Warner Bros., 1939, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1939.",
     year: 1939,
     genres: [
       "Animação",
@@ -1191,7 +1191,7 @@ module.exports = [
   {
     title: "Prest-O Change-O",
     slug: "prest-o-change-o-1939",
-    synopsis: "Curta de animação da Warner Bros., 1939, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1939.",
     year: 1939,
     genres: [
       "Animação",
@@ -1208,7 +1208,7 @@ module.exports = [
   {
     title: "Robin Hood Makes Good",
     slug: "robin-hood-makes-good-1939",
-    synopsis: "Curta de animação da Warner Bros., 1939, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1939.",
     year: 1939,
     genres: [
       "Animação",
@@ -1225,7 +1225,7 @@ module.exports = [
   {
     title: "Mickey's Surprise Party",
     slug: "mickey-s-surprise-party-1939",
-    synopsis: "Curta de animação da Walt Disney Studios, 1939, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1939.",
     year: 1939,
     genres: [
       "Animação",
@@ -1241,7 +1241,7 @@ module.exports = [
   {
     title: "Ali-Baba Bound",
     slug: "ali-baba-bound-1940",
-    synopsis: "Curta de animação da Warner Bros., 1940, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1940.",
     year: 1940,
     genres: [
       "Animação",
@@ -1258,7 +1258,7 @@ module.exports = [
   {
     title: "The Early Worm Gets the Bird",
     slug: "the-early-worm-gets-the-bird-1940",
-    synopsis: "Curta de animação da Warner Bros., 1940, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1940.",
     year: 1940,
     genres: [
       "Animação",
@@ -1275,7 +1275,7 @@ module.exports = [
   {
     title: "The Timid Toreador",
     slug: "the-timid-toreador-1940",
-    synopsis: "Curta de animação da Warner Bros., 1940, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1940.",
     year: 1940,
     genres: [
       "Animação",
@@ -1292,7 +1292,7 @@ module.exports = [
   {
     title: "A Coy Decoy",
     slug: "a-coy-decoy-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1309,7 +1309,7 @@ module.exports = [
   {
     title: "All This and Rabbit Stew",
     slug: "all-this-and-rabbit-stew-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1326,7 +1326,7 @@ module.exports = [
   {
     title: "Farm Frolics",
     slug: "farm-frolics-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1343,7 +1343,7 @@ module.exports = [
   {
     title: "Joe Glow, the Firefly",
     slug: "joe-glow-the-firefly-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1360,7 +1360,7 @@ module.exports = [
   {
     title: "Meet John Doughboy",
     slug: "meet-john-doughboy-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1377,7 +1377,7 @@ module.exports = [
   {
     title: "Notes to You",
     slug: "notes-to-you-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1394,7 +1394,7 @@ module.exports = [
   {
     title: "Porky's Ant",
     slug: "porky-s-ant-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1411,7 +1411,7 @@ module.exports = [
   {
     title: "Porky's Bear Facts",
     slug: "porky-s-bear-facts-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1428,7 +1428,7 @@ module.exports = [
   {
     title: "Porky's Midnight Matinee",
     slug: "porky-s-midnight-matinee-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1445,7 +1445,7 @@ module.exports = [
   {
     title: "Porky's Pooch",
     slug: "porky-s-pooch-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1462,7 +1462,7 @@ module.exports = [
   {
     title: "Porky's Preview",
     slug: "porky-s-preview-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1479,7 +1479,7 @@ module.exports = [
   {
     title: "Porky's Prize Pony",
     slug: "porky-s-prize-pony-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1496,7 +1496,7 @@ module.exports = [
   {
     title: "Robinson Crusoe Jr.",
     slug: "robinson-crusoe-jr-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1513,7 +1513,7 @@ module.exports = [
   {
     title: "Rookie Revue",
     slug: "rookie-revue-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1530,7 +1530,7 @@ module.exports = [
   {
     title: "Sport Chumpions",
     slug: "sport-chumpions-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1547,7 +1547,7 @@ module.exports = [
   {
     title: "The Haunted Mouse",
     slug: "the-haunted-mouse-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1564,7 +1564,7 @@ module.exports = [
   {
     title: "The Henpecked Duck",
     slug: "the-henpecked-duck-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1581,7 +1581,7 @@ module.exports = [
   {
     title: "We, the Animals - Squeak!",
     slug: "we-the-animals-squeak-1941",
-    synopsis: "Curta de animação da Warner Bros., 1941, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1598,7 +1598,7 @@ module.exports = [
   {
     title: "The Thrifty Pig",
     slug: "the-thrifty-pig-1941",
-    synopsis: "Curta de animação da Walt Disney Studios, 1941, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1941.",
     year: 1941,
     genres: [
       "Animação",
@@ -1614,7 +1614,7 @@ module.exports = [
   {
     title: "A Tale of Two Kitties",
     slug: "a-tale-of-two-kitties-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1631,7 +1631,7 @@ module.exports = [
   {
     title: "Case of the Missing Hare",
     slug: "case-of-the-missing-hare-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1648,7 +1648,7 @@ module.exports = [
   {
     title: "Daffy's Southern Exposure",
     slug: "daffy-s-southern-exposure-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1665,7 +1665,7 @@ module.exports = [
   {
     title: "Ding Dog Daddy",
     slug: "ding-dog-daddy-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1682,7 +1682,7 @@ module.exports = [
   {
     title: "Eatin' on the Cuff or, The Moth Who Came to Dinner",
     slug: "eatin-on-the-cuff-or-the-moth-who-came-to-dinner-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1699,7 +1699,7 @@ module.exports = [
   {
     title: "Foney Fables",
     slug: "foney-fables-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1716,7 +1716,7 @@ module.exports = [
   {
     title: "Fox Pop",
     slug: "fox-pop-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1733,7 +1733,7 @@ module.exports = [
   {
     title: "Fresh Hare",
     slug: "fresh-hare-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1750,7 +1750,7 @@ module.exports = [
   {
     title: "Gopher Goofy",
     slug: "gopher-goofy-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1767,7 +1767,7 @@ module.exports = [
   {
     title: "Hobby Horse Laffs",
     slug: "hobby-horse-laffs-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1784,7 +1784,7 @@ module.exports = [
   {
     title: "Nutty News",
     slug: "nutty-news-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1801,7 +1801,7 @@ module.exports = [
   {
     title: "Porky's Cafe",
     slug: "porky-s-cafe-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1818,7 +1818,7 @@ module.exports = [
   {
     title: "Porky's Café",
     slug: "porky-s-cafe-1942-redrawn",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1835,7 +1835,7 @@ module.exports = [
   {
     title: "Porky's Pastry Pirates",
     slug: "porky-s-pastry-pirates-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1852,7 +1852,7 @@ module.exports = [
   {
     title: "The Daffy Duckaroo",
     slug: "the-daffy-duckaroo-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1869,7 +1869,7 @@ module.exports = [
   {
     title: "The Dover Boys At Pimento University or The Rivals of Roquefort Hall",
     slug: "the-dover-boys-at-pimento-university-or-the-rivals-of-roquefort-hall-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1886,7 +1886,7 @@ module.exports = [
   {
     title: "The Ducktators",
     slug: "the-ducktators-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1903,7 +1903,7 @@ module.exports = [
   {
     title: "The Impatient Patient",
     slug: "the-impatient-patient-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1920,7 +1920,7 @@ module.exports = [
   {
     title: "The Sheepish Wolf",
     slug: "the-sheepish-wolf-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1937,7 +1937,7 @@ module.exports = [
   {
     title: "The Wabbit Who Came To Supper",
     slug: "the-wabbit-who-came-to-supper-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1954,7 +1954,7 @@ module.exports = [
   {
     title: "The Wacky Wabbit",
     slug: "the-wacky-wabbit-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1971,7 +1971,7 @@ module.exports = [
   {
     title: "Wacky Blackout",
     slug: "wacky-blackout-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -1988,7 +1988,7 @@ module.exports = [
   {
     title: "Who's Who In The Zoo",
     slug: "who-s-who-in-the-zoo-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -2005,7 +2005,7 @@ module.exports = [
   {
     title: "All Together",
     slug: "all-together-1942",
-    synopsis: "Curta de animação da Walt Disney Studios, 1942, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -2021,7 +2021,7 @@ module.exports = [
   {
     title: "Donald's Decision",
     slug: "donald-s-decision-1942",
-    synopsis: "Curta de animação da Walt Disney Studios, 1942, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -2037,7 +2037,7 @@ module.exports = [
   {
     title: "Out Of The Frying Pan Into The Firing Line",
     slug: "out-of-the-frying-pan-into-the-firing-line-1942",
-    synopsis: "Curta de animação da Walt Disney Studios, 1942, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -2053,7 +2053,7 @@ module.exports = [
   {
     title: "Any Bonds Today",
     slug: "any-bonds-today-1942",
-    synopsis: "Curta de animação da Warner Bros., 1942, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1942.",
     year: 1942,
     genres: [
       "Animação",
@@ -2069,7 +2069,7 @@ module.exports = [
   {
     title: "A Corny Concerto",
     slug: "a-corny-concerto-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2086,7 +2086,7 @@ module.exports = [
   {
     title: "Confusions of a Nutzy Spy",
     slug: "confusions-of-a-nutzy-spy-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2103,7 +2103,7 @@ module.exports = [
   {
     title: "Daffy - The Commando",
     slug: "daffy-the-commando-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2120,7 +2120,7 @@ module.exports = [
   {
     title: "Falling Hare",
     slug: "falling-hare-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2137,7 +2137,7 @@ module.exports = [
   {
     title: "Hop and Go",
     slug: "hop-and-go-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2154,7 +2154,7 @@ module.exports = [
   {
     title: "Inki and the Minah Bird",
     slug: "inki-and-the-minah-bird-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2171,7 +2171,7 @@ module.exports = [
   {
     title: "Pigs in a Polka",
     slug: "pigs-in-a-polka-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2188,7 +2188,7 @@ module.exports = [
   {
     title: "Porky Pig's Feat",
     slug: "porky-pig-s-feat-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2205,7 +2205,7 @@ module.exports = [
   {
     title: "Puss N' Booty",
     slug: "puss-n-booty-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2222,7 +2222,7 @@ module.exports = [
   {
     title: "Scrap Happy Daffy",
     slug: "scrap-happy-daffy-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2239,7 +2239,7 @@ module.exports = [
   {
     title: "The Fifth-Column Mouse",
     slug: "the-fifth-column-mouse-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2256,7 +2256,7 @@ module.exports = [
   {
     title: "To Duck Or Not To Duck",
     slug: "to-duck-or-not-to-duck-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2273,7 +2273,7 @@ module.exports = [
   {
     title: "Tokio Jokio",
     slug: "tokio-jokio-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2290,7 +2290,7 @@ module.exports = [
   {
     title: "Wackiki Wabbit",
     slug: "wackiki-wabbit-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2307,7 +2307,7 @@ module.exports = [
   {
     title: "Yankee Doodle Daffy",
     slug: "yankee-doodle-daffy-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2324,7 +2324,7 @@ module.exports = [
   {
     title: "Education for Death",
     slug: "education-for-death-1943",
-    synopsis: "Curta de animação da Walt Disney Studios, 1943, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2340,7 +2340,7 @@ module.exports = [
   {
     title: "The Spirit Of '43",
     slug: "the-spirit-of-43-1943",
-    synopsis: "Curta de animação da Walt Disney Studios, 1943, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2356,7 +2356,7 @@ module.exports = [
   {
     title: "The Winged Scourge",
     slug: "the-winged-scourge-1943",
-    synopsis: "Curta de animação da Walt Disney Studios, 1943, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2372,7 +2372,7 @@ module.exports = [
   {
     title: "Point Rationing of Foods",
     slug: "point-rationing-of-foods-1943",
-    synopsis: "Curta de animação da Warner Bros., 1943, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1943.",
     year: 1943,
     genres: [
       "Animação",
@@ -2388,7 +2388,7 @@ module.exports = [
   {
     title: "Cleanliness Brings Health",
     slug: "cleanliness-brings-health-1945",
-    synopsis: "Curta de animação da Walt Disney Studios, 1945, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1945.",
     year: 1945,
     genres: [
       "Animação",
@@ -2404,7 +2404,7 @@ module.exports = [
   {
     title: "So Much For So Little",
     slug: "so-much-for-so-little-1949",
-    synopsis: "Curta de animação da Warner Bros., 1949, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1949.",
     year: 1949,
     genres: [
       "Animação",
@@ -2420,7 +2420,7 @@ module.exports = [
   {
     title: "Susie, The Little Blue Coupe",
     slug: "susie-the-little-blue-coupe-1952",
-    synopsis: "Curta de animação da Walt Disney Studios, 1952, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1952.",
     year: 1952,
     genres: [
       "Animação",
@@ -2436,7 +2436,7 @@ module.exports = [
   {
     title: "A Hitch in Time",
     slug: "a-hitch-in-time-1955",
-    synopsis: "Curta de animação da Warner Bros., 1955, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1955.",
     year: 1955,
     genres: [
       "Animação",
@@ -2452,7 +2452,7 @@ module.exports = [
   {
     title: "Hooked Bear",
     slug: "hooked-bear-1956",
-    synopsis: "Curta de animação da Walt Disney Studios, 1956, em domínio público.",
+    synopsis: "Curta de animação da Walt Disney Studios, 1956.",
     year: 1956,
     genres: [
       "Animação",
@@ -2468,7 +2468,7 @@ module.exports = [
   {
     title: "90 Day Wondering",
     slug: "90-day-wondering-1956",
-    synopsis: "Curta de animação da Warner Bros., 1956, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1956.",
     year: 1956,
     genres: [
       "Animação",
@@ -2484,7 +2484,7 @@ module.exports = [
   {
     title: "Drafty, Isn't It",
     slug: "drafty-isn-t-it-1957",
-    synopsis: "Curta de animação da Warner Bros., 1957, em domínio público.",
+    synopsis: "Curta de animação da Warner Bros., 1957.",
     year: 1957,
     genres: [
       "Animação",

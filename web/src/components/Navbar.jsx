@@ -25,7 +25,7 @@ export default function Navbar() {
       <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[280px] pt-24 pb-8 flex-col z-30 bg-surface/5 backdrop-blur-3xl border-r border-white/5 shadow-2xl shadow-primary/20">
         <div className="px-6 mb-12">
           <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
-          <p className="font-body text-body-md text-on-surface-variant mt-1">Domínio público, grátis</p>
+          <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
         </div>
         <nav className="flex-1 space-y-2">
           {NAV_ITEMS.map((item) => {

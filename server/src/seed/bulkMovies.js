@@ -347,7 +347,7 @@ module.exports = [
   {
     title: "The Brain That Wouldn’t Die",
     slug: "the-brain-that-wouldn-t-die-1962",
-    synopsis: "Filme de terror/suspense de 1962, em domínio público.",
+    synopsis: "Filme de terror/suspense de 1962.",
     year: 1962,
     genres: [
       "Terror",
@@ -529,7 +529,7 @@ module.exports = [
   {
     title: "Hell’s Hinges",
     slug: "hell-s-hinges-1916",
-    synopsis: "Filme de faroeste de 1916, em domínio público.",
+    synopsis: "Filme de faroeste de 1916.",
     year: 1916,
     genres: [
       "Faroeste"
@@ -1400,7 +1400,7 @@ module.exports = [
   {
     title: "The Devil’s Sleep",
     slug: "the-devil-s-sleep-1949",
-    synopsis: "Filme de clássico de 1949, em domínio público.",
+    synopsis: "Filme de clássico de 1949.",
     year: 1949,
     genres: [
       "Clássico"
@@ -1481,7 +1481,7 @@ module.exports = [
   {
     title: "The Lost Continent",
     slug: "the-lost-continent-1951",
-    synopsis: "Filme de ficção científica de 1951, em domínio público.",
+    synopsis: "Filme de ficção científica de 1951.",
     year: 1951,
     genres: [
       "Ficção Científica"

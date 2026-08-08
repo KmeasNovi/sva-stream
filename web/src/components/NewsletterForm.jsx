@@ -25,7 +25,7 @@ export default function NewsletterForm() {
         <div>
           <h3 className="font-display text-headline-md text-on-background mb-1">Novidades no catálogo</h3>
           <p className="font-body text-body-md text-on-surface-variant">
-            Avisamos por email quando novos filmes de domínio público entrarem no ar.
+            Avisamos por email quando novos filmes entrarem no ar.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto">

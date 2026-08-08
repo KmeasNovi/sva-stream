@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 export const metadata = {
   title: 'CulStream',
-  description: 'Filmes em domínio público, de graça, para todo mundo.',
+  description: 'Clássicos do cinema e curtas de animação, de graça, para todo mundo.',
 };
 
 export default function RootLayout({ children }) {
