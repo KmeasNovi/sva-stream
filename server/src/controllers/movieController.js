@@ -2,6 +2,18 @@ const Movie = require('../models/Movie');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
+// "Clássico" está em ~2/3 do catálogo (é mais uma tag de "domínio público"
+// do que um gênero) e sempre é o último item quando presente (seed data),
+// então nunca é uma boa categoria "principal" a não ser que seja o único
+// gênero do filme. Usamos essa noção de gênero primário pra decidir em qual
+// única fileira/categoria cada filme aparece, sem descartar os outros
+// gêneros do dado (ainda usados como tags na página do filme e na busca).
+const CATCH_ALL_GENRE = 'Clássico';
+
+function getPrimaryGenre(genres = []) {
+  return genres.find((g) => g !== CATCH_ALL_GENRE) || genres[0];
+}
+
 const slugify = (text) =>
   text
     .toString()
@@ -23,14 +35,27 @@ exports.listMovies = catchAsync(async (req, res) => {
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
   const limitNum = Math.min(50, Math.max(1, parseInt(limit, 10) || 24));
 
-  const [movies, total] = await Promise.all([
-    Movie.find(query)
-      .sort({ createdAt: -1 })
-      .skip((pageNum - 1) * limitNum)
-      .limit(limitNum)
-      .lean(),
-    Movie.countDocuments(query),
-  ]);
+  let movies;
+  let total;
+
+  if (genre) {
+    // Filtra pelo gênero primário, não só por "genres contém X" — garante
+    // que cada filme só apareça na categoria em que ele é listado (evita o
+    // mesmo filme repetido em várias fileiras, ex: Terror e Clássico).
+    const candidates = await Movie.find(query).sort({ createdAt: -1 }).lean();
+    const filtered = candidates.filter((m) => getPrimaryGenre(m.genres) === genre);
+    total = filtered.length;
+    movies = filtered.slice((pageNum - 1) * limitNum, (pageNum - 1) * limitNum + limitNum);
+  } else {
+    [movies, total] = await Promise.all([
+      Movie.find(query)
+        .sort({ createdAt: -1 })
+        .skip((pageNum - 1) * limitNum)
+        .limit(limitNum)
+        .lean(),
+      Movie.countDocuments(query),
+    ]);
+  }
 
   res.json({
     success: true,
@@ -52,8 +77,12 @@ exports.getMovieBySlug = catchAsync(async (req, res, next) => {
 });
 
 exports.listGenres = catchAsync(async (req, res) => {
-  const genres = await Movie.distinct('genres');
-  res.json({ success: true, data: genres.sort() });
+  // Lista as categorias pelo gênero primário de cada filme (ver
+  // getPrimaryGenre acima), não todo gênero/tag que aparece em algum filme
+  // — senão a lista de categorias já viria com repetição implícita.
+  const movies = await Movie.find({}, 'genres').lean();
+  const primaryGenres = new Set(movies.map((m) => getPrimaryGenre(m.genres)).filter(Boolean));
+  res.json({ success: true, data: [...primaryGenres].sort() });
 });
 
 exports.createMovie = catchAsync(async (req, res, next) => {
