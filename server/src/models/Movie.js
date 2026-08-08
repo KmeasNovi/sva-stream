@@ -30,6 +30,15 @@ const movieSchema = new mongoose.Schema(
     posterUrl: { type: String },
     backdropUrl: { type: String },
     source: { type: sourceSchema, required: true },
+    // Caminho relativo pro arquivo .vtt de legenda em pt-BR servido por nós
+    // mesmos (ex: "/subtitles/nosferatu.vtt") — só existe pros títulos onde já
+    // traduzimos. Sem isso, o player toca sem legenda.
+    subtitleUrl: { type: String },
+    // URL direta do arquivo de vídeo no archive.org (resolvida uma vez, na hora
+    // de cadastrar a legenda). Só é usada quando subtitleUrl existe — nesses
+    // casos o player troca do iframe padrão pra um <video> nativo, porque um
+    // iframe de outro domínio não permite injetar uma trilha de legenda nossa.
+    videoFileUrl: { type: String },
     featured: { type: Boolean, default: false },
     views: { type: Number, default: 0 },
   },

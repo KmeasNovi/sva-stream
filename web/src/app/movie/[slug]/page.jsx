@@ -29,7 +29,12 @@ export default async function MoviePage({ params }) {
         Voltar
       </Link>
 
-      <Player source={movie.source} title={movie.title} />
+      <Player
+        source={movie.source}
+        title={movie.title}
+        videoFileUrl={movie.videoFileUrl}
+        subtitleUrl={movie.subtitleUrl}
+      />
 
       <div className="max-w-3xl space-y-4">
         <div className="flex flex-wrap gap-2">

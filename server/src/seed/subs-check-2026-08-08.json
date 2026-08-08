@@ -1,0 +1,1640 @@
+[
+  {
+    "_id": "6a769c814b35e4c2ef47e4da",
+    "slug": "night-of-the-living-dead",
+    "featured": true,
+    "source": {
+      "provider": "archive",
+      "id": "night-of-the-living-dead-1968_202508"
+    },
+    "title": "Night of the Living Dead",
+    "year": 1968,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a769c814b35e4c2ef47e4db",
+    "slug": "nosferatu",
+    "featured": true,
+    "source": {
+      "provider": "archive",
+      "id": "Nosferatu1922"
+    },
+    "title": "Nosferatu",
+    "year": 1922,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a769c814b35e4c2ef47e4dc",
+    "slug": "his-girl-friday",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "his_girl_friday"
+    },
+    "title": "His Girl Friday",
+    "year": 1940,
+    "hasSubtitle": true,
+    "subtitleFile": "his_girl_friday.asr.srt"
+  },
+  {
+    "_id": "6a769c814b35e4c2ef47e4dd",
+    "slug": "the-cabinet-of-dr-caligari",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-cabinet-of-dr-caligari-1920"
+    },
+    "title": "The Cabinet of Dr. Caligari",
+    "year": 1920,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef14b35e4c2ef47e54d",
+    "slug": "the-little-princess-1939",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheLittlePrincess1939"
+    },
+    "title": "The Little Princess",
+    "year": 1939,
+    "hasSubtitle": true,
+    "subtitleFile": "TheLittlePrincess1939.asr.srt"
+  },
+  {
+    "_id": "6a76aef14b35e4c2ef47e54e",
+    "slug": "of-human-bondage-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "of.-human.-bondage.-1934.1080p.-blu-ray.-h-264.-aac-rarbg"
+    },
+    "title": "Of Human Bondage",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef14b35e4c2ef47e54f",
+    "slug": "penny-serenade-1941",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "PennySerenade1941_201711"
+    },
+    "title": "Penny Serenade",
+    "year": 1941,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef14b35e4c2ef47e550",
+    "slug": "the-general-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "The_General_Buster_Keaton"
+    },
+    "title": "The General",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef14b35e4c2ef47e551",
+    "slug": "the-phantom-of-the-opera-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "ThePhantomOfTheOpera1925NewYorkGeneralReleasePrint_620"
+    },
+    "title": "The Phantom of the Opera",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e552",
+    "slug": "the-gold-rush-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-gold-rush-film-1925"
+    },
+    "title": "The Gold Rush",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e553",
+    "slug": "intolerance-1916",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "INTOLERANCE_201407"
+    },
+    "title": "Intolerance",
+    "year": 1916,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e554",
+    "slug": "broken-blossoms-1919",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "brokenblossoms1919"
+    },
+    "title": "Broken Blossoms",
+    "year": 1919,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e555",
+    "slug": "the-birth-of-a-nation-1915",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheBirthOfANation19151080p"
+    },
+    "title": "The Birth of a Nation",
+    "year": 1915,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e556",
+    "slug": "steamboat-bill-jr-1928",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "STEAMBOATBILLJR.1928BusterKeaton"
+    },
+    "title": "Steamboat Bill Jr.",
+    "year": 1928,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e557",
+    "slug": "sherlock-jr-1924",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "sherlockjr1924_201909"
+    },
+    "title": "Sherlock Jr.",
+    "year": 1924,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e558",
+    "slug": "the-kid-1921",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "BillytheKidReturns"
+    },
+    "title": "The Kid",
+    "year": 1921,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e559",
+    "slug": "one-week-1920",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "one_week_1920"
+    },
+    "title": "One Week",
+    "year": 1920,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55a",
+    "slug": "the-navigator-1924",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-navigator-keaton-1924-high-quality-1080p-fgo-qarunxf-q"
+    },
+    "title": "The Navigator",
+    "year": 1924,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55b",
+    "slug": "seven-chances-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "seven-chances-keaton-1925-high-quality-1080p-wnfl-tnu-8cb-a"
+    },
+    "title": "Seven Chances",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55c",
+    "slug": "the-cameraman-1928",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheCameraman"
+    },
+    "title": "The Cameraman",
+    "year": 1928,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55d",
+    "slug": "cops-1922",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Cops1922"
+    },
+    "title": "Cops",
+    "year": 1922,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55e",
+    "slug": "our-hospitality-1923",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "our-hospitality-keaton-and-blystone-1923-high-quality-1080p-db-1-iz-urnfr-m"
+    },
+    "title": "Our Hospitality",
+    "year": 1923,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e55f",
+    "slug": "carnival-of-souls-1962",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "CarnivalOfSouls1962"
+    },
+    "title": "Carnival of Souls",
+    "year": 1962,
+    "hasSubtitle": true,
+    "subtitleFile": "Carnival_of_Souls.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e560",
+    "slug": "white-zombie-1932",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "WhiteZombie1932"
+    },
+    "title": "White Zombie",
+    "year": 1932,
+    "hasSubtitle": true,
+    "subtitleFile": "WhiteZombie.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e561",
+    "slug": "the-brain-that-wouldn-t-die-1962",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheBrainThatWouldntDie-ExtendedVersion1962"
+    },
+    "title": "The Brain That Wouldn’t Die",
+    "year": 1962,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e562",
+    "slug": "house-on-haunted-hill-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "HouseOnHauntedHill1959"
+    },
+    "title": "House on Haunted Hill",
+    "year": 1959,
+    "hasSubtitle": true,
+    "subtitleFile": "House-On-Haunted-Hill.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e563",
+    "slug": "the-bat-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "The_Bat_Vincent_Price"
+    },
+    "title": "The Bat",
+    "year": 1959,
+    "hasSubtitle": true,
+    "subtitleFile": "The_Bat.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e564",
+    "slug": "the-devil-bat-1940",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheDevilBat720p1940"
+    },
+    "title": "The Devil Bat",
+    "year": 1940,
+    "hasSubtitle": true,
+    "subtitleFile": "TheDevilBat720p.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e565",
+    "slug": "the-terror-1963",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "PhantasmagoriaTheater-TheTerror1963627"
+    },
+    "title": "The Terror",
+    "year": 1963,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e566",
+    "slug": "dementia-13-1963",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "dementia-13-1963_202312"
+    },
+    "title": "Dementia 13",
+    "year": 1963,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e567",
+    "slug": "the-last-man-on-earth-1964",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheLastManOnEarth_72"
+    },
+    "title": "The Last Man on Earth",
+    "year": 1964,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e568",
+    "slug": "the-outlaw-1943",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "886-the-outlaw"
+    },
+    "title": "The Outlaw",
+    "year": 1943,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e569",
+    "slug": "the-iron-horse-1924",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-iron-horse-1924-john-ford"
+    },
+    "title": "The Iron Horse",
+    "year": 1924,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56a",
+    "slug": "santa-fe-trail-1940",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "SantaFeTrail1940"
+    },
+    "title": "Santa Fe Trail",
+    "year": 1940,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56b",
+    "slug": "the-big-trail-1930",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-big-trail_1930"
+    },
+    "title": "The Big Trail",
+    "year": 1930,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56c",
+    "slug": "hell-s-hinges-1916",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "hells-hinges-1916_202507"
+    },
+    "title": "Hell’s Hinges",
+    "year": 1916,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56d",
+    "slug": "metropolis-1927",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Metropolis1927EnglishVersion"
+    },
+    "title": "Metropolis",
+    "year": 1927,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56e",
+    "slug": "things-to-come-1936",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "things_to_come_ipod"
+    },
+    "title": "Things to Come",
+    "year": 1936,
+    "hasSubtitle": true,
+    "subtitleFile": "thingstocome.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e56f",
+    "slug": "plan-9-from-outer-space-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "plan-94-k"
+    },
+    "title": "Plan 9 from Outer Space",
+    "year": 1959,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e570",
+    "slug": "destination-moon-1950",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "DestinationMoon1950"
+    },
+    "title": "Destination Moon",
+    "year": 1950,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e571",
+    "slug": "rocketship-x-m-1950",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "rocketship-x-m-1950"
+    },
+    "title": "Rocketship X-M",
+    "year": 1950,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e572",
+    "slug": "haxan-1922",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Hxan1922720p"
+    },
+    "title": "Häxan",
+    "year": 1922,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e573",
+    "slug": "battleship-potemkin-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "PhantasmagoriaTheater-BattleshipPotemkin1925396"
+    },
+    "title": "Battleship Potemkin",
+    "year": 1925,
+    "hasSubtitle": true,
+    "subtitleFile": "PhantasmagoriaTheater-BattleshipPotemkin1925396.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e574",
+    "slug": "a-trip-to-the-moon-1902",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "ATripToTheMoon1902"
+    },
+    "title": "A Trip to the Moon",
+    "year": 1902,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e575",
+    "slug": "the-mark-of-zorro-1920",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-mark-of-zorro-1920"
+    },
+    "title": "The Mark of Zorro",
+    "year": 1920,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e576",
+    "slug": "dr-mabuse-the-gambler-1922",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Dr.MabuseTheGamblerdr.MabuseDerSpieler1922Part1"
+    },
+    "title": "Dr. Mabuse the Gambler",
+    "year": 1922,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e577",
+    "slug": "the-golem-1920",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-golem-1920"
+    },
+    "title": "The Golem",
+    "year": 1920,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e578",
+    "slug": "man-with-a-movie-camera-1929",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "manwithcamera4k"
+    },
+    "title": "Man with a Movie Camera",
+    "year": 1929,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e579",
+    "slug": "nanook-of-the-north-1922",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "nanookOfTheNorth1922"
+    },
+    "title": "Nanook of the North",
+    "year": 1922,
+    "hasSubtitle": true,
+    "subtitleFile": "NanookOfTheNorth1922.asr.srt"
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57a",
+    "slug": "robin-hood-1922",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "FairbanksRobinHood1922"
+    },
+    "title": "Robin Hood",
+    "year": 1922,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57b",
+    "slug": "the-thief-of-bagdad-1924",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheThiefOfBagdad1924"
+    },
+    "title": "The Thief of Bagdad",
+    "year": 1924,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57c",
+    "slug": "the-black-pirate-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheBlackPirate1926DouglasFairbanksSRAndy"
+    },
+    "title": "The Black Pirate",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57d",
+    "slug": "tarzan-of-the-apes-1918",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TarzanoftheApes1918AndyDivx"
+    },
+    "title": "Tarzan of the Apes",
+    "year": 1918,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57e",
+    "slug": "beau-geste-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "beau-geste"
+    },
+    "title": "Beau Geste",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e57f",
+    "slug": "the-most-dangerous-game-1932",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the.most.dangerous.game.1932.1080p"
+    },
+    "title": "The Most Dangerous Game",
+    "year": 1932,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e580",
+    "slug": "captain-kidd-1945",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "kidd-4-k"
+    },
+    "title": "Captain Kidd",
+    "year": 1945,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e581",
+    "slug": "the-prisoner-of-zenda-1937",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-prisoner-of-zenda-1937"
+    },
+    "title": "The Prisoner of Zenda",
+    "year": 1937,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e582",
+    "slug": "the-sea-hawk-1924",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-sea-hawk-1924-with-sync-symphonic-music"
+    },
+    "title": "The Sea Hawk",
+    "year": 1924,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e583",
+    "slug": "the-lost-world-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheLostWorld512"
+    },
+    "title": "The Lost World",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e584",
+    "slug": "detour-1945",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "detour-1945"
+    },
+    "title": "Detour",
+    "year": 1945,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e585",
+    "slug": "too-late-for-tears-1949",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TooLateForTears1949"
+    },
+    "title": "Too Late for Tears",
+    "year": 1949,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e586",
+    "slug": "the-hitch-hiker-1953",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "IdaLupinostheHitch-hiker1953"
+    },
+    "title": "The Hitch-Hiker",
+    "year": 1953,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e587",
+    "slug": "kansas-city-confidential-1952",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Kansas_City_Confidential_1952"
+    },
+    "title": "Kansas City Confidential",
+    "year": 1952,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef24b35e4c2ef47e588",
+    "slug": "he-walked-by-night-1948",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "He_Walked_by_Night_1948"
+    },
+    "title": "He Walked by Night",
+    "year": 1948,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e589",
+    "slug": "woman-on-the-run-1950",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "womanontherun1950_202001"
+    },
+    "title": "Woman on the Run",
+    "year": 1950,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58a",
+    "slug": "suddenly-1954",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Suddenly_1954"
+    },
+    "title": "Suddenly",
+    "year": 1954,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58b",
+    "slug": "d-o-a-1950",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "DOA1950"
+    },
+    "title": "D.O.A.",
+    "year": 1950,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58c",
+    "slug": "scarlet-street-1945",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Scarlet.Street.194517"
+    },
+    "title": "Scarlet Street",
+    "year": 1945,
+    "hasSubtitle": true,
+    "subtitleFile": "ScarletStreet1945.asr.srt"
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58d",
+    "slug": "the-amazing-mr-x-1948",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheAmazingMr.X1948Avi"
+    },
+    "title": "The Amazing Mr. X",
+    "year": 1948,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58e",
+    "slug": "the-brain-from-planet-arous-1957",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "brain-from-planet-arous-colorized"
+    },
+    "title": "The Brain from Planet Arous",
+    "year": 1957,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e58f",
+    "slug": "the-man-from-planet-x-1951",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "man-from-planet-x"
+    },
+    "title": "The Man from Planet X",
+    "year": 1951,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e590",
+    "slug": "the-giant-gila-monster-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-giant-gila-monster-1959"
+    },
+    "title": "The Giant Gila Monster",
+    "year": 1959,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e591",
+    "slug": "the-beast-of-yucca-flats-1961",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheBeastOfYuccaFlats1961"
+    },
+    "title": "The Beast of Yucca Flats",
+    "year": 1961,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e592",
+    "slug": "teenagers-from-outer-space-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TeenagersFromOuterSpace1959"
+    },
+    "title": "Teenagers from Outer Space",
+    "year": 1959,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e593",
+    "slug": "the-cosmic-man-1959",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-cosmic-man-1959"
+    },
+    "title": "The Cosmic Man",
+    "year": 1959,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e594",
+    "slug": "the-amazing-transparent-man-1960",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheAmazingTransparentMan1960"
+    },
+    "title": "The Amazing Transparent Man",
+    "year": 1960,
+    "hasSubtitle": true,
+    "subtitleFile": "the-amazing-transparent-man.asr.srt"
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e595",
+    "slug": "the-phantom-planet-1961",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Phantom_Planet"
+    },
+    "title": "The Phantom Planet",
+    "year": 1961,
+    "hasSubtitle": true,
+    "subtitleFile": "The_Phantom_Planet.asr.srt"
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e596",
+    "slug": "the-giant-claw-1957",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-giant-claw-1957-colorized"
+    },
+    "title": "The Giant Claw",
+    "year": 1957,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e597",
+    "slug": "the-lucky-texan-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "luckytexanthe1934"
+    },
+    "title": "The Lucky Texan",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e598",
+    "slug": "blue-steel-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "blue-steel-4-k"
+    },
+    "title": "Blue Steel",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e599",
+    "slug": "riders-of-destiny-1933",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "ridersofdestiny1933"
+    },
+    "title": "Riders of Destiny",
+    "year": 1933,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef34b35e4c2ef47e59a",
+    "slug": "nevada-city-1941",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "nevada_city_ipod"
+    },
+    "title": "Nevada City",
+    "year": 1941,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e59b",
+    "slug": "the-green-archer-1940",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "green_archer_ep1"
+    },
+    "title": "The Green Archer",
+    "year": 1940,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e59c",
+    "slug": "the-ape-man-1943",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheApeMan720p1943"
+    },
+    "title": "The Ape Man",
+    "year": 1943,
+    "hasSubtitle": true,
+    "subtitleFile": "TheApeMan720p.asr.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e59d",
+    "slug": "the-vampire-bat-1933",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheVampireBat1933"
+    },
+    "title": "The Vampire Bat",
+    "year": 1933,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e59e",
+    "slug": "the-ghoul-1933",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheGhoul"
+    },
+    "title": "The Ghoul",
+    "year": 1933,
+    "hasSubtitle": true,
+    "subtitleFile": "TheGhoul_1933.asr.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e59f",
+    "slug": "the-monster-walks-1932",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "MonsterWalks19321080p"
+    },
+    "title": "The Monster Walks",
+    "year": 1932,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a0",
+    "slug": "maniac-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Maniac1934"
+    },
+    "title": "Maniac",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a1",
+    "slug": "the-devil-s-sleep-1949",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-devils-sleep-1949-720p"
+    },
+    "title": "The Devil’s Sleep",
+    "year": 1949,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a2",
+    "slug": "the-sin-of-nora-moran-1933",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "BillSpragueCollectionTheSinOfNoraMoran-1933ZitaJohann-PUBLICDOMAIN"
+    },
+    "title": "The Sin of Nora Moran",
+    "year": 1933,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a3",
+    "slug": "the-black-raven-1943",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Black_Raven_1943"
+    },
+    "title": "The Black Raven",
+    "year": 1943,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a4",
+    "slug": "little-shop-of-horrors-1960",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheLittleShopOfHorrors1960_765"
+    },
+    "title": "Little Shop of Horrors",
+    "year": 1960,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a5",
+    "slug": "the-bat-whispers-1930",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-bat-whispers-1930"
+    },
+    "title": "The Bat Whispers",
+    "year": 1930,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a6",
+    "slug": "the-lost-continent-1951",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "hammers-the-lost-continent-1968-son-of-svengoolie"
+    },
+    "title": "The Lost Continent",
+    "year": 1951,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a7",
+    "slug": "the-horror-of-party-beach-1964",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "HOPBFinal3.9.19.2"
+    },
+    "title": "The Horror of Party Beach",
+    "year": 1964,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a8",
+    "slug": "the-screaming-skull-1958",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheScreamingSkullHD1958"
+    },
+    "title": "The Screaming Skull",
+    "year": 1958,
+    "hasSubtitle": true,
+    "subtitleFile": "TheScreamingSkullHD1958.asr.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5a9",
+    "slug": "earth-vs-the-flying-saucers-1956",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "earth-vs-the-flying-saucers-color"
+    },
+    "title": "Earth vs. the Flying Saucers",
+    "year": 1956,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5aa",
+    "slug": "the-man-they-could-not-hang-1939",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the.-man.-they.-could.-not.-hang.-1939"
+    },
+    "title": "The Man They Could Not Hang",
+    "year": 1939,
+    "hasSubtitle": true,
+    "subtitleFile": "The Man They Could Not Hang (1939)/The.Man.They.Could.Not.Hang.1939.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5ab",
+    "slug": "invisible-ghost-1941",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "InvisibleGhost1941"
+    },
+    "title": "Invisible Ghost",
+    "year": 1941,
+    "hasSubtitle": true,
+    "subtitleFile": "Invisible-Ghost.asr.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5ac",
+    "slug": "triumph-of-the-will-1935",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "triumph_of_the_will_1935_colorized"
+    },
+    "title": "Triumph of the Will",
+    "year": 1935,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5ad",
+    "slug": "why-we-fight-1942",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "BattleOfRussiaI"
+    },
+    "title": "Why We Fight",
+    "year": 1942,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5ae",
+    "slug": "the-plow-that-broke-the-plains-1936",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "plow_that_broke_the_plains"
+    },
+    "title": "The Plow That Broke the Plains",
+    "year": 1936,
+    "hasSubtitle": true,
+    "subtitleFile": "plow_that_broke_the_plains.asr.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5af",
+    "slug": "the-river-1938",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the.-river.-1997.-chinese.-1080p.-blu-ray.-h-264.-aac-vxt"
+    },
+    "title": "The River",
+    "year": 1938,
+    "hasSubtitle": true,
+    "subtitleFile": "2_English.srt"
+  },
+  {
+    "_id": "6a76aef44b35e4c2ef47e5b0",
+    "slug": "night-mail-1936",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "night-mail-1936"
+    },
+    "title": "Night Mail",
+    "year": 1936,
+    "hasSubtitle": true,
+    "subtitleFile": "Night Mail (1936).srt"
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b1",
+    "slug": "our-daily-bread-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "our-daily-bread-1934-restored-movie-720p-hd"
+    },
+    "title": "Our Daily Bread",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b2",
+    "slug": "earth-1930",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "EarthInHd"
+    },
+    "title": "Earth",
+    "year": 1930,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b3",
+    "slug": "the-great-train-robbery-1903",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "TheGreatTrainRobbery1903_201307"
+    },
+    "title": "The Great Train Robbery",
+    "year": 1903,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b4",
+    "slug": "the-stranger-1946",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the.stranger.1946.remastered.1080p.bluray.x264amiable"
+    },
+    "title": "The Stranger",
+    "year": 1946,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b5",
+    "slug": "it-happened-one-night-1934",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "it.-happened.-one.-night.-1934.1080p.-blu-ray.x-264.-yify"
+    },
+    "title": "It Happened One Night",
+    "year": 1934,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b6",
+    "slug": "the-39-steps-1935",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "The39Steps_1935"
+    },
+    "title": "The 39 Steps",
+    "year": 1935,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b7",
+    "slug": "the-lady-vanishes-1938",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-lady-vanishes-1938"
+    },
+    "title": "The Lady Vanishes",
+    "year": 1938,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b8",
+    "slug": "foreign-correspondent-1940",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "Foreign.Correspondent.1940.Eng-Ita.Bluray"
+    },
+    "title": "Foreign Correspondent",
+    "year": 1940,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5b9",
+    "slug": "suspicion-1941",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "suspicion.-1941.-restored.-1080p.-blu-ray.x-265-rarbg"
+    },
+    "title": "Suspicion",
+    "year": 1941,
+    "hasSubtitle": true,
+    "subtitleFile": "8_English.srt"
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5ba",
+    "slug": "shadow-of-a-doubt-1943",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "shadowofadoubt1943_202003"
+    },
+    "title": "Shadow of a Doubt",
+    "year": 1943,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5bb",
+    "slug": "saboteur-1942",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "saboteur-1942"
+    },
+    "title": "Saboteur",
+    "year": 1942,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5bc",
+    "slug": "notorious-1946",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "notorious-1946-restored-movie-720p-hd"
+    },
+    "title": "Notorious",
+    "year": 1946,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5bd",
+    "slug": "the-hunchback-of-notre-dame-1923",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "THEHUNCHBACKOFNOTREDAME1923LonChaneyPatsyRuthMiller"
+    },
+    "title": "The Hunchback of Notre Dame",
+    "year": 1923,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5be",
+    "slug": "the-scarlet-letter-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "MajesticPicturesPublicDomainTheScarletLetter"
+    },
+    "title": "The Scarlet Letter",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5bf",
+    "slug": "the-sheik-1921",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "THESHEIKSilent1921RudolphValentino"
+    },
+    "title": "The Sheik",
+    "year": 1921,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c0",
+    "slug": "the-son-of-the-sheik-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "THESONOFTHESHEIK1926RudolphValentinoVilmaBanky"
+    },
+    "title": "The Son of the Sheik",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c1",
+    "slug": "the-unholy-three-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the.unholy.three.1925"
+    },
+    "title": "The Unholy Three",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c2",
+    "slug": "wings-1927",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "wings.-1927.720p.-blu-ray.x-264.-yify"
+    },
+    "title": "Wings",
+    "year": 1927,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c3",
+    "slug": "the-big-parade-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "the-big-parade-1925-synchronized-sound-restored-from-original-vitaphone-type-soundtrack-discs"
+    },
+    "title": "The Big Parade",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c4",
+    "slug": "ben-hur-1925",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "BenHurVOSEFredNiblo1925"
+    },
+    "title": "Ben-Hur",
+    "year": 1925,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c5",
+    "slug": "flesh-and-the-devil-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "flesh-and-the-devil-1926-by-clarence-brown"
+    },
+    "title": "Flesh and the Devil",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  },
+  {
+    "_id": "6a76aef54b35e4c2ef47e5c6",
+    "slug": "faust-1926",
+    "featured": false,
+    "source": {
+      "provider": "archive",
+      "id": "1926-faust"
+    },
+    "title": "Faust",
+    "year": 1926,
+    "hasSubtitle": false,
+    "subtitleFile": null
+  }
+]

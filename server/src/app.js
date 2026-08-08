@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -22,6 +23,10 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 app.get('/api/health', (req, res) => res.json({ success: true, status: 'ok' }));
+
+// Arquivos .vtt de legenda em pt-BR que traduzimos — servidos como estáticos,
+// referenciados pelo campo subtitleUrl do filme (ex: /subtitles/nosferatu.vtt).
+app.use('/subtitles', express.static(path.join(__dirname, '..', 'public', 'subtitles')));
 
 app.use('/api/movies', movieRoutes);
 app.use('/api/auth', authRoutes);
