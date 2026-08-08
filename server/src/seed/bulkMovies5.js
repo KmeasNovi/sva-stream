@@ -9,10 +9,11 @@
 // Wizard of Oz' 1910 bateu com a versão de 1925) ou clipe/trailer em vez
 // do filme completo ('The Last Man' bateu com um excerto de poucos
 // segundos) -- descartados.
-// Sinopse é a primeira frase do resumo da Wikipedia (CC BY-SA) só quando
-// o artigo é comprovadamente sobre o filme certo (ex: 'Abraham Lincoln'
-// bateu com a Wikipedia de 'Abraham Lincoln: Vampire Hunter' de 2012 por
-// coincidência de busca -- descartado, ficou com sinopse genérica).
+// Sinopse escrita em português a partir dos fatos do filme, sem reproduzir
+// o texto original da Wikipedia (que só era consultada pra confirmar que
+// o artigo era mesmo sobre o filme certo -- ex: 'Abraham Lincoln' bateu
+// com a Wikipedia de 'Abraham Lincoln: Vampire Hunter' de 2012 por
+// coincidência de busca, descartado nessa checagem).
 // Alguns identifiers podem estar errados -- confira e corrija pelo /admin
 // se notar algum player quebrado ou fora do filme.
 //
@@ -43,7 +44,7 @@ module.exports = [
   {
     "title": "A Burlesque On Carmen",
     "slug": "a-burlesque-on-carmen-1915",
-    "synopsis": "A Burlesque on Carmen is a 1915 film and Charlie Chaplin's thirteenth for Essanay Studios, originally released as Carmen on December 18, 1915. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "A Burlesque On Carmen é uma comédia muda americana de 1915, o décimo terceiro filme de Charlie Chaplin para o estúdio Essanay, uma paródia da ópera Carmen.",
     "year": 1915,
     "genres": [
       "Comédia",
@@ -61,7 +62,7 @@ module.exports = [
   {
     "title": "Aelita",
     "slug": "aelita-1924",
-    "synopsis": "Aelita, also known as Aelita: Queen of Mars, is a 1924 Soviet silent science fiction film directed by Yakov Protazanov and produced at the Mezhrabpom-Rus film studio. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Aelita é um filme de ficção científica mudo soviético de 1924 dirigido por Yakov Protazanov, sobre um engenheiro russo que sonha viajar a Marte e liderar uma revolução no planeta vermelho.",
     "year": 1924,
     "genres": [
       "Ficção Científica",
@@ -79,7 +80,7 @@ module.exports = [
   {
     "title": "Anémic Cinéma",
     "slug": "anemic-cinema-1926",
-    "synopsis": "Anemic Cinema or Anémic Cinéma is a 1926 Dada/surrealist French experimental film by Marcel Duchamp, made in collaboration with Man Ray and Marc Allégret. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Anémic Cinéma é um curta experimental dadaísta/surrealista francês de 1926 de Marcel Duchamp, feito em colaboração com Man Ray, composto por discos giratórios com espirais e trocadilhos visuais.",
     "year": 1926,
     "genres": [
       "Mudo",
@@ -163,7 +164,7 @@ module.exports = [
   {
     "title": "Champagne",
     "slug": "champagne-1928",
-    "synopsis": "Champagne is a 1928 British silent comedy film directed by Alfred Hitchcock and starring Betty Balfour, Gordon Harker and Jean Bradin. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Champagne é uma comédia muda britânica de 1928 dirigida por Alfred Hitchcock, sobre uma herdeira mimada que precisa aprender a se virar sozinha depois que o pai finge ter perdido a fortuna.",
     "year": 1928,
     "genres": [
       "Comédia",
@@ -180,7 +181,7 @@ module.exports = [
   {
     "title": "Alice in Wonderland",
     "slug": "alice-in-wonderland-1903",
-    "synopsis": "Alice in Wonderland is a 1903 British silent fantasy film directed by Cecil Hepworth and Percy Stow. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Alice in Wonderland é um curta de fantasia mudo britânico de 1903, a primeira adaptação para o cinema do clássico de Lewis Carroll sobre a menina que cai numa toca de coelho e descobre um mundo mágico.",
     "year": 1903,
     "genres": [
       "Aventura",
@@ -198,7 +199,7 @@ module.exports = [
   {
     "title": "Charlie's Recreation",
     "slug": "charlie-s-recreation-1914",
-    "synopsis": "Recreation is an American short silent comedy film written, directed by, and starring Charlie Chaplin. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Charlie's Recreation é um curta de comédia mudo americano de 1914 escrito, dirigido e estrelado por Charlie Chaplin, sobre as confusões de seu personagem Vagabundo durante um passeio no parque.",
     "year": 1914,
     "genres": [
       "Comédia",
@@ -216,7 +217,7 @@ module.exports = [
   {
     "title": "Cinderella",
     "slug": "cinderella-1899",
-    "synopsis": "Cinderella is an 1899 French trick film directed by Georges Méliès, based on the fairy tale by Charles Perrault. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Cinderella é um curta de truques mudo francês de 1899 dirigido por Georges Méliès, uma das primeiras adaptações cinematográficas do conto de fadas de Charles Perrault.",
     "year": 1899,
     "genres": [
       "Aventura",
@@ -604,7 +605,7 @@ module.exports = [
   {
     "title": "One A.M.",
     "slug": "one-a-m-1916",
-    "synopsis": "One A.M. is a unique Charlie Chaplin silent film created for Mutual Film in 1916. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "One A.M. é um curta de comédia mudo americano de 1916 estrelado por Charlie Chaplin, praticamente um solo dele, sobre um homem bêbado que tenta, sem sucesso, chegar até a própria cama.",
     "year": 1916,
     "genres": [
       "Comédia",
@@ -622,7 +623,7 @@ module.exports = [
   {
     "title": "Romance Sentimentale",
     "slug": "romance-sentimentale-1930",
-    "synopsis": "Romance sentimentale is a 1930 French film directed by Grigori Aleksandrov and Sergei M. Eisenstein. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Romance Sentimentale é um curta francês de 1930 dirigido por Grigori Aleksandrov e Sergei Eisenstein, uma peça experimental de imagens e música construída em torno do amor e da melancolia.",
     "year": 1930,
     "genres": [
       "Mudo",
@@ -978,7 +979,7 @@ module.exports = [
   {
     "title": "The Manxman",
     "slug": "the-manxman-1929",
-    "synopsis": "The Manxman is a 1929 British silent romance film directed by Alfred Hitchcock and starring Anny Ondra, Carl Brisson and Malcolm Keen. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Manxman é um drama romântico mudo britânico de 1929 dirigido por Alfred Hitchcock, sobre dois amigos de infância — um pescador pobre e um advogado ambicioso — apaixonados pela mesma mulher na Ilha de Man.",
     "year": 1929,
     "genres": [
       "Drama",
@@ -997,7 +998,7 @@ module.exports = [
   {
     "title": "The Pawnshop",
     "slug": "the-pawnshop-1916",
-    "synopsis": "The Pawnshop is Charlie Chaplin's sixth film for Mutual Film Corporation. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Pawnshop é o sexto filme de Charlie Chaplin para a Mutual Film Corporation, uma comédia muda americana de 1916 em que seu personagem trabalha como assistente desastrado numa loja de penhores.",
     "year": 1916,
     "genres": [
       "Comédia",
@@ -1015,7 +1016,7 @@ module.exports = [
   {
     "title": "The Phantom Carriage",
     "slug": "the-phantom-carriage-1921",
-    "synopsis": "The Phantom Carriage is a 1921 Swedish silent film directed by and starring Victor Sjöström, based on the 1912 novel Thy Soul Shall Bear Witness! (Körkarlen) by Swedish author Selma Lagerlöf. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Phantom Carriage é um drama fantástico mudo sueco de 1921 dirigido e estrelado por Victor Sjöström, baseado no romance de Selma Lagerlöf, sobre a lenda de que o último pecador a morrer na véspera de Ano Novo é condenado a conduzir a carruagem da morte pelo ano seguinte.",
     "year": 1921,
     "genres": [
       "Drama",
@@ -1033,7 +1034,7 @@ module.exports = [
   {
     "title": "The Ring",
     "slug": "the-ring-1927",
-    "synopsis": "The Ring is a 1927 British silent romance film written and directed by Alfred Hitchcock and starring Carl Brisson, Lillian Hall-Davis and Ian Hunter. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Ring é um drama romântico mudo britânico de 1927 escrito e dirigido por Alfred Hitchcock, sobre a rivalidade entre dois boxeadores apaixonados pela mesma mulher, dentro e fora do ringue.",
     "year": 1927,
     "genres": [
       "Drama",
@@ -1052,7 +1053,7 @@ module.exports = [
   {
     "title": "The Pleasure Garden",
     "slug": "the-pleasure-garden-1925",
-    "synopsis": "The Pleasure Garden is a 1926 silent drama film directed by Alfred Hitchcock in his feature film directorial debut. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Pleasure Garden é um drama mudo britânico de 1925, estreia de Alfred Hitchcock na direção de longas-metragens, sobre duas dançarinas de um music hall londrino e os rumos opostos que suas vidas amorosas tomam.",
     "year": 1925,
     "genres": [
       "Drama",

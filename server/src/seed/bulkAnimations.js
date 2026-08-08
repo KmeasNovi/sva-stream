@@ -7,7 +7,7 @@ module.exports = [
   {
     title: "Plane Crazy",
     slug: "plane-crazy-1928",
-    synopsis: "Plane Crazy is a 1928 American animated short film directed by Walt Disney and Ub Iwerks. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1928 dirigido por Walt Disney e Ub Iwerks, um dos primeiros filmes estrelados por Mickey Mouse.",
     year: 1928,
     genres: [
       "Animação",
@@ -23,7 +23,7 @@ module.exports = [
   {
     title: "Steamboat Willie",
     slug: "steamboat-willie-1928",
-    synopsis: "Steamboat Willie is a 1928 American animated short film directed by Walt Disney and Ub Iwerks. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1928 dirigido por Walt Disney e Ub Iwerks — o primeiro desenho animado sonoro da história, marco da estreia de Mickey Mouse nos cinemas.",
     year: 1928,
     genres: [
       "Animação",
@@ -39,7 +39,7 @@ module.exports = [
   {
     title: "The Gallopin' Gaucho",
     slug: "the-gallopin-gaucho-1928",
-    synopsis: "The Gallopin' Gaucho is a 1928 American animated short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1928, um dos primeiros filmes estrelados por Mickey Mouse.",
     year: 1928,
     genres: [
       "Animação",
@@ -72,7 +72,7 @@ module.exports = [
   {
     title: "Box Car Blues",
     slug: "box-car-blues-1930",
-    synopsis: "Box Car Blues is a 1930 American animated comedy short film directed by Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1930, dirigido por Hugh Harman e Rudolf Ising.",
     year: 1930,
     genres: [
       "Animação",
@@ -89,7 +89,7 @@ module.exports = [
   {
     title: "Congo Jazz",
     slug: "congo-jazz-1930",
-    synopsis: "Congo Jazz is a 1930 American animated comedy short film directed by Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1930, dirigido por Hugh Harman e Rudolf Ising.",
     year: 1930,
     genres: [
       "Animação",
@@ -106,7 +106,7 @@ module.exports = [
   {
     title: "Hold Anything",
     slug: "hold-anything-1930",
-    synopsis: "Hold Anything is a 1930 American comedy short film directed by Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1930, dirigido por Hugh Harman e Rudolf Ising.",
     year: 1930,
     genres: [
       "Animação",
@@ -123,7 +123,7 @@ module.exports = [
   {
     title: "Sinkin' in the Bathtub",
     slug: "sinkin-in-the-bathtub-1930",
-    synopsis: "Sinkin' in the Bathtub is a 1930 American animated comedy short film by Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1930, dirigido por Hugh Harman e Rudolf Ising — o primeiro a apresentar o personagem Bosko.",
     year: 1930,
     genres: [
       "Animação",
@@ -140,7 +140,7 @@ module.exports = [
   {
     title: "The Booze Hangs High",
     slug: "the-booze-hangs-high-1930",
-    synopsis: "The Booze Hangs High is a 1930 American animated comedy short film directed by Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1930, dirigido por Hugh Harman e Rudolf Ising, estrelado por Bosko.",
     year: 1930,
     genres: [
       "Animação",
@@ -157,7 +157,7 @@ module.exports = [
   {
     title: "Minnie's Yoo Hoo",
     slug: "minnie-s-yoo-hoo-1930",
-    synopsis: "\"Minnie's Yoo Hoo\" is a song introduced in the 1929 Mickey Mouse cartoon Mickey's Follies. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Minnie's Yoo Hoo é uma canção apresentada no desenho Mickey's Follies (1929) que se tornou o tema oficial do Mickey Mouse Club nos cinemas.",
     year: 1930,
     genres: [
       "Animação",
@@ -190,7 +190,7 @@ module.exports = [
   {
     title: "Big Man from the North",
     slug: "big-man-from-the-north-1931",
-    synopsis: "Big Man from the North is a 1930 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko.",
     year: 1931,
     genres: [
       "Animação",
@@ -207,7 +207,7 @@ module.exports = [
   {
     title: "Bosko Shipwrecked!",
     slug: "bosko-shipwrecked-1931",
-    synopsis: "Bosko Shipwrecked! (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko, que naufraga numa ilha deserta.",
     year: 1931,
     genres: [
       "Animação",
@@ -224,7 +224,7 @@ module.exports = [
   {
     title: "Bosko the Doughboy",
     slug: "bosko-the-doughboy-1931",
-    synopsis: "Bosko the Doughboy is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko como um soldado.",
     year: 1931,
     genres: [
       "Animação",
@@ -241,7 +241,7 @@ module.exports = [
   {
     title: "Bosko's Fox Hunt",
     slug: "bosko-s-fox-hunt-1931",
-    synopsis: "Bosko's Fox Hunt is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko numa caçada à raposa.",
     year: 1931,
     genres: [
       "Animação",
@@ -258,7 +258,7 @@ module.exports = [
   {
     title: "Bosko's Holiday",
     slug: "bosko-s-holiday-1931",
-    synopsis: "Bosko's Holiday is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko em suas férias.",
     year: 1931,
     genres: [
       "Animação",
@@ -275,7 +275,7 @@ module.exports = [
   {
     title: "Bosko's Soda Fountain",
     slug: "bosko-s-soda-fountain-1931",
-    synopsis: "Bosko's Soda Fountain is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko trabalhando numa sorveteria.",
     year: 1931,
     genres: [
       "Animação",
@@ -292,7 +292,7 @@ module.exports = [
   {
     title: "Dumb Patrol",
     slug: "dumb-patrol-1931",
-    synopsis: "Dumb Patrol is a 1931 American animated comedy film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko.",
     year: 1931,
     genres: [
       "Animação",
@@ -309,7 +309,7 @@ module.exports = [
   {
     title: "Hittin' the Trail for Hallelujah Land",
     slug: "hittin-the-trail-for-hallelujah-land-1931",
-    synopsis: "Hittin' the Trail for Hallelujah Land is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko.",
     year: 1931,
     genres: [
       "Animação",
@@ -326,7 +326,7 @@ module.exports = [
   {
     title: "Lady, Play Your Mandolin!",
     slug: "lady-play-your-mandolin-1931",
-    synopsis: "Lady, Play Your Mandolin! (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 da série Merrie Melodies, estrelado por Bosko.",
     year: 1931,
     genres: [
       "Animação",
@@ -343,7 +343,7 @@ module.exports = [
   {
     title: "One More Time",
     slug: "one-more-time-1931",
-    synopsis: "One More Time is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 estrelado por Bosko.",
     year: 1931,
     genres: [
       "Animação",
@@ -377,7 +377,7 @@ module.exports = [
   {
     title: "Smile, Darn Ya, Smile!",
     slug: "smile-darn-ya-smile-1931",
-    synopsis: "Smile, Darn Ya, Smile! (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 da série Merrie Melodies.",
     year: 1931,
     genres: [
       "Animação",
@@ -394,7 +394,7 @@ module.exports = [
   {
     title: "The Tree's Knees",
     slug: "the-tree-s-knees-1931",
-    synopsis: "The Tree's Knees is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -428,7 +428,7 @@ module.exports = [
   {
     title: "Yodeling Yokels",
     slug: "yodeling-yokels-1931",
-    synopsis: "Yodeling Yokels is a 1931 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931.",
     year: 1931,
     genres: [
       "Animação",
@@ -462,7 +462,7 @@ module.exports = [
   {
     title: "You Don't Know What You're Doin'!",
     slug: "you-don-t-know-what-you-re-doin-1931",
-    synopsis: "You Don't Know What You're Doin'! (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1931 da série Merrie Melodies.",
     year: 1931,
     genres: [
       "Animação",
@@ -479,7 +479,7 @@ module.exports = [
   {
     title: "A Great Big Bunch of You",
     slug: "a-great-big-bunch-of-you-1932",
-    synopsis: "A Great Big Bunch of You is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -496,7 +496,7 @@ module.exports = [
   {
     title: "Battling Bosko",
     slug: "battling-bosko-1932",
-    synopsis: "Battling Bosko is an American animated short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano estrelado por Bosko.",
     year: 1932,
     genres: [
       "Animação",
@@ -530,7 +530,7 @@ module.exports = [
   {
     title: "Bosko and Bruno",
     slug: "bosko-and-bruno-1932",
-    synopsis: "Bosko and Bruno is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko e seu cachorro Bruno.",
     year: 1932,
     genres: [
       "Animação",
@@ -547,7 +547,7 @@ module.exports = [
   {
     title: "Bosko and Honey",
     slug: "bosko-and-honey-1932",
-    synopsis: "Bosko's Dizzy Date is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko e sua namorada Honey.",
     year: 1932,
     genres: [
       "Animação",
@@ -564,7 +564,7 @@ module.exports = [
   {
     title: "Bosko at the Beach",
     slug: "bosko-at-the-beach-1932",
-    synopsis: "Bosko at the Beach is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko num dia de praia.",
     year: 1932,
     genres: [
       "Animação",
@@ -581,7 +581,7 @@ module.exports = [
   {
     title: "Bosko at the Zoo",
     slug: "bosko-at-the-zoo-1932",
-    synopsis: "Bosko at the Zoo is a 1932 American animated comedy short film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 estrelado por Bosko num passeio ao zoológico.",
     year: 1932,
     genres: [
       "Animação",
@@ -598,7 +598,7 @@ module.exports = [
   {
     title: "Bosko the Drawback",
     slug: "bosko-the-drawback-1932",
-    synopsis: "Bosko the Drawback is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko.",
     year: 1932,
     genres: [
       "Animação",
@@ -615,7 +615,7 @@ module.exports = [
   {
     title: "Bosko the Lumberjack",
     slug: "bosko-the-lumberjack-1932",
-    synopsis: "Bosko the Lumberjack is an American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano dirigido por Hugh Harman, estrelado por Bosko como lenhador.",
     year: 1932,
     genres: [
       "Animação",
@@ -632,7 +632,7 @@ module.exports = [
   {
     title: "Bosko's Dog Race",
     slug: "bosko-s-dog-race-1932",
-    synopsis: "Bosko's Dog Race is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko numa corrida de cães.",
     year: 1932,
     genres: [
       "Animação",
@@ -649,7 +649,7 @@ module.exports = [
   {
     title: "Bosko's Party",
     slug: "bosko-s-party-1932",
-    synopsis: "Bosko is an animated cartoon character created by animators Hugh Harman and Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano estrelado por Bosko, personagem criado pelos animadores Hugh Harman e Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -666,7 +666,7 @@ module.exports = [
   {
     title: "Bosko's Store",
     slug: "bosko-s-store-1932",
-    synopsis: "Bosko's Store is a 1932 American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Hugh Harman, estrelado por Bosko como dono de uma loja.",
     year: 1932,
     genres: [
       "Animação",
@@ -683,7 +683,7 @@ module.exports = [
   {
     title: "Bosko's Woodland Daze",
     slug: "bosko-s-woodland-daze-1932",
-    synopsis: "Bosko's Woodland Daze is an American animated comedy short film directed by Hugh Harman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano dirigido por Hugh Harman, estrelado por Bosko numa floresta.",
     year: 1932,
     genres: [
       "Animação",
@@ -717,7 +717,7 @@ module.exports = [
   {
     title: "Freddy the Freshman",
     slug: "freddy-the-freshman-1932",
-    synopsis: "Freddy the Freshman is a 1932 American animated short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -734,7 +734,7 @@ module.exports = [
   {
     title: "Goopy Geer",
     slug: "goopy-geer-1932",
-    synopsis: "Goopy Geer is an animated cartoon character created by Rudolf Ising for the Merrie Melodies series of cartoons from Warner Bros. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Goopy Geer é um personagem animado criado por Rudolf Ising para a série Merrie Melodies, dos estúdios Warner Bros.",
     year: 1932,
     genres: [
       "Animação",
@@ -751,7 +751,7 @@ module.exports = [
   {
     title: "I Love a Parade",
     slug: "i-love-a-parade-1932",
-    synopsis: "I Love a Parade is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -768,7 +768,7 @@ module.exports = [
   {
     title: "I Wish I Had Wings",
     slug: "i-wish-i-had-wings-1932",
-    synopsis: "I Wish I Had Wings is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -785,7 +785,7 @@ module.exports = [
   {
     title: "It's Got Me Again!",
     slug: "it-s-got-me-again-1932",
-    synopsis: "It's Got Me Again! (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 da série Merrie Melodies.",
     year: 1932,
     genres: [
       "Animação",
@@ -802,7 +802,7 @@ module.exports = [
   {
     title: "Moonlight for Two",
     slug: "moonlight-for-two-1932",
-    synopsis: "Moonlight for Two is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -819,7 +819,7 @@ module.exports = [
   {
     title: "Pagan Moon",
     slug: "pagan-moon-1932",
-    synopsis: "Pagan Moon is a 1932 American animated musical comedy film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia musical animado americano de 1932.",
     year: 1932,
     genres: [
       "Animação",
@@ -853,7 +853,7 @@ module.exports = [
   {
     title: "The Queen Was in the Parlor",
     slug: "the-queen-was-in-the-parlor-1932",
-    synopsis: "The Queen Was in the Parlor is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -870,7 +870,7 @@ module.exports = [
   {
     title: "Three's a Crowd",
     slug: "three-s-a-crowd-1932",
-    synopsis: "Three's a Crowd is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -887,7 +887,7 @@ module.exports = [
   {
     title: "You're Too Careless with Your Kisses!",
     slug: "you-re-too-careless-with-your-kisses-1932",
-    synopsis: "You're Too Careless with Your Kisses is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising.",
     year: 1932,
     genres: [
       "Animação",
@@ -904,7 +904,7 @@ module.exports = [
   {
     title: "The Shanty Where Santy Claus Lives",
     slug: "the-shanty-where-santy-claus-lives-1933",
-    synopsis: "The Shanty Where Santy Claus Lives is a 1932 American animated comedy short film directed by Rudolf Ising. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1932 dirigido por Rudolf Ising, com tema natalino.",
     year: 1933,
     genres: [
       "Animação",
@@ -921,7 +921,7 @@ module.exports = [
   {
     title: "The Mad Doctor",
     slug: "the-mad-doctor-1933",
-    synopsis: "The Mad Doctor is a 1933 Mickey Mouse cartoon. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1933 estrelado por Mickey Mouse, um dos desenhos mais sombrios da era clássica da Disney.",
     year: 1933,
     genres: [
       "Animação",
@@ -937,7 +937,7 @@ module.exports = [
   {
     title: "Hollywood Capers",
     slug: "hollywood-capers-1935",
-    synopsis: "Hollywood Capers is a 1935 American animated comedy short film directed by Jack King. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1935 dirigido por Jack King.",
     year: 1935,
     genres: [
       "Animação",
@@ -954,7 +954,7 @@ module.exports = [
   {
     title: "The Cookie Carnival",
     slug: "the-cookie-carnival-1935",
-    synopsis: "The Cookie Carnival is an animated short film produced by Walt Disney Productions and originally released as part of the Silly Symphonies series on May 25, 1935. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de animação americano de 1935, produzido pela Walt Disney Productions como parte da série Silly Symphonies.",
     year: 1935,
     genres: [
       "Animação",
@@ -970,7 +970,7 @@ module.exports = [
   {
     title: "Boom Boom",
     slug: "boom-boom-1936",
-    synopsis: "Boom Boom is a 1936 American animated comedy short film directed by Jack King. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1936 dirigido por Jack King.",
     year: 1936,
     genres: [
       "Animação",
@@ -987,7 +987,7 @@ module.exports = [
   {
     title: "Westward Whoa",
     slug: "westward-whoa-1936",
-    synopsis: "Westward Whoa is a 1936 animated comedy short film directed by Jack King. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1936 dirigido por Jack King.",
     year: 1936,
     genres: [
       "Animação",
@@ -1004,7 +1004,7 @@ module.exports = [
   {
     title: "Get Rich Quick Porky",
     slug: "get-rich-quick-porky-1937",
-    synopsis: "Get Rich Quick Porky is a 1937 American animated comedy short film directed by Robert Clampett. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1937 dirigido por Robert Clampett, estrelado por Porky Pig.",
     year: 1937,
     genres: [
       "Animação",
@@ -1021,7 +1021,7 @@ module.exports = [
   {
     title: "I Wanna Be a Sailor",
     slug: "i-wanna-be-a-sailor-1937",
-    synopsis: "I Wanna Be a Sailor is a 1937 American animated comedy short film directed by Fred Avery. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1937 dirigido por Tex Avery.",
     year: 1937,
     genres: [
       "Animação",
@@ -1038,7 +1038,7 @@ module.exports = [
   {
     title: "Porky's Garden",
     slug: "porky-s-garden-1937",
-    synopsis: "Porky's Garden is a 1937 American animated comedy short film directed by Fred Avery. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1937 dirigido por Tex Avery, estrelado por Porky Pig.",
     year: 1937,
     genres: [
       "Animação",
@@ -1055,7 +1055,7 @@ module.exports = [
   {
     title: "Porky's Railroad",
     slug: "porky-s-railroad-1937",
-    synopsis: "Porky's Railroad is a 1937 American animated comedy short film directed by Frank Tashlin. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1937 dirigido por Frank Tashlin, estrelado por Porky Pig.",
     year: 1937,
     genres: [
       "Animação",
@@ -1072,7 +1072,7 @@ module.exports = [
   {
     title: "Have You Got Any Castles",
     slug: "have-you-got-any-castles-1938",
-    synopsis: "Have You Got Any Castles? (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1938 da série Merrie Melodies.",
     year: 1938,
     genres: [
       "Animação",
@@ -1089,7 +1089,7 @@ module.exports = [
   {
     title: "Jungle Jitters",
     slug: "jungle-jitters-1938",
-    synopsis: "Jungle Jitters is a 1938 American animated comedy short film directed by Isadore Freleng. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1938 dirigido por Isadore Freleng.",
     year: 1938,
     genres: [
       "Animação",
@@ -1106,7 +1106,7 @@ module.exports = [
   {
     title: "A Day at the Zoo",
     slug: "a-day-at-the-zoo-1939",
-    synopsis: "A Day at the Zoo is a 1939 American animated comedy short film directed by Fred Avery. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1939 dirigido por Tex Avery.",
     year: 1939,
     genres: [
       "Animação",
@@ -1140,7 +1140,7 @@ module.exports = [
   {
     title: "Daffy Duck and the Dinosaur",
     slug: "daffy-duck-and-the-dinosaur-1939",
-    synopsis: "Daffy Duck and the Dinosaur is a 1939 American animated comedy short film directed by Charles Jones. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1939 dirigido por Chuck Jones, estrelado por Patolino.",
     year: 1939,
     genres: [
       "Animação",
@@ -1157,7 +1157,7 @@ module.exports = [
   {
     title: "Gold Rush Daze",
     slug: "gold-rush-daze-1939",
-    synopsis: "Gold Rush Daze is a 1939 American animated comedy short film directed by Ben Hardaway and Cal Dalton. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Curta de comédia animado americano de 1939 dirigido por Ben Hardaway e Cal Dalton.",
     year: 1939,
     genres: [
       "Animação",

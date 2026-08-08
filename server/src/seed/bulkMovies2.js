@@ -3,15 +3,15 @@
 // source.id foi resolvido automaticamente via busca na API do archive.org
 // (título + ano, com checagem de similaridade e verificação de que o
 // metadata do item realmente carrega, corrigindo manualmente os que não
-// carregavam). A sinopse é a primeira frase do resumo da Wikipedia
-// (CC BY-SA), quando disponível.
+// carregavam). A sinopse foi escrita em português a partir dos fatos do
+// filme, sem reproduzir o texto original da Wikipedia.
 // Alguns identifiers podem estar errados -- confira e corrija pelo /admin
 // se notar algum player quebrado ou fora do filme.
 module.exports = [
   {
     "title": "Africa Screams",
     "slug": "africa-screams-1949",
-    "synopsis": "Africa Screams is a 1949 American adventure comedy film starring Abbott and Costello and directed by Charles Barton that parodies the safari genre. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Africa Screams é uma comédia de aventura americana de 1949 estrelada pela dupla Abbott and Costello e dirigida por Charles Barton, uma paródia do gênero safári.",
     "year": 1949,
     "genres": [
       "Comédia",
@@ -29,7 +29,7 @@ module.exports = [
   {
     "title": "Algiers",
     "slug": "algiers-1938",
-    "synopsis": "Algiers is a 1938 American crime drama film directed by John Cromwell, written by John Howard Lawson and starring Charles Boyer, Sigrid Gurie and Hedy Lamarr. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Algiers é um drama policial americano de 1938 dirigido por John Cromwell, estrelado por Charles Boyer, Sigrid Gurie e Hedy Lamarr, sobre um ladrão foragido escondido na casbá de Argel.",
     "year": 1938,
     "genres": [
       "Drama",
@@ -47,7 +47,7 @@ module.exports = [
   {
     "title": "Aladdin and His Wonderful Lamp",
     "slug": "aladdin-and-his-wonderful-lamp-1939",
-    "synopsis": "Aladdin and His Wonderful Lamp is a two-reel animated cartoon short subject in the Popeye Color Specials series, produced in Technicolor and released to theaters on April 7, 1939, by Paramount Pictures. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Aladdin and His Wonderful Lamp é um curta-metragem animado de dois rolos da série Popeye Color Specials, produzido em Technicolor e lançado nos cinemas em 1939 pela Paramount Pictures.",
     "year": 1939,
     "genres": [
       "Animação",
@@ -65,7 +65,7 @@ module.exports = [
   {
     "title": "Angel and the Badman",
     "slug": "angel-and-the-badman-1947",
-    "synopsis": "Angel and the Badman is a 1947 American Western film written and directed by James Edward Grant and starring John Wayne, Gail Russell, Harry Carey, and Bruce Cabot. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Angel and the Badman é um faroeste americano de 1947 escrito e dirigido por James Edward Grant, estrelado por John Wayne como um pistoleiro ferido que se apaixona por uma jovem quacre pacifista.",
     "year": 1947,
     "genres": [
       "Faroeste",
@@ -82,7 +82,7 @@ module.exports = [
   {
     "title": "The Animal Kingdom",
     "slug": "the-animal-kingdom-1932",
-    "synopsis": "The Animal Kingdom is a 1932 American pre-Code comedy-drama film directed by Edward H. Griffith based upon a comedy of manners play of the same name by Philip Barry. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Animal Kingdom é uma comédia dramática pré-Código americana de 1932 dirigida por Edward H. Griffith, baseada numa peça de Philip Barry, sobre um homem dividido entre a esposa convencional e a amante boêmia.",
     "year": 1932,
     "genres": [
       "Drama",
@@ -100,7 +100,7 @@ module.exports = [
   {
     "title": "At War with the Army",
     "slug": "at-war-with-the-army-1950",
-    "synopsis": "At War with the Army is a 1950 American musical comedy film directed by Hal Walker and released by Paramount Pictures. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "At War with the Army é uma comédia musical americana de 1950 dirigida por Hal Walker e lançada pela Paramount Pictures, primeiro filme estrelado pela dupla Dean Martin e Jerry Lewis.",
     "year": 1950,
     "genres": [
       "Comédia",
@@ -117,7 +117,7 @@ module.exports = [
   {
     "title": "Attack of the Giant Leeches",
     "slug": "attack-of-the-giant-leeches-1959",
-    "synopsis": "Attack of the Giant Leeches is an independently made 1959 black-and-white science fiction-horror film produced by Gene Corman and directed by Bernard L. Kowalski. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Attack of the Giant Leeches é um filme de ficção científica e terror americano de 1959, produzido de forma independente, sobre sanguessugas gigantes que aterrorizam os moradores de um pântano da Flórida.",
     "year": 1959,
     "genres": [
       "Terror",
@@ -135,7 +135,7 @@ module.exports = [
   {
     "title": "Beat the Devil",
     "slug": "beat-the-devil-1953",
-    "synopsis": "Beat the Devil is a 1953 adventure comedy film directed by John Huston and starring Humphrey Bogart, Jennifer Jones and Gina Lollobrigida in her American debut. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Beat the Devil é uma comédia de aventura americana de 1953 dirigida por John Huston, estrelada por Humphrey Bogart, Jennifer Jones e Gina Lollobrigida em sua estreia nos Estados Unidos, sobre um grupo de golpistas em busca de terras ricas em urânio na África.",
     "year": 1953,
     "genres": [
       "Comédia",
@@ -153,7 +153,7 @@ module.exports = [
   {
     "title": "Becky Sharp",
     "slug": "becky-sharp-1935",
-    "synopsis": "Becky Sharp is a 1935 American Technicolor historical drama film directed by Rouben Mamoulian and starring Miriam Hopkins, who plays the eponymous protagonist. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Becky Sharp é um drama histórico americano de 1935, o primeiro longa-metragem filmado inteiramente em Technicolor, estrelado por Miriam Hopkins como uma jovem ambiciosa que usa charme e esperteza para ascender socialmente na Inglaterra napoleônica.",
     "year": 1935,
     "genres": [
       "Drama",
@@ -170,7 +170,7 @@ module.exports = [
   {
     "title": "Behind Office Doors",
     "slug": "behind-office-doors-1931",
-    "synopsis": "Behind Office Doors is a 1931 American pre-Code drama film directed by Melville W. Brown, from a screenplay by Carey Wilson and J. Walter Ruben, based on Alan Schultz's 1929 novel, Private Secretary. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Behind Office Doors é um drama pré-Código americano de 1931, baseado no romance Private Secretary, sobre uma secretária eficiente cujo talento sustenta a carreira do chefe, que nunca lhe dá o devido crédito.",
     "year": 1931,
     "genres": [
       "Drama",
@@ -188,7 +188,7 @@ module.exports = [
   {
     "title": "The Big Wheel",
     "slug": "the-big-wheel-1949",
-    "synopsis": "The Big Wheel is a 1949 American drama sport film directed by Edward Ludwig starring Mickey Rooney, Thomas Mitchell, Mary Hatcher and Michael O'Shea. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Big Wheel é um drama esportivo americano de 1949 estrelado por Mickey Rooney como um jovem piloto obcecado em seguir os passos do pai, um lendário corredor de automóveis.",
     "year": 1949,
     "genres": [
       "Drama",
@@ -205,7 +205,7 @@ module.exports = [
   {
     "title": "Bird of Paradise",
     "slug": "bird-of-paradise-1932",
-    "synopsis": "Bird of Paradise is a 1932 American pre-Code romantic adventure drama film directed by King Vidor and starring Dolores del Río and Joel McCrea. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Bird of Paradise é um drama romântico de aventura pré-Código americano de 1932 dirigido por King Vidor, estrelado por Dolores del Río e Joel McCrea, sobre o romance entre um marinheiro americano e uma princesa de uma ilha polinésia.",
     "year": 1932,
     "genres": [
       "Romance",
@@ -223,7 +223,7 @@ module.exports = [
   {
     "title": "Blood on the Sun",
     "slug": "blood-on-the-sun-1945",
-    "synopsis": "Blood on the Sun is a 1945 American spy thriller film directed by Frank Lloyd and starring James Cagney, Sylvia Sidney and Porter Hall. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Blood on the Sun é um suspense de espionagem americano de 1945 estrelado por James Cagney como um jornalista americano no Japão pré-guerra que descobre um plano secreto de dominação militar japonesa.",
     "year": 1945,
     "genres": [
       "Drama",
@@ -241,7 +241,7 @@ module.exports = [
   {
     "title": "Bowery at Midnight",
     "slug": "bowery-at-midnight-1942",
-    "synopsis": "Bowery at Midnight is a 1942 American Monogram Pictures horror film directed by Wallace Fox and starring Bela Lugosi and John Archer. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Bowery at Midnight é um filme de terror americano de 1942 estrelado por Bela Lugosi como um professor universitário que leva uma vida dupla como líder de uma quadrilha criminosa disfarçada de instituição de caridade.",
     "year": 1942,
     "genres": [
       "Terror",
@@ -258,7 +258,7 @@ module.exports = [
   {
     "title": "Brideless Groom",
     "slug": "brideless-groom-1947",
-    "synopsis": "Brideless Groom is a 1947 short subject directed by Edward Bernds starring American slapstick comedy team The Three Stooges. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Brideless Groom é um curta de comédia americano de 1947 estrelado pelo trio de comediantes The Three Stooges, sobre um professor de canto que precisa se casar em poucas horas para receber uma herança.",
     "year": 1947,
     "genres": [
       "Comédia",
@@ -275,7 +275,7 @@ module.exports = [
   {
     "title": "A Bucket of Blood",
     "slug": "a-bucket-of-blood-1959",
-    "synopsis": "A Bucket of Blood is a 1959 American comedy horror film produced and directed by Roger Corman. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "A Bucket of Blood é uma comédia de terror americana de 1959 produzida e dirigida por Roger Corman, sobre um garçom desajeitado que vira sensação da cena artística ao esconder cadáveres dentro de suas esculturas de barro.",
     "year": 1959,
     "genres": [
       "Terror",
@@ -293,7 +293,7 @@ module.exports = [
   {
     "title": "Charade",
     "slug": "charade-1963",
-    "synopsis": "Charade is a 1963 American romantic screwball comedy mystery film produced and directed by Stanley Donen, written by Peter Stone and Marc Behm, and starring Cary Grant and Audrey Hepburn. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Charade é uma comédia romântica de suspense americana de 1963 dirigida por Stanley Donen, estrelada por Cary Grant e Audrey Hepburn, sobre uma viúva perseguida por homens que acreditam que o marido assassinado escondeu uma fortuna roubada.",
     "year": 1963,
     "genres": [
       "Suspense",
@@ -311,7 +311,7 @@ module.exports = [
   {
     "title": "The Chase",
     "slug": "the-chase-1946",
-    "synopsis": "The Chase is a 1946 American film noir directed by Arthur Ripley. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Chase é um filme noir americano de 1946 dirigido por Arthur Ripley, sobre um ex-combatente que se apaixona pela esposa de um gângster perigoso e se vê envolvido numa trama de traição e assassinato.",
     "year": 1946,
     "genres": [
       "Suspense",
@@ -329,7 +329,7 @@ module.exports = [
   {
     "title": "Cyrano de Bergerac",
     "slug": "cyrano-de-bergerac-1950",
-    "synopsis": "Cyrano de Bergerac is a 1950 American adventure film based on the 1897 French alexandrine drama Cyrano de Bergerac by Edmond Rostand. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Cyrano de Bergerac é um filme de aventura americano de 1950 baseado na peça francesa de Edmond Rostand, sobre um poeta e espadachim de nariz grande que ajuda o rival a conquistar a mulher que ele próprio ama em segredo.",
     "year": 1950,
     "genres": [
       "Drama",
@@ -347,7 +347,7 @@ module.exports = [
   {
     "title": "The Deadly Companions",
     "slug": "the-deadly-companions-1961",
-    "synopsis": "The Deadly Companions is a 1961 American Western film directed by Sam Peckinpah, in his feature directorial debut. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Deadly Companions é um faroeste americano de 1961, estreia de Sam Peckinpah na direção de longas-metragens, sobre um ex-soldado que escolta uma mulher e o caixão do filho dela por território hostil.",
     "year": 1961,
     "genres": [
       "Faroeste",
@@ -364,7 +364,7 @@ module.exports = [
   {
     "title": "Disorder in the Court",
     "slug": "disorder-in-the-court-1936",
-    "synopsis": "Disorder in the Court is a 1936 short film directed by Preston Black starring American slapstick comedy team The Three Stooges. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Disorder in the Court é um curta de comédia americano de 1936 estrelado pelo trio The Three Stooges, que causam o caos ao testemunhar num julgamento de assassinato.",
     "year": 1936,
     "genres": [
       "Comédia",
@@ -381,7 +381,7 @@ module.exports = [
   {
     "title": "The Emperor Jones",
     "slug": "the-emperor-jones-1933",
-    "synopsis": "The Emperor Jones is a 1933 American pre-Code film adaptation of Eugene O'Neill's 1920 play of the same title, directed by iconoclast Dudley Murphy, written for the screen by playwright DuBose Heyward and starring Paul Robeson in the title role, and co-starring Dudley Digges, Frank H. Wilson, Fredi Washington and Ruby Elzy. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Emperor Jones é um drama pré-Código americano de 1933, adaptação da peça de Eugene O'Neill, estrelado por Paul Robeson como um ex-carregador de trem que se torna o autoproclamado imperador de uma ilha caribenha.",
     "year": 1933,
     "genres": [
       "Drama",
@@ -398,7 +398,7 @@ module.exports = [
   {
     "title": "Father's Little Dividend",
     "slug": "father-s-little-dividend-1951",
-    "synopsis": "Father's Little Dividend is a 1951 American comedy film directed by Vincente Minnelli and starring Spencer Tracy, Joan Bennett, and Elizabeth Taylor. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Father's Little Dividend é uma comédia americana de 1951 dirigida por Vincente Minnelli, estrelada por Spencer Tracy, sobre a reação exagerada de um pai ao descobrir que vai virar avô.",
     "year": 1951,
     "genres": [
       "Comédia",
@@ -415,7 +415,7 @@ module.exports = [
   {
     "title": "A Farewell to Arms",
     "slug": "a-farewell-to-arms-1932",
-    "synopsis": "A Farewell to Arms is a 1932 American pre-Code melodrama film directed by Frank Borzage and starring Helen Hayes, Gary Cooper and Adolphe Menjou. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "A Farewell to Arms é um melodrama pré-Código americano de 1932, baseado no romance de Ernest Hemingway, sobre o romance entre um ambulancista americano e uma enfermeira inglesa durante a Primeira Guerra Mundial.",
     "year": 1932,
     "genres": [
       "Drama",
@@ -433,7 +433,7 @@ module.exports = [
   {
     "title": "Fear and Desire",
     "slug": "fear-and-desire-1953",
-    "synopsis": "Fear and Desire is a 1952 American independent anti-war film directed, produced, and edited by Stanley Kubrick in his directorial debut, and written by Howard Sackler. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Fear and Desire é um drama de guerra independente americano de 1953, estreia de Stanley Kubrick na direção de longas-metragens, sobre quatro soldados perdidos atrás das linhas inimigas durante um conflito fictício.",
     "year": 1953,
     "genres": [
       "Drama",
@@ -450,7 +450,7 @@ module.exports = [
   {
     "title": "The Flying Deuces",
     "slug": "the-flying-deuces-1939",
-    "synopsis": "The Flying Deuces, also known as Flying Aces, is a 1939 buddy comedy film starring Laurel and Hardy, in which the duo join the French Foreign Legion. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Flying Deuces é uma comédia americana de 1939 estrelada pela dupla Laurel and Hardy, que se alistam na Legião Estrangeira francesa depois de uma desilusão amorosa.",
     "year": 1939,
     "genres": [
       "Comédia",
@@ -467,7 +467,7 @@ module.exports = [
   {
     "title": "The Front Page",
     "slug": "the-front-page-1931",
-    "synopsis": "The Front Page is a 1931 American pre-Code screwball black comedy film directed by Lewis Milestone and starring Adolphe Menjou and Pat O'Brien. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Front Page é uma comédia pré-Código americana de 1931 dirigida por Lewis Milestone, sobre um editor de jornal que tenta de tudo para impedir que seu melhor repórter abandone a profissão para se casar.",
     "year": 1931,
     "genres": [
       "Comédia",
@@ -484,7 +484,7 @@ module.exports = [
   {
     "title": "Glen or Glenda",
     "slug": "glen-or-glenda-1953",
-    "synopsis": "Glen or Glenda is a 1953 American independent exploitation film directed, written by and starring Ed Wood, and featuring Wood's then-girlfriend Dolores Fuller and Bela Lugosi. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Glen or Glenda é um filme independente americano de 1953 escrito, dirigido e estrelado por Ed Wood, um drama pessoal sobre travestismo inspirado na própria experiência do diretor, com Bela Lugosi como um narrador enigmático.",
     "year": 1953,
     "genres": [
       "Drama",
@@ -501,7 +501,7 @@ module.exports = [
   {
     "title": "Go for Broke!",
     "slug": "go-for-broke-1951",
-    "synopsis": "Go For Broke! is a 1951 black-and-white war film directed by Robert Pirosh, produced by Dore Schary and starring Van Johnson and six veterans of the 442nd Infantry Regiment. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Go for Broke! é um filme de guerra americano de 1951 estrelado por Van Johnson e veteranos reais do 442º Regimento de Infantaria, sobre o batalhão nipo-americano mais condecorado da Segunda Guerra Mundial.",
     "year": 1951,
     "genres": [
       "Drama",
@@ -518,7 +518,7 @@ module.exports = [
   {
     "title": "The Gorilla",
     "slug": "the-gorilla-1939",
-    "synopsis": "The Gorilla is a 1939 American comedy horror film starring the Ritz Brothers, Anita Louise, Art Miles, Lionel Atwill, Bela Lugosi, and Patsy Kelly. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Gorilla é uma comédia de terror americana de 1939 estrelada pelos irmãos Ritz e Bela Lugosi, sobre três detetives desastrados contratados para proteger um milionário ameaçado por um misterioso gorila.",
     "year": 1939,
     "genres": [
       "Comédia",
@@ -536,7 +536,7 @@ module.exports = [
   {
     "title": "The Great Flamarion",
     "slug": "the-great-flamarion-1945",
-    "synopsis": "The Great Flamarion is a 1945 American film noir mystery film directed by Anthony Mann starring Erich von Stroheim and Mary Beth Hughes. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Great Flamarion é um suspense de mistério noir americano de 1945 estrelado por Erich von Stroheim como um atirador de elite de circo manipulado por uma assistente traiçoeira.",
     "year": 1945,
     "genres": [
       "Suspense",
@@ -554,7 +554,7 @@ module.exports = [
   {
     "title": "Gulliver's Travels",
     "slug": "gulliver-s-travels-1939",
-    "synopsis": "Gulliver's Travels is a 1939 American animated musical fantasy film produced by Fleischer Studios and released by Paramount Pictures. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Gulliver's Travels é um filme de animação musical e fantasia americano de 1939 produzido pelo Fleischer Studios, adaptação da história do marinheiro naufragado que desperta na terra dos liliputianos.",
     "year": 1939,
     "genres": [
       "Animação",
@@ -572,7 +572,7 @@ module.exports = [
   {
     "title": "Indestructible Man",
     "slug": "indestructible-man-1956",
-    "synopsis": "Indestructible Man is a 1956 American crime horror science fiction film, an original screenplay by Vy Russell and Sue Dwiggins for producer-director Jack Pollexfen and starring Lon Chaney Jr., Ross Elliott, and Robert Shayne. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Indestructible Man é um filme de terror e ficção científica americano de 1956 estrelado por Lon Chaney Jr. como um criminoso executado e reanimado por um experimento científico, agora com força sobre-humana e sede de vingança.",
     "year": 1956,
     "genres": [
       "Terror",
@@ -590,7 +590,7 @@ module.exports = [
   {
     "title": "The Inspector General",
     "slug": "the-inspector-general-1949",
-    "synopsis": "The Inspector General is a 1949 American Technicolor musical comedy film directed by Henry Koster and starring Danny Kaye, Walter Slezak, Barbara Bates, and Elsa Lanchester. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Inspector General é uma comédia musical americana de 1949 estrelada por Danny Kaye como um vagabundo confundido com um temido inspetor do governo por uma cidade corrupta.",
     "year": 1949,
     "genres": [
       "Comédia",
@@ -607,7 +607,7 @@ module.exports = [
   {
     "title": "Jack and the Beanstalk",
     "slug": "jack-and-the-beanstalk-1952",
-    "synopsis": "\"Jack and the Beanstalk\" is an English fairy tale with ancient origins. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Jack and the Beanstalk é uma comédia de fantasia americana de 1952 estrelada pela dupla Abbott and Costello, adaptação cômica do conto de fadas sobre o pé de feijão mágico que leva a um castelo de gigante.",
     "year": 1952,
     "genres": [
       "Comédia",
@@ -625,7 +625,7 @@ module.exports = [
   {
     "title": "The Jackie Robinson Story",
     "slug": "the-jackie-robinson-story-1950",
-    "synopsis": "The Jackie Robinson Story is a 1950 biographical film directed by Alfred E. Green and starring Jackie Robinson as himself. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Jackie Robinson Story é uma cinebiografia americana de 1950 estrelada pelo próprio Jackie Robinson, sobre sua trajetória como o primeiro jogador negro na história do beisebol das grandes ligas.",
     "year": 1950,
     "genres": [
       "Drama",
@@ -642,7 +642,7 @@ module.exports = [
   {
     "title": "The Joe Louis Story",
     "slug": "the-joe-louis-story-1953",
-    "synopsis": "The Joe Louis Story is a 1953 American film noir drama sport film directed by Robert Gordon and starring Coley Wallace, Hilda Simms and Paul Stewart. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Joe Louis Story é uma cinebiografia americana de 1953 sobre a trajetória do lendário boxeador Joe Louis, dos primeiros combates até se tornar campeão mundial dos pesos-pesados.",
     "year": 1953,
     "genres": [
       "Drama",
@@ -659,7 +659,7 @@ module.exports = [
   {
     "title": "Kept Husbands",
     "slug": "kept-husbands-1931",
-    "synopsis": "Kept Husbands is a 1931 American pre-Code drama film directed by Lloyd Bacon, starring Dorothy Mackaill and Joel McCrea, with major supporting roles filled by Robert McWade, Florence Roberts and Mary Carr. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Kept Husbands é um drama pré-Código americano de 1931 estrelado por Dorothy Mackaill e Joel McCrea, sobre um operário que se casa com a filha de um rico industrial e enfrenta o preconceito de classe da nova família.",
     "year": 1931,
     "genres": [
       "Drama",
@@ -677,7 +677,7 @@ module.exports = [
   {
     "title": "The Lady Refuses",
     "slug": "the-lady-refuses-1931",
-    "synopsis": "The Lady Refuses is a 1931 American pre-Code melodrama film, directed by George Archainbaud, from a screenplay by Wallace Smith, based on an original story by Guy Bolton and Robert Milton. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Lady Refuses é um melodrama pré-Código americano de 1931 sobre um pai que contrata uma jovem para seduzir e afastar o filho de uma golpista, num plano que dá errado quando o próprio pai se apaixona por ela.",
     "year": 1931,
     "genres": [
       "Drama",
@@ -695,7 +695,7 @@ module.exports = [
   {
     "title": "The Last Time I Saw Paris",
     "slug": "the-last-time-i-saw-paris-1954",
-    "synopsis": "The Last Time I Saw Paris is a 1954 American romantic drama film directed by Richard Brooks and produced by Jack Cummings for Metro-Goldwyn-Mayer. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Last Time I Saw Paris é um drama romântico americano de 1954, baseado num conto de F. Scott Fitzgerald, sobre um jornalista americano que relembra o casamento tumultuado com uma parisiense na Paris do pós-guerra.",
     "year": 1954,
     "genres": [
       "Drama",
@@ -713,7 +713,7 @@ module.exports = [
   {
     "title": "Letter of Introduction",
     "slug": "letter-of-introduction-1938",
-    "synopsis": "Letter of Introduction is a 1938 American comedy-drama film directed by John M. Stahl.\nIn 1966, the film entered the public domain in the United States because the claimants did not renew its copyright registration in the 28th year after publication. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Letter of Introduction é uma comédia dramática americana de 1938 dirigida por John M. Stahl, sobre uma jovem atriz que descobre que um astro de cinema veterano é, na verdade, seu pai desaparecido.",
     "year": 1938,
     "genres": [
       "Comédia",
@@ -731,7 +731,7 @@ module.exports = [
   {
     "title": "Life with Father",
     "slug": "life-with-father-1947",
-    "synopsis": "Life with Father is a 1947 American Technicolor comedy film adapted from the 1939 play of the same name, which was inspired by the autobiography of American writer and The New Yorker essayist Clarence Day. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Life with Father é uma comédia americana de 1947 em Technicolor, adaptação da peça baseada na autobiografia de Clarence Day, sobre as excentricidades cotidianas de uma família nova-iorquina no fim do século 19.",
     "year": 1947,
     "genres": [
       "Comédia",
@@ -748,7 +748,7 @@ module.exports = [
   {
     "title": "The Little Shop of Horrors",
     "slug": "the-little-shop-of-horrors-1960",
-    "synopsis": "The Little Shop of Horrors is a 1960 American horror comedy film directed and produced by Roger Corman, from a screenplay by Charles B. Griffith. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Little Shop of Horrors é uma comédia de terror americana de 1960 dirigida e produzida por Roger Corman, sobre um florista desajeitado que cultiva uma planta carnívora que precisa de sangue humano para sobreviver.",
     "year": 1960,
     "genres": [
       "Terror",
@@ -766,7 +766,7 @@ module.exports = [
   {
     "title": "Lonely Wives",
     "slug": "lonely-wives-1931",
-    "synopsis": "Lonely Wives is a 1931 American comedy film directed by Russell Mack and produced by E.B. Derr for Pathé Exchange. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Lonely Wives é uma comédia americana de 1931 sobre um advogado e seu sósia, um ator de teatro, que trocam de identidade — e acabam se metendo em confusões amorosas por engano.",
     "year": 1931,
     "genres": [
       "Comédia",
@@ -783,7 +783,7 @@ module.exports = [
   {
     "title": "Love Affair",
     "slug": "love-affair-1939",
-    "synopsis": "Love Affair is a 1939 American romance film, co-starring Charles Boyer, Irene Dunne, and Maria Ouspenskaya. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Love Affair é um romance americano de 1939 estrelado por Charles Boyer e Irene Dunne, sobre um casal que se apaixona durante uma viagem de navio e combina se reencontrar meses depois, no topo do Empire State Building.",
     "year": 1939,
     "genres": [
       "Romance",
@@ -801,7 +801,7 @@ module.exports = [
   {
     "title": "Love Laughs at Andy Hardy",
     "slug": "love-laughs-at-andy-hardy-1945",
-    "synopsis": "Love Laughs at Andy Hardy is a 1946 American comedy film directed by Willis Goldbeck and starring Mickey Rooney, Lewis Stone and Bonita Granville. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Love Laughs at Andy Hardy é uma comédia americana de 1946 estrelada por Mickey Rooney, o último filme da longa série Andy Hardy, sobre o retorno do rapaz à cidade natal após servir na guerra.",
     "year": 1945,
     "genres": [
       "Comédia",
@@ -818,7 +818,7 @@ module.exports = [
   {
     "title": "Made for Each Other",
     "slug": "made-for-each-other-1939",
-    "synopsis": "Made for Each Other is a 1939 American romantic comedy drama film directed by John Cromwell, produced by David O. Selznick, and starring Carole Lombard, James Stewart, and Charles Coburn. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Made for Each Other é uma comédia dramática romântica americana de 1939 estrelada por Carole Lombard e James Stewart, sobre os altos e baixos dos primeiros anos de um casamento jovem.",
     "year": 1939,
     "genres": [
       "Romance",
@@ -836,7 +836,7 @@ module.exports = [
   {
     "title": "Malice in the Palace",
     "slug": "malice-in-the-palace-1949",
-    "synopsis": "Malice in the Palace is a 1949 short subject directed by Jules White starring the American slapstick comedy team The Three Stooges. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Malice in the Palace é um curta de comédia americano de 1949 estrelado pelo trio The Three Stooges, que se disfarçam de árabes numa aventura ambientada no Oriente Médio em busca de um diamante roubado.",
     "year": 1949,
     "genres": [
       "Comédia",
@@ -853,7 +853,7 @@ module.exports = [
   {
     "title": "The Man from Utah",
     "slug": "the-man-from-utah-1934",
-    "synopsis": "The Man from Utah is a 1934 pre-Code Monogram Western film starring John Wayne, Polly Ann Young and the stuntman/actor Yakima Canutt. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Man from Utah é um faroeste pré-Código americano de 1934 estrelado por John Wayne como um cowboy que se infiltra num rodeio para investigar uma série de fraudes.",
     "year": 1934,
     "genres": [
       "Faroeste",
@@ -870,7 +870,7 @@ module.exports = [
   {
     "title": "The Man with the Golden Arm",
     "slug": "the-man-with-the-golden-arm-1955",
-    "synopsis": "The Man with the Golden Arm is a 1955 American independent drama film noir directed by Otto Preminger, based on the novel of the same name by Nelson Algren. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Man with the Golden Arm é um drama noir independente americano de 1955 dirigido por Otto Preminger, sobre um jogador de cartas profissional que tenta se livrar do vício em heroína e recomeçar a vida como baterista de jazz.",
     "year": 1955,
     "genres": [
       "Drama",
@@ -887,7 +887,7 @@ module.exports = [
   {
     "title": "Manos: The Hands of Fate",
     "slug": "manos-the-hands-of-fate-1966",
-    "synopsis": "Manos: The Hands of Fate is a 1966 American independent folk horror film written, directed, and produced by Harold P. Warren. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Manos: The Hands of Fate é um filme de terror independente americano de 1966, hoje um cult por sua qualidade tecnicamente falha, sobre uma família que se perde e acaba refém de um culto pagão isolado numa casa no deserto.",
     "year": 1966,
     "genres": [
       "Terror",
@@ -904,7 +904,7 @@ module.exports = [
   {
     "title": "March of the Wooden Soldiers",
     "slug": "march-of-the-wooden-soldiers-1950",
-    "synopsis": "Babes in Toyland is a Laurel and Hardy musical Christmas film released on November 30, 1934. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "March of the Wooden Soldiers é o título de reexibição de Babes in Toyland, comédia musical natalina de 1934 estrelada pela dupla Laurel and Hardy, sobre a defesa da Terra dos Brinquedos contra um vilão que quer expulsar os moradores de suas casas.",
     "year": 1950,
     "genres": [
       "Comédia",
@@ -922,7 +922,7 @@ module.exports = [
   {
     "title": "McLintock!",
     "slug": "mclintock-1963",
-    "synopsis": "McLintock! is a 1963 American Western comedy film, starring John Wayne and Maureen O'Hara, directed by Andrew V. McLaglen. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "McLintock! é uma comédia de faroeste americana de 1963 estrelada por John Wayne e Maureen O'Hara como um casal separado que se reencontra em meio a disputas de terra e criação numa cidade do oeste.",
     "year": 1963,
     "genres": [
       "Faroeste",
@@ -940,7 +940,7 @@ module.exports = [
   {
     "title": "Meet John Doe",
     "slug": "meet-john-doe-1941",
-    "synopsis": "Meet John Doe is a 1941 American comedy-drama film directed and produced by Frank Capra, written by Robert Riskin, and starring Gary Cooper, Barbara Stanwyck, Edward Arnold, Walter Brennan, Spring Byington, James Gleason, and Gene Lockhart. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Meet John Doe é uma comédia dramática americana de 1941 dirigida por Frank Capra, sobre um jornal que inventa um homem comum disposto a se suicidar em protesto contra as injustiças do mundo — e precisa encontrar alguém para viver essa mentira.",
     "year": 1941,
     "genres": [
       "Drama",
@@ -957,7 +957,7 @@ module.exports = [
   {
     "title": "Millie",
     "slug": "millie-1931",
-    "synopsis": "Millie is a 1931 American pre-Code drama film directed by John Francis Dillon from a screenplay by Charles Kenyon and Ralph Morgan, based on a novel of the same name by Donald Henderson Clarke. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Millie é um drama pré-Código americano de 1931 sobre uma mulher que, após um casamento fracassado, cria a filha sozinha enquanto tenta reconstruir a própria vida em meio a uma sociedade que a julga.",
     "year": 1931,
     "genres": [
       "Drama",
@@ -974,7 +974,7 @@ module.exports = [
   {
     "title": "Mr. Imperium",
     "slug": "mr-imperium-1951",
-    "synopsis": "Mr. Imperium is a 1951 romantic musical drama film produced by Metro-Goldwyn-Mayer and starring Lana Turner and singer Ezio Pinza. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Mr. Imperium é um drama musical romântico americano de 1951 estrelado por Lana Turner e o cantor de ópera Ezio Pinza, sobre o reencontro, anos depois, de um príncipe europeu e a atriz americana por quem ele se apaixonou quando jovem.",
     "year": 1951,
     "genres": [
       "Romance",
@@ -992,7 +992,7 @@ module.exports = [
   {
     "title": "My Dear Secretary",
     "slug": "my-dear-secretary-1948",
-    "synopsis": "My Dear Secretary is a 1948 American comedy film written and directed by Charles Martin (1910-1983) and starring Laraine Day, Kirk Douglas, Keenan Wynn, and Helen Walker. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "My Dear Secretary é uma comédia americana de 1948 estrelada por Kirk Douglas como um escritor mulherengo cuja nova secretária se torna, sem que ele perceba, uma romancista de sucesso às suas custas.",
     "year": 1948,
     "genres": [
       "Comédia",
@@ -1009,7 +1009,7 @@ module.exports = [
   {
     "title": "My Favorite Brunette",
     "slug": "my-favorite-brunette-1947",
-    "synopsis": "My Favorite Brunette is a 1947 American romantic comedy film and film noir parody, directed by Elliott Nugent and starring Bob Hope and Dorothy Lamour. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "My Favorite Brunette é uma comédia romântica americana de 1947, paródia do gênero noir, estrelada por Bob Hope como um fotógrafo de bebês que se vê confundido com um detetive particular e envolvido numa trama de assassinato.",
     "year": 1947,
     "genres": [
       "Comédia",
@@ -1026,7 +1026,7 @@ module.exports = [
   {
     "title": "My Man Godfrey",
     "slug": "my-man-godfrey-1936",
-    "synopsis": "My Man Godfrey is a 1936 American screwball comedy film directed by Gregory La Cava and starring William Powell and Carole Lombard, who had been briefly married years before appearing together in the film. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "My Man Godfrey é uma comédia americana de 1936 estrelada por William Powell e Carole Lombard, sobre um mendigo contratado como mordomo por uma família rica excêntrica, que esconde um passado surpreendente.",
     "year": 1936,
     "genres": [
       "Comédia",
@@ -1043,7 +1043,7 @@ module.exports = [
   {
     "title": "Nothing Sacred",
     "slug": "nothing-sacred-1937",
-    "synopsis": "Nothing Sacred is a 1937 American Technicolor screwball comedy film directed by William A. Wellman, produced by David O. Selznick, and starring Carole Lombard and Fredric March with a supporting cast featuring Charles Winninger and Walter Connolly. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Nothing Sacred é uma comédia americana de 1937 em Technicolor, estrelada por Carole Lombard como uma jovem que finge estar morrendo de envenenamento por rádio para aproveitar a fama antes de um jornalista descobrir a farsa.",
     "year": 1937,
     "genres": [
       "Comédia",
@@ -1060,7 +1060,7 @@ module.exports = [
   {
     "title": "Our Town",
     "slug": "our-town-1940",
-    "synopsis": "Our Town is a 1940 American drama romance film adaptation of the 1938 play of the same name by Thornton Wilder, starring Martha Scott as Emily Webb, and William Holden as George Gibbs. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Our Town é um drama romântico americano de 1940, adaptação da peça de Thornton Wilder, que retrata a vida simples e as pequenas tragédias cotidianas de uma cidadezinha americana no início do século 20.",
     "year": 1940,
     "genres": [
       "Drama",
@@ -1077,7 +1077,7 @@ module.exports = [
   {
     "title": "The Painted Hills",
     "slug": "the-painted-hills-1951",
-    "synopsis": "The Painted Hills, also known as Lassie's Adventures in the Goldrush, is a 1951 Western drama film produced by Metro-Goldwyn-Mayer and directed by Harold F. Kress. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Painted Hills, também conhecido como Lassie's Adventures in the Goldrush, é um drama de faroeste americano de 1951 sobre a lealdade de uma collie que protege o segredo de uma mina de ouro após a morte de seu dono.",
     "year": 1951,
     "genres": [
       "Drama",
@@ -1095,7 +1095,7 @@ module.exports = [
   {
     "title": "Popeye the Sailor Meets Ali Baba's Forty Thieves",
     "slug": "popeye-the-sailor-meets-ali-baba-s-forty-thieves-1937",
-    "synopsis": "Popeye the Sailor Meets Ali Baba's Forty Thieves is a two-reel animated cartoon short subject in the Popeye Color Specials series, produced in Technicolor and released to theatres on November 26, 1937 by Paramount Pictures. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Popeye the Sailor Meets Ali Baba's Forty Thieves é um curta-metragem animado de dois rolos da série Popeye Color Specials, produzido em Technicolor e lançado nos cinemas em 1937 pela Paramount Pictures, em que Popeye enfrenta os quarenta ladrões de Ali Baba para salvar Olívia Palito.",
     "year": 1937,
     "genres": [
       "Animação",
@@ -1113,7 +1113,7 @@ module.exports = [
   {
     "title": "Popeye the Sailor Meets Sindbad the Sailor",
     "slug": "popeye-the-sailor-meets-sindbad-the-sailor-1936",
-    "synopsis": "Popeye the Sailor is an American animated series of short films based on the Popeye comic strip character created by E. C. Segar. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Popeye the Sailor Meets Sindbad the Sailor é um curta-metragem animado de dois rolos da série Popeye Color Specials, lançado em 1936, em que Popeye enfrenta o lendário marinheiro Simbad numa ilha cheia de criaturas fantásticas.",
     "year": 1936,
     "genres": [
       "Animação",
@@ -1131,7 +1131,7 @@ module.exports = [
   {
     "title": "Pot o' Gold",
     "slug": "pot-o-gold-1941",
-    "synopsis": "Pot o' Gold is a 1941 American romantic musical comedy film starring James Stewart and Paulette Goddard, directed by George Marshall, and based on the NBC radio series Pot o' Gold. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Pot o' Gold é uma comédia musical romântica americana de 1941 estrelada por James Stewart e Paulette Goddard, baseada num programa de rádio de mesmo nome, sobre a disputa entre duas famílias donas de fábricas de harmônicas rivais.",
     "year": 1941,
     "genres": [
       "Comédia",
@@ -1148,7 +1148,7 @@ module.exports = [
   {
     "title": "Quicksand",
     "slug": "quicksand-1950",
-    "synopsis": "Quicksand is a 1950 American film noir that stars Mickey Rooney and Peter Lorre and portrays a garage mechanic's descent into crime. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Quicksand é um filme noir americano de 1950 estrelado por Mickey Rooney e Peter Lorre, sobre um mecânico que rouba uma pequena quantia para impressionar uma mulher e acaba mergulhando numa espiral cada vez maior de crimes.",
     "year": 1950,
     "genres": [
       "Suspense",
@@ -1166,7 +1166,7 @@ module.exports = [
   {
     "title": "Rage at Dawn",
     "slug": "rage-at-dawn-1955",
-    "synopsis": "Rage at Dawn is a 1955 American Technicolor Western film directed by Tim Whelan, and starring Randolph Scott, Forrest Tucker, Mala Powers, and J. Carrol Naish. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Rage at Dawn é um faroeste americano de 1955 em Technicolor, estrelado por Randolph Scott como um agente disfarçado infiltrado numa gangue de assaltantes de trem no Meio-Oeste americano do século 19.",
     "year": 1955,
     "genres": [
       "Faroeste",
@@ -1183,7 +1183,7 @@ module.exports = [
   {
     "title": "Rain",
     "slug": "rain-1932",
-    "synopsis": "Rain is a 1932 pre-Code drama film that stars Joan Crawford as prostitute Sadie Thompson. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Rain é um drama pré-Código americano de 1932 estrelado por Joan Crawford como Sadie Thompson, uma prostituta que se refugia numa ilha do Pacífico e se torna alvo da obsessão moralista de um missionário religioso.",
     "year": 1932,
     "genres": [
       "Drama",
@@ -1200,7 +1200,7 @@ module.exports = [
   {
     "title": "Randy Rides Alone",
     "slug": "randy-rides-alone-1934",
-    "synopsis": "Randy Rides Alone is a 1934 American Pre-Code Western film starring John Wayne, Yakima Canutt, and George Hayes. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Randy Rides Alone é um faroeste pré-Código americano de 1934 estrelado por John Wayne como um cowboy acusado injustamente de um crime que sai em busca do verdadeiro culpado.",
     "year": 1934,
     "genres": [
       "Faroeste",
@@ -1217,7 +1217,7 @@ module.exports = [
   {
     "title": "The Red House",
     "slug": "the-red-house-1947",
-    "synopsis": "The Red House is a 1947 American psychological horror film directed by Delmer Daves and starring Edward G. Robinson, Lon McCallister, Judith Anderson, Rory Calhoun, Allene Roberts, and Julie London. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Red House é um suspense psicológico americano de 1947 estrelado por Edward G. Robinson, sobre um fazendeiro que proíbe qualquer um de se aproximar de uma floresta próxima, escondendo um segredo sombrio ligado a uma casa abandonada.",
     "year": 1947,
     "genres": [
       "Suspense",
@@ -1235,7 +1235,7 @@ module.exports = [
   {
     "title": "Reefer Madness",
     "slug": "reefer-madness-1936",
-    "synopsis": "Reefer Madness is an American public service announcement and exploitation film about drug use and abuse. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Reefer Madness é um filme americano de exploração de 1936, originalmente produzido como material educativo antidrogas, que retrata de forma exagerada e melodramática os supostos efeitos devastadores da maconha sobre um grupo de jovens.",
     "year": 1936,
     "genres": [
       "Drama",
@@ -1252,7 +1252,7 @@ module.exports = [
   {
     "title": "Road to Bali",
     "slug": "road-to-bali-1952",
-    "synopsis": "Road to Bali is a 1952 American comedy film directed by Hal Walker and starring Bing Crosby, Bob Hope, and Dorothy Lamour. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Road to Bali é uma comédia americana de 1952 estrelada pela dupla Bing Crosby e Bob Hope, parte da série 'Road to...', sobre dois artistas de vaudeville que fogem para os Mares do Sul e se envolvem numa caça ao tesouro.",
     "year": 1952,
     "genres": [
       "Comédia",
@@ -1270,7 +1270,7 @@ module.exports = [
   {
     "title": "Rock, Rock, Rock!",
     "slug": "rock-rock-rock-1956",
-    "synopsis": "Rock & Rule is a 1983 Canadian adult animated musical science fantasy film featuring the voices of Don Francks, Greg Salata, and Susan Roman. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Rock, Rock, Rock! é uma comédia musical americana de 1956 estrelada pela então adolescente Tuesday Weld, sobre uma garota que tenta arranjar dinheiro para comprar um vestido novo a tempo do baile de formatura — recheada de apresentações musicais de astros do rock and roll da época, com participação do DJ Alan Freed.",
     "year": 1956,
     "genres": [
       "Comédia",
@@ -1287,7 +1287,7 @@ module.exports = [
   {
     "title": "Royal Wedding",
     "slug": "royal-wedding-1951",
-    "synopsis": "Royal Wedding is a 1951 American musical comedy film directed by Stanley Donen and starring Fred Astaire and Jane Powell, with music by Burton Lane and lyrics by Alan Jay Lerner. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Royal Wedding é uma comédia musical americana de 1951 estrelada por Fred Astaire e Jane Powell, sobre uma dupla de irmãos artistas que viaja a Londres para se apresentar durante as celebrações de um casamento real.",
     "year": 1951,
     "genres": [
       "Comédia",
@@ -1305,7 +1305,7 @@ module.exports = [
   {
     "title": "Sagebrush Trail",
     "slug": "sagebrush-trail-1933",
-    "synopsis": "Sagebrush Trail is a 1933 American Pre-Code Western film with locations filmed at Bronson Canyon starring John Wayne and featuring Lane Chandler and Yakima Canutt. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Sagebrush Trail é um faroeste pré-Código americano de 1933 estrelado por John Wayne como um fugitivo que se junta a uma quadrilha para provar sua inocência num crime que não cometeu.",
     "year": 1933,
     "genres": [
       "Faroeste",
@@ -1322,7 +1322,7 @@ module.exports = [
   {
     "title": "Salt of the Earth",
     "slug": "salt-of-the-earth-1954",
-    "synopsis": "Salt of the Earth is a 1954 American independent drama film written by Michael Wilson, directed by Herbert J. Biberman, and produced by Paul Jarrico. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Salt of the Earth é um drama independente americano de 1954, realizado por cineastas banidos de Hollywood durante o macarthismo, sobre uma greve de mineiros mexicano-americanos e o papel central das mulheres na luta por melhores condições de trabalho.",
     "year": 1954,
     "genres": [
       "Drama",
@@ -1339,7 +1339,7 @@ module.exports = [
   {
     "title": "Santa Claus Conquers the Martians",
     "slug": "santa-claus-conquers-the-martians-1964",
-    "synopsis": "Santa Claus Conquers the Martians is a 1964 American Christmas science fiction comedy film directed by Nicholas Webster. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Santa Claus Conquers the Martians é uma comédia de ficção científica natalina americana de 1964, hoje um cult, sobre marcianos que sequestram o Papai Noel para trazer alegria às crianças de seu planeta.",
     "year": 1964,
     "genres": [
       "Ficção Científica",
@@ -1357,7 +1357,7 @@ module.exports = [
   {
     "title": "Second Chorus",
     "slug": "second-chorus-1940",
-    "synopsis": "Second Chorus is a 1940 Hollywood musical comedy film starring Paulette Goddard and Fred Astaire and featuring Artie Shaw, Burgess Meredith and Charles Butterworth, with music by Artie Shaw, Bernie Hanighen and Hal Borne, and lyrics by Johnny Mercer. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Second Chorus é uma comédia musical americana de 1940 estrelada por Fred Astaire e Paulette Goddard, sobre dois trompetistas rivais de uma banda universitária que competem tanto pela liderança da orquestra quanto pelo coração da mesma mulher.",
     "year": 1940,
     "genres": [
       "Comédia",
@@ -1374,7 +1374,7 @@ module.exports = [
   {
     "title": "Sing a Song of Six Pants",
     "slug": "sing-a-song-of-six-pants-1947",
-    "synopsis": "Sing a Song of Six Pants is a 1947 short subject directed by Jules White starring American slapstick comedy team The Three Stooges. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Sing a Song of Six Pants é um curta de comédia americano de 1947 estrelado pelo trio The Three Stooges, que abrem uma alfaiataria e acabam se envolvendo com uma quadrilha de falsificadores.",
     "year": 1947,
     "genres": [
       "Comédia",
@@ -1391,7 +1391,7 @@ module.exports = [
   {
     "title": "Sinners in Paradise",
     "slug": "sinners-in-paradise-1938",
-    "synopsis": "Sinners in Paradise is a 1938 American South Seas adventure film directed by James Whale and starring Madge Evans, John Boles, Bruce Cabot, Marion Martin, and Gene Lockhart. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Sinners in Paradise é um drama de aventura americano de 1938 sobre um grupo de sobreviventes de um desastre aéreo numa ilha remota, cujos segredos do passado vêm à tona enquanto tentam sobreviver juntos.",
     "year": 1938,
     "genres": [
       "Drama",
@@ -1409,7 +1409,7 @@ module.exports = [
   {
     "title": "The Snows of Kilimanjaro",
     "slug": "the-snows-of-kilimanjaro-1952",
-    "synopsis": "The Snows of Kilimanjaro is a 1952 American romantic adventure film directed by Henry King from a screenplay by Casey Robinson, based on Ernest Hemingway's 1936 short story of the same name first published in Esquire magazine in 1936 and then republished in The Fifth Column and the First Forty-Nine Stories (1938). (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Snows of Kilimanjaro é um drama de aventura romântica americano de 1952, baseado num conto de Ernest Hemingway, sobre um escritor ferido e imobilizado numa caçada na África que relembra, em flashbacks, os amores e arrependimentos de sua vida.",
     "year": 1952,
     "genres": [
       "Drama",
@@ -1426,7 +1426,7 @@ module.exports = [
   {
     "title": "The Southerner",
     "slug": "the-southerner-1945",
-    "synopsis": "The Southerner is a 1945 American drama film directed by Jean Renoir and based on the 1941 novel Hold Autumn in Your Hand by George Sessions Perry. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Southerner é um drama americano de 1945 dirigido por Jean Renoir, sobre uma família de agricultores que enfrenta a pobreza, as intempéries e a hostilidade dos vizinhos para tirar o sustento de uma terra difícil no Texas.",
     "year": 1945,
     "genres": [
       "Drama",
@@ -1443,7 +1443,7 @@ module.exports = [
   {
     "title": "A Star Is Born",
     "slug": "a-star-is-born-1937",
-    "synopsis": "A Star Is Born is a 1937 American Technicolor drama film produced by David O. Selznick, directed by William A. Wellman from a script by Wellman, Robert Carson, Dorothy Parker, and Alan Campbell, and starring Janet Gaynor as an aspiring Hollywood actress, and Fredric March as a fading movie star who helps launch her career. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "A Star Is Born é um drama americano de 1937 em Technicolor, estrelado por Janet Gaynor como uma aspirante a atriz de Hollywood e Fredric March como o astro em decadência que a ajuda a alcançar a fama — enquanto a própria carreira dele desmorona.",
     "year": 1937,
     "genres": [
       "Drama",
@@ -1460,7 +1460,7 @@ module.exports = [
   {
     "title": "The Star Packer",
     "slug": "the-star-packer-1934",
-    "synopsis": "The Star Packer is a 1934 Western film directed by Robert N. Bradbury and starring John Wayne, George \"Gabby\" Hayes, Yakima Canutt, and Verna Hillie. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Star Packer é um faroeste americano de 1934 estrelado por John Wayne como um xerife disfarçado que investiga uma misteriosa quadrilha de bandidos mascarados aterrorizando uma cidade do oeste.",
     "year": 1934,
     "genres": [
       "Faroeste",
@@ -1477,7 +1477,7 @@ module.exports = [
   {
     "title": "The Strange Love of Martha Ivers",
     "slug": "the-strange-love-of-martha-ivers-1946",
-    "synopsis": "The Strange Love of Martha Ivers is a 1946 American noir tragedy film starring Barbara Stanwyck, Van Heflin, and Lizabeth Scott, with Kirk Douglas appearing in his film debut. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Strange Love of Martha Ivers é uma tragédia noir americana de 1946 estrelada por Barbara Stanwyck, sobre um segredo de infância que ainda assombra e manipula a vida de três amigos décadas depois.",
     "year": 1946,
     "genres": [
       "Suspense",
@@ -1495,7 +1495,7 @@ module.exports = [
   {
     "title": "Swing High, Swing Low",
     "slug": "swing-high-swing-low-1937",
-    "synopsis": "Swing High, Swing Low is a 1937 American romantic comedy drama film directed by Mitchell Leisen and starring Carole Lombard and Fred MacMurray. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Swing High, Swing Low é uma comédia dramática romântica americana de 1937 estrelada por Carole Lombard e Fred MacMurray, sobre o romance e a ascensão e queda de um trompetista talentoso mas autodestrutivo.",
     "year": 1937,
     "genres": [
       "Drama",
@@ -1513,7 +1513,7 @@ module.exports = [
   {
     "title": "The Terror of Tiny Town",
     "slug": "the-terror-of-tiny-town-1938",
-    "synopsis": "The Terror of Tiny Town is a 1938 American musical Western film produced by Jed Buell, directed by Sam Newfield and starring Billy Curtis. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Terror of Tiny Town é um faroeste musical americano de 1938 com elenco formado inteiramente por atores de baixa estatura, uma curiosidade histórica do cinema B da época.",
     "year": 1938,
     "genres": [
       "Faroeste",
@@ -1530,7 +1530,7 @@ module.exports = [
   {
     "title": "Three Guys Named Mike",
     "slug": "three-guys-named-mike-1951",
-    "synopsis": "Three Guys Named Mike is a 1951 MGM American romantic comedy film directed by Charles Walters and starring Jane Wyman, Van Johnson, Howard Keel and Barry Sullivan. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Three Guys Named Mike é uma comédia romântica americana de 1951 estrelada por Jane Wyman como uma aeromoça cortejada ao mesmo tempo por três homens diferentes, todos chamados Mike.",
     "year": 1951,
     "genres": [
       "Comédia",
@@ -1548,7 +1548,7 @@ module.exports = [
   {
     "title": "Till the Clouds Roll By",
     "slug": "till-the-clouds-roll-by-1946",
-    "synopsis": "Till the Clouds Roll By is a 1946 American Technicolor musical film produced by Metro-Goldwyn-Mayer and a fictionalized biopic of composer Jerome Kern, portrayed by Robert Walker. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Till the Clouds Roll By é um musical biográfico americano de 1946 em Technicolor sobre a vida do compositor Jerome Kern, intercalando cenas de sua trajetória com números musicais de seus maiores sucessos.",
     "year": 1946,
     "genres": [
       "Drama",
@@ -1565,7 +1565,7 @@ module.exports = [
   {
     "title": "Topper Returns",
     "slug": "topper-returns-1941",
-    "synopsis": "Topper Returns is a 1941 American supernatural comedy thriller film directed by Roy Del Ruth and starring Joan Blondell, Roland Young, Carole Landis and Billie Burke. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Topper Returns é uma comédia de suspense sobrenatural americana de 1941, sobre o fantasma de uma jovem assassinada que recruta um homem gentil e desastrado para ajudá-la a descobrir quem a matou.",
     "year": 1941,
     "genres": [
       "Comédia",
@@ -1582,7 +1582,7 @@ module.exports = [
   {
     "title": "Vengeance Valley",
     "slug": "vengeance-valley-1951",
-    "synopsis": "Vengeance Valley is a 1951 American Technicolor Western film directed by Richard Thorpe and starring Burt Lancaster, Robert Walker, Joanne Dru, Sally Forrest, John Ireland and Ray Collins. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Vengeance Valley é um faroeste americano de 1951 em Technicolor, estrelado por Burt Lancaster como um filho adotivo leal que protege o irmão problemático mesmo quando ele o trai.",
     "year": 1951,
     "genres": [
       "Faroeste",
@@ -1599,7 +1599,7 @@ module.exports = [
   {
     "title": "The Wasp Woman",
     "slug": "the-wasp-woman-1959",
-    "synopsis": "The Wasp Woman is a 1959 American independent science-fiction horror film produced and directed by Roger Corman. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "The Wasp Woman é um filme de terror e ficção científica independente americano de 1959 produzido e dirigido por Roger Corman, sobre uma empresária de cosméticos que testa em si mesma um composto experimental à base de vespas — e começa a se transformar num monstro assassino.",
     "year": 1959,
     "genres": [
       "Terror",
@@ -1617,7 +1617,7 @@ module.exports = [
   {
     "title": "West of the Divide",
     "slug": "west-of-the-divide-1934",
-    "synopsis": "West of the Divide is a 1934 American Western film directed by Robert N. Bradbury for Monogram, and starring John Wayne, Yakima Canutt and Gabby Hayes. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "West of the Divide é um faroeste americano de 1934 estrelado por John Wayne como um cowboy que se infiltra numa quadrilha para investigar o desaparecimento do irmão e a morte do pai anos antes.",
     "year": 1934,
     "genres": [
       "Faroeste",
@@ -1634,7 +1634,7 @@ module.exports = [
   {
     "title": "Wives Under Suspicion",
     "slug": "wives-under-suspicion-1938",
-    "synopsis": "Wives Under Suspicion is a 1938 Universal Pictures American crime film based on a 1932 Ladislas Fodor play that was previously adapted into the 1933 film The Kiss Before the Mirror. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Wives Under Suspicion é um drama policial americano de 1938 sobre um promotor obcecado em condenar réus de crimes passionais que passa a temer estar repetindo, em sua própria vida, os mesmos impulsos ciumentos que julga.",
     "year": 1938,
     "genres": [
       "Drama",

@@ -1,14 +1,15 @@
 // Filmes adicionados em lote a partir de uma lista publica de dominio publico.
 // source.id foi resolvido automaticamente via busca na API do archive.org
 // (nome do filme + ano, com checagem de similaridade de titulo). A sinopse
-// e a primeira frase do resumo da Wikipedia (CC BY-SA), quando disponivel.
+// foi escrita em português a partir dos fatos do filme (direção, elenco,
+// enredo), sem reproduzir o texto original da Wikipedia.
 // Alguns identifiers podem estar errados -- confira e corrija pelo /admin
 // se notar algum player quebrado ou fora do filme.
 module.exports = [
   {
     title: "The Little Princess",
     slug: "the-little-princess-1939",
-    synopsis: "The Little Princess is a 1939 American drama film directed by Walter Lang. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Little Princess é um filme de drama americano de 1939, dirigido por Walter Lang e estrelado por Shirley Temple.",
     year: 1939,
     genres: [
       "Drama",
@@ -25,7 +26,7 @@ module.exports = [
   {
     title: "Of Human Bondage",
     slug: "of-human-bondage-1934",
-    synopsis: "Of Human Bondage is a 1934 American drama film directed by John Cromwell and regarded by critics as the film that made Bette Davis a star. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Of Human Bondage é um filme de drama americano de 1934, dirigido por John Cromwell, considerado o papel que consagrou Bette Davis como estrela.",
     year: 1934,
     genres: [
       "Drama",
@@ -42,7 +43,7 @@ module.exports = [
   {
     title: "Penny Serenade",
     slug: "penny-serenade-1941",
-    synopsis: "Penny Serenade is a 1941 American melodrama film directed by George Stevens starring Irene Dunne and Cary Grant as a loving couple who must overcome adversity to keep their marriage and raise a child. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Penny Serenade é um melodrama americano de 1941, dirigido por George Stevens, estrelado por Irene Dunne e Cary Grant como um casal que enfrenta adversidades para manter o casamento e criar um filho.",
     year: 1941,
     genres: [
       "Drama",
@@ -59,7 +60,7 @@ module.exports = [
   {
     title: "The General",
     slug: "the-general-1926",
-    synopsis: "The General is a 1926 American silent comedy film released by United Artists. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The General é uma comédia muda americana de 1926 estrelada e codirigida por Buster Keaton, sobre um maquinista que persegue o próprio trem roubado durante a Guerra Civil americana.",
     year: 1926,
     genres: [
       "Drama",
@@ -76,7 +77,7 @@ module.exports = [
   {
     title: "The Phantom of the Opera",
     slug: "the-phantom-of-the-opera-1925",
-    synopsis: "The Phantom of the Opera is a 1925 American silent horror film adaptation of Gaston Leroux's 1910 novel of the same name directed by Rupert Julian and starring Lon Chaney in the title role of the deformed Phantom who ... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Phantom of the Opera é um filme de terror mudo americano de 1925, adaptação do romance de Gaston Leroux, dirigido por Rupert Julian e estrelado por Lon Chaney no papel do Fantasma desfigurado que assombra a Ópera de Paris.",
     year: 1925,
     genres: [
       "Drama",
@@ -93,7 +94,7 @@ module.exports = [
   {
     title: "The Gold Rush",
     slug: "the-gold-rush-1925",
-    synopsis: "The Gold Rush is a 1925 American silent comedy film written, produced, and directed by Charlie Chaplin. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Gold Rush é uma comédia muda americana de 1925 escrita, produzida e dirigida por Charlie Chaplin, que interpreta um garimpeiro solitário em busca de fortuna durante a corrida do ouro no Alasca.",
     year: 1925,
     genres: [
       "Drama",
@@ -110,7 +111,7 @@ module.exports = [
   {
     title: "Intolerance",
     slug: "intolerance-1916",
-    synopsis: "Intolerance is a 1916 American anthology silent film directed by D. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Intolerance é um filme mudo americano de 1916 dirigido por D. W. Griffith, que entrelaça quatro histórias de épocas diferentes para retratar os efeitos da intolerância humana.",
     year: 1916,
     genres: [
       "Drama",
@@ -127,7 +128,7 @@ module.exports = [
   {
     title: "Broken Blossoms",
     slug: "broken-blossoms-1919",
-    synopsis: "Broken Blossoms or The Yellow Man and the Girl, often referred to simply as Broken Blossoms, is a 1919 American silent melodrama film directed by D. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Broken Blossoms é um melodrama mudo americano de 1919 dirigido por D. W. Griffith, sobre a amizade entre um imigrante chinês e uma jovem maltratada pelo pai em Londres.",
     year: 1919,
     genres: [
       "Drama",
@@ -144,7 +145,7 @@ module.exports = [
   {
     title: "The Birth of a Nation",
     slug: "the-birth-of-a-nation-1915",
-    synopsis: "The Birth of a Nation is a 1915 American silent epic drama film directed by D. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Birth of a Nation é um drama épico mudo americano de 1915 dirigido por D. W. Griffith, ambientado na Guerra Civil e na Reconstrução — um marco técnico da linguagem cinematográfica, mas também amplamente criticado por seu retrato racista da história americana.",
     year: 1915,
     genres: [
       "Drama",
@@ -161,7 +162,7 @@ module.exports = [
   {
     title: "Steamboat Bill Jr.",
     slug: "steamboat-bill-jr-1928",
-    synopsis: "Steamboat Bill, Jr. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Steamboat Bill Jr. é uma comédia muda americana de 1928 estrelada por Buster Keaton, sobre um jovem desajeitado que tenta impressionar o pai, capitão de um barco a vapor — famosa pela cena em que a fachada de uma casa desaba sobre Keaton, que escapa ileso pelo vão de uma janela.",
     year: 1928,
     genres: [
       "Comédia",
@@ -178,7 +179,7 @@ module.exports = [
   {
     title: "Sherlock Jr.",
     slug: "sherlock-jr-1924",
-    synopsis: "Sherlock Jr. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Sherlock Jr. é uma comédia muda americana de 1924 estrelada e dirigida por Buster Keaton, sobre um projecionista de cinema que sonha entrar na tela e viver as aventuras de um detetive.",
     year: 1924,
     genres: [
       "Comédia",
@@ -195,7 +196,7 @@ module.exports = [
   {
     title: "The Kid",
     slug: "the-kid-1921",
-    synopsis: "The Kid is a 1921 American silent comedy-drama film written, produced, directed by and starring Charlie Chaplin, and features Jackie Coogan as his foundling baby, adopted son and sidekick. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Kid é uma comédia dramática muda americana de 1921 escrita, produzida, dirigida e estrelada por Charlie Chaplin, sobre um vagabundo que cria um menino abandonado, interpretado por Jackie Coogan.",
     year: 1921,
     genres: [
       "Comédia",
@@ -212,7 +213,7 @@ module.exports = [
   {
     title: "One Week",
     slug: "one-week-1920",
-    synopsis: "One Week is a 1920 American two-reel silent comedy film starring Buster Keaton, the first independent film production he released on his own. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "One Week é uma comédia muda americana de 1920, o primeiro curta-metragem produzido de forma independente por Buster Keaton, sobre um casal recém-casado que tenta montar uma casa pré-fabricada cujas peças vêm fora de ordem.",
     year: 1920,
     genres: [
       "Comédia",
@@ -229,7 +230,7 @@ module.exports = [
   {
     title: "The Navigator",
     slug: "the-navigator-1924",
-    synopsis: "The Navigator is a 1924 American comedy film directed by and starring Buster Keaton. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Navigator é uma comédia muda americana de 1924 estrelada e dirigida por Buster Keaton, sobre um casal de ricos mimados que se vê sozinho a bordo de um transatlântico à deriva.",
     year: 1924,
     genres: [
       "Comédia",
@@ -246,7 +247,7 @@ module.exports = [
   {
     title: "Seven Chances",
     slug: "seven-chances-1925",
-    synopsis: "Seven Chances is a 1925 American silent comedy film directed by and starring Buster Keaton, based on the play of the same name by Roi Cooper Megrue, produced in 1916 by David Belasco. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Seven Chances é uma comédia muda americana de 1925 estrelada e dirigida por Buster Keaton, baseada na peça homônima, sobre um homem que precisa se casar até as sete da noite para receber uma herança milionária.",
     year: 1925,
     genres: [
       "Comédia",
@@ -262,7 +263,7 @@ module.exports = [
   {
     title: "The Cameraman",
     slug: "the-cameraman-1928",
-    synopsis: "The Cameraman is a 1928 American silent romantic comedy film directed by Edward Sedgwick and an uncredited Buster Keaton. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Cameraman é uma comédia romântica muda americana de 1928 estrelada por Buster Keaton, sobre um fotógrafo de rua que tenta virar cinegrafista de jornal para conquistar uma mulher.",
     year: 1928,
     genres: [
       "Comédia",
@@ -279,7 +280,7 @@ module.exports = [
   {
     title: "Cops",
     slug: "cops-1922",
-    synopsis: "Cops is a 1922 American two-reel silent comedy film about a young man who accidentally runs afoul of the entire Los Angeles Police Department during a parade and is chased all over town. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Cops é uma comédia muda americana de 1922 estrelada por Buster Keaton, sobre um rapaz perseguido por todo o departamento de polícia de Los Angeles após um mal-entendido durante um desfile.",
     year: 1922,
     genres: [
       "Comédia",
@@ -296,7 +297,7 @@ module.exports = [
   {
     title: "Our Hospitality",
     slug: "our-hospitality-1923",
-    synopsis: "Our Hospitality is a 1923 American silent period comedy film directed by Buster Keaton and John G. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Our Hospitality é uma comédia de época muda americana de 1923 dirigida e estrelada por Buster Keaton, sobre um homem que se apaixona pela filha de uma família rival envolvida numa disputa de gerações.",
     year: 1923,
     genres: [
       "Comédia",
@@ -313,7 +314,7 @@ module.exports = [
   {
     title: "Carnival of Souls",
     slug: "carnival-of-souls-1962",
-    synopsis: "Carnival of Souls is a 1962 American neo-noir psychological horror film produced and directed by Herk Harvey and written by John Clifford from a story by Clifford and Harvey, and starring Candace Hilligoss. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Carnival of Souls é um filme de terror psicológico americano de 1962 dirigido por Herk Harvey e estrelado por Candace Hilligoss, sobre uma mulher assombrada por uma figura fantasmagórica após sobreviver a um acidente de carro.",
     year: 1962,
     genres: [
       "Terror",
@@ -330,7 +331,7 @@ module.exports = [
   {
     title: "White Zombie",
     slug: "white-zombie-1932",
-    synopsis: "White Zombie is a 1932 pre-Code horror movie produced independently by Edward Halperin and directed by Victor Halperin. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "White Zombie é um filme de terror americano de 1932 estrelado por Bela Lugosi, considerado o primeiro longa-metragem sobre zumbis da história do cinema.",
     year: 1932,
     genres: [
       "Terror",
@@ -363,7 +364,7 @@ module.exports = [
   {
     title: "House on Haunted Hill",
     slug: "house-on-haunted-hill-1959",
-    synopsis: "House on Haunted Hill is a 1958 American horror film produced and directed by William Castle, written by Robb White and starring Vincent Price, Carol Ohmart, Richard Long, Alan Marshal, Carolyn Craig, Julie Mitchum, a... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "House on Haunted Hill é um filme de terror americano de 1959 estrelado por Vincent Price, sobre um grupo de convidados trancados numa mansão mal-assombrada em troca de uma recompensa em dinheiro.",
     year: 1959,
     genres: [
       "Terror",
@@ -380,7 +381,7 @@ module.exports = [
   {
     title: "The Bat",
     slug: "the-bat-1959",
-    synopsis: "The Bat is a 1959 American crime-mystery thriller starring Vincent Price and Agnes Moorehead. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Bat é um suspense policial americano de 1959 estrelado por Vincent Price e Agnes Moorehead, sobre uma escritora que se hospeda numa mansão isolada aterrorizada por um assassino mascarado.",
     year: 1959,
     genres: [
       "Terror",
@@ -397,7 +398,7 @@ module.exports = [
   {
     title: "The Devil Bat",
     slug: "the-devil-bat-1940",
-    synopsis: "The Devil Bat is a 1940 black-and-white American horror film produced by Producers Releasing Corporation (PRC) and directed by Jean Yarborough. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Devil Bat é um filme de terror americano de 1940 estrelado por Bela Lugosi, sobre um cientista que usa um morcego gigante geneticamente modificado para se vingar dos antigos sócios.",
     year: 1940,
     genres: [
       "Terror",
@@ -414,7 +415,7 @@ module.exports = [
   {
     title: "The Terror",
     slug: "the-terror-1963",
-    synopsis: "The Terror is a 1963 American horror film produced and directed by Roger Corman. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Terror é um filme de terror americano de 1963 produzido e dirigido por Roger Corman, estrelado por Boris Karloff e, em um de seus primeiros papéis, Jack Nicholson.",
     year: 1963,
     genres: [
       "Terror",
@@ -431,7 +432,7 @@ module.exports = [
   {
     title: "Dementia 13",
     slug: "dementia-13-1963",
-    synopsis: "Dementia 13 is a 1963 horror thriller film written and directed by Francis Ford Coppola in his feature film directorial debut, and starring William Campbell, Luana Anders, Bart Patton, Mary Mitchel, Eithne Dunne, and ... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Dementia 13 é um suspense de terror americano de 1963, estreia de Francis Ford Coppola na direção de longas-metragens, sobre uma família assombrada por uma série de assassinatos brutais.",
     year: 1963,
     genres: [
       "Terror",
@@ -448,7 +449,7 @@ module.exports = [
   {
     title: "The Last Man on Earth",
     slug: "the-last-man-on-earth-1964",
-    synopsis: "The Last Man on Earth is a 1964 post-apocalyptic science fiction horror film based on the 1954 novel I Am Legend by Richard Matheson. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Last Man on Earth é um filme de terror e ficção científica pós-apocalíptico americano de 1964, estrelado por Vincent Price e baseado no romance Eu Sou a Lenda, de Richard Matheson, sobre o último sobrevivente de uma praga que transforma a humanidade em criaturas vampirescas.",
     year: 1964,
     genres: [
       "Terror",
@@ -465,7 +466,7 @@ module.exports = [
   {
     title: "The Outlaw",
     slug: "the-outlaw-1943",
-    synopsis: "The Outlaw is a 1943 American Western film directed by Howard Hughes and starring Jack Buetel, Jane Russell, Thomas Mitchell and Walter Huston. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Outlaw é um faroeste americano de 1943 dirigido por Howard Hughes, estrelado por Jack Buetel e Jane Russell, sobre o pistoleiro Billy the Kid.",
     year: 1943,
     genres: [
       "Faroeste"
@@ -481,7 +482,7 @@ module.exports = [
   {
     title: "The Iron Horse",
     slug: "the-iron-horse-1924",
-    synopsis: "The Iron Horse is a 1924 American silent epic Western film directed by John Ford and produced by Fox Film. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Iron Horse é um faroeste épico mudo americano de 1924 dirigido por John Ford, sobre a construção da ferrovia transcontinental americana.",
     year: 1924,
     genres: [
       "Faroeste"
@@ -497,7 +498,7 @@ module.exports = [
   {
     title: "Santa Fe Trail",
     slug: "santa-fe-trail-1940",
-    synopsis: "Santa Fe Trail is a 1940 American historical drama film directed by Michael Curtiz and starring Errol Flynn, Olivia de Havilland, Raymond Massey, Ronald Reagan and Alan Hale. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Santa Fe Trail é um drama histórico americano de 1940 estrelado por Errol Flynn, Olivia de Havilland e Ronald Reagan, ambientado nos anos que antecederam a Guerra Civil americana.",
     year: 1940,
     genres: [
       "Faroeste"
@@ -513,7 +514,7 @@ module.exports = [
   {
     title: "The Big Trail",
     slug: "the-big-trail-1930",
-    synopsis: "The Big Trail is a 1930 American epic pre-Code Western early widescreen film shot on location across the American West starring 23-year-old John Wayne in his first leading role and directed by Raoul Walsh. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Big Trail é um faroeste épico americano de 1930 dirigido por Raoul Walsh, filmado em locações pelo oeste americano e primeiro papel principal de John Wayne, então com 23 anos.",
     year: 1930,
     genres: [
       "Faroeste"
@@ -544,7 +545,7 @@ module.exports = [
   {
     title: "Metropolis",
     slug: "metropolis-1927",
-    synopsis: "Metropolis is a 1927 German expressionist science-fiction silent film directed by Fritz Lang and written by Thea von Harbou in collaboration with Lang, based on von Harbou's 1925 novel of the same name. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Metropolis é um filme de ficção científica mudo alemão de 1927 dirigido por Fritz Lang, ambientado numa cidade futurista dividida entre a elite que vive no luxo e os trabalhadores que sustentam a máquina da cidade nos subterrâneos.",
     year: 1927,
     genres: [
       "Ficção Científica"
@@ -560,7 +561,7 @@ module.exports = [
   {
     title: "Things to Come",
     slug: "things-to-come-1936",
-    synopsis: "Things to Come is a 1936 British science fiction film produced by Alexander Korda, directed by William Cameron Menzies, and written by H. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Things to Come é um filme de ficção científica britânico de 1936, baseado numa obra de H. G. Wells, que imagina o futuro da humanidade através de guerra, peste e reconstrução até um mundo utópico e tecnológico.",
     year: 1936,
     genres: [
       "Ficção Científica"
@@ -576,7 +577,7 @@ module.exports = [
   {
     title: "Plan 9 from Outer Space",
     slug: "plan-9-from-outer-space-1959",
-    synopsis: "Plan 9 from Outer Space is a 1957 American independent science fiction-horror film produced, written, directed, and edited by Ed Wood. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Plan 9 from Outer Space é um filme de ficção científica e terror americano de 1959 escrito e dirigido por Ed Wood, frequentemente citado como um dos piores filmes já feitos, sobre alienígenas que reanimam mortos na Terra.",
     year: 1959,
     genres: [
       "Ficção Científica"
@@ -592,7 +593,7 @@ module.exports = [
   {
     title: "Destination Moon",
     slug: "destination-moon-1950",
-    synopsis: "Destination Moon is a 1950 American Technicolor science fiction film, independently produced by George Pal and directed by Irving Pichel, that stars John Archer, Warner Anderson, Tom Powers, Dick Wesson and Grace Staf... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Destination Moon é um filme de ficção científica americano de 1950 produzido por George Pal, sobre a primeira viagem tripulada à Lua.",
     year: 1950,
     genres: [
       "Ficção Científica"
@@ -608,7 +609,7 @@ module.exports = [
   {
     title: "Rocketship X-M",
     slug: "rocketship-x-m-1950",
-    synopsis: "Rocketship X-M is a 1950 American black-and-white science-fiction film from Lippert Pictures, the first outer-space adventure of the post-World War II era. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Rocketship X-M é um filme de ficção científica americano de 1950, uma das primeiras aventuras espaciais do pós-guerra, sobre uma tripulação que parte rumo à Lua e acaba desviada para Marte.",
     year: 1950,
     genres: [
       "Ficção Científica"
@@ -624,7 +625,7 @@ module.exports = [
   {
     title: "Häxan",
     slug: "haxan-1922",
-    synopsis: "Häxan is a 1922 Swedish-Danish silent horror essay film written and directed by Benjamin Christensen. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Häxan é um filme de terror sueco-dinamarquês de 1922 dirigido por Benjamin Christensen, um ensaio quase documental sobre a história da bruxaria e da perseguição às bruxas na Europa.",
     year: 1922,
     genres: [
       "Mudo",
@@ -641,7 +642,7 @@ module.exports = [
   {
     title: "Battleship Potemkin",
     slug: "battleship-potemkin-1925",
-    synopsis: " Battleship Potemkin is a 1925 Soviet silent epic film produced by Mosfilm. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Battleship Potemkin é um filme mudo soviético de 1925 produzido pela Mosfilm, que recria o motim dos marinheiros do encouraçado Potemkin durante a Revolução Russa de 1905 e é considerado um marco da linguagem de montagem no cinema.",
     year: 1925,
     genres: [
       "Mudo",
@@ -658,7 +659,7 @@ module.exports = [
   {
     title: "A Trip to the Moon",
     slug: "a-trip-to-the-moon-1902",
-    synopsis: "A Trip to the Moon is a 1902 French science-fiction adventure trick film written, directed and produced by Georges Méliès. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "A Trip to the Moon é um curta-metragem francês de ficção científica e aventura de 1902, escrito, dirigido e produzido por Georges Méliès, sobre um grupo de astrônomos que viaja à Lua a bordo de uma cápsula disparada por canhão.",
     year: 1902,
     genres: [
       "Mudo",
@@ -675,7 +676,7 @@ module.exports = [
   {
     title: "The Mark of Zorro",
     slug: "the-mark-of-zorro-1920",
-    synopsis: "The Mark of Zorro is a 1920 American silent Western romance film starring Douglas Fairbanks and Noah Beery. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Mark of Zorro é um faroeste romântico mudo americano de 1920 estrelado por Douglas Fairbanks, sobre um jovem aristocrata que assume a identidade secreta de Zorro para defender os oprimidos da Califórnia colonial.",
     year: 1920,
     genres: [
       "Aventura",
@@ -692,7 +693,7 @@ module.exports = [
   {
     title: "Dr. Mabuse the Gambler",
     slug: "dr-mabuse-the-gambler-1922",
-    synopsis: "Dr. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Dr. Mabuse the Gambler é um filme mudo alemão de 1922 dirigido por Fritz Lang, sobre um gênio do crime que manipula a bolsa de valores e a sociedade de Berlim através de disfarces e hipnose.",
     year: 1922,
     genres: [
       "Suspense",
@@ -709,7 +710,7 @@ module.exports = [
   {
     title: "The Golem",
     slug: "the-golem-1920",
-    synopsis: "The Golem: How He Came into the World is a 1920 German silent horror film and a leading example of early German Expressionism. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Golem: How He Came into the World é um filme de terror mudo alemão de 1920, um dos grandes exemplos do expressionismo alemão, sobre um rabino que cria uma criatura de barro para proteger a comunidade judaica de Praga.",
     year: 1920,
     genres: [
       "Terror",
@@ -726,7 +727,7 @@ module.exports = [
   {
     title: "Man with a Movie Camera",
     slug: "man-with-a-movie-camera-1929",
-    synopsis: "Man with a Movie Camera is a 1929 Soviet experimental silent documentary film, written and directed by Dziga Vertov. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Man with a Movie Camera é um documentário experimental mudo soviético de 1929 escrito e dirigido por Dziga Vertov, que retrata o cotidiano urbano soviético através de uma montagem inovadora de imagens.",
     year: 1929,
     genres: [
       "Documentário",
@@ -743,7 +744,7 @@ module.exports = [
   {
     title: "Nanook of the North",
     slug: "nanook-of-the-north-1922",
-    synopsis: "Nanook of the North is a 1922 American silent film that combines elements of documentary and docudrama/docufiction, at a time when the concept of separating films into documentary and drama did not yet exist. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Nanook of the North é um filme mudo americano de 1922 que mistura documentário e ficção — pioneiro do gênero, numa época em que essa distinção ainda não existia — retratando o cotidiano de uma família inuíte no Ártico canadense.",
     year: 1922,
     genres: [
       "Documentário",
@@ -760,7 +761,7 @@ module.exports = [
   {
     title: "Robin Hood",
     slug: "robin-hood-1922",
-    synopsis: "Robin Hood is a 1922 silent adventure film starring Douglas Fairbanks and Wallace Beery. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Robin Hood é um filme de aventura mudo de 1922 estrelado por Douglas Fairbanks e Wallace Beery, sobre o lendário fora-da-lei que rouba dos ricos para dar aos pobres na Inglaterra medieval.",
     year: 1922,
     genres: [
       "Aventura",
@@ -777,7 +778,7 @@ module.exports = [
   {
     title: "The Thief of Bagdad",
     slug: "the-thief-of-bagdad-1924",
-    synopsis: "The Thief of Bagdad is a 1924 American silent fantasy adventure film directed by Raoul Walsh and starring Douglas Fairbanks, and written by Achmed Abdullah and Lotta Woods. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Thief of Bagdad é um filme de fantasia e aventura mudo americano de 1924 estrelado por Douglas Fairbanks, sobre um ladrão que se apaixona por uma princesa e embarca numa jornada mágica pelo Oriente para conquistá-la.",
     year: 1924,
     genres: [
       "Aventura",
@@ -794,7 +795,7 @@ module.exports = [
   {
     title: "The Black Pirate",
     slug: "the-black-pirate-1926",
-    synopsis: "The Black Pirate is a 1926 American silent color adventure film directed by Albert Parker, starring Douglas Fairbanks, Billie Dove, Donald Crisp, Sam De Grasse, and Anders Randolf. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Black Pirate é um filme de aventura mudo americano de 1926, um dos primeiros longas-metragens filmados em cores, estrelado por Douglas Fairbanks como um homem que se infiltra num bando de piratas para vingar a morte do pai.",
     year: 1926,
     genres: [
       "Aventura",
@@ -811,7 +812,7 @@ module.exports = [
   {
     title: "Tarzan of the Apes",
     slug: "tarzan-of-the-apes-1918",
-    synopsis: "Tarzan of the Apes is a 1918 American action/adventure silent film directed by Scott Sidney starring Elmo Lincoln, Enid Markey, George B. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Tarzan of the Apes é um filme de aventura mudo americano de 1918 estrelado por Elmo Lincoln, a primeira adaptação para o cinema do personagem criado por Edgar Rice Burroughs.",
     year: 1918,
     genres: [
       "Aventura",
@@ -828,7 +829,7 @@ module.exports = [
   {
     title: "Beau Geste",
     slug: "beau-geste-1926",
-    synopsis: "Beau Geste is a 1926 American silent drama film directed by Herbert Brenon and based on the 1924 novel Beau Geste by P. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Beau Geste é um drama de aventura mudo americano de 1926, baseado no romance de P. C. Wren, sobre três irmãos que se alistam na Legião Estrangeira francesa após o desaparecimento de uma joia da família.",
     year: 1926,
     genres: [
       "Aventura"
@@ -844,7 +845,7 @@ module.exports = [
   {
     title: "The Most Dangerous Game",
     slug: "the-most-dangerous-game-1932",
-    synopsis: "The Most Dangerous Game is a 1932 American pre-Code horror film directed by Ernest B. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Most Dangerous Game é um filme de terror e aventura americano de 1932, sobre um caçador insano que abandona presas animais para caçar seres humanos em sua ilha particular.",
     year: 1932,
     genres: [
       "Suspense",
@@ -861,7 +862,7 @@ module.exports = [
   {
     title: "Captain Kidd",
     slug: "captain-kidd-1945",
-    synopsis: "Captain Kidd is a 1945 American adventure film starring Charles Laughton, Randolph Scott and Barbara Britton. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Captain Kidd é um filme de aventura americano de 1945 estrelado por Charles Laughton no papel do lendário pirata escocês Capitão Kidd.",
     year: 1945,
     genres: [
       "Aventura"
@@ -877,7 +878,7 @@ module.exports = [
   {
     title: "The Prisoner of Zenda",
     slug: "the-prisoner-of-zenda-1937",
-    synopsis: "The Prisoner of Zenda is a 1937 American black-and-white adventure film based on Anthony Hope's 1894 novel and the 1896 play. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Prisoner of Zenda é um filme de aventura americano de 1937, baseado no romance de Anthony Hope, sobre um inglês que precisa se passar por um rei sequestrado para evitar uma crise no trono de um reino fictício europeu.",
     year: 1937,
     genres: [
       "Aventura",
@@ -894,7 +895,7 @@ module.exports = [
   {
     title: "The Sea Hawk",
     slug: "the-sea-hawk-1924",
-    synopsis: "The Sea Hawk is a 1924 American silent adventure film about an English noble sold into slavery who escapes and turns himself into a pirate king. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Sea Hawk é um filme de aventura mudo americano de 1924 sobre um nobre inglês vendido como escravo que escapa e se transforma num rei pirata.",
     year: 1924,
     genres: [
       "Aventura",
@@ -911,7 +912,7 @@ module.exports = [
   {
     title: "The Lost World",
     slug: "the-lost-world-1925",
-    synopsis: "The Lost World is a 1925 American silent fantasy giant monster adventure film, directed by Harry O. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Lost World é um filme de aventura e fantasia mudo americano de 1925, baseado no romance de Arthur Conan Doyle, sobre uma expedição que descobre dinossauros vivos numa região isolada da América do Sul.",
     year: 1925,
     genres: [
       "Ficção Científica",
@@ -929,7 +930,7 @@ module.exports = [
   {
     title: "Detour",
     slug: "detour-1945",
-    synopsis: "Detour is a 1945 American independent film noir directed by Edgar G. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Detour é um filme noir independente americano de 1945 dirigido por Edgar G. Ulmer, sobre um pianista que pega carona rumo à Califórnia e se envolve numa série de eventos que o transformam em fugitivo.",
     year: 1945,
     genres: [
       "Suspense",
@@ -946,7 +947,7 @@ module.exports = [
   {
     title: "Too Late for Tears",
     slug: "too-late-for-tears-1949",
-    synopsis: "Too Late for Tears is a 1949 American film noir starring Lizabeth Scott, Don DeFore, and Dan Duryea. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Too Late for Tears é um filme noir americano de 1949 estrelado por Lizabeth Scott, sobre um casal que encontra uma maleta cheia de dinheiro e é consumido pela ganância e pela desconfiança.",
     year: 1949,
     genres: [
       "Suspense",
@@ -963,7 +964,7 @@ module.exports = [
   {
     title: "The Hitch-Hiker",
     slug: "the-hitch-hiker-1953",
-    synopsis: "The Hitch-Hiker is a 1953 American thriller film noir directed by Ida Lupino, who co-wrote it with her former husband Collier Young, and starring Edmond O'Brien, William Talman and Frank Lovejoy. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Hitch-Hiker é um filme noir americano de 1953 dirigido por Ida Lupino, sobre dois amigos que dão carona a um assassino em série durante uma viagem de pesca.",
     year: 1953,
     genres: [
       "Suspense"
@@ -979,7 +980,7 @@ module.exports = [
   {
     title: "Kansas City Confidential",
     slug: "kansas-city-confidential-1952",
-    synopsis: "Kansas City Confidential is a 1952 American crime film noir directed by Phil Karlson and starring John Payne and Coleen Gray. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Kansas City Confidential é um filme noir policial americano de 1952 estrelado por John Payne, sobre um ex-condenado injustamente acusado de participar de um assalto a banco que sai em busca dos verdadeiros culpados.",
     year: 1952,
     genres: [
       "Suspense"
@@ -995,7 +996,7 @@ module.exports = [
   {
     title: "He Walked by Night",
     slug: "he-walked-by-night-1948",
-    synopsis: "He Walked by Night is a 1948 American police procedural film noir directed by Alfred L. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "He Walked by Night é um filme noir policial americano de 1948 sobre a caçada de um criminoso solitário e metódico pelas ruas de Los Angeles, num dos primeiros exemplos do gênero policial procedural no cinema.",
     year: 1948,
     genres: [
       "Suspense"
@@ -1011,7 +1012,7 @@ module.exports = [
   {
     title: "Woman on the Run",
     slug: "woman-on-the-run-1950",
-    synopsis: "Woman on the Run is a 1950 American crime film noir directed by Norman Foster and starring Ann Sheridan and Dennis O'Keefe. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Woman on the Run é um filme noir americano de 1950 estrelado por Ann Sheridan, sobre uma mulher que sai em busca do próprio marido, testemunha de um assassinato que desaparece por medo de ser o próximo alvo.",
     year: 1950,
     genres: [
       "Suspense"
@@ -1027,7 +1028,7 @@ module.exports = [
   {
     title: "Suddenly",
     slug: "suddenly-1954",
-    synopsis: "Suddenly is a 1954 black and white American noir crime film directed by Lewis Allen with a screenplay written by Richard Sale. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Suddenly é um filme noir policial americano de 1954 estrelado por Frank Sinatra como um assassino de aluguel contratado para matar o presidente dos Estados Unidos numa pequena cidade.",
     year: 1954,
     genres: [
       "Suspense"
@@ -1043,7 +1044,7 @@ module.exports = [
   {
     title: "D.O.A.",
     slug: "d-o-a-1950",
-    synopsis: "D.O.A. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "D.O.A. é um filme noir americano de 1950 sobre um homem que descobre ter sido envenenado com uma substância letal e passa seus últimos dias tentando descobrir quem o matou.",
     year: 1950,
     genres: [
       "Suspense"
@@ -1059,7 +1060,7 @@ module.exports = [
   {
     title: "Scarlet Street",
     slug: "scarlet-street-1945",
-    synopsis: "Scarlet Street is a 1945 American film noir directed by Fritz Lang. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Scarlet Street é um filme noir americano de 1945 dirigido por Fritz Lang, sobre um caixa de banco reprimido que se apaixona por uma golpista e é manipulado por ela e seu amante.",
     year: 1945,
     genres: [
       "Suspense",
@@ -1076,7 +1077,7 @@ module.exports = [
   {
     title: "The Amazing Mr. X",
     slug: "the-amazing-mr-x-1948",
-    synopsis: "The Amazing Mr. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Amazing Mr. X é um suspense noir americano de 1948 sobre uma viúva que se envolve com um suposto médium que afirma se comunicar com seu falecido marido.",
     year: 1948,
     genres: [
       "Suspense",
@@ -1093,7 +1094,7 @@ module.exports = [
   {
     title: "The Brain from Planet Arous",
     slug: "the-brain-from-planet-arous-1957",
-    synopsis: "The Brain from Planet Arous is a 1957 independently made American black-and-white science fiction film, produced by Jacques R. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Brain from Planet Arous é um filme de ficção científica americano de 1957 sobre um cientista possuído por um cérebro alienígena gigante com planos de dominar a Terra.",
     year: 1957,
     genres: [
       "Ficção Científica"
@@ -1109,7 +1110,7 @@ module.exports = [
   {
     title: "The Man from Planet X",
     slug: "the-man-from-planet-x-1951",
-    synopsis: "The Man from Planet X is a 1951 independently made American black-and-white science fiction horror film, produced by Jack Pollexfen and Aubrey Wisberg, directed by Edgar G. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Man from Planet X é um filme de ficção científica e terror americano de 1951, produzido de forma independente, sobre um visitante alienígena pacífico que pousa numa ilha escocesa e é explorado por um cientista ambicioso.",
     year: 1951,
     genres: [
       "Ficção Científica"
@@ -1125,7 +1126,7 @@ module.exports = [
   {
     title: "The Giant Gila Monster",
     slug: "the-giant-gila-monster-1959",
-    synopsis: "The Giant Gila Monster is a 1959 American monster film directed by Ray Kellogg and produced by Ken Curtis. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Giant Gila Monster é um filme de monstro americano de 1959 sobre um enorme lagarto que aterroriza uma pequena cidade do Texas.",
     year: 1959,
     genres: [
       "Ficção Científica",
@@ -1142,7 +1143,7 @@ module.exports = [
   {
     title: "The Beast of Yucca Flats",
     slug: "the-beast-of-yucca-flats-1961",
-    synopsis: "The Beast of Yucca Flats is a 1961 American B-movie horror film written and directed by Coleman Francis. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Beast of Yucca Flats é um filme de terror B americano de 1961 sobre um cientista soviético transformado em monstro radioativo após uma explosão nuclear no deserto de Nevada.",
     year: 1961,
     genres: [
       "Ficção Científica",
@@ -1159,7 +1160,7 @@ module.exports = [
   {
     title: "Teenagers from Outer Space",
     slug: "teenagers-from-outer-space-1959",
-    synopsis: "Teenagers from Outer Space is a 1959 American independent black-and-white science fiction cult film released by Warner Bros. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Teenagers from Outer Space é um filme de ficção científica independente americano de 1959, hoje um cult, sobre um jovem alienígena que se rebela contra o plano de sua espécie de exterminar a vida na Terra.",
     year: 1959,
     genres: [
       "Ficção Científica"
@@ -1175,7 +1176,7 @@ module.exports = [
   {
     title: "The Cosmic Man",
     slug: "the-cosmic-man-1959",
-    synopsis: "The Cosmic Man is a 1959 independently made black-and-white science fiction film, directed by Herbert S. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Cosmic Man é um filme de ficção científica americano de 1959, produzido de forma independente, sobre um misterioso visitante alienígena capaz de curar doenças que desperta a desconfiança do exército americano.",
     year: 1959,
     genres: [
       "Ficção Científica"
@@ -1191,7 +1192,7 @@ module.exports = [
   {
     title: "The Amazing Transparent Man",
     slug: "the-amazing-transparent-man-1960",
-    synopsis: "The Amazing Transparent Man is a 1960 American science fiction thriller B-movie directed by Edgar G. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Amazing Transparent Man é um suspense de ficção científica B americano de 1960 sobre um ex-presidiário tornado invisível por um cientista para realizar um roubo.",
     year: 1960,
     genres: [
       "Ficção Científica"
@@ -1207,7 +1208,7 @@ module.exports = [
   {
     title: "The Phantom Planet",
     slug: "the-phantom-planet-1961",
-    synopsis: "The Phantom Planet is a 1961 independently made American black-and-white science fiction film produced by Fred Gebhardt, directed by William Marshall, and starring Dean Fredericks, Coleen Gray, Anthony Dexter, and Fra... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Phantom Planet é um filme de ficção científica independente americano de 1961 sobre um astronauta que, após pousar num pequeno planeta desconhecido, é misteriosamente reduzido ao tamanho de seus habitantes.",
     year: 1961,
     genres: [
       "Ficção Científica"
@@ -1223,7 +1224,7 @@ module.exports = [
   {
     title: "The Giant Claw",
     slug: "the-giant-claw-1957",
-    synopsis: "The Giant Claw is a 1957 American monster film from Columbia Pictures, produced by Sam Katzman, directed by Fred F. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Giant Claw é um filme de monstro americano de 1957 produzido pela Columbia Pictures, sobre um pássaro gigante do tamanho de um porta-aviões que ataca aviões e cidades ao redor do mundo.",
     year: 1957,
     genres: [
       "Ficção Científica"
@@ -1239,7 +1240,7 @@ module.exports = [
   {
     title: "The Lucky Texan",
     slug: "the-lucky-texan-1934",
-    synopsis: "The Lucky Texan is a 1934 American Lonestar Films B-movie Western film featuring John Wayne, Barbara Sheldon, Gabby Hayes, and the legendary stuntman and actor Yakima Canutt. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Lucky Texan é um faroeste B americano de 1934 estrelado por John Wayne, sobre a busca por ouro roubado no oeste americano.",
     year: 1934,
     genres: [
       "Faroeste"
@@ -1255,7 +1256,7 @@ module.exports = [
   {
     title: "Blue Steel",
     slug: "blue-steel-1934",
-    synopsis: "Blue Steel is a 1934 American pre-Code Monogram Western film directed by Robert N. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Blue Steel é um faroeste B americano de 1934 estrelado por John Wayne, sobre um agente disfarçado que investiga uma série de assaltos numa cidade do oeste.",
     year: 1934,
     genres: [
       "Faroeste"
@@ -1271,7 +1272,7 @@ module.exports = [
   {
     title: "Riders of Destiny",
     slug: "riders-of-destiny-1933",
-    synopsis: "Riders of Destiny is a 1933 pre-Code Western musical film starring 26-year-old John Wayne as Singin' Sandy Saunders, and is one of the earliest examples of the singing cowboy movie. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Riders of Destiny é um faroeste musical americano de 1933 estrelado por um John Wayne de 26 anos como o cowboy cantor Singin' Sandy Saunders, um dos primeiros exemplos do gênero no cinema.",
     year: 1933,
     genres: [
       "Faroeste"
@@ -1287,7 +1288,7 @@ module.exports = [
   {
     title: "Nevada City",
     slug: "nevada-city-1941",
-    synopsis: " Nevada City  is a 1941 American Western film directed by Joseph Kane starring Roy Rogers, George \"Gabby\" Hayes and Sally Payne. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Nevada City é um faroeste americano de 1941 dirigido por Joseph Kane, estrelado por Roy Rogers, George 'Gabby' Hayes e Sally Payne.",
     year: 1941,
     genres: [
       "Faroeste"
@@ -1303,7 +1304,7 @@ module.exports = [
   {
     title: "The Green Archer",
     slug: "the-green-archer-1940",
-    synopsis: "The Green Archer is the 12th serial released by Columbia Pictures. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Green Archer é o décimo segundo seriado lançado pela Columbia Pictures, sobre um justiceiro mascarado armado com arco e flecha que investiga uma série de crimes ligados a um castelo misterioso.",
     year: 1940,
     genres: [
       "Aventura",
@@ -1320,7 +1321,7 @@ module.exports = [
   {
     title: "The Ape Man",
     slug: "the-ape-man-1943",
-    synopsis: "The Ape Man is a 1943 American horror film directed by William Beaudine. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Ape Man é um filme de terror americano de 1943 dirigido por William Beaudine, estrelado por Bela Lugosi como um cientista que se transforma parcialmente em macaco após um experimento malsucedido.",
     year: 1943,
     genres: [
       "Terror"
@@ -1336,7 +1337,7 @@ module.exports = [
   {
     title: "The Vampire Bat",
     slug: "the-vampire-bat-1933",
-    synopsis: "The Vampire Bat is a 1933 American Pre-Code horror film directed by Frank R. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Vampire Bat é um filme de terror americano pré-Código de 1933, sobre uma série de assassinatos misteriosos numa vila alemã atribuídos a um vampiro, investigados por um médico que esconde um segredo sinistro.",
     year: 1933,
     genres: [
       "Terror"
@@ -1352,7 +1353,7 @@ module.exports = [
   {
     title: "The Ghoul",
     slug: "the-ghoul-1933",
-    synopsis: "The Ghoul is a 1933 British horror film directed by T. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Ghoul é um filme de terror britânico de 1933 estrelado por Boris Karloff como um egiptólogo que retorna dos mortos para recuperar uma joia sagrada roubada de seu túmulo.",
     year: 1933,
     genres: [
       "Terror"
@@ -1368,7 +1369,7 @@ module.exports = [
   {
     title: "The Monster Walks",
     slug: "the-monster-walks-1932",
-    synopsis: "The Monster Walks is a 1932 American Pre-Code black-and-white horror film directed by Frank R. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Monster Walks é um filme de terror americano pré-Código de 1932, ambientado numa mansão isolada onde uma herdeira é ameaçada por um misterioso assassino durante a leitura de um testamento.",
     year: 1932,
     genres: [
       "Terror"
@@ -1384,7 +1385,7 @@ module.exports = [
   {
     title: "Maniac",
     slug: "maniac-1934",
-    synopsis: "Maniac is a 1934 American independent black-and-white exploitation horror film directed by Dwain Esper and written by Hildagarde Stadie, Esper's wife, as a loose adaptation of the 1843 Edgar Allan Poe story \"The Black... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Maniac é um filme de terror de exploração americano de 1934, livremente baseado no conto 'O Gato Preto' de Edgar Allan Poe, sobre um ator que assume a identidade de um médico louco após sua morte.",
     year: 1934,
     genres: [
       "Terror"
@@ -1415,7 +1416,7 @@ module.exports = [
   {
     title: "The Sin of Nora Moran",
     slug: "the-sin-of-nora-moran-1933",
-    synopsis: "The Sin of Nora Moran is a 1933 American pre-Code melodrama and proto-noir film directed by Phil Goldstone. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Sin of Nora Moran é um melodrama pré-Código americano de 1933, considerado um precursor do filme noir, contado em flashbacks sobre uma mulher condenada à morte por um crime que não cometeu.",
     year: 1933,
     genres: [
       "Drama"
@@ -1431,7 +1432,7 @@ module.exports = [
   {
     title: "The Black Raven",
     slug: "the-black-raven-1943",
-    synopsis: "The Black Raven is a 1943 American mystery film directed by Sam Newfield. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Black Raven é um filme de mistério americano de 1943 sobre um grupo de viajantes isolados numa pousada durante uma tempestade, onde uma série de assassinatos começa a acontecer.",
     year: 1943,
     genres: [
       "Suspense",
@@ -1447,7 +1448,7 @@ module.exports = [
   {
     title: "Little Shop of Horrors",
     slug: "little-shop-of-horrors-1960",
-    synopsis: "The Little Shop of Horrors is a 1960 American horror comedy film directed and produced by Roger Corman, from a screenplay by Charles B. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Little Shop of Horrors é uma comédia de terror americana de 1960 dirigida e produzida por Roger Corman, sobre um florista desajeitado que cultiva uma planta carnívora que precisa de sangue humano para sobreviver.",
     year: 1960,
     genres: [
       "Terror",
@@ -1464,7 +1465,7 @@ module.exports = [
   {
     title: "The Bat Whispers",
     slug: "the-bat-whispers-1930",
-    synopsis: "The Bat Whispers is a 1930 American pre-Code mystery film directed by Roland West, produced by Joseph M. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Bat Whispers é um filme de mistério pré-Código americano de 1930 sobre um criminoso mascarado conhecido como 'O Morcego' que aterroriza os hóspedes de uma mansão isolada.",
     year: 1930,
     genres: [
       "Terror",
@@ -1496,7 +1497,7 @@ module.exports = [
   {
     title: "The Horror of Party Beach",
     slug: "the-horror-of-party-beach-1964",
-    synopsis: "The Horror of Party Beach is a 1964 American horror film in the beach party genre, directed and co-produced by Del Tenney. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Horror of Party Beach é um filme de terror americano de 1964 do subgênero praiano, sobre criaturas mutantes geradas por resíduos radioativos que atacam jovens numa praia.",
     year: 1964,
     genres: [
       "Terror",
@@ -1513,7 +1514,7 @@ module.exports = [
   {
     title: "The Screaming Skull",
     slug: "the-screaming-skull-1958",
-    synopsis: "The Screaming Skull is a 1958 independently made American black-and-white horror film, produced by John Kneubuhl and directed by Alex Nicol, starring John Hudson, Peggy Webber, Russ Conway, Tony Johnson, and Nicol. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Screaming Skull é um filme de terror independente americano de 1958 sobre um casal recém-casado assombrado por um crânio misterioso na mansão onde a primeira esposa do marido morreu.",
     year: 1958,
     genres: [
       "Terror"
@@ -1529,7 +1530,7 @@ module.exports = [
   {
     title: "Earth vs. the Flying Saucers",
     slug: "earth-vs-the-flying-saucers-1956",
-    synopsis: "Earth vs. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Earth vs. the Flying Saucers é um filme de ficção científica americano de 1956 sobre uma invasão alienígena à Terra e a corrida de cientistas para desenvolver uma arma capaz de deter os discos voadores.",
     year: 1956,
     genres: [
       "Ficção Científica"
@@ -1545,7 +1546,7 @@ module.exports = [
   {
     title: "The Man They Could Not Hang",
     slug: "the-man-they-could-not-hang-1939",
-    synopsis: "The Man They Could Not Hang is a 1939 American horror film directed by Nick Grinde from a screenplay by Karl Brown. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Man They Could Not Hang é um filme de terror americano de 1939 estrelado por Boris Karloff como um cientista executado e ressuscitado por sua própria invenção, que retorna para se vingar dos jurados que o condenaram.",
     year: 1939,
     genres: [
       "Ficção Científica",
@@ -1562,7 +1563,7 @@ module.exports = [
   {
     title: "Invisible Ghost",
     slug: "invisible-ghost-1941",
-    synopsis: "Invisible Ghost is a 1941 American horror film directed by Joseph H. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Invisible Ghost é um filme de terror americano de 1941 estrelado por Bela Lugosi como um homem que, sem saber, comete assassinatos sob transe hipnótico.",
     year: 1941,
     genres: [
       "Terror"
@@ -1578,7 +1579,7 @@ module.exports = [
   {
     title: "Triumph of the Will",
     slug: "triumph-of-the-will-1935",
-    synopsis: "Triumph of the Will is a 1935 German Nazi propaganda film directed, produced, edited, and co-written by Leni Riefenstahl. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Triumph of the Will é um filme de propaganda nazista alemão de 1935 dirigido por Leni Riefenstahl, que documenta o congresso do Partido Nazista em Nuremberg de 1934 — hoje estudado como exemplo histórico do uso do cinema como ferramenta de propaganda totalitária.",
     year: 1935,
     genres: [
       "Documentário"
@@ -1594,7 +1595,7 @@ module.exports = [
   {
     title: "Why We Fight",
     slug: "why-we-fight-1942",
-    synopsis: "Why We Fight is a series of seven propaganda films produced by the US Department of War from 1942 to 1945, during World War II. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Why We Fight é uma série de sete filmes de propaganda produzidos pelo Departamento de Guerra dos Estados Unidos entre 1942 e 1945, durante a Segunda Guerra Mundial, para explicar aos soldados americanos os motivos do conflito.",
     year: 1942,
     genres: [
       "Documentário"
@@ -1610,7 +1611,7 @@ module.exports = [
   {
     title: "The Plow That Broke the Plains",
     slug: "the-plow-that-broke-the-plains-1936",
-    synopsis: "The Plow That Broke the Plains is a 1936 short documentary film that shows the cultivation of the Great Plains region of the United States and Canada following the Civil War and leading up to the Dust Bowl as a result... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Plow That Broke the Plains é um curta documentário americano de 1936 sobre a ocupação agrícola das Grandes Planícies dos Estados Unidos e Canadá após a Guerra Civil, que culminou na tragédia ambiental do Dust Bowl.",
     year: 1936,
     genres: [
       "Documentário"
@@ -1626,7 +1627,7 @@ module.exports = [
   {
     title: "The River",
     slug: "the-river-1938",
-    synopsis: "The River is a 1938 short documentary film written and directed by Pare Lorentz. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The River é um curta documentário americano de 1938 escrito e dirigido por Pare Lorentz sobre a história e os efeitos ambientais da ocupação da bacia do rio Mississippi.",
     year: 1938,
     genres: [
       "Documentário"
@@ -1642,7 +1643,7 @@ module.exports = [
   {
     title: "Night Mail",
     slug: "night-mail-1936",
-    synopsis: "Night Mail is a 1936 British documentary film directed by Harry Watt and Basil Wright for the General Post Office (GPO) Film Unit. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Night Mail é um documentário britânico de 1936 produzido pela unidade de cinema do correio britânico (GPO), que acompanha o trem noturno que transporta correspondência entre Londres e a Escócia.",
     year: 1936,
     genres: [
       "Documentário"
@@ -1658,7 +1659,7 @@ module.exports = [
   {
     title: "Our Daily Bread",
     slug: "our-daily-bread-1934",
-    synopsis: "Our Daily Bread is a 1934 American drama film directed by King Vidor and starring Karen Morley, Tom Keene, and John Qualen. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Our Daily Bread é um drama americano de 1934 dirigido por King Vidor, sobre um grupo de desempregados durante a Grande Depressão que forma uma cooperativa agrícola para sobreviver.",
     year: 1934,
     genres: [
       "Drama"
@@ -1674,7 +1675,7 @@ module.exports = [
   {
     title: "Earth",
     slug: "earth-1930",
-    synopsis: "Earth is a 1930 Soviet Ukrainian silent film by Alexander Dovzhenko. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Earth é um filme mudo soviético ucraniano de 1930 dirigido por Alexander Dovzhenko, sobre os conflitos gerados pela coletivização agrícola numa vila ucraniana.",
     year: 1930,
     genres: [
       "Drama",
@@ -1691,7 +1692,7 @@ module.exports = [
   {
     title: "The Great Train Robbery",
     slug: "the-great-train-robbery-1903",
-    synopsis: "The Great Train Robbery is a 1903 American silent Western action film made by Edwin S. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Great Train Robbery é um faroeste de ação mudo americano de 1903 dirigido por Edwin S. Porter, um dos filmes mais influentes da história do cinema por seu uso pioneiro de montagem narrativa.",
     year: 1903,
     genres: [
       "Faroeste",
@@ -1708,7 +1709,7 @@ module.exports = [
   {
     title: "The Stranger",
     slug: "the-stranger-1946",
-    synopsis: "The Stranger is a 1946 American thriller film noir directed and co-written by Orson Welles, starring himself along with Edward G. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Stranger é um filme noir americano de 1946 dirigido e estrelado por Orson Welles, sobre um investigador que caça um ex-oficial nazista escondido sob identidade falsa numa cidade pacata dos Estados Unidos.",
     year: 1946,
     genres: [
       "Suspense",
@@ -1725,7 +1726,7 @@ module.exports = [
   {
     title: "It Happened One Night",
     slug: "it-happened-one-night-1934",
-    synopsis: "It Happened One Night is a 1934 American screwball comedy film produced and directed by Frank Capra. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "It Happened One Night é uma comédia romântica americana de 1934 dirigida por Frank Capra, sobre uma herdeira fugitiva e um jornalista que se apaixonam durante uma viagem de ônibus.",
     year: 1934,
     genres: [
       "Comédia",
@@ -1742,7 +1743,7 @@ module.exports = [
   {
     title: "The 39 Steps",
     slug: "the-39-steps-1935",
-    synopsis: "The 39 Steps is a 1935 British spy thriller film directed by Alfred Hitchcock, starring Robert Donat and Madeleine Carroll. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The 39 Steps é um suspense de espionagem britânico de 1935 dirigido por Alfred Hitchcock, sobre um homem comum que se vê envolvido numa conspiração de espionagem após testemunhar um assassinato.",
     year: 1935,
     genres: [
       "Suspense"
@@ -1758,7 +1759,7 @@ module.exports = [
   {
     title: "The Lady Vanishes",
     slug: "the-lady-vanishes-1938",
-    synopsis: "The Lady Vanishes is a 1938 British mystery thriller film directed by Alfred Hitchcock and starring Margaret Lockwood and Michael Redgrave. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Lady Vanishes é um suspense de mistério britânico de 1938 dirigido por Alfred Hitchcock, sobre uma jovem que, durante uma viagem de trem pela Europa, tenta provar que uma senhora idosa desapareceu, apesar de todos negarem tê-la visto.",
     year: 1938,
     genres: [
       "Suspense"
@@ -1774,7 +1775,7 @@ module.exports = [
   {
     title: "Foreign Correspondent",
     slug: "foreign-correspondent-1940",
-    synopsis: "Foreign Correspondent is a 1940 American black-and-white spy thriller film directed by Alfred Hitchcock. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Foreign Correspondent é um suspense de espionagem americano de 1940 dirigido por Alfred Hitchcock, sobre um jornalista americano que descobre uma conspiração nazista às vésperas da Segunda Guerra Mundial.",
     year: 1940,
     genres: [
       "Suspense"
@@ -1790,7 +1791,7 @@ module.exports = [
   {
     title: "Suspicion",
     slug: "suspicion-1941",
-    synopsis: "Suspicion is a 1941 American romantic psychological thriller film noir directed by Alfred Hitchcock, and starring Cary Grant and Joan Fontaine as a married couple. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Suspicion é um suspense psicológico romântico americano de 1941 dirigido por Alfred Hitchcock, sobre uma mulher que passa a suspeitar que o marido planeja assassiná-la.",
     year: 1941,
     genres: [
       "Suspense"
@@ -1806,7 +1807,7 @@ module.exports = [
   {
     title: "Shadow of a Doubt",
     slug: "shadow-of-a-doubt-1943",
-    synopsis: "Shadow of a Doubt is a 1943 American psychological thriller film noir directed by Alfred Hitchcock, and starring Teresa Wright and Joseph Cotten. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Shadow of a Doubt é um suspense psicológico americano de 1943 dirigido por Alfred Hitchcock, sobre uma jovem que começa a suspeitar que seu tio favorito é, na verdade, um assassino em série procurado pela polícia.",
     year: 1943,
     genres: [
       "Suspense"
@@ -1822,7 +1823,7 @@ module.exports = [
   {
     title: "Saboteur",
     slug: "saboteur-1942",
-    synopsis: "Saboteur is a 1942 American spy thriller film directed by Alfred Hitchcock with a screenplay written by Peter Viertel, Joan Harrison and Dorothy Parker. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Saboteur é um suspense de espionagem americano de 1942 dirigido por Alfred Hitchcock, sobre um operário injustamente acusado de sabotagem que atravessa o país perseguindo o verdadeiro culpado.",
     year: 1942,
     genres: [
       "Suspense"
@@ -1838,7 +1839,7 @@ module.exports = [
   {
     title: "Notorious",
     slug: "notorious-1946",
-    synopsis: "Notorious is a 1946 American spy film noir directed and produced by Alfred Hitchcock, starring Cary Grant, Ingrid Bergman, and Claude Rains as three people whose lives become intimately entangled during an espionage o... (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Notorious é um filme noir de espionagem americano de 1946 dirigido e produzido por Alfred Hitchcock, estrelado por Cary Grant, Ingrid Bergman e Claude Rains, sobre uma missão de infiltração numa rede de nazistas refugiados no Brasil.",
     year: 1946,
     genres: [
       "Suspense",
@@ -1855,7 +1856,7 @@ module.exports = [
   {
     title: "The Hunchback of Notre Dame",
     slug: "the-hunchback-of-notre-dame-1923",
-    synopsis: "The Hunchback of Notre Dame is a 1923 American drama film starring Lon Chaney, directed by Wallace Worsley, and produced by Carl Laemmle and Irving Thalberg. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Hunchback of Notre Dame é um drama mudo americano de 1923 estrelado por Lon Chaney no papel de Quasimodo, o sineiro corcunda da Catedral de Notre Dame, adaptação do romance de Victor Hugo.",
     year: 1923,
     genres: [
       "Drama",
@@ -1872,7 +1873,7 @@ module.exports = [
   {
     title: "The Scarlet Letter",
     slug: "the-scarlet-letter-1926",
-    synopsis: "The Scarlet Letter is a 1926 American silent drama film based on the 1850 novel of the same name by Nathaniel Hawthorne and directed by Swedish filmmaker Victor Sjöström. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Scarlet Letter é um drama mudo americano de 1926 dirigido pelo sueco Victor Sjöström, adaptação do romance homônimo de Nathaniel Hawthorne sobre uma mulher condenada ao ostracismo social após ser acusada de adultério na Nova Inglaterra puritana.",
     year: 1926,
     genres: [
       "Drama",
@@ -1889,7 +1890,7 @@ module.exports = [
   {
     title: "The Sheik",
     slug: "the-sheik-1921",
-    synopsis: "The Sheik is a 1921 American silent romantic drama film produced by Famous Players–Lasky, directed by George Melford, starring Rudolph Valentino and Agnes Ayres, and featuring Adolphe Menjou. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Sheik é um drama romântico mudo americano de 1921 estrelado por Rudolph Valentino como um xeque árabe que se apaixona por uma aristocrata inglesa após sequestrá-la no deserto.",
     year: 1921,
     genres: [
       "Romance",
@@ -1906,7 +1907,7 @@ module.exports = [
   {
     title: "The Son of the Sheik",
     slug: "the-son-of-the-sheik-1926",
-    synopsis: "The Son of the Sheik is a 1926 American silent adventure drama film directed by George Fitzmaurice and starring Rudolph Valentino and Vilma Bánky. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Son of the Sheik é um drama de aventura mudo americano de 1926 estrelado por Rudolph Valentino, sequência de The Sheik, sobre o filho do xeque original que se apaixona por uma dançarina de um acampamento nômade.",
     year: 1926,
     genres: [
       "Romance",
@@ -1923,7 +1924,7 @@ module.exports = [
   {
     title: "The Unholy Three",
     slug: "the-unholy-three-1925",
-    synopsis: "The Unholy Three is a 1925 American silent crime melodrama film involving a trio of circus conmen, directed by Tod Browning and starring Lon Chaney. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Unholy Three é um melodrama policial mudo americano de 1925 estrelado por Lon Chaney, sobre um trio de golpistas de circo — um ventríloquo, um forçudo e um anão — que monta um esquema criminoso disfarçado de loja de animais.",
     year: 1925,
     genres: [
       "Suspense",
@@ -1940,7 +1941,7 @@ module.exports = [
   {
     title: "Wings",
     slug: "wings-1927",
-    synopsis: "Wings is a 1927 American war film which won the first Academy Award for Best Picture. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Wings é um filme de guerra americano de 1927 sobre dois aviadores rivais que se tornam amigos ao lutarem juntos na aviação americana durante a Primeira Guerra Mundial — o primeiro filme a vencer o Oscar de Melhor Filme.",
     year: 1927,
     genres: [
       "Drama",
@@ -1957,7 +1958,7 @@ module.exports = [
   {
     title: "The Big Parade",
     slug: "the-big-parade-1925",
-    synopsis: "The Big Parade is a 1925 American silent war drama film directed by King Vidor, starring John Gilbert, Renée Adorée, Hobart Bosworth, Tom O'Brien, and Karl Dane. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "The Big Parade é um drama de guerra mudo americano de 1925 dirigido por King Vidor, estrelado por John Gilbert, sobre um jovem rico que se alista no exército americano durante a Primeira Guerra Mundial e se apaixona por uma francesa.",
     year: 1925,
     genres: [
       "Drama",
@@ -1974,7 +1975,7 @@ module.exports = [
   {
     title: "Ben-Hur",
     slug: "ben-hur-1925",
-    synopsis: "Ben-Hur: A Tale of the Christ is a 1925 American silent epic adventure-drama film directed by Fred Niblo and written by June Mathis based on the 1880 novel of the same name by General Lew Wallace. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Ben-Hur: A Tale of the Christ é um drama de aventura épico mudo americano de 1925 dirigido por Fred Niblo, baseado no romance de Lew Wallace, sobre um príncipe judeu traído pelo amigo de infância que se torna oficial romano, ambientado na época de Cristo.",
     year: 1925,
     genres: [
       "Drama",
@@ -1992,7 +1993,7 @@ module.exports = [
   {
     title: "Flesh and the Devil",
     slug: "flesh-and-the-devil-1926",
-    synopsis: "Flesh and the Devil is a 1926 American silent romantic drama film directed by Clarence Brown and stars Greta Garbo, John Gilbert, Lars Hanson, and Barbara Kent. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Flesh and the Devil é um drama romântico mudo americano de 1926 dirigido por Clarence Brown, estrelado por Greta Garbo e John Gilbert, sobre uma mulher sedutora que causa uma ruptura entre dois amigos de infância.",
     year: 1926,
     genres: [
       "Romance",
@@ -2009,7 +2010,7 @@ module.exports = [
   {
     title: "Faust",
     slug: "faust-1926",
-    synopsis: "Faust – A German Folktale is a 1926 silent fantasy film, produced by Ufa, directed by F. (resumo: Wikipedia, CC BY-SA)",
+    synopsis: "Faust – A German Folktale é um filme de fantasia mudo alemão de 1926 dirigido por F. W. Murnau, adaptação da lenda de Fausto sobre um alquimista que faz um pacto com o demônio Mefistófeles em troca de juventude e poder.",
     year: 1926,
     genres: [
       "Terror",

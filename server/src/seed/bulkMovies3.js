@@ -14,7 +14,7 @@ module.exports = [
   {
     "title": "Os Óculos do Vovô",
     "slug": "os-oculos-do-vovo-1913",
-    "synopsis": "Os Óculos do Vovô é um curta-metragem mudo brasileiro do gênero comédia, dirigido por Francisco Santos em 1913. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Curta de comédia muda brasileira de 1913, dirigido por Francisco Santos — um dos primeiros filmes de ficção produzidos no Brasil.",
     "year": 1913,
     "genres": [
       "Nacionais",
@@ -47,7 +47,7 @@ module.exports = [
   {
     "title": "Kaiser",
     "slug": "kaiser-1917",
-    "synopsis": "O Kaiser é um curta-metragem de animação, dirigido pelo cartunista Álvaro Marins, mais conhecido pelo pseudônimo Seth, em 1917. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Curta de animação brasileiro de 1917, feito pelo cartunista Álvaro Marins sob o pseudônimo Seth, considerado o primeiro desenho animado produzido no país.",
     "year": 1917,
     "genres": [
       "Nacionais",
@@ -320,7 +320,7 @@ module.exports = [
   {
     "title": "Ganga Bruta",
     "slug": "ganga-bruta-1933",
-    "synopsis": "Ganga Bruta é um filme brasileiro de drama de 1933 dirigido por Humberto Mauro. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Ganga Bruta é um drama brasileiro de 1933 dirigido por Humberto Mauro, sobre um homem que mata a esposa na noite de núpcias e tenta recomeçar a vida numa pequena cidade do interior.",
     "year": 1933,
     "genres": [
       "Nacionais",
@@ -353,7 +353,7 @@ module.exports = [
   {
     "title": "Limite",
     "slug": "limite-1931",
-    "synopsis": "Limite é um filme mudo brasileiro de 1931, dirigido e roteirizado por Mário Peixoto, com produção da Cinédia. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Limite é um filme mudo brasileiro de 1931 dirigido por Mário Peixoto, uma obra experimental e poética sobre três náufragos à deriva num barco, considerada uma das mais importantes do cinema brasileiro.",
     "year": 1931,
     "genres": [
       "Nacionais",
@@ -370,7 +370,7 @@ module.exports = [
   {
     "title": "O Caçador de Diamantes",
     "slug": "o-cacador-de-diamantes-1934",
-    "synopsis": "O Caçador de Diamantes é um filme brasileiro do gênero drama de 1934, escrito, produzido e dirigido por Vittorio Capellaro. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Drama brasileiro de 1934 escrito, produzido e dirigido por Vittorio Capellaro — o único filme do diretor preservado por completo até hoje.",
     "year": 1934,
     "genres": [
       "Nacionais",
@@ -595,7 +595,7 @@ module.exports = [
   {
     "title": "24 Horas de Sonho",
     "slug": "24-horas-de-sonho-1941",
-    "synopsis": "24 Horas de Sonho é um filme brasileiro de comédia romântica de 1941 dirigido por Chianca de Garcia e com roteiro de Joracy Camargo. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Comédia romântica brasileira de 1941, dirigida por Chianca de Garcia com roteiro de Joracy Camargo, produzida pela Cinédia.",
     "year": 1941,
     "genres": [
       "Nacionais",
@@ -627,7 +627,7 @@ module.exports = [
   {
     "title": "Argila",
     "slug": "argila-1942",
-    "synopsis": "Argila é um filme brasileiro do género drama romântico, realizado e escrito por Humberto Mauro e protagonizado por Cármen Santos, Celso Guimarães e Lídia Mattos. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Drama romântico brasileiro dirigido e escrito por Humberto Mauro, estrelado por Cármen Santos, Celso Guimarães e Lídia Mattos.",
     "year": 1942,
     "genres": [
       "Nacionais",
@@ -884,7 +884,7 @@ module.exports = [
   {
     "title": "Painel",
     "slug": "painel-1950",
-    "synopsis": "Painel é um filme brasileiro de curta metragem de 1950 dirigido por Lima Barreto. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Curta-metragem brasileiro de 1950 dirigido por Lima Barreto, o primeiro produzido pela Companhia Cinematográfica Vera Cruz.",
     "year": 1950,
     "genres": [
       "Nacionais",
@@ -901,7 +901,7 @@ module.exports = [
   {
     "title": "Maior Que o Ódio",
     "slug": "maior-que-o-odio-1951",
-    "synopsis": "Maior que o Ódio é um filme brasileiro de drama de 1951, dirigido por José Carlos Burle e escrito por ele e Alinor Azevedo, a partir do argumento de Jorge Dória. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Drama brasileiro de 1951 dirigido por José Carlos Burle, roteirizado por ele e Alinor Azevedo a partir de um argumento de Jorge Dória.",
     "year": 1951,
     "genres": [
       "Nacionais",
@@ -1157,7 +1157,7 @@ module.exports = [
   {
     "title": "Agulha no Palheiro",
     "slug": "agulha-no-palheiro-1953",
-    "synopsis": "Agulha no Palheiro é um filme brasileiro de 1953, escrito e dirigido por Alex Viany e com produção de Moacyr Fenelon. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Filme brasileiro de 1953 escrito e dirigido por Alex Viany, com produção de Moacyr Fenelon, estrelado por Fada Santoro, Dóris Monteiro e Roberto Batalin.",
     "year": 1953,
     "genres": [
       "Nacionais",
@@ -1173,7 +1173,7 @@ module.exports = [
   {
     "title": "Amei Um Bicheiro",
     "slug": "amei-um-bicheiro-1953",
-    "synopsis": "Amei Um Bicheiro é um filme policial brasileiro lançado em 1953, dirigido por Jorge Ileli e produzido pela Atlântida Cinematográfica. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Filme policial brasileiro de 1953 dirigido por Jorge Ileli, produzido pela Atlântida Cinematográfica.",
     "year": 1953,
     "genres": [
       "Nacionais",
@@ -1205,7 +1205,7 @@ module.exports = [
   {
     "title": "O Craque",
     "slug": "o-craque-1953",
-    "synopsis": "O Craque é um filme brasileiro de 1953 dirigido por José Carlos Burle, com roteiro de Alberto Dines. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Filme brasileiro de 1953 dirigido por José Carlos Burle, com roteiro de Alberto Dines e fotografia de Ruy Santos.",
     "year": 1953,
     "genres": [
       "Nacionais",
@@ -1221,7 +1221,7 @@ module.exports = [
   {
     "title": "A Dupla do Barulho",
     "slug": "a-dupla-do-barulho-1953",
-    "synopsis": "A Dupla do Barulho é um filme de comédia produzido no Brasil e dirigido por Carlos Manga. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Comédia brasileira de 1953 dirigida por Carlos Manga, estrelada por Oscarito, Grande Otelo e Edith Morel.",
     "year": 1953,
     "genres": [
       "Nacionais",

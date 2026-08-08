@@ -17,7 +17,7 @@ module.exports = [
   {
     "title": "Aitaré da Praia",
     "slug": "aitare-da-praia-1925",
-    "synopsis": "Aitaré da Praia é um filme brasileiro dos gêneros drama e romance, dirigido por Gentil Roiz e Ary Severo, tendo o último também interpretado o personagem principal, Aitaré. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Drama romântico mudo brasileiro de 1925, dirigido por Gentil Roiz e Ary Severo, este último também no papel principal, o pescador Aitaré. Filmado em Recife, é um marco do cinema silencioso pernambucano.",
     "year": 1925,
     "genres": [
       "Nacionais",
@@ -146,7 +146,7 @@ module.exports = [
   {
     "title": "É Fogo na Roupa",
     "slug": "e-fogo-na-roupa-1952",
-    "synopsis": "É Fogo na Roupa é um filme brasileiro de 1952 do gênero \"Comédia Musical\", dirigido por Watson Macedo. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Comédia musical brasileira de 1952 dirigida por Watson Macedo, com números musicais de Elizeth Cardoso, Emilinha Borba, Virgínia Lane e o comediante Ankito.",
     "year": 1952,
     "genres": [
       "Nacionais",
@@ -162,7 +162,7 @@ module.exports = [
   {
     "title": "Casamento É Negócio?",
     "slug": "casamento-e-negocio-1933",
-    "synopsis": "Casamento É Negócio? é um filme mudo brasileiro de 1933 do gênero drama, dirigido e roteirizado por Guilherme Rogato, com produção da Gáudio Filmes. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Drama mudo brasileiro de 1933, dirigido e roteirizado por Guilherme Rogato, produzido pela Gáudio Filmes.",
     "year": 1933,
     "genres": [
       "Nacionais",
@@ -355,7 +355,7 @@ module.exports = [
   {
     "title": "Sinfonia Amazônica",
     "slug": "sinfonia-amazonica-1953",
-    "synopsis": "Sinfonia Amazônica é o primeiro longa-metragem de animação da história do Brasil, lançado em 1953. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Sinfonia Amazônica é o primeiro longa-metragem de animação da história do Brasil, lançado em 1953, resultado de cerca de cinco anos de trabalho do animador Anélio Latini Filho adaptando lendas e histórias da região amazônica.",
     "year": 1953,
     "genres": [
       "Nacionais",
@@ -372,7 +372,7 @@ module.exports = [
   {
     "title": "Sinhá Moça",
     "slug": "sinha-moca-1953",
-    "synopsis": "Sinhá Moça é um filme brasileiro de 1953, do gênero drama histórico, dirigido pelo britânico Tom Payne para a Companhia Cinematográfica Vera Cruz. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Sinhá Moça é um drama histórico brasileiro de 1953, dirigido pelo britânico Tom Payne para a Companhia Cinematográfica Vera Cruz, sobre a filha de um fazendeiro escravocrata que se opõe à violência do pai contra os escravizados às vésperas da abolição.",
     "year": 1953,
     "genres": [
       "Nacionais",
@@ -389,7 +389,7 @@ module.exports = [
   {
     "title": "Rio, 40 Graus",
     "slug": "rio-40-graus-1955",
-    "synopsis": "Rio, 40 graus é um filme brasileiro de 1955, com roteiro e direção de Nelson Pereira dos Santos. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Rio, 40 Graus é um filme brasileiro de 1955 escrito e dirigido por Nelson Pereira dos Santos, que acompanha um dia na vida de meninos vendedores de amendoim do Morro do Cavalo Grande e é considerado um marco fundador do Cinema Novo brasileiro.",
     "year": 1955,
     "genres": [
       "Nacionais",
@@ -406,7 +406,7 @@ module.exports = [
   {
     "title": "Também Somos Irmãos",
     "slug": "tambem-somos-irmaos-1949",
-    "synopsis": "Também Somos Irmãos é um filme brasileiro de drama de 1949, dirigido por José Carlos Burle e escrito por Alinor Azevedo. (resumo: Wikipedia, CC BY-SA)",
+    "synopsis": "Também Somos Irmãos é um drama brasileiro de 1949 dirigido por José Carlos Burle e escrito por Alinor Azevedo, um dos primeiros filmes brasileiros a abordar diretamente o racismo.",
     "year": 1949,
     "genres": [
       "Nacionais",
