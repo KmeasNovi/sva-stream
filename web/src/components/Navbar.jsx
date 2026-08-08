@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 const NAV_ITEMS = [
   { href: '/', label: 'Home', icon: 'home' },
   { href: '/search', label: 'Explorar', icon: 'explore' },
+  { href: '/catalogo', label: 'Catálogo', icon: 'video_library' },
 ];
 
 export default function Navbar() {
