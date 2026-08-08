@@ -66,7 +66,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Bosko, the Talk Ink Kid (1929).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Bosko%2C%20the%20Talk%20Ink%20Kid%20(1929)_000281.jpg",
     featured: false
   },
   {
@@ -184,7 +184,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ain't Nature Grand (1931).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Ain't%20Nature%20Grand%20(1931)_000410.jpg",
     featured: false
   },
   {
@@ -371,7 +371,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Red Headed Baby (1931).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Red%20Headed%20Baby%20(1931)_000400.jpg",
     featured: false
   },
   {
@@ -422,7 +422,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ups 'n Downs (1931).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Ups%20'n%20Downs%20(1931)_000409.jpg",
     featured: false
   },
   {
@@ -456,7 +456,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/You Don't Know What You're Doin! (1931, Redrawn and Colorized).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/You%20Don't%20Know%20What%20You're%20Doin!%20(1931%2C%20Redrawn%20and%20Colorized)_000381.jpg",
     featured: false
   },
   {
@@ -524,7 +524,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Big Hearted Bosko (1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Big%20Hearted%20Bosko%20(1932)_000408.jpg",
     featured: false
   },
   {
@@ -711,7 +711,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Crosby, Columbo and Vallee (1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Crosby%2C%20Columbo%20and%20Vallee%20(1932)_000432.jpg",
     featured: false
   },
   {
@@ -796,7 +796,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/It's Got Me Again! (1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/It's%20Got%20Me%20Again!%20(1932)_000423.jpg",
     featured: false
   },
   {
@@ -813,7 +813,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Moonlight for Two (1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Moonlight%20for%20Two%20(1932)_000406.jpg",
     featured: false
   },
   {
@@ -847,7 +847,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ride Him, Bosko! (Bosko, Honey)(1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Ride%20Him%2C%20Bosko!%20(Bosko%2C%20Honey)(1932)_000434.jpg",
     featured: false
   },
   {
@@ -881,7 +881,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Three's a Crowd (1932).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Three's%20a%20Crowd%20(1932)_000417.jpg",
     featured: false
   },
   {
@@ -915,7 +915,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Shanty Where Santy Claus Lives (1933).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Shanty%20Where%20Santy%20Claus%20Lives%20(1933)_000429.jpg",
     featured: false
   },
   {
@@ -1134,7 +1134,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Bars and Stripes Forever (1939).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Bars%20and%20Stripes%20Forever%20(1939)_000459.jpg",
     featured: false
   },
   {
@@ -1185,7 +1185,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hamateur Night (1939).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Hamateur%20Night%20(1939)_000459.jpg",
     featured: false
   },
   {
@@ -1202,7 +1202,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Prest-O Change-O (1939).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Prest-O%20Change-O%20(1939)_000425.jpg",
     featured: false
   },
   {
@@ -1219,7 +1219,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Robin Hood Makes Good (1939).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Robin%20Hood%20Makes%20Good%20(1939)_000457.jpg",
     featured: false
   },
   {
@@ -1235,7 +1235,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Mickey's Surprise Party (1939).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Mickey's%20Surprise%20Party%20(1939)_000315.jpg",
     featured: false
   },
   {
@@ -1252,7 +1252,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ali-Baba Bound (1940).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Ali-Baba%20Bound%20(1940)_000415.jpg",
     featured: false
   },
   {
@@ -1269,7 +1269,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Early Worm Gets the Bird (1940).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Early%20Worm%20Gets%20the%20Bird%20(1940)_000512.jpg",
     featured: false
   },
   {
@@ -1286,7 +1286,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Timid Toreador (1940).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Timid%20Toreador%20(1940)_000429.jpg",
     featured: false
   },
   {
@@ -1303,7 +1303,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Coy Decoy (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/A%20Coy%20Decoy%20(1941)_000453.jpg",
     featured: false
   },
   {
@@ -1320,7 +1320,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/All This and Rabbit Stew (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/All%20This%20and%20Rabbit%20Stew%20(1941)_000404.jpg",
     featured: false
   },
   {
@@ -1337,7 +1337,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Farm Frolics (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Farm%20Frolics%20(1941)_000485.jpg",
     featured: false
   },
   {
@@ -1354,7 +1354,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Joe Glow, the Firefly (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Joe%20Glow%2C%20the%20Firefly%20(1941)_000404.jpg",
     featured: false
   },
   {
@@ -1371,7 +1371,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Meet John Doughboy (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Meet%20John%20Doughboy%20(1941)_000412.jpg",
     featured: false
   },
   {
@@ -1388,7 +1388,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Notes to You (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Notes%20to%20You%20(1941)_000432.jpg",
     featured: false
   },
   {
@@ -1405,7 +1405,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Ant (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Ant%20(1941)_000468.jpg",
     featured: false
   },
   {
@@ -1422,7 +1422,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Bear Facts (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Bear%20Facts%20(1941)_000423.jpg",
     featured: false
   },
   {
@@ -1439,7 +1439,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Midnight Matinee (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Midnight%20Matinee%20(1941)_000455.jpg",
     featured: false
   },
   {
@@ -1456,7 +1456,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Pooch (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Pooch%20(1941)_000418.jpg",
     featured: false
   },
   {
@@ -1473,7 +1473,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Preview (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Preview%20(1941)_000405.jpg",
     featured: false
   },
   {
@@ -1490,7 +1490,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Prize Pony (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Prize%20Pony%20(1941)_000440.jpg",
     featured: false
   },
   {
@@ -1507,7 +1507,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Robinson Crusoe Jr. (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Robinson%20Crusoe%20Jr.%20(1941)_000429.jpg",
     featured: false
   },
   {
@@ -1524,7 +1524,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Rookie Revue (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Rookie%20Revue%20(1941)_000454.jpg",
     featured: false
   },
   {
@@ -1541,7 +1541,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Sport Chumpions (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Sport%20Chumpions%20(1941)_000424.jpg",
     featured: false
   },
   {
@@ -1558,7 +1558,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Haunted Mouse (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Haunted%20Mouse%20(1941)_000467.jpg",
     featured: false
   },
   {
@@ -1575,7 +1575,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Henpecked Duck (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Henpecked%20Duck%20(1941)_000443.jpg",
     featured: false
   },
   {
@@ -1592,7 +1592,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/We, the Animals - Squeak! (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/We%2C%20the%20Animals%20-%20Squeak!%20(1941)_000544.jpg",
     featured: false
   },
   {
@@ -1608,7 +1608,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Thrifty Pig (1941).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/The%20Thrifty%20Pig%20(1941)_000249.jpg",
     featured: false
   },
   {
@@ -1625,7 +1625,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Tale of Two Kitties (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/A%20Tale%20of%20Two%20Kitties%20(1942)_000397.jpg",
     featured: false
   },
   {
@@ -1642,7 +1642,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Case of the Missing Hare (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Case%20of%20the%20Missing%20Hare%20(1942)_000486.jpg",
     featured: false
   },
   {
@@ -1659,7 +1659,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Daffy's Southern Exposure (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Daffy's%20Southern%20Exposure%20(1942)_000448.jpg",
     featured: false
   },
   {
@@ -1676,7 +1676,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Ding Dog Daddy (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Ding%20Dog%20Daddy%20(1942)_000491.jpg",
     featured: false
   },
   {
@@ -1693,7 +1693,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Eatin' on the Cuff or, The Moth Who Came to Dinner (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Eatin'%20on%20the%20Cuff%20or%2C%20The%20Moth%20Who%20Came%20to%20Dinner%20(1942)_000402.jpg",
     featured: false
   },
   {
@@ -1710,7 +1710,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Foney Fables (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Foney%20Fables%20(1942)_000488.jpg",
     featured: false
   },
   {
@@ -1727,7 +1727,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Fox Pop (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Fox%20Pop%20(1942)_000467.jpg",
     featured: false
   },
   {
@@ -1744,7 +1744,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Fresh Hare (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Fresh%20Hare%20(1942)_000454.jpg",
     featured: false
   },
   {
@@ -1761,7 +1761,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Gopher Goofy (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Gopher%20Goofy%20(1942)_000416.jpg",
     featured: false
   },
   {
@@ -1778,7 +1778,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hobby Horse Laffs (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Hobby%20Horse%20Laffs%20(1942)_000391.jpg",
     featured: false
   },
   {
@@ -1795,7 +1795,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Nutty News (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Nutty%20News%20(1942)_000417.jpg",
     featured: false
   },
   {
@@ -1812,7 +1812,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Cafe (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Cafe%20(1942)_000387.jpg",
     featured: false
   },
   {
@@ -1829,7 +1829,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Café (1942, Redrawn and Colorized).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Caf%C3%A9%20(1942%2C%20Redrawn%20and%20Colorized)_000392.jpg",
     featured: false
   },
   {
@@ -1846,7 +1846,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky's Pastry Pirates (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky's%20Pastry%20Pirates%20(1942)_000405.jpg",
     featured: false
   },
   {
@@ -1863,7 +1863,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Daffy Duckaroo (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Daffy%20Duckaroo%20(1942)_000463.jpg",
     featured: false
   },
   {
@@ -1880,7 +1880,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Dover Boys At Pimento University or The Rivals of Roquefort Hall (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Dover%20Boys%20At%20Pimento%20University%20or%20The%20Rivals%20of%20Roquefort%20Hall%20(1942)_000530.jpg",
     featured: false
   },
   {
@@ -1897,7 +1897,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Ducktators (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Ducktators%20(1942)_000461.jpg",
     featured: false
   },
   {
@@ -1914,7 +1914,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Impatient Patient (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Impatient%20Patient%20(1942)_000458.jpg",
     featured: false
   },
   {
@@ -1931,7 +1931,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Sheepish Wolf (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Sheepish%20Wolf%20(1942)_000438.jpg",
     featured: false
   },
   {
@@ -1948,7 +1948,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Wabbit Who Came To Supper (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Wabbit%20Who%20Came%20To%20Supper%20(1942)_000486.jpg",
     featured: false
   },
   {
@@ -1965,7 +1965,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Wacky Wabbit (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Wacky%20Wabbit%20(1942)_000440.jpg",
     featured: false
   },
   {
@@ -1982,7 +1982,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Wacky Blackout (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Wacky%20Blackout%20(1942)_000463.jpg",
     featured: false
   },
   {
@@ -1999,7 +1999,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Who's Who in the Zoo (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Who's%20Who%20in%20the%20Zoo%20(1942)_000421.jpg",
     featured: false
   },
   {
@@ -2015,7 +2015,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/All Together (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/All%20Together%20(1942)_000178.jpg",
     featured: false
   },
   {
@@ -2031,7 +2031,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Donald's Decision (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Donald's%20Decision%20(1942)_000214.jpg",
     featured: false
   },
   {
@@ -2047,7 +2047,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Out Of The Frying Pan Into The Firing Line (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Out%20Of%20The%20Frying%20Pan%20Into%20The%20Firing%20Line%20(1942)_000198.jpg",
     featured: false
   },
   {
@@ -2063,7 +2063,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Any Bonds Today (1942).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/Any%20Bonds%20Today%20(1942)_000012.jpg",
     featured: false
   },
   {
@@ -2080,7 +2080,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/A Corny Concerto (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/A%20Corny%20Concerto%20(1943)_000470.jpg",
     featured: false
   },
   {
@@ -2097,7 +2097,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Confusions of a Nutzy Spy (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Confusions%20of%20a%20Nutzy%20Spy%20(1943)_000453.jpg",
     featured: false
   },
   {
@@ -2114,7 +2114,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Daffy - The Commando (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Daffy%20-%20The%20Commando%20(1943)_000442.jpg",
     featured: false
   },
   {
@@ -2131,7 +2131,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Falling Hare (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Falling%20Hare%20(1943)_000501.jpg",
     featured: false
   },
   {
@@ -2148,7 +2148,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Hop and Go (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Hop%20and%20Go%20(1943)_000429.jpg",
     featured: false
   },
   {
@@ -2165,7 +2165,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Inki and the Minah Bird (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Inki%20and%20the%20Minah%20Bird%20(1943)_000445.jpg",
     featured: false
   },
   {
@@ -2182,7 +2182,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Pigs in a Polka (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Pigs%20in%20a%20Polka%20(1943)_000466.jpg",
     featured: false
   },
   {
@@ -2199,7 +2199,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Porky Pig's Feat (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Porky%20Pig's%20Feat%20(1943)_000511.jpg",
     featured: false
   },
   {
@@ -2216,7 +2216,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Puss N' Booty (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Puss%20N'%20Booty%20(1943)_000435.jpg",
     featured: false
   },
   {
@@ -2233,7 +2233,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Scrap Happy Daffy (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Scrap%20Happy%20Daffy%20(1943)_000469.jpg",
     featured: false
   },
   {
@@ -2250,7 +2250,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/The Fifth-Column Mouse (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/The%20Fifth-Column%20Mouse%20(1943)_000443.jpg",
     featured: false
   },
   {
@@ -2267,7 +2267,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/To Duck Or Not To Duck (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/To%20Duck%20Or%20Not%20To%20Duck%20(1943)_000388.jpg",
     featured: false
   },
   {
@@ -2284,7 +2284,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Tokio Jokio (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Tokio%20Jokio%20(1943)_000426.jpg",
     featured: false
   },
   {
@@ -2301,7 +2301,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Wackiki Wabbit (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Wackiki%20Wabbit%20(1943)_000394.jpg",
     featured: false
   },
   {
@@ -2318,7 +2318,7 @@ module.exports = [
       provider: "archive",
       id: "ltmm-publicdomain/Yankee Doodle Daffy (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/ltmm-publicdomain",
+    backdropUrl: "https://archive.org/download/ltmm-publicdomain/ltmm-publicdomain.thumbs/Yankee%20Doodle%20Daffy%20(1943)_000395.jpg",
     featured: false
   },
   {
@@ -2334,7 +2334,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Education for Death (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Education%20for%20Death%20(1943)_000607.jpg",
     featured: false
   },
   {
@@ -2350,7 +2350,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Spirit Of '43 (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/The%20Spirit%20Of%20'43%20(1943)_000340.jpg",
     featured: false
   },
   {
@@ -2366,7 +2366,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/The Winged Scourge (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/The%20Winged%20Scourge%20(1943)_000583.jpg",
     featured: false
   },
   {
@@ -2382,7 +2382,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Point Rationing of Foods (1943).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/Point%20Rationing%20of%20Foods%20(1943)_000366.jpg",
     featured: false
   },
   {
@@ -2398,7 +2398,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Cleanliness Brings Health (1945).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Cleanliness%20Brings%20Health%20(1945)_000507.jpg",
     featured: false
   },
   {
@@ -2414,7 +2414,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/So Much For So Little (1949).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/So%20Much%20For%20So%20Little%20(1949)_000617.jpg",
     featured: false
   },
   {
@@ -2430,7 +2430,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Susie, The Little Blue Coupe (1952).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Susie%2C%20The%20Little%20Blue%20Coupe%20(1952)_000493.jpg",
     featured: false
   },
   {
@@ -2446,7 +2446,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/A Hitch in Time (1955).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/A%20Hitch%20in%20Time%20(1955)_000454.jpg",
     featured: false
   },
   {
@@ -2462,7 +2462,7 @@ module.exports = [
       provider: "archive",
       id: "disneycartoons-publicdomain/Hooked Bear (1956).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/disneycartoons-publicdomain",
+    backdropUrl: "https://archive.org/download/disneycartoons-publicdomain/disneycartoons-publicdomain.thumbs/Hooked%20Bear%20(1956)_000376.jpg",
     featured: false
   },
   {
@@ -2478,7 +2478,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/90 Day Wondering (1956).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/90%20Day%20Wondering%20(1956)_000491.jpg",
     featured: false
   },
   {
@@ -2494,7 +2494,7 @@ module.exports = [
       provider: "archive",
       id: "wbmisc-publicdomain/Drafty, Isn't It (1957).mp4"
     },
-    backdropUrl: "https://archive.org/services/img/wbmisc-publicdomain",
+    backdropUrl: "https://archive.org/download/wbmisc-publicdomain/wbmisc-publicdomain.thumbs/Drafty%2C%20Isn't%20It%20(1957)_000644.jpg",
     featured: false
   }
 ];
