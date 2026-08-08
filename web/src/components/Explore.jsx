@@ -20,7 +20,7 @@ export default function Explore({ genreTiles }) {
     }
 
     let cancelled = false;
-    api.listMovies({ search: term, limit: 24 }).then(({ data }) => {
+    api.listMovies({ search: term, limit: 300 }).then(({ data }) => {
       if (!cancelled) setResults(data);
     });
 
@@ -48,13 +48,17 @@ export default function Explore({ genreTiles }) {
         {genreTiles.length ? (
           <div className="flex flex-wrap gap-3">
             {genreTiles.map(({ genre }) => (
-              <button
+              // Link direto pra categoria (não busca de texto): o nome do
+              // gênero nem sempre aparece no título/sinopse de cada filme,
+              // então uma busca por "Terror" perderia a maioria dos filmes
+              // de terror que não têm essa palavra escrita.
+              <Link
                 key={genre}
-                onClick={() => setTerm(genre)}
+                href={`/genre/${encodeURIComponent(genre)}`}
                 className="px-4 py-2 rounded-full border border-primary/30 text-primary font-body text-label-bold hover:bg-primary/10 transition-colors"
               >
                 #{genre}
-              </button>
+              </Link>
             ))}
           </div>
         ) : null}
