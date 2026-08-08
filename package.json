@@ -1,0 +1,15 @@
+{
+  "name": "sva-stream",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Streaming de filmes em domínio público",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace=server",
+    "dev:web": "npm run dev --workspace=web",
+    "seed": "npm run seed --workspace=server"
+  }
+}

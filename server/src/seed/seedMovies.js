@@ -1,0 +1,104 @@
+require('dotenv').config();
+const connectDB = require('../config/db');
+const Movie = require('../models/Movie');
+const Admin = require('../models/Admin');
+
+// Filmes clássicos em domínio público, hospedados no archive.org.
+// "source.id" é o identifier do item no archive.org (o que aparece na URL
+// https://archive.org/details/<identifier>). O player embute direto de lá,
+// então não guardamos nenhum arquivo de vídeo no nosso banco.
+const movies = [
+  {
+    title: 'Night of the Living Dead',
+    slug: 'night-of-the-living-dead',
+    synopsis:
+      'Um grupo de pessoas se refugia em uma fazenda isolada enquanto mortos-vivos cercam a casa. O filme que fundou o gênero moderno de zumbis.',
+    year: 1968,
+    director: 'George A. Romero',
+    cast: ['Duane Jones', 'Judith O’Dea'],
+    genres: ['Terror', 'Clássico'],
+    runtimeMinutes: 96,
+    posterUrl: 'https://archive.org/services/img/night-of-the-living-dead-1968_202508',
+    backdropUrl: 'https://archive.org/services/img/night-of-the-living-dead-1968_202508',
+    source: { provider: 'archive', id: 'night-of-the-living-dead-1968_202508' },
+    featured: true,
+  },
+  {
+    title: 'Nosferatu',
+    slug: 'nosferatu',
+    synopsis:
+      'A adaptação não-oficial de Drácula que se tornou um marco do cinema expressionista alemão e do horror mudo.',
+    year: 1922,
+    director: 'F. W. Murnau',
+    cast: ['Max Schreck'],
+    genres: ['Terror', 'Mudo', 'Clássico'],
+    runtimeMinutes: 94,
+    posterUrl: 'https://archive.org/services/img/Nosferatu1922',
+    backdropUrl: 'https://archive.org/services/img/Nosferatu1922',
+    source: { provider: 'archive', id: 'Nosferatu1922' },
+    featured: true,
+  },
+  {
+    title: 'His Girl Friday',
+    slug: 'his-girl-friday',
+    synopsis:
+      'Uma comédia de ritmo acelerado sobre um editor de jornal que tenta impedir que sua ex-mulher e melhor repórter se case novamente.',
+    year: 1940,
+    director: 'Howard Hawks',
+    cast: ['Cary Grant', 'Rosalind Russell'],
+    genres: ['Comédia', 'Romance', 'Clássico'],
+    runtimeMinutes: 92,
+    posterUrl: 'https://archive.org/services/img/his_girl_friday',
+    backdropUrl: 'https://archive.org/services/img/his_girl_friday',
+    source: { provider: 'archive', id: 'his_girl_friday' },
+    featured: false,
+  },
+  {
+    title: 'The Cabinet of Dr. Caligari',
+    slug: 'the-cabinet-of-dr-caligari',
+    synopsis:
+      'Um hipnotizador e seu sonâmbulo aterrorizam uma pequena cidade alemã. Obra-prima do expressionismo alemão.',
+    year: 1920,
+    director: 'Robert Wiene',
+    cast: ['Werner Krauss', 'Conrad Veidt'],
+    genres: ['Terror', 'Mudo', 'Clássico'],
+    runtimeMinutes: 76,
+    posterUrl: 'https://archive.org/services/img/the-cabinet-of-dr-caligari-1920',
+    backdropUrl: 'https://archive.org/services/img/the-cabinet-of-dr-caligari-1920',
+    source: { provider: 'archive', id: 'the-cabinet-of-dr-caligari-1920' },
+    featured: false,
+  },
+];
+
+async function run() {
+  await connectDB();
+
+  for (const movie of movies) {
+    await Movie.updateOne({ slug: movie.slug }, { $set: movie }, { upsert: true });
+    console.log(`Seed: ${movie.title}`);
+  }
+
+  const adminEmail = process.env.SEED_ADMIN_EMAIL;
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+
+  if (adminEmail && adminPassword) {
+    const existing = await Admin.findOne({ email: adminEmail.toLowerCase() });
+    if (!existing) {
+      const passwordHash = await Admin.hashPassword(adminPassword);
+      await Admin.create({ email: adminEmail.toLowerCase(), passwordHash });
+      console.log(`Admin criado: ${adminEmail}`);
+    } else {
+      console.log('Admin já existe, pulando criação.');
+    }
+  } else {
+    console.log('SEED_ADMIN_EMAIL/SEED_ADMIN_PASSWORD não definidos — nenhum admin criado.');
+  }
+
+  console.log('Seed concluído.');
+  process.exit(0);
+}
+
+run().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
