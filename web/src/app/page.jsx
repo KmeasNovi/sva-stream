@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { api } from '../lib/api';
 import MovieRow from '../components/MovieRow';
 import NewsletterForm from '../components/NewsletterForm';
@@ -17,11 +18,13 @@ export default async function HomePage() {
         <section className="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/20 to-transparent z-10 pointer-events-none" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={highlight.backdropUrl || highlight.posterUrl}
             alt={highlight.title}
-            className="absolute inset-0 w-full h-full object-cover object-top filter brightness-75"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-top filter brightness-75"
           />
           <div className="relative z-20 container mx-auto px-container-margin h-full flex flex-col justify-end pb-24 md:pb-32">
             <div className="max-w-2xl">

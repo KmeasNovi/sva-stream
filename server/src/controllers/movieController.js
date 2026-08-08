@@ -27,7 +27,8 @@ exports.listMovies = catchAsync(async (req, res) => {
     Movie.find(query)
       .sort({ createdAt: -1 })
       .skip((pageNum - 1) * limitNum)
-      .limit(limitNum),
+      .limit(limitNum)
+      .lean(),
     Movie.countDocuments(query),
   ]);
 
@@ -43,7 +44,7 @@ exports.getMovieBySlug = catchAsync(async (req, res, next) => {
     { slug: req.params.slug },
     { $inc: { views: 1 } },
     { new: true }
-  );
+  ).lean();
 
   if (!movie) return next(new AppError('Filme não encontrado', 404));
 

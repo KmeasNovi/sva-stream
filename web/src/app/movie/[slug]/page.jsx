@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { api } from '../../../lib/api';
@@ -13,11 +14,6 @@ export default async function MoviePage({ params }) {
   } catch (err) {
     return notFound();
   }
-
-  const relatedGenre = movie.genres?.[0];
-  const related = relatedGenre
-    ? (await api.listMovies({ genre: relatedGenre, limit: 13 })).data.filter((m) => m.slug !== movie.slug)
-    : [];
 
   return (
     <div className="container mx-auto px-container-margin py-8 space-y-10">
@@ -54,7 +50,17 @@ export default async function MoviePage({ params }) {
         <p className="font-body text-body-lg text-on-surface">{movie.synopsis}</p>
       </div>
 
-      <MovieRow title="Mais como este" movies={related} />
+      <Suspense fallback={null}>
+        <RelatedRow slug={movie.slug} genre={movie.genres?.[0]} />
+      </Suspense>
     </div>
   );
+}
+
+async function RelatedRow({ slug, genre }) {
+  if (!genre) return null;
+  const { data } = await api.listMovies({ genre, limit: 13 });
+  const related = data.filter((m) => m.slug !== slug);
+  if (!related.length) return null;
+  return <MovieRow title="Mais como este" movies={related} />;
 }

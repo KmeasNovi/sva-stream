@@ -6,6 +6,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'ia*.us.archive.org' },
       { protocol: 'https', hostname: 'img.youtube.com' },
       { protocol: 'https', hostname: 'image.tmdb.org' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org' },
     ],
   },
 };
