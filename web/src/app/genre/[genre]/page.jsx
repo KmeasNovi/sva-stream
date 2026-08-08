@@ -4,7 +4,7 @@ import MovieCard from '../../../components/MovieCard';
 export default async function GenrePage({ params }) {
   const { genre } = await params;
   const decoded = decodeURIComponent(genre);
-  const { data: movies } = await api.listMovies({ genre: decoded, limit: 50 });
+  const { data: movies } = await api.listMovies({ genre: decoded, limit: 500 });
 
   return (
     <div className="container mx-auto px-container-margin py-12">
