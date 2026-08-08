@@ -18,7 +18,7 @@ const movies = [
     cast: ['Duane Jones', 'Judith O’Dea'],
     genres: ['Terror', 'Clássico'],
     runtimeMinutes: 96,
-    posterUrl: 'https://archive.org/services/img/night-of-the-living-dead-1968_202508',
+    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/9/91/Night_of_the_Living_Dead_%281968%29_poster.jpg',
     backdropUrl: 'https://archive.org/services/img/night-of-the-living-dead-1968_202508',
     source: { provider: 'archive', id: 'night-of-the-living-dead-1968_202508' },
     featured: true,
@@ -33,7 +33,8 @@ const movies = [
     cast: ['Max Schreck'],
     genres: ['Terror', 'Mudo', 'Clássico'],
     runtimeMinutes: 94,
-    posterUrl: 'https://archive.org/services/img/Nosferatu1922',
+    posterUrl:
+      'https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Nosferatu_poster_%28Albin_Grau%2C_1922%29_1.jpg/500px-Nosferatu_poster_%28Albin_Grau%2C_1922%29_1.jpg',
     backdropUrl: 'https://archive.org/services/img/Nosferatu1922',
     source: { provider: 'archive', id: 'Nosferatu1922' },
     featured: true,
@@ -48,7 +49,8 @@ const movies = [
     cast: ['Cary Grant', 'Rosalind Russell'],
     genres: ['Comédia', 'Romance', 'Clássico'],
     runtimeMinutes: 92,
-    posterUrl: 'https://archive.org/services/img/his_girl_friday',
+    posterUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/His_Girl_Friday_%281940_poster%29_crop.jpg/500px-His_Girl_Friday_%281940_poster%29_crop.jpg',
     backdropUrl: 'https://archive.org/services/img/his_girl_friday',
     source: { provider: 'archive', id: 'his_girl_friday' },
     featured: false,
@@ -63,7 +65,8 @@ const movies = [
     cast: ['Werner Krauss', 'Conrad Veidt'],
     genres: ['Terror', 'Mudo', 'Clássico'],
     runtimeMinutes: 76,
-    posterUrl: 'https://archive.org/services/img/the-cabinet-of-dr-caligari-1920',
+    posterUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Das_Cabinet_des_Dr._Caligari.JPG/500px-Das_Cabinet_des_Dr._Caligari.JPG',
     backdropUrl: 'https://archive.org/services/img/the-cabinet-of-dr-caligari-1920',
     source: { provider: 'archive', id: 'the-cabinet-of-dr-caligari-1920' },
     featured: false,
