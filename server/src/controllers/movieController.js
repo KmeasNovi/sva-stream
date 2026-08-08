@@ -51,7 +51,7 @@ exports.listMovies = catchAsync(async (req, res) => {
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
   // Teto alto o bastante pra pedir o catálogo inteiro numa página só (ex: a
   // página /catalogo, que lista todos os filmes sem filtro de gênero).
-  const limitNum = Math.min(500, Math.max(1, parseInt(limit, 10) || 24));
+  const limitNum = Math.min(2000, Math.max(1, parseInt(limit, 10) || 24));
 
   let movies;
   let total;

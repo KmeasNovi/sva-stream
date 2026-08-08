@@ -42,7 +42,7 @@ export default function AdminDashboardPage() {
   }, [token]);
 
   async function loadMovies() {
-    const { data } = await api.listMovies({ limit: 500 });
+    const { data } = await api.listMovies({ limit: 2000 });
     setMovies(data);
   }
 
