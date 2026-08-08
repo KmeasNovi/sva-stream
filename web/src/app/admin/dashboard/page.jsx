@@ -190,8 +190,8 @@ export default function AdminDashboardPage() {
         </button>
       </form>
 
-      <div className="glass-panel rounded-2xl overflow-hidden">
-        <table className="w-full">
+      <div className="glass-panel rounded-2xl overflow-x-auto">
+        <table className="w-full min-w-[560px]">
           <thead>
             <tr className="text-left font-body text-label-bold text-on-surface-variant border-b border-white/10">
               <th className="p-4">Título</th>
@@ -203,15 +203,15 @@ export default function AdminDashboardPage() {
           <tbody>
             {movies.map((movie) => (
               <tr key={movie._id} className="border-b border-white/5 font-body text-body-md text-on-background">
-                <td className="p-4">{movie.title}</td>
+                <td className="p-4 max-w-[240px] truncate">{movie.title}</td>
                 <td className="p-4">{movie.year}</td>
-                <td className="p-4 text-on-surface-variant">
+                <td className="p-4 text-on-surface-variant max-w-[200px] truncate">
                   {movie.source?.provider}:{movie.source?.id}
                 </td>
                 <td className="p-4">
                   <button
                     onClick={() => handleDelete(movie._id)}
-                    className="px-3 py-1 rounded-lg border border-error/30 text-error hover:bg-error/10 transition-colors font-body text-label-bold"
+                    className="px-3 py-1 rounded-lg border border-error/30 text-error hover:bg-error/10 transition-colors font-body text-label-bold whitespace-nowrap"
                   >
                     Remover
                   </button>

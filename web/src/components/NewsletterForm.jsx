@@ -28,7 +28,7 @@ export default function NewsletterForm() {
             Avisamos por email quando novos filmes entrarem no ar.
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
           <input
             type="email"
             required

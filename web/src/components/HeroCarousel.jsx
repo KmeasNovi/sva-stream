@@ -75,10 +75,12 @@ export default function HeroCarousel({ movies }) {
               </span>
             ))}
           </div>
-          <h2 className="font-display text-headline-lg-mobile md:text-display-xl text-white mb-4 leading-tight drop-shadow-2xl">
+          <h2 className="font-display text-headline-lg-mobile md:text-display-xl text-white mb-4 leading-tight drop-shadow-2xl line-clamp-2">
             {highlight.title}
           </h2>
-          <p className="font-body text-body-lg text-on-surface mb-8 max-w-xl">{highlight.synopsis}</p>
+          <p className="font-body text-body-lg text-on-surface mb-8 max-w-xl line-clamp-2 md:line-clamp-3">
+            {highlight.synopsis}
+          </p>
           <div className="flex flex-wrap gap-4">
             <a
               href={`/movie/${highlight.slug}`}
