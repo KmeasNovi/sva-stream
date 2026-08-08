@@ -103,4 +103,3 @@ especialmente o Next.js — é um projeto ativo com correções de segurança fr
 - Trocar o CSS simples em `web/src/app/globals.css` pelo seu design system.
 - Se quiser pôsteres/sinopses prontos, a API do TMDB é gratuita e cobre boa parte dos clássicos
   em domínio público.
->>>>>>> origin/main
