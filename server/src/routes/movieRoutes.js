@@ -5,6 +5,7 @@ const { requireAdmin } = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/genres', movieController.listGenres);
+router.get('/featured', movieController.listFeatured);
 router.get('/', movieController.listMovies);
 router.get('/:slug', movieController.getMovieBySlug);
 

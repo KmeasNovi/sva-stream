@@ -14,6 +14,22 @@ function getPrimaryGenre(genres = []) {
   return genres.find((g) => g !== CATCH_ALL_GENRE) || genres[0];
 }
 
+// Categorias de gênero "de verdade" pra fileira "Em destaque" — de fora
+// ficam "Clássico" (tag genérica, quase todo o catálogo) e "Mudo" (formato,
+// não gênero, só 3 filmes).
+const FEATURED_GENRES = [
+  'Animação',
+  'Aventura',
+  'Comédia',
+  'Documentário',
+  'Drama',
+  'Faroeste',
+  'Ficção Científica',
+  'Romance',
+  'Suspense',
+  'Terror',
+];
+
 const slugify = (text) =>
   text
     .toString()
@@ -76,6 +92,21 @@ exports.getMovieBySlug = catchAsync(async (req, res, next) => {
   if (!movie) return next(new AppError('Filme não encontrado', 404));
 
   res.json({ success: true, data: movie });
+});
+
+exports.listFeatured = catchAsync(async (req, res) => {
+  // Um filme por categoria (ver FEATURED_GENRES): dentro de cada categoria,
+  // prioriza um filme marcado featured=true manualmente pelo admin, senão o
+  // mais visto, senão ordem alfabética — só pra ter um critério estável.
+  const movies = await Movie.find({}).sort({ featured: -1, views: -1, title: 1 }).lean();
+
+  const picked = [];
+  for (const genre of FEATURED_GENRES) {
+    const candidate = movies.find((m) => getPrimaryGenre(m.genres) === genre);
+    if (candidate) picked.push(candidate);
+  }
+
+  res.json({ success: true, data: picked });
 });
 
 exports.listGenres = catchAsync(async (req, res) => {

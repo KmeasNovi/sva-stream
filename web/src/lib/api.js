@@ -33,6 +33,7 @@ export const api = {
   },
   getMovie: (slug) => request(`/movies/${slug}`),
   listGenres: () => request('/movies/genres'),
+  listFeatured: () => request('/movies/featured'),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),
   createMovie: (data, token) => request('/movies', { method: 'POST', body: data, token }),
   updateMovie: (id, data, token) => request(`/movies/${id}`, { method: 'PATCH', body: data, token }),

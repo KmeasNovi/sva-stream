@@ -5,7 +5,7 @@ import NewsletterForm from '../components/NewsletterForm';
 
 export default async function HomePage() {
   const [{ data: featured }, { data: recent }, { data: genres }] = await Promise.all([
-    api.listMovies({ featured: 'true', limit: 10 }),
+    api.listFeatured(),
     api.listMovies({ limit: 12 }),
     api.listGenres(),
   ]);
