@@ -60,12 +60,12 @@ export default function Navbar() {
   return (
     <>
       {/* Sidebar (Desktop) */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[280px] pt-24 pb-8 flex-col z-30 bg-surface/5 backdrop-blur-3xl border-r border-white/5 shadow-2xl shadow-primary/20">
-        <div className="px-6 mb-12">
-          <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
-          <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
-        </div>
-        {user ? (
+      {user ? (
+        <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[280px] pt-24 pb-8 flex-col z-30 bg-surface/5 backdrop-blur-3xl border-r border-white/5 shadow-2xl shadow-primary/20">
+          <div className="px-6 mb-12">
+            <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
+            <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
+          </div>
           <nav className="flex-1 space-y-2">
             {NAV_ITEMS.map((item) => {
               const active = pathname === item.href;
@@ -87,11 +87,13 @@ export default function Navbar() {
               );
             })}
           </nav>
-        ) : null}
-      </aside>
+        </aside>
+      ) : null}
 
       {/* Top App Bar */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 md:pl-[304px]">
+      <header
+        className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 ${user ? 'md:pl-[304px]' : ''}`}
+      >
         <div className="flex items-center md:hidden">
           <Link href="/" className="font-display text-headline-md text-primary">
             CulStream
@@ -110,7 +112,12 @@ export default function Navbar() {
             />
           </form>
         ) : (
-          <div className="flex-1" />
+          <div className="flex-1 hidden md:flex items-center justify-center pointer-events-none">
+            <div className="flex flex-col items-center leading-tight">
+              <span className="font-display text-headline-md text-secondary">CulStream</span>
+              <span className="font-body text-body-sm text-on-surface-variant mt-0.5">Cinema clássico, grátis</span>
+            </div>
+          </div>
         )}
         <div className="flex items-center gap-4">
           {user ? (
