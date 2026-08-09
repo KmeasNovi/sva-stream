@@ -5,11 +5,11 @@ import LandingRedirect from '../components/LandingRedirect';
 export const metadata = {
   title: 'CulStream — Cinema clássico e curtas de animação, grátis',
   description:
-    'Centenas de filmes e curtas de animação em domínio público, 100% gratuitos e legais, num catálogo estilo streaming. Sem mensalidade, sem anúncio. Crie sua conta e assista.',
+    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos e legais, num catálogo estilo streaming. Sem mensalidade, sem anúncio. Crie sua conta e assista.',
   openGraph: {
     title: 'CulStream — Cinema clássico e curtas de animação, grátis',
     description:
-      'Centenas de filmes e curtas de animação em domínio público, 100% gratuitos e legais, num catálogo estilo streaming.',
+      'Centenas de filmes e curtas de animação clássicos, 100% gratuitos e legais, num catálogo estilo streaming.',
     type: 'website',
   },
 };
@@ -64,8 +64,8 @@ const POSTERS = [
 const FEATURES = [
   {
     icon: 'lock_open',
-    title: '100% domínio público',
-    desc: 'Nada de pirataria: todo o catálogo é legalmente livre pra assistir, sem letra miúda.',
+    title: '100% legal',
+    desc: 'Nada de pirataria: todo o catálogo é livre pra assistir, sem letra miúda.',
   },
   {
     icon: 'block',
@@ -106,7 +106,7 @@ export default function LandingPage() {
               Cinema <span className="text-secondary">clássico</span>, <span className="text-primary">grátis</span> pra sempre
             </h1>
             <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
-              Centenas de filmes e curtas de animação em domínio público, num catálogo estilo streaming. Sem mensalidade, sem anúncio — só criar conta e assistir.
+              Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Sem mensalidade, sem anúncio — só criar conta e assistir.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -155,7 +155,7 @@ export default function LandingPage() {
           <div className="container mx-auto px-container-margin flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="font-display text-headline-md text-secondary">CulStream</span>
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
-              Cinema clássico e curtas de animação em domínio público, gratuitos.
+              Cinema clássico e curtas de animação, gratuitos e legais.
             </p>
           </div>
         </footer>
