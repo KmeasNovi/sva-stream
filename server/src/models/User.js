@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema(
     emailVerified: { type: Boolean, default: false },
     verificationToken: { type: String },
     verificationTokenExpires: { type: Date },
+    resetPasswordToken: { type: String },
+    resetPasswordTokenExpires: { type: Date },
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
   },
   { timestamps: true }

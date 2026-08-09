@@ -73,6 +73,11 @@ function EntrarForm() {
           required
           className="w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary"
         />
+        <p className="text-right -mt-2">
+          <Link href="/esqueci-senha" className="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors">
+            Esqueceu a senha?
+          </Link>
+        </p>
         {error ? <p className="text-error font-body text-body-md">{error}</p> : null}
         {needsVerification ? (
           <button

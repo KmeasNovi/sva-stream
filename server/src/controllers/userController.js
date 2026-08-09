@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
-const { sendVerificationEmail } = require('../utils/sendEmail');
+const { sendVerificationEmail, sendPasswordResetEmail } = require('../utils/sendEmail');
 
 const VERIFICATION_TOKEN_TTL_MS = 24 * 60 * 60 * 1000; // 24h
+const RESET_TOKEN_TTL_MS = 60 * 60 * 1000; // 1h — mais curto que o de verificação, é reset de senha
 
 function generateVerificationToken() {
   return crypto.randomBytes(32).toString('hex');
@@ -141,6 +142,57 @@ exports.resendVerification = catchAsync(async (req, res, next) => {
   }
 
   res.json({ success: true, message: genericMessage });
+});
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  const { email } = req.body;
+  if (typeof email !== 'string' || !email) return next(new AppError('Informe um email', 400));
+
+  const user = await User.findOne({ email: email.toLowerCase() });
+
+  // Resposta genérica independente de o email existir, pra não vazar quais
+  // emails têm conta cadastrada (mesmo espírito do resendVerification).
+  const genericMessage = 'Se esse email tiver uma conta, mandamos um link de redefinição de senha agora.';
+
+  if (!user) {
+    return res.json({ success: true, message: genericMessage });
+  }
+
+  user.resetPasswordToken = generateVerificationToken();
+  user.resetPasswordTokenExpires = new Date(Date.now() + RESET_TOKEN_TTL_MS);
+  await user.save();
+
+  try {
+    await sendPasswordResetEmail(user.email, user.name, user.resetPasswordToken);
+  } catch (err) {
+    console.error('Erro ao enviar email de redefinição de senha:', err);
+  }
+
+  res.json({ success: true, message: genericMessage });
+});
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  const { token, password } = req.body;
+  if (typeof token !== 'string' || !token) return next(new AppError('Token de redefinição ausente', 400));
+  if (typeof password !== 'string' || password.length < 8) {
+    return next(new AppError('A senha precisa ter pelo menos 8 caracteres', 400));
+  }
+
+  const user = await User.findOne({
+    resetPasswordToken: token,
+    resetPasswordTokenExpires: { $gt: new Date() },
+  });
+
+  if (!user) {
+    return next(new AppError('Link de redefinição inválido ou expirado', 400));
+  }
+
+  user.passwordHash = await User.hashPassword(password);
+  user.resetPasswordToken = undefined;
+  user.resetPasswordTokenExpires = undefined;
+  await user.save();
+
+  res.json({ success: true, message: 'Senha redefinida! Você já pode entrar com a nova senha.' });
 });
 
 exports.getMe = catchAsync(async (req, res) => {

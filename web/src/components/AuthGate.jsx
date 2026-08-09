@@ -5,7 +5,16 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import LoadingScreen from './LoadingScreen';
 
-const PUBLIC_PATHS = ['/', '/entrar', '/cadastro', '/verificar-email', '/privacidade', '/doacao'];
+const PUBLIC_PATHS = [
+  '/',
+  '/entrar',
+  '/cadastro',
+  '/verificar-email',
+  '/esqueci-senha',
+  '/redefinir-senha',
+  '/privacidade',
+  '/doacao',
+];
 
 export default function AuthGate({ children }) {
   const { user, loading } = useUser();
