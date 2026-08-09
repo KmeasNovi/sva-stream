@@ -32,7 +32,7 @@ function EntrarForm() {
     setLoading(true);
     try {
       await login(email, password);
-      router.push(searchParams.get('next') || '/minha-lista');
+      router.push(searchParams.get('next') || '/home');
     } catch (err) {
       setError(err.message);
       if (err.message.includes('Confirme seu email')) {

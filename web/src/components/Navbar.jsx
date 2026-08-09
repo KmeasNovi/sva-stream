@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Home', icon: 'home' },
+  { href: '/home', label: 'Home', icon: 'home' },
   { href: '/search', label: 'Explorar', icon: 'explore' },
   { href: '/catalogo', label: 'Catálogo', icon: 'video_library' },
   { href: '/minha-lista', label: 'Minha Lista', icon: 'favorite' },
@@ -95,7 +95,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 ${user ? 'md:pl-[304px]' : ''}`}
       >
         <div className="flex items-center md:hidden">
-          <Link href="/" className="font-display text-headline-md text-primary">
+          <Link href={user ? '/home' : '/'} className="font-display text-headline-md text-primary">
             CulStream
           </Link>
         </div>

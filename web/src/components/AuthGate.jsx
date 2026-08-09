@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 
-const PUBLIC_PATHS = ['/entrar', '/cadastro', '/verificar-email'];
+const PUBLIC_PATHS = ['/', '/entrar', '/cadastro', '/verificar-email'];
 
 export default function AuthGate({ children }) {
   const { user, loading } = useUser();
