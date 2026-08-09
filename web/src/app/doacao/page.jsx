@@ -4,7 +4,7 @@ import CopyPixKey from '../../components/CopyPixKey';
 
 export const metadata = {
   title: 'Apoie o SepiaStream — Doação via PIX',
-  description: 'Ajude a manter o SepiaStream no ar com uma doação via PIX.',
+  description: 'Ajude a manter vivo o acesso gratuito a clássicos do cinema e curtas de animação com uma doação via PIX.',
 };
 
 const PIX_KEY = 'fab40159-13ce-4b54-9669-4313a5c7de27';
@@ -20,8 +20,9 @@ export default async function DoacaoPage() {
       <span className="material-symbols-outlined text-secondary text-5xl mb-4 inline-block">favorite</span>
       <h1 className="font-display text-headline-lg text-on-background mb-4">Apoie o SepiaStream</h1>
       <p className="font-body text-body-lg text-on-surface-variant mb-2 max-w-lg mx-auto">
-        O SepiaStream é gratuito e vive de anúncios — mas a aprovação pode levar semanas. Enquanto isso, qualquer
-        doação via PIX ajuda a manter o site no ar.
+        Centenas de clássicos e curtas raros, catalogados, organizados e disponíveis de graça pra qualquer pessoa
+        assistir — sem mensalidade, sem enrolação. Se o SepiaStream te ajudou a redescobrir o cinema, uma doação via
+        PIX ajuda a manter esse acesso livre.
       </p>
       <p className="font-body text-body-md text-on-surface-variant mb-10">Qualquer valor é bem-vindo. Obrigado!</p>
 
