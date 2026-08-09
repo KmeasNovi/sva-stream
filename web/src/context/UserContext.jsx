@@ -4,6 +4,9 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 import { api } from '../lib/api';
 
 const TOKEN_KEY = 'sva_user_token';
+// Marca que o login acabou de acontecer, pra Home mostrar o convite de
+// doação uma única vez — a Home consome (lê e apaga) essa flag ao montar.
+const JUST_LOGGED_IN_KEY = 'sva_just_logged_in';
 
 const UserContext = createContext(null);
 
@@ -37,6 +40,7 @@ export function UserProvider({ children }) {
   async function login(email, password) {
     const { data } = await api.loginUser(email, password);
     localStorage.setItem(TOKEN_KEY, data.token);
+    sessionStorage.setItem(JUST_LOGGED_IN_KEY, '1');
     setToken(data.token);
     setUser(data.user);
     return data.user;
@@ -64,4 +68,12 @@ export function useUser() {
   const ctx = useContext(UserContext);
   if (!ctx) throw new Error('useUser precisa estar dentro de um UserProvider');
   return ctx;
+}
+
+// Lê e apaga a flag de "acabou de logar" — só retorna true na primeira
+// checagem depois de um login, nunca de novo até o próximo login.
+export function consumeJustLoggedIn() {
+  const value = sessionStorage.getItem(JUST_LOGGED_IN_KEY);
+  if (value) sessionStorage.removeItem(JUST_LOGGED_IN_KEY);
+  return !!value;
 }

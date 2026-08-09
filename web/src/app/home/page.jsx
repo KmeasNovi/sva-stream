@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useUser } from '../../context/UserContext';
+import { useUser, consumeJustLoggedIn } from '../../context/UserContext';
 import { api } from '../../lib/api';
 import { getCached, setCached } from '../../lib/clientCache';
 import HeroCarousel from '../../components/HeroCarousel';
 import MovieRow from '../../components/MovieRow';
 import NewsletterForm from '../../components/NewsletterForm';
 import LoadingScreen from '../../components/LoadingScreen';
+import DonationModal from '../../components/DonationModal';
 
 export default function HomePage() {
   const { token } = useUser();
@@ -15,6 +16,11 @@ export default function HomePage() {
   const [featured, setFeatured] = useState(cached?.featured ?? null);
   const [recent, setRecent] = useState(cached?.recent ?? null);
   const [genres, setGenres] = useState(cached?.genres ?? null);
+  const [showDonation, setShowDonation] = useState(false);
+
+  useEffect(() => {
+    if (consumeJustLoggedIn()) setShowDonation(true);
+  }, []);
 
   useEffect(() => {
     if (!token) return;
@@ -34,7 +40,12 @@ export default function HomePage() {
   }, [token]);
 
   if (!featured || !recent || !genres) {
-    return <LoadingScreen />;
+    return (
+      <>
+        <LoadingScreen />
+        {showDonation ? <DonationModal onClose={() => setShowDonation(false)} /> : null}
+      </>
+    );
   }
 
   const heroMovies = featured.length ? featured : recent.slice(0, 1);
@@ -52,6 +63,7 @@ export default function HomePage() {
       </div>
 
       <NewsletterForm />
+      {showDonation ? <DonationModal onClose={() => setShowDonation(false)} /> : null}
     </>
   );
 }
