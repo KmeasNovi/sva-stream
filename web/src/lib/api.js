@@ -29,13 +29,13 @@ async function request(path, { method = 'GET', body, token, revalidate = 60 } = 
 }
 
 export const api = {
-  listMovies: (params = {}) => {
+  listMovies: (params = {}, token) => {
     const query = new URLSearchParams(params).toString();
-    return request(`/movies${query ? `?${query}` : ''}`);
+    return request(`/movies${query ? `?${query}` : ''}`, { token });
   },
-  getMovie: (slug) => request(`/movies/${slug}`),
-  listGenres: () => request('/movies/genres'),
-  listFeatured: () => request('/movies/featured'),
+  getMovie: (slug, token) => request(`/movies/${slug}`, { token }),
+  listGenres: (token) => request('/movies/genres', { token }),
+  listFeatured: (token) => request('/movies/featured', { token }),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),
   createMovie: (data, token) => request('/movies', { method: 'POST', body: data, token }),
   updateMovie: (id, data, token) => request(`/movies/${id}`, { method: 'PATCH', body: data, token }),

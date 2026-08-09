@@ -1,11 +1,26 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
 import MovieCard from '../../../components/MovieCard';
 
-export default async function GenrePage({ params }) {
-  const { genre } = await params;
-  const decoded = decodeURIComponent(genre);
-  const { data: movies } = await api.listMovies({ genre: decoded, limit: 2000 });
+export default function GenrePage({ params }) {
+  const { token } = useUser();
+  const decoded = decodeURIComponent(params.genre);
+  const [movies, setMovies] = useState(null);
+
+  useEffect(() => {
+    if (!token) return;
+    let cancelled = false;
+    api.listMovies({ genre: decoded, limit: 2000 }, token).then(({ data }) => {
+      if (!cancelled) setMovies(data);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [decoded, token]);
 
   return (
     <div className="container mx-auto px-container-margin py-12">
@@ -19,14 +34,18 @@ export default async function GenrePage({ params }) {
         </Link>
         <h1 className="font-display text-headline-lg text-on-background">{decoded}</h1>
       </div>
-      <div className="flex flex-wrap gap-4">
-        {movies.map((movie) => (
-          <MovieCard key={movie._id} movie={movie} />
-        ))}
-        {!movies.length ? (
-          <p className="font-body text-body-md text-on-surface-variant">Nenhum filme neste gênero ainda.</p>
-        ) : null}
-      </div>
+      {movies === null ? (
+        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
+      ) : (
+        <div className="flex flex-wrap gap-4">
+          {movies.map((movie) => (
+            <MovieCard key={movie._id} movie={movie} />
+          ))}
+          {!movies.length ? (
+            <p className="font-body text-body-md text-on-surface-variant">Nenhum filme neste gênero ainda.</p>
+          ) : null}
+        </div>
+      )}
     </div>
   );
 }

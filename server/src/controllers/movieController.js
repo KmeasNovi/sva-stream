@@ -44,9 +44,9 @@ exports.listMovies = catchAsync(async (req, res) => {
   const { genre, search, featured, page = 1, limit = 24 } = req.query;
   const query = {};
 
-  if (genre) query.genres = genre;
+  if (genre && typeof genre === 'string') query.genres = genre;
   if (featured === 'true') query.featured = true;
-  if (search) query.$text = { $search: search };
+  if (search && typeof search === 'string') query.$text = { $search: search };
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
   // Teto alto o bastante pra pedir o catálogo inteiro numa página só (ex: a

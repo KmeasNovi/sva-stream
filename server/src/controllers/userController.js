@@ -20,6 +20,9 @@ function signUserToken(user) {
 exports.register = catchAsync(async (req, res, next) => {
   const { name, email, password } = req.body;
 
+  if (typeof name !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
+    return next(new AppError('Preencha nome, email e senha', 400));
+  }
   if (!name || !email || !password) {
     return next(new AppError('Preencha nome, email e senha', 400));
   }
@@ -68,7 +71,7 @@ exports.register = catchAsync(async (req, res, next) => {
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-  if (!email || !password) {
+  if (typeof email !== 'string' || typeof password !== 'string' || !email || !password) {
     return next(new AppError('Informe email e senha', 400));
   }
 
@@ -94,7 +97,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.verifyEmail = catchAsync(async (req, res, next) => {
   const { token } = req.body;
-  if (!token) return next(new AppError('Token de verificação ausente', 400));
+  if (typeof token !== 'string' || !token) return next(new AppError('Token de verificação ausente', 400));
 
   const user = await User.findOne({
     verificationToken: token,
@@ -115,7 +118,7 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
 
 exports.resendVerification = catchAsync(async (req, res, next) => {
   const { email } = req.body;
-  if (!email) return next(new AppError('Informe um email', 400));
+  if (typeof email !== 'string' || !email) return next(new AppError('Informe um email', 400));
 
   const user = await User.findOne({ email: email.toLowerCase() });
 

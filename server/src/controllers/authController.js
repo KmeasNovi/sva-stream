@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-  if (!email || !password) {
+  if (typeof email !== 'string' || typeof password !== 'string' || !email || !password) {
     return next(new AppError('Informe email e senha', 400));
   }
 

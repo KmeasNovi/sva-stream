@@ -28,7 +28,7 @@ async function addToBrevo(email) {
 
 exports.subscribe = catchAsync(async (req, res, next) => {
   const { email } = req.body;
-  if (!email) return next(new AppError('Informe um email', 400));
+  if (typeof email !== 'string' || !email) return next(new AppError('Informe um email', 400));
 
   await Subscriber.updateOne(
     { email: email.toLowerCase() },

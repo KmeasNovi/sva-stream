@@ -4,14 +4,21 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const movieRoutes = require('./routes/movieRoutes');
 const authRoutes = require('./routes/authRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const userRoutes = require('./routes/userRoutes');
 const errorHandler = require('./middleware/errorHandler');
+const { apiLimiter } = require('./middleware/rateLimit');
 
 const app = express();
+
+// Render fica atrás de um único proxy reverso — precisa disso pro
+// express-rate-limit (e req.ip em geral) enxergar o IP real do cliente
+// em vez do IP do proxy.
+app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(compression());
@@ -21,9 +28,12 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(mongoSanitize());
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
 }
+
+app.use('/api', apiLimiter);
 
 app.get('/api/health', (req, res) => res.json({ success: true, status: 'ok' }));
 

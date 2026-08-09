@@ -1,19 +1,65 @@
-import { Suspense } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
 import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
 
-export default async function MoviePage({ params }) {
-  const { slug } = await params;
+export default function MoviePage({ params }) {
+  const { token } = useUser();
+  const { slug } = params;
+  const [movie, setMovie] = useState(null);
+  const [related, setRelated] = useState([]);
+  const [notFoundError, setNotFoundError] = useState(false);
 
-  let movie;
-  try {
-    ({ data: movie } = await api.getMovie(slug));
-  } catch (err) {
-    return notFound();
+  useEffect(() => {
+    if (!token) return;
+    let cancelled = false;
+    setMovie(null);
+    setRelated([]);
+    setNotFoundError(false);
+
+    api
+      .getMovie(slug, token)
+      .then(({ data }) => {
+        if (cancelled) return;
+        setMovie(data);
+        const genre = data.genres?.[0];
+        if (genre) {
+          api.listMovies({ genre, limit: 13 }, token).then(({ data: related }) => {
+            if (!cancelled) setRelated(related.filter((m) => m.slug !== data.slug));
+          });
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setNotFoundError(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, token]);
+
+  if (notFoundError) {
+    return (
+      <div className="container mx-auto px-container-margin py-16 text-center">
+        <p className="font-body text-body-md text-on-surface-variant mb-4">Filme não encontrado.</p>
+        <Link href="/" className="text-primary hover:text-primary-fixed transition-colors">
+          Voltar para o início
+        </Link>
+      </div>
+    );
+  }
+
+  if (!movie) {
+    return (
+      <div className="container mx-auto px-container-margin py-16">
+        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
+      </div>
+    );
   }
 
   return (
@@ -54,17 +100,7 @@ export default async function MoviePage({ params }) {
         <p className="font-body text-body-lg text-on-surface">{movie.synopsis}</p>
       </div>
 
-      <Suspense fallback={null}>
-        <RelatedRow slug={movie.slug} genre={movie.genres?.[0]} />
-      </Suspense>
+      {related.length ? <MovieRow title="Mais como este" movies={related} /> : null}
     </div>
   );
-}
-
-async function RelatedRow({ slug, genre }) {
-  if (!genre) return null;
-  const { data } = await api.listMovies({ genre, limit: 13 });
-  const related = data.filter((m) => m.slug !== slug);
-  if (!related.length) return null;
-  return <MovieRow title="Mais como este" movies={related} />;
 }

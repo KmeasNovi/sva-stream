@@ -3,31 +3,60 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
 import MovieCard from './MovieCard';
 
 const TILE_ACCENTS = ['text-white', 'text-secondary', 'text-error', 'text-white', 'text-primary'];
 
-export default function Explore({ genreTiles }) {
+export default function Explore() {
   const searchParams = useSearchParams();
+  const { token } = useUser();
   const [term, setTerm] = useState(searchParams.get('q') || '');
   const [results, setResults] = useState([]);
+  const [genreTiles, setGenreTiles] = useState(null);
 
   useEffect(() => {
-    if (term.trim().length < 2) {
+    if (!token) return;
+    let cancelled = false;
+    api.listGenres(token).then(async ({ data: genres }) => {
+      const tiles = await Promise.all(
+        genres.map(async (genre) => {
+          const { data } = await api.listMovies({ genre, limit: 1 }, token);
+          const cover = data[0]?.backdropUrl || data[0]?.posterUrl || null;
+          return { genre, cover };
+        })
+      );
+      if (!cancelled) setGenreTiles(tiles);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [token]);
+
+  useEffect(() => {
+    if (!token || term.trim().length < 2) {
       setResults([]);
       return;
     }
 
     let cancelled = false;
-    api.listMovies({ search: term, limit: 300 }).then(({ data }) => {
+    api.listMovies({ search: term, limit: 300 }, token).then(({ data }) => {
       if (!cancelled) setResults(data);
     });
 
     return () => {
       cancelled = true;
     };
-  }, [term]);
+  }, [term, token]);
+
+  if (!genreTiles) {
+    return (
+      <div className="container mx-auto px-container-margin py-16">
+        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-container-margin py-12 max-w-7xl">
