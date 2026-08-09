@@ -1,4 +1,4 @@
-const SITE_URL = 'https://web-ten-tau-67.vercel.app';
+const SITE_URL = 'https://sepiastream.com';
 
 export default function robots() {
   return {
