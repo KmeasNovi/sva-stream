@@ -5,7 +5,7 @@ import LandingRedirect from '../components/LandingRedirect';
 export const metadata = {
   title: 'CulStream — Cinema clássico e curtas de animação, grátis',
   description:
-    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Sem mensalidade, sem anúncio. Crie sua conta e assista agora.',
+    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Sem mensalidade. Crie sua conta e assista agora.',
   openGraph: {
     title: 'CulStream — Cinema clássico e curtas de animação, grátis',
     description:
@@ -69,9 +69,9 @@ const FEATURES = [
     desc: 'Sem trailer, sem espera: crie sua conta e já cai direto no catálogo, pronto pra assistir.',
   },
   {
-    icon: 'block',
-    title: 'Sem anúncios',
-    desc: 'Zero interrupção pra vender espaço publicitário. É filme do início ao fim.',
+    icon: 'movie',
+    title: 'Catálogo enorme',
+    desc: 'Centenas de clássicos e curtas raros, sempre crescendo — tem coisa nova toda semana.',
   },
   {
     icon: 'payments',
@@ -107,7 +107,7 @@ export default function LandingPage() {
               Cinema <span className="text-secondary">clássico</span>, <span className="text-primary">grátis</span> pra sempre
             </h1>
             <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
-              Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Sem mensalidade, sem anúncio — só criar conta e assistir.
+              Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Sem mensalidade — só criar conta e assistir.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -161,6 +161,9 @@ export default function LandingPage() {
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
               Cinema clássico e curtas de animação, sempre grátis.
             </p>
+            <Link href="/privacidade" className="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors">
+              Política de Privacidade
+            </Link>
           </div>
         </footer>
       </div>
