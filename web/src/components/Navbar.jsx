@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="px-6 mb-12 flex items-center gap-3">
             <Image src="/logo-icon.png" alt="" width={40} height={40} className="flex-none" />
             <div>
-              <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
+              <h1 className="font-display text-headline-md text-secondary">SepiaStream</h1>
               <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Navbar() {
         <div className="flex items-center md:hidden">
           <Link href={user ? '/home' : '/'} className="flex items-center gap-2">
             <Image src="/logo-icon.png" alt="" width={28} height={28} />
-            <span className="font-display text-headline-md text-primary">CulStream</span>
+            <span className="font-display text-headline-md text-primary">SepiaStream</span>
           </Link>
         </div>
         {user ? (
@@ -120,7 +120,7 @@ export default function Navbar() {
           <div className="flex-1 hidden md:flex items-center justify-center gap-2 pointer-events-none">
             <Image src="/logo-icon.png" alt="" width={28} height={28} />
             <div className="flex flex-col items-start leading-tight">
-              <span className="font-display text-headline-md text-secondary">CulStream</span>
+              <span className="font-display text-headline-md text-secondary">SepiaStream</span>
               <span className="font-body text-body-sm text-on-surface-variant mt-0.5">Cinema clássico, grátis</span>
             </div>
           </div>

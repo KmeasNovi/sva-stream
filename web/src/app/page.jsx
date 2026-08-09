@@ -3,15 +3,15 @@ import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
 
 export const metadata = {
-  title: 'CulStream — Cinema clássico e curtas de animação, grátis',
+  title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
   description:
     'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Sem mensalidade. Crie sua conta e assista agora.',
   openGraph: {
-    title: 'CulStream — Cinema clássico e curtas de animação, grátis',
+    title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
     description:
       'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Crie sua conta e assista agora.',
     type: 'website',
-    images: ['/logo.png'],
+    images: ['/logo-icon.png'],
   },
 };
 
@@ -102,7 +102,14 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-transparent" />
 
           <div className="relative z-10 text-center px-container-margin max-w-3xl animate-hero-in">
-            <Image src="/logo.png" alt="CulStream" width={200} height={200} priority className="mx-auto mb-2 w-[140px] h-[140px] md:w-[200px] md:h-[200px]" />
+            <Image
+              src="/logo-icon.png"
+              alt="SepiaStream"
+              width={140}
+              height={140}
+              priority
+              className="mx-auto mb-4 w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
+            />
             <h1 className="font-display text-headline-lg-mobile md:text-display-xl text-on-background mb-6">
               Cinema <span className="text-secondary">clássico</span>, <span className="text-primary">grátis</span> pra sempre
             </h1>
@@ -127,7 +134,7 @@ export default function LandingPage() {
         </section>
 
         <section className="container mx-auto px-container-margin py-20">
-          <h2 className="font-display text-headline-lg text-center text-on-background mb-12">Por que o CulStream?</h2>
+          <h2 className="font-display text-headline-lg text-center text-on-background mb-12">Por que o SepiaStream?</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {FEATURES.map((f) => (
               <div key={f.title} className="glass-panel rounded-2xl p-6 text-center">
@@ -156,7 +163,7 @@ export default function LandingPage() {
           <div className="container mx-auto px-container-margin flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <Image src="/logo-icon.png" alt="" width={28} height={28} />
-              <span className="font-display text-headline-md text-secondary">CulStream</span>
+              <span className="font-display text-headline-md text-secondary">SepiaStream</span>
             </div>
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
               Cinema clássico e curtas de animação, sempre grátis.

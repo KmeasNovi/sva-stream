@@ -6,7 +6,7 @@ import { UserProvider } from '../context/UserContext';
 
 export const metadata = {
   metadataBase: new URL('https://web-ten-tau-67.vercel.app'),
-  title: 'CulStream',
+  title: 'SepiaStream',
   description: 'Clássicos do cinema e curtas de animação, de graça, para todo mundo.',
 };
 

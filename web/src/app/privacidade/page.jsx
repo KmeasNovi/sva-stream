@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Política de Privacidade — CulStream',
-  description: 'Como o CulStream coleta, usa e protege seus dados, incluindo cookies de anúncios.',
+  title: 'Política de Privacidade — SepiaStream',
+  description: 'Como o SepiaStream coleta, usa e protege seus dados, incluindo cookies de anúncios.',
 };
 
 export default function PrivacidadePage() {
@@ -11,9 +11,9 @@ export default function PrivacidadePage() {
 
       <div className="space-y-10 font-body text-body-md text-on-surface">
         <section className="space-y-3">
-          <h2 className="font-display text-headline-md text-on-background">O que é o CulStream</h2>
+          <h2 className="font-display text-headline-md text-on-background">O que é o SepiaStream</h2>
           <p>
-            O CulStream é um catálogo de filmes clássicos e curtas de animação, no estilo streaming. Esta página
+            O SepiaStream é um catálogo de filmes clássicos e curtas de animação, no estilo streaming. Esta página
             explica quais dados coletamos de quem cria conta e usa o site, e como eles são usados.
           </p>
         </section>
@@ -38,7 +38,7 @@ export default function PrivacidadePage() {
         <section className="space-y-3">
           <h2 className="font-display text-headline-md text-on-background">Cookies e publicidade</h2>
           <p>
-            O CulStream exibe anúncios através do Google AdSense pra se manter no ar de graça pra todo mundo. O
+            O SepiaStream exibe anúncios através do Google AdSense pra se manter no ar de graça pra todo mundo. O
             Google e seus parceiros podem usar cookies e identificadores parecidos pra exibir anúncios com base nas
             suas visitas a este e outros sites.
           </p>

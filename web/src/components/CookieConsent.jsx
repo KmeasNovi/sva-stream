@@ -27,7 +27,7 @@ export default function CookieConsent() {
         className={`glass-panel rounded-2xl p-5 md:p-6 max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-4 shadow-2xl shadow-primary/20 ${user ? 'md:ml-[304px]' : ''}`}
       >
         <p className="font-body text-body-md text-on-surface-variant text-center sm:text-left">
-          Usamos cookies pra manter você logado e exibir anúncios que ajudam a manter o CulStream gratuito. Saiba
+          Usamos cookies pra manter você logado e exibir anúncios que ajudam a manter o SepiaStream gratuito. Saiba
           mais na{' '}
           <Link href="/privacidade" className="text-primary hover:text-primary-fixed transition-colors underline">
             Política de Privacidade

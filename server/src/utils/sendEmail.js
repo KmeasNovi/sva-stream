@@ -23,15 +23,15 @@ async function sendVerificationEmail(email, name, token) {
       'api-key': process.env.BREVO_API_KEY,
     },
     body: JSON.stringify({
-      sender: { name: 'CulStream', email: process.env.BREVO_SENDER_EMAIL },
+      sender: { name: 'SepiaStream', email: process.env.BREVO_SENDER_EMAIL },
       to: [{ email, name }],
-      subject: 'Confirme seu email — CulStream',
+      subject: 'Confirme seu email — SepiaStream',
       htmlContent: `
         <p>Oi, ${name}!</p>
-        <p>Falta só confirmar seu email pra ativar sua conta no CulStream.</p>
+        <p>Falta só confirmar seu email pra ativar sua conta no SepiaStream.</p>
         <p><a href="${verifyUrl}">Clique aqui para confirmar seu email</a></p>
         <p>Ou copie e cole este link no navegador:<br>${verifyUrl}</p>
-        <p>Se você não criou uma conta no CulStream, é só ignorar este email.</p>
+        <p>Se você não criou uma conta no SepiaStream, é só ignorar este email.</p>
       `,
     }),
   });
