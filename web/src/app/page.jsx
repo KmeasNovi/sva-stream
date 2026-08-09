@@ -168,9 +168,14 @@ export default function LandingPage() {
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
               Cinema clássico e curtas de animação, sempre grátis.
             </p>
-            <Link href="/privacidade" className="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors">
-              Política de Privacidade
-            </Link>
+            <div className="flex items-center gap-6">
+              <Link href="/doacao" className="font-body text-body-md text-secondary hover:text-primary transition-colors">
+                Apoie o site
+              </Link>
+              <Link href="/privacidade" className="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors">
+                Política de Privacidade
+              </Link>
+            </div>
           </div>
         </footer>
       </div>
