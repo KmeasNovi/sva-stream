@@ -43,6 +43,7 @@ export const api = {
   subscribeNewsletter: (email) => request('/newsletter/subscribe', { method: 'POST', body: { email } }),
   register: (data) => request('/users/register', { method: 'POST', body: data }),
   loginUser: (email, password) => request('/users/login', { method: 'POST', body: { email, password } }),
+  loginWithGoogle: (idToken) => request('/users/google', { method: 'POST', body: { idToken } }),
   verifyEmail: (token) => request('/users/verify-email', { method: 'POST', body: { token } }),
   resendVerification: (email) => request('/users/resend-verification', { method: 'POST', body: { email } }),
   forgotPassword: (email) => request('/users/forgot-password', { method: 'POST', body: { email } }),

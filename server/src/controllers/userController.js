@@ -1,9 +1,12 @@
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const { OAuth2Client } = require('google-auth-library');
 const User = require('../models/User');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 const { sendVerificationEmail, sendPasswordResetEmail } = require('../utils/sendEmail');
+
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const VERIFICATION_TOKEN_TTL_MS = 24 * 60 * 60 * 1000; // 24h
 const RESET_TOKEN_TTL_MS = 60 * 60 * 1000; // 1h — mais curto que o de verificação, é reset de senha
@@ -83,6 +86,58 @@ exports.login = catchAsync(async (req, res, next) => {
 
   if (!user.emailVerified) {
     return next(new AppError('Confirme seu email antes de entrar. Verifique sua caixa de entrada.', 403));
+  }
+
+  const token = signUserToken(user);
+  await user.populate({ path: 'favorites', select: 'title slug posterUrl backdropUrl year' });
+  res.json({
+    success: true,
+    data: {
+      token,
+      user: { id: user._id, name: user.name, email: user.email, favorites: user.favorites },
+    },
+  });
+});
+
+exports.googleAuth = catchAsync(async (req, res, next) => {
+  const { idToken } = req.body;
+  if (typeof idToken !== 'string' || !idToken) {
+    return next(new AppError('Token do Google ausente', 400));
+  }
+
+  let payload;
+  try {
+    const ticket = await googleClient.verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT_ID });
+    payload = ticket.getPayload();
+  } catch (err) {
+    return next(new AppError('Token do Google inválido', 401));
+  }
+
+  if (!payload.email_verified) {
+    return next(new AppError('Email do Google não verificado', 401));
+  }
+
+  const email = payload.email.toLowerCase();
+  let user = await User.findOne({ $or: [{ googleId: payload.sub }, { email }] });
+
+  if (user) {
+    // Conta local existente com o mesmo email verificado pelo Google —
+    // vincula em vez de criar duplicata (usuário pediu esse comportamento).
+    if (!user.googleId) {
+      user.googleId = payload.sub;
+      user.emailVerified = true;
+      if (!user.avatarUrl && payload.picture) user.avatarUrl = payload.picture;
+      await user.save();
+    }
+  } else {
+    user = await User.create({
+      name: payload.name || email.split('@')[0],
+      email,
+      googleId: payload.sub,
+      authProvider: 'google',
+      emailVerified: true,
+      avatarUrl: payload.picture,
+    });
   }
 
   const token = signUserToken(user);

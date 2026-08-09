@@ -22,11 +22,16 @@ app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(compression());
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
-  })
-);
+// CORS_ORIGIN=* teria virado ['*'] ao dar split — a lib `cors` compara o
+// Origin da requisição contra esse array por igualdade estrita, então nunca
+// batia com "*" e o header Access-Control-Allow-Origin nunca era enviado
+// (todo fetch autenticado do browser falhava silenciosamente com "Failed to
+// fetch", mesmo funcionando via curl). Aqui tratamos "*"/vazio à parte.
+const corsOrigin = !process.env.CORS_ORIGIN || process.env.CORS_ORIGIN === '*'
+  ? true
+  : process.env.CORS_ORIGIN.split(',');
+
+app.use(cors({ origin: corsOrigin }));
 app.use(express.json());
 app.use(mongoSanitize());
 if (process.env.NODE_ENV !== 'test') {

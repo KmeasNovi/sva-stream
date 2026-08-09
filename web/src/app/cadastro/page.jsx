@@ -2,9 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { api } from '../../lib/api';
+import { useUser } from '../../context/UserContext';
+import GoogleSignInButton from '../../components/GoogleSignInButton';
 
 export default function CadastroPage() {
+  const router = useRouter();
+  const { loginWithGoogle } = useUser();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,6 +17,16 @@ export default function CadastroPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  async function handleGoogleCredential(idToken) {
+    setError('');
+    try {
+      await loginWithGoogle(idToken);
+      router.push('/home');
+    } catch (err) {
+      setError(err.message);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -106,6 +121,7 @@ export default function CadastroPage() {
             Entrar
           </Link>
         </p>
+        <GoogleSignInButton onCredential={handleGoogleCredential} />
       </form>
     </div>
   );

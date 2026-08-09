@@ -5,7 +5,11 @@ const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-    passwordHash: { type: String, required: true },
+    // Ausente para contas criadas via Google — só contas locais têm senha.
+    passwordHash: { type: String },
+    googleId: { type: String, unique: true, sparse: true },
+    authProvider: { type: String, enum: ['local', 'google'], default: 'local' },
+    avatarUrl: { type: String },
     emailVerified: { type: Boolean, default: false },
     verificationToken: { type: String },
     verificationTokenExpires: { type: Date },
@@ -17,6 +21,8 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.methods.comparePassword = function comparePassword(candidate) {
+  // Contas via Google não têm passwordHash — nunca "batem" com senha nenhuma.
+  if (!this.passwordHash) return Promise.resolve(false);
   return bcrypt.compare(candidate, this.passwordHash);
 };
 

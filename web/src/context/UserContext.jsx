@@ -46,6 +46,15 @@ export function UserProvider({ children }) {
     return data.user;
   }
 
+  async function loginWithGoogle(idToken) {
+    const { data } = await api.loginWithGoogle(idToken);
+    localStorage.setItem(TOKEN_KEY, data.token);
+    sessionStorage.setItem(JUST_LOGGED_IN_KEY, '1');
+    setToken(data.token);
+    setUser(data.user);
+    return data.user;
+  }
+
   function logout() {
     localStorage.removeItem(TOKEN_KEY);
     setToken(null);
@@ -58,7 +67,7 @@ export function UserProvider({ children }) {
   }
 
   return (
-    <UserContext.Provider value={{ user, token, loading, login, logout, refreshUser }}>
+    <UserContext.Provider value={{ user, token, loading, login, loginWithGoogle, logout, refreshUser }}>
       {children}
     </UserContext.Provider>
   );

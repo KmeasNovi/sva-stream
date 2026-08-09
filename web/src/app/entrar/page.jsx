@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useUser } from '../../context/UserContext';
 import { api } from '../../lib/api';
+import GoogleSignInButton from '../../components/GoogleSignInButton';
 
 export default function EntrarPage() {
   return (
@@ -17,7 +18,7 @@ export default function EntrarPage() {
 function EntrarForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login } = useUser();
+  const { login, loginWithGoogle } = useUser();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -40,6 +41,16 @@ function EntrarForm() {
       }
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleGoogleCredential(idToken) {
+    setError('');
+    try {
+      await loginWithGoogle(idToken);
+      router.push(searchParams.get('next') || '/home');
+    } catch (err) {
+      setError(err.message);
     }
   }
 
@@ -102,6 +113,7 @@ function EntrarForm() {
             Criar conta
           </Link>
         </p>
+        <GoogleSignInButton onCredential={handleGoogleCredential} />
       </form>
     </div>
   );
