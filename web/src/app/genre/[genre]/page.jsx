@@ -4,18 +4,24 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
+import { getCached, setCached } from '../../../lib/clientCache';
 import MovieCard from '../../../components/MovieCard';
 
 export default function GenrePage({ params }) {
   const { token } = useUser();
   const decoded = decodeURIComponent(params.genre);
-  const [movies, setMovies] = useState(null);
+  const cacheKey = `genre:${decoded}`;
+  const [movies, setMovies] = useState(() => getCached(cacheKey) ?? null);
 
   useEffect(() => {
+    setMovies(getCached(cacheKey) ?? null);
+
     if (!token) return;
     let cancelled = false;
     api.listMovies({ genre: decoded, limit: 2000 }, token).then(({ data }) => {
-      if (!cancelled) setMovies(data);
+      if (cancelled) return;
+      setMovies(data);
+      setCached(cacheKey, data);
     });
     return () => {
       cancelled = true;

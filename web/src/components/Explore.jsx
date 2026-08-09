@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
+import { getCached, setCached } from '../lib/clientCache';
 import MovieCard from './MovieCard';
 
 const TILE_ACCENTS = ['text-white', 'text-secondary', 'text-error', 'text-white', 'text-primary'];
@@ -14,7 +15,7 @@ export default function Explore() {
   const { token } = useUser();
   const [term, setTerm] = useState(searchParams.get('q') || '');
   const [results, setResults] = useState([]);
-  const [genreTiles, setGenreTiles] = useState(null);
+  const [genreTiles, setGenreTiles] = useState(() => getCached('explore-genre-tiles') ?? null);
 
   useEffect(() => {
     if (!token) return;
@@ -27,7 +28,9 @@ export default function Explore() {
           return { genre, cover };
         })
       );
-      if (!cancelled) setGenreTiles(tiles);
+      if (cancelled) return;
+      setGenreTiles(tiles);
+      setCached('explore-genre-tiles', tiles);
     });
     return () => {
       cancelled = true;

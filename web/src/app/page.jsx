@@ -3,15 +3,17 @@
 import { useEffect, useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
+import { getCached, setCached } from '../lib/clientCache';
 import HeroCarousel from '../components/HeroCarousel';
 import MovieRow from '../components/MovieRow';
 import NewsletterForm from '../components/NewsletterForm';
 
 export default function HomePage() {
   const { token } = useUser();
-  const [featured, setFeatured] = useState(null);
-  const [recent, setRecent] = useState(null);
-  const [genres, setGenres] = useState(null);
+  const cached = getCached('home');
+  const [featured, setFeatured] = useState(cached?.featured ?? null);
+  const [recent, setRecent] = useState(cached?.recent ?? null);
+  const [genres, setGenres] = useState(cached?.genres ?? null);
 
   useEffect(() => {
     if (!token) return;
@@ -22,6 +24,7 @@ export default function HomePage() {
         setFeatured(featuredData);
         setRecent(recentData);
         setGenres(genresData);
+        setCached('home', { featured: featuredData, recent: recentData, genres: genresData });
       }
     );
     return () => {
@@ -57,12 +60,15 @@ export default function HomePage() {
 }
 
 function GenreRow({ genre, token }) {
-  const [movies, setMovies] = useState(null);
+  const cacheKey = `home-genre-row:${genre}`;
+  const [movies, setMovies] = useState(() => getCached(cacheKey) ?? null);
 
   useEffect(() => {
     let cancelled = false;
     api.listMovies({ genre, limit: 12 }, token).then(({ data }) => {
-      if (!cancelled) setMovies(data);
+      if (cancelled) return;
+      setMovies(data);
+      setCached(cacheKey, data);
     });
     return () => {
       cancelled = true;

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
+import { getCached, setCached } from '../../../lib/clientCache';
 import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
@@ -11,26 +12,34 @@ import FavoriteButton from '../../../components/FavoriteButton';
 export default function MoviePage({ params }) {
   const { token } = useUser();
   const { slug } = params;
-  const [movie, setMovie] = useState(null);
-  const [related, setRelated] = useState([]);
+  const cacheKey = `movie:${slug}`;
+  const cached = getCached(cacheKey);
+  const [movie, setMovie] = useState(cached?.movie ?? null);
+  const [related, setRelated] = useState(cached?.related ?? []);
   const [notFoundError, setNotFoundError] = useState(false);
 
   useEffect(() => {
+    const fromCache = getCached(cacheKey);
+    setMovie(fromCache?.movie ?? null);
+    setRelated(fromCache?.related ?? []);
+    setNotFoundError(false);
+
     if (!token) return;
     let cancelled = false;
-    setMovie(null);
-    setRelated([]);
-    setNotFoundError(false);
 
     api
       .getMovie(slug, token)
       .then(({ data }) => {
         if (cancelled) return;
         setMovie(data);
+        setCached(cacheKey, { movie: data, related: getCached(cacheKey)?.related ?? [] });
         const genre = data.genres?.[0];
         if (genre) {
-          api.listMovies({ genre, limit: 13 }, token).then(({ data: related }) => {
-            if (!cancelled) setRelated(related.filter((m) => m.slug !== data.slug));
+          api.listMovies({ genre, limit: 13 }, token).then(({ data: relatedData }) => {
+            if (cancelled) return;
+            const filtered = relatedData.filter((m) => m.slug !== data.slug);
+            setRelated(filtered);
+            setCached(cacheKey, { movie: data, related: filtered });
           });
         }
       })
