@@ -5,11 +5,11 @@ import LandingRedirect from '../components/LandingRedirect';
 export const metadata = {
   title: 'CulStream — Cinema clássico e curtas de animação, grátis',
   description:
-    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos e legais, num catálogo estilo streaming. Sem mensalidade, sem anúncio. Crie sua conta e assista.',
+    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Sem mensalidade, sem anúncio. Crie sua conta e assista agora.',
   openGraph: {
     title: 'CulStream — Cinema clássico e curtas de animação, grátis',
     description:
-      'Centenas de filmes e curtas de animação clássicos, 100% gratuitos e legais, num catálogo estilo streaming.',
+      'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Crie sua conta e assista agora.',
     type: 'website',
   },
 };
@@ -63,9 +63,9 @@ const POSTERS = [
 
 const FEATURES = [
   {
-    icon: 'lock_open',
-    title: '100% legal',
-    desc: 'Nada de pirataria: todo o catálogo é livre pra assistir, sem letra miúda.',
+    icon: 'play_circle',
+    title: 'Comece agora mesmo',
+    desc: 'Sem trailer, sem espera: crie sua conta e já cai direto no catálogo, pronto pra assistir.',
   },
   {
     icon: 'block',
@@ -155,7 +155,7 @@ export default function LandingPage() {
           <div className="container mx-auto px-container-margin flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="font-display text-headline-md text-secondary">CulStream</span>
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
-              Cinema clássico e curtas de animação, gratuitos e legais.
+              Cinema clássico e curtas de animação, sempre grátis.
             </p>
           </div>
         </footer>
