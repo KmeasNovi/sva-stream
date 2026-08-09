@@ -45,23 +45,6 @@ module.exports = [
     "featured": false
   },
   {
-    "title": "Kaiser",
-    "slug": "kaiser-1917",
-    "synopsis": "Curta de animação brasileiro de 1917, feito pelo cartunista Álvaro Marins sob o pseudônimo Seth, considerado o primeiro desenho animado produzido no país.",
-    "year": 1917,
-    "genres": [
-      "Nacionais",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kaiser_%281917%29.JPG?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/tondokument-2.-kaiser-franz-joseph-i.",
-    "source": {
-      "provider": "archive",
-      "id": "tondokument-2.-kaiser-franz-joseph-i."
-    },
-    "featured": false
-  },
-  {
     "title": "A Canção da Primavera",
     "slug": "a-cancao-da-primavera-1923",
     "synopsis": "Filme brasileiro de 1923.",
@@ -122,22 +105,6 @@ module.exports = [
     "source": {
       "provider": "archive",
       "id": "BrasaDormidaHumbertoMauro1928"
-    },
-    "featured": false
-  },
-  {
-    "title": "Acabaram-se os Otários",
-    "slug": "acabaram-se-os-otarios-1929",
-    "synopsis": "Filme brasileiro de 1929.",
-    "year": 1929,
-    "genres": [
-      "Nacionais",
-      "Clássico"
-    ],
-    "backdropUrl": "https://archive.org/services/img/acabaram-se-os-otarios-fragmento",
-    "source": {
-      "provider": "archive",
-      "id": "acabaram-se-os-otarios-fragmento"
     },
     "featured": false
   },
@@ -397,22 +364,6 @@ module.exports = [
     "source": {
       "provider": "archive",
       "id": "aloalocarnavaladhemargonzaga1936"
-    },
-    "featured": false
-  },
-  {
-    "title": "Estudantes",
-    "slug": "estudantes-1935",
-    "synopsis": "Filme brasileiro de 1935.",
-    "year": 1935,
-    "genres": [
-      "Nacionais",
-      "Clássico"
-    ],
-    "backdropUrl": "https://archive.org/services/img/AtoUnificadoEstudantesNiteroiPEC55",
-    "source": {
-      "provider": "archive",
-      "id": "AtoUnificadoEstudantesNiteroiPEC55"
     },
     "featured": false
   },
@@ -1247,22 +1198,6 @@ module.exports = [
     "source": {
       "provider": "archive",
       "id": "e-proibido-beijar-1954-ugo-lombardi-720-p-hd"
-    },
-    "featured": false
-  },
-  {
-    "title": "Rua Sem Sol",
-    "slug": "rua-sem-sol-1954",
-    "synopsis": "Filme brasileiro de 1954.",
-    "year": 1954,
-    "genres": [
-      "Nacionais",
-      "Clássico"
-    ],
-    "backdropUrl": "https://archive.org/services/img/rua-sem-sol",
-    "source": {
-      "provider": "archive",
-      "id": "rua-sem-sol"
     },
     "featured": false
   },

@@ -186,23 +186,6 @@ module.exports = [
     "featured": false
   },
   {
-    "title": "The Big Wheel",
-    "slug": "the-big-wheel-1949",
-    "synopsis": "The Big Wheel é um drama esportivo americano de 1949 estrelado por Mickey Rooney como um jovem piloto obcecado em seguir os passos do pai, um lendário corredor de automóveis.",
-    "year": 1949,
-    "genres": [
-      "Drama",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/3/3d/Poster_of_The_Big_Wheel_%28film%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/turner_video_11554",
-    "source": {
-      "provider": "archive",
-      "id": "turner_video_11554"
-    },
-    "featured": false
-  },
-  {
     "title": "Bird of Paradise",
     "slug": "bird-of-paradise-1932",
     "synopsis": "Bird of Paradise é um drama romântico de aventura pré-Código americano de 1932 dirigido por King Vidor, estrelado por Dolores del Río e Joel McCrea, sobre o romance entre um marinheiro americano e uma princesa de uma ilha polinésia.",
@@ -427,23 +410,6 @@ module.exports = [
     "source": {
       "provider": "archive",
       "id": "AFarewllToArms720p1932"
-    },
-    "featured": false
-  },
-  {
-    "title": "Fear and Desire",
-    "slug": "fear-and-desire-1953",
-    "synopsis": "Fear and Desire é um drama de guerra independente americano de 1953, estreia de Stanley Kubrick na direção de longas-metragens, sobre quatro soldados perdidos atrás das linhas inimigas durante um conflito fictício.",
-    "year": 1953,
-    "genres": [
-      "Drama",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/f/f7/Fear_and_Desire_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/turner_video_15343",
-    "source": {
-      "provider": "archive",
-      "id": "turner_video_15343"
     },
     "featured": false
   },
@@ -746,24 +712,6 @@ module.exports = [
     "featured": false
   },
   {
-    "title": "The Little Shop of Horrors",
-    "slug": "the-little-shop-of-horrors-1960",
-    "synopsis": "The Little Shop of Horrors é uma comédia de terror americana de 1960 dirigida e produzida por Roger Corman, sobre um florista desajeitado que cultiva uma planta carnívora que precisa de sangue humano para sobreviver.",
-    "year": 1960,
-    "genres": [
-      "Terror",
-      "Comédia",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/The_Little_Shop_of_Horrors_%281960%29_-_Half-Sheet_poster.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/turner_video_295",
-    "source": {
-      "provider": "archive",
-      "id": "turner_video_295"
-    },
-    "featured": false
-  },
-  {
     "title": "Lonely Wives",
     "slug": "lonely-wives-1931",
     "synopsis": "Lonely Wives é uma comédia americana de 1931 sobre um advogado e seu sósia, um ator de teatro, que trocam de identidade — e acabam se metendo em confusões amorosas por engano.",
@@ -955,23 +903,6 @@ module.exports = [
     "featured": false
   },
   {
-    "title": "Millie",
-    "slug": "millie-1931",
-    "synopsis": "Millie é um drama pré-Código americano de 1931 sobre uma mulher que, após um casamento fracassado, cria a filha sozinha enquanto tenta reconstruir a própria vida em meio a uma sociedade que a julga.",
-    "year": 1931,
-    "genres": [
-      "Drama",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Millie_1931_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/cobgky-Millie",
-    "source": {
-      "provider": "archive",
-      "id": "cobgky-Millie"
-    },
-    "featured": false
-  },
-  {
     "title": "Mr. Imperium",
     "slug": "mr-imperium-1951",
     "synopsis": "Mr. Imperium é um drama musical romântico americano de 1951 estrelado por Lana Turner e o cantor de ópera Ezio Pinza, sobre o reencontro, anos depois, de um príncipe europeu e a atriz americana por quem ele se apaixonou quando jovem.",
@@ -1020,23 +951,6 @@ module.exports = [
     "source": {
       "provider": "archive",
       "id": "MyFavoriteBrunette1947"
-    },
-    "featured": false
-  },
-  {
-    "title": "My Man Godfrey",
-    "slug": "my-man-godfrey-1936",
-    "synopsis": "My Man Godfrey é uma comédia americana de 1936 estrelada por William Powell e Carole Lombard, sobre um mendigo contratado como mordomo por uma família rica excêntrica, que esconde um passado surpreendente.",
-    "year": 1936,
-    "genres": [
-      "Comédia",
-      "Clássico"
-    ],
-    "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/My_Man_Godfrey_%281936_poster_-_Style_C%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "backdropUrl": "https://archive.org/services/img/turner_video_44",
-    "source": {
-      "provider": "archive",
-      "id": "turner_video_44"
     },
     "featured": false
   },
