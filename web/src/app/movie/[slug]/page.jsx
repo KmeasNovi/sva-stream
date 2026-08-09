@@ -8,6 +8,7 @@ import { getCached, setCached } from '../../../lib/clientCache';
 import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
+import LoadingScreen from '../../../components/LoadingScreen';
 
 export default function MoviePage({ params }) {
   const { token } = useUser();
@@ -64,11 +65,7 @@ export default function MoviePage({ params }) {
   }
 
   if (!movie) {
-    return (
-      <div className="container mx-auto px-container-margin py-16">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (

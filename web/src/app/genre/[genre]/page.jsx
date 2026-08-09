@@ -6,6 +6,7 @@ import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
 import { getCached, setCached } from '../../../lib/clientCache';
 import MovieCard from '../../../components/MovieCard';
+import LoadingScreen from '../../../components/LoadingScreen';
 
 export default function GenrePage({ params }) {
   const { token } = useUser();
@@ -41,7 +42,7 @@ export default function GenrePage({ params }) {
         <h1 className="font-display text-headline-lg text-on-background">{decoded}</h1>
       </div>
       {movies === null ? (
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
+        <LoadingScreen />
       ) : (
         <div className="flex flex-wrap gap-4">
           {movies.map((movie) => (

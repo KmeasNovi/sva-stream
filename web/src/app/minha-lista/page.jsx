@@ -3,16 +3,13 @@
 import Link from 'next/link';
 import { useUser } from '../../context/UserContext';
 import MovieCard from '../../components/MovieCard';
+import LoadingScreen from '../../components/LoadingScreen';
 
 export default function MinhaListaPage() {
   const { user, loading } = useUser();
 
   if (loading) {
-    return (
-      <div className="container mx-auto px-container-margin py-12">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (!user) {

@@ -5,6 +5,7 @@ import { useUser } from '../../context/UserContext';
 import { api } from '../../lib/api';
 import { getCached, setCached } from '../../lib/clientCache';
 import Catalog from '../../components/Catalog';
+import LoadingScreen from '../../components/LoadingScreen';
 
 export default function CatalogoPage() {
   const { token } = useUser();
@@ -24,11 +25,7 @@ export default function CatalogoPage() {
   }, [token]);
 
   if (!movies) {
-    return (
-      <div className="container mx-auto px-container-margin py-16">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return <Catalog movies={movies} />;

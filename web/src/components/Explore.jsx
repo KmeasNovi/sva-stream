@@ -7,6 +7,7 @@ import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
 import { getCached, setCached } from '../lib/clientCache';
 import MovieCard from './MovieCard';
+import LoadingScreen from './LoadingScreen';
 
 const TILE_ACCENTS = ['text-white', 'text-secondary', 'text-error', 'text-white', 'text-primary'];
 
@@ -54,11 +55,7 @@ export default function Explore() {
   }, [term, token]);
 
   if (!genreTiles) {
-    return (
-      <div className="container mx-auto px-container-margin py-16">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (

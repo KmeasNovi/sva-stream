@@ -7,6 +7,7 @@ import { getCached, setCached } from '../../lib/clientCache';
 import HeroCarousel from '../../components/HeroCarousel';
 import MovieRow from '../../components/MovieRow';
 import NewsletterForm from '../../components/NewsletterForm';
+import LoadingScreen from '../../components/LoadingScreen';
 
 export default function HomePage() {
   const { token } = useUser();
@@ -33,11 +34,7 @@ export default function HomePage() {
   }, [token]);
 
   if (!featured || !recent || !genres) {
-    return (
-      <div className="container mx-auto px-container-margin py-16">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   const heroMovies = featured.length ? featured : recent.slice(0, 1);

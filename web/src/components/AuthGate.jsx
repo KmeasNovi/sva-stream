@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
+import LoadingScreen from './LoadingScreen';
 
 const PUBLIC_PATHS = ['/', '/entrar', '/cadastro', '/verificar-email'];
 
@@ -21,11 +22,7 @@ export default function AuthGate({ children }) {
   if (isPublic) return children;
 
   if (loading || !user) {
-    return (
-      <div className="container mx-auto px-container-margin py-16">
-        <p className="font-body text-body-md text-on-surface-variant">Carregando...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return children;
