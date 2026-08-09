@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 
@@ -62,9 +63,12 @@ export default function Navbar() {
       {/* Sidebar (Desktop) */}
       {user ? (
         <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[280px] pt-24 pb-8 flex-col z-30 bg-surface/5 backdrop-blur-3xl border-r border-white/5 shadow-2xl shadow-primary/20">
-          <div className="px-6 mb-12">
-            <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
-            <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
+          <div className="px-6 mb-12 flex items-center gap-3">
+            <Image src="/logo-icon.png" alt="" width={40} height={40} className="flex-none" />
+            <div>
+              <h1 className="font-display text-headline-md text-secondary">CulStream</h1>
+              <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
+            </div>
           </div>
           <nav className="flex-1 space-y-2">
             {NAV_ITEMS.map((item) => {
@@ -95,8 +99,9 @@ export default function Navbar() {
         className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 ${user ? 'md:pl-[304px]' : ''}`}
       >
         <div className="flex items-center md:hidden">
-          <Link href={user ? '/home' : '/'} className="font-display text-headline-md text-primary">
-            CulStream
+          <Link href={user ? '/home' : '/'} className="flex items-center gap-2">
+            <Image src="/logo-icon.png" alt="" width={28} height={28} />
+            <span className="font-display text-headline-md text-primary">CulStream</span>
           </Link>
         </div>
         {user ? (
@@ -112,8 +117,9 @@ export default function Navbar() {
             />
           </form>
         ) : (
-          <div className="flex-1 hidden md:flex items-center justify-center pointer-events-none">
-            <div className="flex flex-col items-center leading-tight">
+          <div className="flex-1 hidden md:flex items-center justify-center gap-2 pointer-events-none">
+            <Image src="/logo-icon.png" alt="" width={28} height={28} />
+            <div className="flex flex-col items-start leading-tight">
               <span className="font-display text-headline-md text-secondary">CulStream</span>
               <span className="font-body text-body-sm text-on-surface-variant mt-0.5">Cinema clássico, grátis</span>
             </div>

@@ -11,6 +11,7 @@ export const metadata = {
     description:
       'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Crie sua conta e assista agora.',
     type: 'website',
+    images: ['/logo.png'],
   },
 };
 
@@ -101,7 +102,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-transparent" />
 
           <div className="relative z-10 text-center px-container-margin max-w-3xl animate-hero-in">
-            <p className="font-display text-headline-md text-secondary mb-4">CulStream</p>
+            <Image src="/logo.png" alt="CulStream" width={200} height={200} priority className="mx-auto mb-2 w-[140px] h-[140px] md:w-[200px] md:h-[200px]" />
             <h1 className="font-display text-headline-lg-mobile md:text-display-xl text-on-background mb-6">
               Cinema <span className="text-secondary">clássico</span>, <span className="text-primary">grátis</span> pra sempre
             </h1>
@@ -153,7 +154,10 @@ export default function LandingPage() {
 
         <footer className="border-t border-white/5 py-8">
           <div className="container mx-auto px-container-margin flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="font-display text-headline-md text-secondary">CulStream</span>
+            <div className="flex items-center gap-2">
+              <Image src="/logo-icon.png" alt="" width={28} height={28} />
+              <span className="font-display text-headline-md text-secondary">CulStream</span>
+            </div>
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
               Cinema clássico e curtas de animação, sempre grátis.
             </p>
