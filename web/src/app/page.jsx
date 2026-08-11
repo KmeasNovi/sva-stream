@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
+import AdSlot from '../components/AdSlot';
 import { api } from '../lib/api';
+
+const ADSENSE_SLOT_LANDING = process.env.NEXT_PUBLIC_ADSENSE_SLOT_LANDING;
 
 export const metadata = {
   title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
@@ -173,6 +176,10 @@ export default async function LandingPage() {
               </Link>
             ))}
           </div>
+        </section>
+
+        <section className="container mx-auto px-container-margin">
+          <AdSlot slotId={ADSENSE_SLOT_LANDING} />
         </section>
 
         <section className="container mx-auto px-container-margin pb-24">
