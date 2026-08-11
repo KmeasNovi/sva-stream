@@ -92,7 +92,7 @@ module.exports = [
   {
     "title": "Classic Television Commercials (Part VIII)",
     "slug": "classic-television-commercials-part-viii-1948",
-    "synopsis": "Documentário educativo de 1948, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1948.",
     "year": 1948,
     "genres": [
       "Documentário",
@@ -143,7 +143,7 @@ module.exports = [
   {
     "title": "Swingin' Six",
     "slug": "swingin-six",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -482,7 +482,7 @@ module.exports = [
   {
     "title": "Classic Television Commercials (Part VI)",
     "slug": "classic-television-commercials-part-vi-1948",
-    "synopsis": "Documentário educativo de 1948, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1948.",
     "year": 1948,
     "genres": [
       "Documentário",
@@ -499,7 +499,7 @@ module.exports = [
   {
     "title": "Classic Television Commercials (Part VII)",
     "slug": "classic-television-commercials-part-vii-1948",
-    "synopsis": "Documentário educativo de 1948, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1948.",
     "year": 1948,
     "genres": [
       "Documentário",
@@ -533,7 +533,7 @@ module.exports = [
   {
     "title": "Girls Beware",
     "slug": "girls-beware-1961",
-    "synopsis": "Documentário educativo de 1961, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1961.",
     "year": 1961,
     "genres": [
       "Documentário",
@@ -822,7 +822,7 @@ module.exports = [
   {
     "title": "Road Runners",
     "slug": "road-runners-1952",
-    "synopsis": "Documentário educativo de 1952, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1952.",
     "year": 1952,
     "genres": [
       "Documentário",
@@ -1009,7 +1009,7 @@ module.exports = [
   {
     "title": "Volcanoes",
     "slug": "volcanoes",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1059,7 +1059,7 @@ module.exports = [
   {
     "title": "Television Tomorrow",
     "slug": "television-tomorrow",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1296,7 +1296,7 @@ module.exports = [
   {
     "title": "Psychogenic Disease in Infancy",
     "slug": "psychogenic-disease-in-infancy-1952",
-    "synopsis": "Documentário educativo de 1952, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1952.",
     "year": 1952,
     "genres": [
       "Documentário",

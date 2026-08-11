@@ -41,7 +41,7 @@ module.exports = [
   {
     "title": "Soundie - Hollywood Boogie",
     "slug": "soundie-hollywood-boogie-1946",
-    "synopsis": "Documentário educativo de 1946, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1946.",
     "year": 1946,
     "genres": [
       "Documentário",
@@ -58,7 +58,7 @@ module.exports = [
   {
     "title": "Electromagnetism",
     "slug": "electromagnetism",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -125,7 +125,7 @@ module.exports = [
   {
     "title": "Time Out for Trouble",
     "slug": "time-out-for-trouble-1961",
-    "synopsis": "Documentário educativo de 1961, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1961.",
     "year": 1961,
     "genres": [
       "Documentário",
@@ -193,7 +193,7 @@ module.exports = [
   {
     "title": "Last Word In Automatic Dishwashing",
     "slug": "last-word-in-automatic-dishwashing-1950",
-    "synopsis": "Documentário educativo de 1950, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1950.",
     "year": 1950,
     "genres": [
       "Documentário",
@@ -720,7 +720,7 @@ module.exports = [
   {
     "title": "Lucky Strike Means Fine Tobacco",
     "slug": "lucky-strike-means-fine-tobacco-1950",
-    "synopsis": "Documentário educativo de 1950, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1950.",
     "year": 1950,
     "genres": [
       "Documentário",
@@ -856,7 +856,7 @@ module.exports = [
   {
     "title": "Parade in New York",
     "slug": "parade-in-new-york",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1298,7 +1298,7 @@ module.exports = [
   {
     "title": "Photographic Studies in Hypnosis",
     "slug": "photographic-studies-in-hypnosis",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1399,7 +1399,7 @@ module.exports = [
   {
     "title": "Birth of a City",
     "slug": "birth-of-a-city",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1432,7 +1432,7 @@ module.exports = [
   {
     "title": "Max Fleischer News Sketches",
     "slug": "max-fleischer-news-sketches-1944",
-    "synopsis": "Documentário educativo de 1944, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1944.",
     "year": 1944,
     "genres": [
       "Documentário",
@@ -1466,7 +1466,7 @@ module.exports = [
   {
     "title": "WJR: One of a Kind",
     "slug": "wjr-one-of-a-kind-1966",
-    "synopsis": "Documentário educativo de 1966, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1966.",
     "year": 1966,
     "genres": [
       "Documentário",
@@ -1483,7 +1483,7 @@ module.exports = [
   {
     "title": "Safety Through Seat Belts",
     "slug": "safety-through-seat-belts",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1550,7 +1550,7 @@ module.exports = [
   {
     "title": "Soundie - A Jazz Etude",
     "slug": "soundie-a-jazz-etude-1941",
-    "synopsis": "Documentário educativo de 1941, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1941.",
     "year": 1941,
     "genres": [
       "Documentário",
@@ -1567,7 +1567,7 @@ module.exports = [
   {
     "title": "The Way You Want It",
     "slug": "the-way-you-want-it-1950",
-    "synopsis": "Documentário educativo de 1950, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1950.",
     "year": 1950,
     "genres": [
       "Documentário",

@@ -601,7 +601,7 @@ module.exports = [
   {
     "title": "Television Commercials (1950s-1960s)",
     "slug": "television-commercials-1950s-1960s-1950",
-    "synopsis": "Documentário educativo de 1950, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1950.",
     "year": 1950,
     "genres": [
       "Documentário",
@@ -1026,7 +1026,7 @@ module.exports = [
   {
     "title": "17 Days: The Story of Newspaper History in the Making",
     "slug": "17-days-the-story-of-newspaper-history-in-the-making-1945",
-    "synopsis": "Documentário educativo de 1945, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1945.",
     "year": 1945,
     "genres": [
       "Documentário",
@@ -1111,7 +1111,7 @@ module.exports = [
   {
     "title": "Styling and the Experimental Car",
     "slug": "styling-and-the-experimental-car-1964",
-    "synopsis": "Documentário educativo de 1964, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1964.",
     "year": 1964,
     "genres": [
       "Documentário",
@@ -1230,7 +1230,7 @@ module.exports = [
   {
     "title": "Out of This World",
     "slug": "out-of-this-world-1964",
-    "synopsis": "Documentário educativo de 1964, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1964.",
     "year": 1964,
     "genres": [
       "Documentário",
@@ -1281,7 +1281,7 @@ module.exports = [
   {
     "title": "Arranging The Tea Table",
     "slug": "arranging-the-tea-table",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1297,7 +1297,7 @@ module.exports = [
   {
     "title": "World Trade Center",
     "slug": "world-trade-center",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1381,7 +1381,7 @@ module.exports = [
   {
     "title": "Victory Gardens",
     "slug": "victory-gardens",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1397,7 +1397,7 @@ module.exports = [
   {
     "title": "Match Your Mood",
     "slug": "match-your-mood-1968",
-    "synopsis": "Documentário educativo de 1968, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1968.",
     "year": 1968,
     "genres": [
       "Documentário",
@@ -1567,7 +1567,7 @@ module.exports = [
   {
     "title": "A Communications Primer",
     "slug": "a-communications-primer",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"

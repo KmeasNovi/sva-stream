@@ -145,7 +145,7 @@ module.exports = [
   {
     "title": "The Information Machine",
     "slug": "the-information-machine-1958",
-    "synopsis": "Documentário educativo de 1958, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1958.",
     "year": 1958,
     "genres": [
       "Documentário",
@@ -212,7 +212,7 @@ module.exports = [
   {
     "title": "Blasting Cap Danger",
     "slug": "blasting-cap-danger-1957",
-    "synopsis": "Documentário educativo de 1957, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1957.",
     "year": 1957,
     "genres": [
       "Documentário",
@@ -314,7 +314,7 @@ module.exports = [
   {
     "title": "Safety in Offices",
     "slug": "safety-in-offices-1944",
-    "synopsis": "Documentário educativo de 1944, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1944.",
     "year": 1944,
     "genres": [
       "Documentário",
@@ -331,7 +331,7 @@ module.exports = [
   {
     "title": "Heavenly Bodies",
     "slug": "heavenly-bodies-1920",
-    "synopsis": "Documentário educativo de 1920, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1920.",
     "year": 1920,
     "genres": [
       "Documentário",
@@ -450,7 +450,7 @@ module.exports = [
   {
     "title": "Soundie  - The Hut Sut Song",
     "slug": "soundie-the-hut-sut-song",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -500,7 +500,7 @@ module.exports = [
   {
     "title": "Anatomy of an Accident",
     "slug": "anatomy-of-an-accident",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -601,7 +601,7 @@ module.exports = [
   {
     "title": "Unconscious Motivation",
     "slug": "unconscious-motivation",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -702,7 +702,7 @@ module.exports = [
   {
     "title": "The Party's Over",
     "slug": "the-party-s-over",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -735,7 +735,7 @@ module.exports = [
   {
     "title": "Diesel Story",
     "slug": "diesel-story-1952",
-    "synopsis": "Documentário educativo de 1952, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1952.",
     "year": 1952,
     "genres": [
       "Documentário",
@@ -922,7 +922,7 @@ module.exports = [
   {
     "title": "One Bad Knight",
     "slug": "one-bad-knight",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -972,7 +972,7 @@ module.exports = [
   {
     "title": "Discipline During Adolescence",
     "slug": "discipline-during-adolescence-1958",
-    "synopsis": "Documentário educativo de 1958, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1958.",
     "year": 1958,
     "genres": [
       "Documentário",
@@ -989,7 +989,7 @@ module.exports = [
   {
     "title": "Growth study of Johnny and Jimmy",
     "slug": "growth-study-of-johnny-and-jimmy",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"

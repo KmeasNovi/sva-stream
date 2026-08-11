@@ -110,7 +110,7 @@ module.exports = [
   {
     "title": "Santa and the Three Bears",
     "slug": "santa-and-the-three-bears-1970",
-    "synopsis": "Animação familiar independente de 1970 sobre dois filhotes de urso que querem saber se o Papai Noel existe, enquanto o pai tenta convencê-los a hibernar. Produção de Barry Mahon Enterprises, de domínio público.",
+    "synopsis": "Animação familiar independente de 1970 sobre dois filhotes de urso que querem saber se o Papai Noel existe, enquanto o pai tenta convencê-los a hibernar. Produção de Barry Mahon Enterprises.",
     "year": 1970,
     "genres": [
       "Animação",
@@ -127,7 +127,7 @@ module.exports = [
   {
     "title": "Apollo 13: Houston, We've Got a Problem",
     "slug": "apollo-13-houston-weve-got-a-problem-1972",
-    "synopsis": "Documentário governamental de 1972 sobre a missão Apollo 13 e o resgate da tripulação após a explosão de um tanque de oxigênio a caminho da Lua. Produção da NASA, obra do governo dos EUA e, portanto, de domínio público.",
+    "synopsis": "Documentário governamental de 1972 sobre a missão Apollo 13 e o resgate da tripulação após a explosão de um tanque de oxigênio a caminho da Lua. Produção da NASA, obra do governo dos EUA.",
     "year": 1972,
     "genres": [
       "Documentário",
@@ -144,7 +144,7 @@ module.exports = [
   {
     "title": "Within This Decade: America in Space",
     "slug": "within-this-decade-america-in-space-1969",
-    "synopsis": "Documentário governamental de 1969 sobre a corrida espacial americana ao longo dos anos 1960. Produção da NASA, obra do governo dos EUA e, portanto, de domínio público.",
+    "synopsis": "Documentário governamental de 1969 sobre a corrida espacial americana ao longo dos anos 1960. Produção da NASA, obra do governo dos EUA.",
     "year": 1969,
     "genres": [
       "Documentário",

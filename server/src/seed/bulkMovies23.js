@@ -549,7 +549,7 @@ module.exports = [
   {
     "title": "Principles of Electricity",
     "slug": "principles-of-electricity-1945",
-    "synopsis": "Documentário educativo de 1945, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1945.",
     "year": 1945,
     "genres": [
       "Documentário",
@@ -753,7 +753,7 @@ module.exports = [
   {
     "title": "Your Chance to Live: Technological Failures",
     "slug": "your-chance-to-live-technological-failures",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1041,7 +1041,7 @@ module.exports = [
   {
     "title": "Taking the \"X\" out of X-Rays",
     "slug": "taking-the-x-out-of-x-rays-1940",
-    "synopsis": "Documentário educativo de 1940, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1940.",
     "year": 1940,
     "genres": [
       "Documentário",
@@ -1143,7 +1143,7 @@ module.exports = [
   {
     "title": "ABCs of Walking Wisely",
     "slug": "abcs-of-walking-wisely-1959",
-    "synopsis": "Documentário educativo de 1959, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1959.",
     "year": 1959,
     "genres": [
       "Documentário",
@@ -1211,7 +1211,7 @@ module.exports = [
   {
     "title": "Far Speaking",
     "slug": "far-speaking-1935",
-    "synopsis": "Documentário educativo de 1935, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1935.",
     "year": 1935,
     "genres": [
       "Documentário",
@@ -1397,7 +1397,7 @@ module.exports = [
   {
     "title": "Your Body During Adolescence",
     "slug": "your-body-during-adolescence-1955",
-    "synopsis": "Documentário educativo de 1955, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1955.",
     "year": 1955,
     "genres": [
       "Documentário",
@@ -1465,7 +1465,7 @@ module.exports = [
   {
     "title": "Drugs In Our Culture",
     "slug": "drugs-in-our-culture-1970",
-    "synopsis": "Documentário educativo de 1970, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1970.",
     "year": 1970,
     "genres": [
       "Documentário",

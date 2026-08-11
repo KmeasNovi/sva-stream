@@ -75,7 +75,7 @@ module.exports = [
   {
     "title": "Safety: Harm Hides at Home",
     "slug": "safety-harm-hides-at-home",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -159,7 +159,7 @@ module.exports = [
   {
     "title": "Social Seminar: Tom",
     "slug": "social-seminar-tom-1972",
-    "synopsis": "Documentário educativo de 1972, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1972.",
     "year": 1972,
     "genres": [
       "Documentário",
@@ -567,7 +567,7 @@ module.exports = [
   {
     "title": "Your Safety First",
     "slug": "your-safety-first",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -702,7 +702,7 @@ module.exports = [
   {
     "title": "Facts on Friction",
     "slug": "facts-on-friction-1934",
-    "synopsis": "Documentário educativo de 1934, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1934.",
     "year": 1934,
     "genres": [
       "Documentário",
@@ -787,7 +787,7 @@ module.exports = [
   {
     "title": "Modes of the Moment",
     "slug": "modes-of-the-moment-1917",
-    "synopsis": "Documentário educativo de 1917, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1917.",
     "year": 1917,
     "genres": [
       "Documentário",
@@ -838,7 +838,7 @@ module.exports = [
   {
     "title": "The Passenger Train",
     "slug": "the-passenger-train-1940",
-    "synopsis": "Documentário educativo de 1940, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1940.",
     "year": 1940,
     "genres": [
       "Documentário",
@@ -905,7 +905,7 @@ module.exports = [
   {
     "title": "Preparation of Foods: Stone Age to Space Age",
     "slug": "preparation-of-foods-stone-age-to-space-age",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -938,7 +938,7 @@ module.exports = [
   {
     "title": "Safety: In Danger Out of Doors",
     "slug": "safety-in-danger-out-of-doors",
-    "synopsis": "Documentário educativo de data não determinada, de domínio público.",
+    "synopsis": "Documentário educativo.",
     "genres": [
       "Documentário",
       "Clássico"
@@ -1192,7 +1192,7 @@ module.exports = [
   {
     "title": "Communication: A Film Lesson in General Science / Development of Communication",
     "slug": "communication-a-film-lesson-in-general-science-development-of-communication-1927",
-    "synopsis": "Documentário educativo de 1927, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1927.",
     "year": 1927,
     "genres": [
       "Documentário",
@@ -1260,7 +1260,7 @@ module.exports = [
   {
     "title": "Our Home Town: Levittown, Pa.",
     "slug": "our-home-town-levittown-pa-1954",
-    "synopsis": "Documentário educativo de 1954, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1954.",
     "year": 1954,
     "genres": [
       "Documentário",
@@ -1481,7 +1481,7 @@ module.exports = [
   {
     "title": "Behind the Freedom Curtain",
     "slug": "behind-the-freedom-curtain-1957",
-    "synopsis": "Documentário educativo de 1957, de domínio público.",
+    "synopsis": "Documentário educativo, produzido no ano 1957.",
     "year": 1957,
     "genres": [
       "Documentário",

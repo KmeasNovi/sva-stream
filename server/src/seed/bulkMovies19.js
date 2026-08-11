@@ -30,7 +30,7 @@ module.exports = [
   {
     title: 'Bloody Pit of Horror',
     slug: 'bloody-pit-of-horror-1965',
-    synopsis: 'Filme de terror italiano de 1965, de domínio público.',
+    synopsis: 'Filme de terror italiano, produzido no ano 1965.',
     year: 1965,
     genres: ['Terror', 'Clássico'],
     runtimeMinutes: 82,
@@ -41,7 +41,7 @@ module.exports = [
   {
     title: 'Last Woman on Earth',
     slug: 'last-woman-on-earth-1960',
-    synopsis: 'Filme de ficção científica de 1960, de domínio público.',
+    synopsis: 'Filme de ficção científica, produzido no ano 1960.',
     year: 1960,
     genres: ['Ficção Científica', 'Clássico'],
     runtimeMinutes: 72,
@@ -52,7 +52,7 @@ module.exports = [
   {
     title: 'The Iron Mask',
     slug: 'the-iron-mask-1929',
-    synopsis: 'Filme de aventura de 1929, de domínio público.',
+    synopsis: 'Filme de aventura, produzido no ano 1929.',
     year: 1929,
     genres: ['Aventura', 'Clássico'],
     runtimeMinutes: 72,
@@ -63,7 +63,7 @@ module.exports = [
   {
     title: 'The Saint Louis Bank Robbery',
     slug: 'the-st-louis-bank-robbery-1959',
-    synopsis: 'Filme policial de 1959, de domínio público.',
+    synopsis: 'Filme policial, produzido no ano 1959.',
     year: 1959,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 89,
@@ -74,7 +74,7 @@ module.exports = [
   {
     title: 'The Admiral Was a Lady',
     slug: 'the-admiral-was-a-lady-1950',
-    synopsis: 'Comédia romântica de 1950, de domínio público.',
+    synopsis: 'Comédia romântica, produzido no ano 1950.',
     year: 1950,
     genres: ['Comédia', 'Romance', 'Clássico'],
     runtimeMinutes: 87,
@@ -85,7 +85,7 @@ module.exports = [
   {
     title: 'Inner Sanctum',
     slug: 'inner-sanctum-1948',
-    synopsis: 'Filme de suspense de 1948, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1948.',
     year: 1948,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 58,
@@ -96,7 +96,7 @@ module.exports = [
   {
     title: 'Under California Stars',
     slug: 'under-california-stars-1948',
-    synopsis: 'Faroeste de 1948, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1948.',
     year: 1948,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 72,
@@ -107,7 +107,7 @@ module.exports = [
   {
     title: 'Mr. Wong, Detective',
     slug: 'mr-wong-detective-1938',
-    synopsis: 'Filme policial de 1938, de domínio público.',
+    synopsis: 'Filme policial, produzido no ano 1938.',
     year: 1938,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 69,
@@ -118,7 +118,7 @@ module.exports = [
   {
     title: 'Affairs of Cappy Ricks',
     slug: 'affairs-of-cappy-ricks-1937',
-    synopsis: 'Comédia de aventura de 1937, de domínio público.',
+    synopsis: 'Comédia de aventura, produzido no ano 1937.',
     year: 1937,
     genres: ['Comédia', 'Aventura', 'Clássico'],
     runtimeMinutes: 56,
@@ -129,7 +129,7 @@ module.exports = [
   {
     title: 'The Bashful Bachelor',
     slug: 'the-bashful-bachelor-1942',
-    synopsis: 'Comédia de 1942, de domínio público.',
+    synopsis: 'Comédia, produzido no ano 1942.',
     year: 1942,
     genres: ['Comédia', 'Clássico'],
     runtimeMinutes: 76,
@@ -140,7 +140,7 @@ module.exports = [
   {
     title: 'The Last of the Mohicans',
     slug: 'the-last-of-the-mohicans-1936',
-    synopsis: 'Filme de aventura de 1936, de domínio público.',
+    synopsis: 'Filme de aventura, produzido no ano 1936.',
     year: 1936,
     genres: ['Aventura', 'Clássico'],
     runtimeMinutes: 91,
@@ -151,7 +151,7 @@ module.exports = [
   {
     title: 'The Snow Creature',
     slug: 'the-snow-creature-1954',
-    synopsis: 'Filme de terror e ficção científica de 1954, de domínio público.',
+    synopsis: 'Filme de terror e ficção científica, produzido no ano 1954.',
     year: 1954,
     genres: ['Terror', 'Ficção Científica', 'Clássico'],
     runtimeMinutes: 71,
@@ -162,7 +162,7 @@ module.exports = [
   {
     title: 'The Mad Monster',
     slug: 'the-mad-monster-1942',
-    synopsis: 'Filme de terror de 1942, de domínio público.',
+    synopsis: 'Filme de terror, produzido no ano 1942.',
     year: 1942,
     genres: ['Terror', 'Clássico'],
     runtimeMinutes: 77,
@@ -173,7 +173,7 @@ module.exports = [
   {
     title: 'Cold Sweat',
     slug: 'cold-sweat-1970',
-    synopsis: 'Filme de suspense e ação de 1970, de domínio público.',
+    synopsis: 'Filme de suspense e ação, produzido no ano 1970.',
     year: 1970,
     genres: ['Suspense', 'Ação', 'Clássico'],
     runtimeMinutes: 93,
@@ -184,7 +184,7 @@ module.exports = [
   {
     title: 'End of the World',
     slug: 'end-of-the-world-1977',
-    synopsis: 'Filme de ficção científica de 1977, de domínio público.',
+    synopsis: 'Filme de ficção científica, produzido no ano 1977.',
     year: 1977,
     genres: ['Ficção Científica', 'Terror', 'Clássico'],
     runtimeMinutes: 86,
@@ -195,7 +195,7 @@ module.exports = [
   {
     title: 'Indiscreet',
     slug: 'indiscreet-1931',
-    synopsis: 'Comédia romântica de 1931, de domínio público.',
+    synopsis: 'Comédia romântica, produzido no ano 1931.',
     year: 1931,
     genres: ['Comédia', 'Romance', 'Clássico'],
     runtimeMinutes: 75,
@@ -206,7 +206,7 @@ module.exports = [
   {
     title: 'Pygmalion',
     slug: 'pygmalion-1938',
-    synopsis: 'Comédia dramática de 1938, de domínio público.',
+    synopsis: 'Comédia dramática, produzido no ano 1938.',
     year: 1938,
     genres: ['Comédia', 'Drama', 'Clássico'],
     runtimeMinutes: 95,
@@ -217,7 +217,7 @@ module.exports = [
   {
     title: 'Scrooge',
     slug: 'scrooge-1935',
-    synopsis: 'Drama de 1935, de domínio público.',
+    synopsis: 'Drama, produzido no ano 1935.',
     year: 1935,
     genres: ['Drama', 'Clássico'],
     runtimeMinutes: 78,
@@ -228,7 +228,7 @@ module.exports = [
   {
     title: 'Sex Madness',
     slug: 'sex-madness-1938',
-    synopsis: 'Drama de 1938, de domínio público.',
+    synopsis: 'Drama, produzido no ano 1938.',
     year: 1938,
     genres: ['Drama', 'Clássico'],
     runtimeMinutes: 52,
@@ -239,7 +239,7 @@ module.exports = [
   {
     title: 'Strike',
     slug: 'strike-1925',
-    synopsis: 'Filme mudo de 1925, de domínio público.',
+    synopsis: 'Filme mudo, produzido no ano 1925.',
     year: 1925,
     genres: ['Drama', 'Mudo', 'Clássico'],
     runtimeMinutes: 94,
@@ -250,7 +250,7 @@ module.exports = [
   {
     title: 'The Blue Angel',
     slug: 'the-blue-angel-1930',
-    synopsis: 'Drama de 1930, de domínio público.',
+    synopsis: 'Drama, produzido no ano 1930.',
     year: 1930,
     genres: ['Drama', 'Clássico'],
     runtimeMinutes: 100,
@@ -261,7 +261,7 @@ module.exports = [
   {
     title: 'The Contender',
     slug: 'the-contender-1944',
-    synopsis: 'Filme de suspense de 1944, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1944.',
     year: 1944,
     genres: ['Suspense', 'Drama', 'Clássico'],
     runtimeMinutes: 62,
@@ -272,7 +272,7 @@ module.exports = [
   {
     title: 'The Divorce of Lady X',
     slug: 'the-divorce-of-lady-x-1938',
-    synopsis: 'Comédia romântica de 1938, de domínio público.',
+    synopsis: 'Comédia romântica, produzido no ano 1938.',
     year: 1938,
     genres: ['Comédia', 'Romance', 'Clássico'],
     runtimeMinutes: 91,
@@ -283,7 +283,7 @@ module.exports = [
   {
     title: 'The Painted Desert',
     slug: 'the-painted-desert-1931',
-    synopsis: 'Faroeste de 1931, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1931.',
     year: 1931,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 75,
@@ -294,7 +294,7 @@ module.exports = [
   {
     title: 'The Phantom Fiend',
     slug: 'the-phantom-fiend-1932',
-    synopsis: 'Filme de suspense e terror de 1932, de domínio público.',
+    synopsis: 'Filme de suspense e terror, produzido no ano 1932.',
     year: 1932,
     genres: ['Suspense', 'Terror', 'Clássico'],
     runtimeMinutes: 63,
@@ -305,7 +305,7 @@ module.exports = [
   {
     title: 'The Scarlet Pimpernel',
     slug: 'the-scarlet-pimpernel-1934',
-    synopsis: 'Filme de aventura de 1934, de domínio público.',
+    synopsis: 'Filme de aventura, produzido no ano 1934.',
     year: 1934,
     genres: ['Aventura', 'Clássico'],
     runtimeMinutes: 93,
@@ -316,7 +316,7 @@ module.exports = [
   {
     title: 'The Taming of the Shrew',
     slug: 'the-taming-of-the-shrew-1929',
-    synopsis: 'Comédia romântica de 1929, de domínio público.',
+    synopsis: 'Comédia romântica, produzido no ano 1929.',
     year: 1929,
     genres: ['Comédia', 'Romance', 'Clássico'],
     runtimeMinutes: 66,
@@ -327,7 +327,7 @@ module.exports = [
   {
     title: 'The Wild Ride',
     slug: 'the-wild-ride-1960',
-    synopsis: 'Filme de suspense de 1960, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1960.',
     year: 1960,
     genres: ['Suspense', 'Drama', 'Clássico'],
     runtimeMinutes: 59,
@@ -338,7 +338,7 @@ module.exports = [
   {
     title: 'The Young Lovers',
     slug: 'the-young-lovers-1949',
-    synopsis: 'Drama de 1949, de domínio público.',
+    synopsis: 'Drama, produzido no ano 1949.',
     year: 1949,
     genres: ['Drama', 'Clássico'],
     runtimeMinutes: 81,
@@ -349,7 +349,7 @@ module.exports = [
   {
     title: 'Virus',
     slug: 'virus-1980',
-    synopsis: 'Filme de ficção científica de 1980, de domínio público.',
+    synopsis: 'Filme de ficção científica, produzido no ano 1980.',
     year: 1980,
     genres: ['Ficção Científica', 'Clássico'],
     runtimeMinutes: 103,
@@ -360,7 +360,7 @@ module.exports = [
   {
     title: 'Voyage to the Planet of Prehistoric Women',
     slug: 'voyage-to-the-planet-of-prehistoric-women-1968',
-    synopsis: 'Filme de ficção científica de 1968, de domínio público.',
+    synopsis: 'Filme de ficção científica, produzido no ano 1968.',
     year: 1968,
     genres: ['Ficção Científica', 'Clássico'],
     runtimeMinutes: 80,
@@ -371,7 +371,7 @@ module.exports = [
   {
     title: 'Dick Tracy (1937)',
     slug: 'dick-tracy-1937-seriado',
-    synopsis: 'Seriado de suspense e aventura de 1937, de domínio público.',
+    synopsis: 'Seriado de suspense e aventura, produzido no ano 1937.',
     year: 1937,
     genres: ['Suspense', 'Aventura', 'Clássico'],
     runtimeMinutes: 276,
@@ -382,7 +382,7 @@ module.exports = [
   {
     title: 'Port of New York',
     slug: 'port-of-new-york-1949',
-    synopsis: 'Filme de suspense de 1949, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1949.',
     year: 1949,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 81,
@@ -393,7 +393,7 @@ module.exports = [
   {
     title: 'Great Guy',
     slug: 'great-guy-1936',
-    synopsis: 'Filme de suspense de 1936, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1936.',
     year: 1936,
     genres: ['Suspense', 'Drama', 'Clássico'],
     runtimeMinutes: 66,
@@ -404,7 +404,7 @@ module.exports = [
   {
     title: 'Guest in the House',
     slug: 'guest-in-the-house-1944',
-    synopsis: 'Drama de 1944, de domínio público.',
+    synopsis: 'Drama, produzido no ano 1944.',
     year: 1944,
     genres: ['Drama', 'Suspense', 'Clássico'],
     runtimeMinutes: 97,
@@ -415,7 +415,7 @@ module.exports = [
   {
     title: 'Horror Express',
     slug: 'horror-express-1972',
-    synopsis: 'Filme de terror e ficção científica de 1972, de domínio público.',
+    synopsis: 'Filme de terror e ficção científica, produzido no ano 1972.',
     year: 1972,
     genres: ['Terror', 'Ficção Científica', 'Clássico'],
     runtimeMinutes: 87,
@@ -426,7 +426,7 @@ module.exports = [
   {
     title: 'Shed No Tears',
     slug: 'shed-no-tears-1948',
-    synopsis: 'Filme de suspense de 1948, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1948.',
     year: 1948,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 69,
@@ -437,7 +437,7 @@ module.exports = [
   {
     title: 'Silent Night, Bloody Night',
     slug: 'silent-night-bloody-night-1972',
-    synopsis: 'Filme de terror de 1972, de domínio público.',
+    synopsis: 'Filme de terror, produzido no ano 1972.',
     year: 1972,
     genres: ['Terror', 'Clássico'],
     runtimeMinutes: 85,
@@ -448,7 +448,7 @@ module.exports = [
   {
     title: 'Swamp Women',
     slug: 'swamp-women-1955',
-    synopsis: 'Filme de aventura de 1955, de domínio público.',
+    synopsis: 'Filme de aventura, produzido no ano 1955.',
     year: 1955,
     genres: ['Aventura', 'Suspense', 'Clássico'],
     runtimeMinutes: 69,
@@ -459,7 +459,7 @@ module.exports = [
   {
     title: 'The Driller Killer',
     slug: 'the-driller-killer-1979',
-    synopsis: 'Filme de terror de 1979, de domínio público.',
+    synopsis: 'Filme de terror, produzido no ano 1979.',
     year: 1979,
     genres: ['Terror', 'Clássico'],
     runtimeMinutes: 92,
@@ -470,7 +470,7 @@ module.exports = [
   {
     title: 'The Hoodlum',
     slug: 'the-hoodlum-1951',
-    synopsis: 'Filme de suspense de 1951, de domínio público.',
+    synopsis: 'Filme de suspense, produzido no ano 1951.',
     year: 1951,
     genres: ['Suspense', 'Clássico'],
     runtimeMinutes: 62,
@@ -481,7 +481,7 @@ module.exports = [
   {
     title: 'Black Fist',
     slug: 'black-fist-1975',
-    synopsis: 'Filme de ação de 1975, de domínio público.',
+    synopsis: 'Filme de ação, produzido no ano 1975.',
     year: 1975,
     genres: ['Ação', 'Suspense', 'Clássico'],
     runtimeMinutes: 94,
@@ -492,7 +492,7 @@ module.exports = [
   {
     title: 'Frontier Horizon',
     slug: 'frontier-horizon-1939',
-    synopsis: 'Faroeste de 1939, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1939.',
     year: 1939,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 55,
@@ -503,7 +503,7 @@ module.exports = [
   {
     title: 'Gone with the West',
     slug: 'gone-with-the-west-1975',
-    synopsis: 'Faroeste de 1975, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1975.',
     year: 1975,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 91,
@@ -514,7 +514,7 @@ module.exports = [
   {
     title: 'Paradise Canyon',
     slug: 'paradise-canyon-1935',
-    synopsis: 'Faroeste de 1935, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1935.',
     year: 1935,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 53,
@@ -525,7 +525,7 @@ module.exports = [
   {
     title: 'Song of Arizona',
     slug: 'song-of-arizona-1946',
-    synopsis: 'Faroeste de 1946, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1946.',
     year: 1946,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 53,
@@ -536,7 +536,7 @@ module.exports = [
   {
     title: 'The Lawless Frontier',
     slug: 'the-lawless-frontier-1934',
-    synopsis: 'Faroeste de 1934, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1934.',
     year: 1934,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 50,
@@ -547,7 +547,7 @@ module.exports = [
   {
     title: 'The San Antonio Kid',
     slug: 'the-san-antonio-kid-1944',
-    synopsis: 'Faroeste de 1944, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1944.',
     year: 1944,
     genres: ['Faroeste', 'Clássico'],
     runtimeMinutes: 53,
@@ -558,7 +558,7 @@ module.exports = [
   {
     title: 'War of the Wildcats',
     slug: 'war-of-the-wildcats-1943',
-    synopsis: 'Faroeste de 1943, de domínio público.',
+    synopsis: 'Faroeste, produzido no ano 1943.',
     year: 1943,
     genres: ['Faroeste', 'Drama', 'Clássico'],
     runtimeMinutes: 98,
@@ -569,7 +569,7 @@ module.exports = [
   {
     title: 'The Last Laugh',
     slug: 'the-last-laugh-1924',
-    synopsis: 'Drama mudo alemão de 1924, de domínio público.',
+    synopsis: 'Drama mudo alemão, produzido no ano 1924.',
     year: 1924,
     genres: ['Drama', 'Mudo', 'Clássico'],
     runtimeMinutes: 51,
