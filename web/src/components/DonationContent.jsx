@@ -40,6 +40,10 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
           <span className="font-body text-body-sm">ou pague direto por PIX</span>
           <span className="h-px flex-1 bg-white/10" />
         </div>
+        <div className="bg-white rounded-2xl p-3 sm:p-4 inline-block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/pix-qr.png" alt="QR code PIX" className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] max-w-full" />
+        </div>
         <CopyPixKey value={VAKINHA_PIX_KEY} />
       </div>
     </div>
