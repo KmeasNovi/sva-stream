@@ -11,6 +11,30 @@ const ADSENSE_SLOT_MOVIE_ABOVE_PLAYER = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOV
 const ADSENSE_SLOT_MOVIE_TOP = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_TOP;
 const ADSENSE_SLOT_MOVIE_MID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_MID;
 
+const SITE_URL = 'https://sepiastream.com';
+
+// Marcação schema.org — ajuda o Google a entender que a página é um filme
+// (não um post de blog qualquer) e pode gerar resultado mais rico na busca
+// (pôster, avaliação de gênero, diretor). Escapamos "<" pra evitar que um
+// campo com esse caractere feche a tag <script> prematuramente.
+function buildMovieJsonLd(movie) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Movie',
+    name: movie.title,
+    url: `${SITE_URL}/movie/${movie.slug}`,
+    image: movie.posterUrl || movie.backdropUrl || undefined,
+    description: movie.synopsis || undefined,
+    genre: movie.genres?.length ? movie.genres : undefined,
+    dateCreated: movie.year ? String(movie.year) : undefined,
+    director: movie.director ? { '@type': 'Person', name: movie.director } : undefined,
+    actor: movie.cast?.length ? movie.cast.map((name) => ({ '@type': 'Person', name })) : undefined,
+    duration: movie.runtimeMinutes ? `PT${movie.runtimeMinutes}M` : undefined,
+    inLanguage: movie.language || undefined,
+  };
+  return JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+}
+
 async function fetchMovie(slug) {
   try {
     const { data } = await api.getMoviePublic(slug);
@@ -56,6 +80,11 @@ export default async function MoviePage({ params }) {
 
   return (
     <div className="container mx-auto px-container-margin py-8 space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildMovieJsonLd(movie) }}
+      />
+
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-body text-label-bold"
