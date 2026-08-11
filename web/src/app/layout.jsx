@@ -1,5 +1,4 @@
 import './globals.css';
-import Script from 'next/script';
 import AppShell from '../components/AppShell';
 import CookieConsent from '../components/CookieConsent';
 import { UserProvider } from '../context/UserContext';
@@ -10,8 +9,17 @@ export const metadata = {
   description: 'Clássicos do cinema e curtas de animação, de graça, para todo mundo.',
 };
 
-// Só carrega o AdSense quando a conta existir de verdade (ver
-// web/.env.example) — até lá, isso é um no-op silencioso.
+// Só declara a tag de verificação de propriedade quando a conta existir de
+// verdade (ver web/.env.example) — até lá, isso é um no-op silencioso.
+//
+// O script do AdSense (adsbygoogle.js) NÃO é carregado aqui de propósito —
+// carregá-lo globalmente serviria anúncio em toda página do site, inclusive
+// telas de login/cadastro, o painel /admin, e telas de "Carregando..." que
+// um visitante sem login vê em rotas que exigem conta (/home, /catalogo
+// etc). Isso violou a política do AdSense de "anúncios em telas sem
+// conteúdo do editor" na primeira revisão. Agora cada página decide por
+// conta própria se carrega o script, só onde há conteúdo de verdade — ver
+// AdSlot.jsx, usado hoje só em /movie/[slug].
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
 export default function RootLayout({ children }) {
@@ -25,14 +33,6 @@ export default function RootLayout({ children }) {
         ) : null}
       </head>
       <body className="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-primary">
-        {ADSENSE_CLIENT_ID ? (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        ) : null}
         <UserProvider>
           <AppShell>{children}</AppShell>
           <CookieConsent />
