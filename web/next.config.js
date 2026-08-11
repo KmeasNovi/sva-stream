@@ -8,6 +8,12 @@ const nextConfig = {
       { protocol: 'https', hostname: 'image.tmdb.org' },
       { protocol: 'https', hostname: 'upload.wikimedia.org' },
     ],
+    // Com quase mil pôsteres vindos de fontes externas, a otimização de
+    // imagem do Vercel (cota mensal do plano Hobby) estourou e passou a
+    // quebrar imagem em vez de servir. Essas fontes já entregam imagem em
+    // tamanho razoável, então desligamos o reprocessamento — serve a URL
+    // original direto, sem contar pra cota.
+    unoptimized: true,
   },
   async headers() {
     return [
