@@ -1,72 +1,57 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useUser } from '../../../context/UserContext';
+import { notFound } from 'next/navigation';
 import { api } from '../../../lib/api';
-import { getCached, setCached } from '../../../lib/clientCache';
 import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
-import LoadingScreen from '../../../components/LoadingScreen';
+import AdSlot from '../../../components/AdSlot';
 
-export default function MoviePage({ params }) {
-  const { token } = useUser();
-  const { slug } = params;
-  const cacheKey = `movie:${slug}`;
-  const cached = getCached(cacheKey);
-  const [movie, setMovie] = useState(cached?.movie ?? null);
-  const [related, setRelated] = useState(cached?.related ?? []);
-  const [notFoundError, setNotFoundError] = useState(false);
+const ADSENSE_SLOT_MOVIE_ABOVE_PLAYER = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_ABOVE_PLAYER;
+const ADSENSE_SLOT_MOVIE_TOP = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_TOP;
+const ADSENSE_SLOT_MOVIE_MID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_MID;
 
-  useEffect(() => {
-    const fromCache = getCached(cacheKey);
-    setMovie(fromCache?.movie ?? null);
-    setRelated(fromCache?.related ?? []);
-    setNotFoundError(false);
+async function fetchMovie(slug) {
+  try {
+    const { data } = await api.getMoviePublic(slug);
+    return data;
+  } catch {
+    return null;
+  }
+}
 
-    if (!token) return;
-    let cancelled = false;
-
-    api
-      .getMovie(slug, token)
-      .then(({ data }) => {
-        if (cancelled) return;
-        setMovie(data);
-        setCached(cacheKey, { movie: data, related: getCached(cacheKey)?.related ?? [] });
-        const genre = data.genres?.[0];
-        if (genre) {
-          api.listMovies({ genre, limit: 13 }, token).then(({ data: relatedData }) => {
-            if (cancelled) return;
-            const filtered = relatedData.filter((m) => m.slug !== data.slug);
-            setRelated(filtered);
-            setCached(cacheKey, { movie: data, related: filtered });
-          });
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setNotFoundError(true);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [slug, token]);
-
-  if (notFoundError) {
-    return (
-      <div className="container mx-auto px-container-margin py-16 text-center">
-        <p className="font-body text-body-md text-on-surface-variant mb-4">Filme não encontrado.</p>
-        <Link href="/" className="text-primary hover:text-primary-fixed transition-colors">
-          Voltar para o início
-        </Link>
-      </div>
-    );
+export async function generateMetadata({ params }) {
+  const data = await fetchMovie(params.slug);
+  if (!data?.movie) {
+    return { title: 'Filme não encontrado — SepiaStream' };
   }
 
-  if (!movie) {
-    return <LoadingScreen />;
+  const { movie } = data;
+  const title = `${movie.title}${movie.year ? ` (${movie.year})` : ''} — Assista grátis | SepiaStream`;
+  const description = movie.synopsis
+    ? movie.synopsis.slice(0, 155)
+    : `Assista ${movie.title} grátis, legal e sem cadastro obrigatório no SepiaStream.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/movie/${movie.slug}` },
+    openGraph: {
+      title,
+      description,
+      type: 'video.movie',
+      images: movie.posterUrl ? [movie.posterUrl] : undefined,
+    },
+  };
+}
+
+export default async function MoviePage({ params }) {
+  const data = await fetchMovie(params.slug);
+
+  if (!data?.movie) {
+    notFound();
   }
+
+  const { movie, related } = data;
 
   return (
     <div className="container mx-auto px-container-margin py-8 space-y-10">
@@ -78,12 +63,16 @@ export default function MoviePage({ params }) {
         Voltar
       </Link>
 
+      <AdSlot slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
+
       <Player
         source={movie.source}
         title={movie.title}
         videoFileUrl={movie.videoFileUrl}
         subtitleUrl={movie.subtitleUrl}
       />
+
+      <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />
 
       <div className="max-w-3xl space-y-4">
         <div className="flex flex-wrap gap-2">
@@ -106,7 +95,9 @@ export default function MoviePage({ params }) {
         <p className="font-body text-body-lg text-on-surface">{movie.synopsis}</p>
       </div>
 
-      {related.length ? <MovieRow title="Mais como este" movies={related} /> : null}
+      <AdSlot slotId={ADSENSE_SLOT_MOVIE_MID} />
+
+      {related?.length ? <MovieRow title="Mais como este" movies={related} /> : null}
     </div>
   );
 }

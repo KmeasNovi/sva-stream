@@ -1,7 +1,9 @@
+import { api } from '../lib/api';
+
 const SITE_URL = 'https://sepiastream.com';
 
-export default function sitemap() {
-  return [
+export default async function sitemap() {
+  const staticEntries = [
     {
       url: SITE_URL,
       lastModified: new Date(),
@@ -33,4 +35,20 @@ export default function sitemap() {
       priority: 0.4,
     },
   ];
+
+  let movieEntries = [];
+  try {
+    const { data: movies } = await api.listMovieSlugs();
+    movieEntries = movies.map((m) => ({
+      url: `${SITE_URL}/movie/${m.slug}`,
+      lastModified: m.updatedAt ? new Date(m.updatedAt) : new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    }));
+  } catch {
+    // backend fora do ar não pode derrubar o sitemap inteiro — só sai sem
+    // as URLs de filme dessa vez, o Google tenta de novo na próxima visita
+  }
+
+  return [...staticEntries, ...movieEntries];
 }

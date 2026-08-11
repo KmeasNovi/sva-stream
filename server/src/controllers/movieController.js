@@ -94,6 +94,41 @@ exports.getMovieBySlug = catchAsync(async (req, res, next) => {
   res.json({ success: true, data: movie });
 });
 
+// Rota pública (sem auth) — só o necessário pra a página de filme ser
+// indexável pelo Google e assistível por quem chega de uma busca sem estar
+// logado. Devolve o filme + relacionados numa chamada só, em vez de expor a
+// listagem genérica (`GET /`) publicamente, que permitiria enumerar/raspar
+// o catálogo inteiro em poucas requisições.
+exports.getMoviePublicBySlug = catchAsync(async (req, res, next) => {
+  const movie = await Movie.findOneAndUpdate(
+    { slug: req.params.slug },
+    { $inc: { views: 1 } },
+    { new: true }
+  ).lean();
+
+  if (!movie) return next(new AppError('Filme não encontrado', 404));
+
+  const primaryGenre = getPrimaryGenre(movie.genres);
+  const related = primaryGenre
+    ? await Movie.find({ genres: primaryGenre, slug: { $ne: movie.slug } })
+        .sort({ createdAt: -1 })
+        .limit(13)
+        .select('title slug posterUrl backdropUrl year')
+        .lean()
+    : [];
+
+  res.json({ success: true, data: { movie, related } });
+});
+
+// Rota pública (sem auth) — só slug + data de atualização, pro sitemap.xml
+// do frontend saber quais URLs de filme existem. Não expõe título, sinopse,
+// pôster nem qualquer outro dado — só o suficiente pra gerar as <url> do
+// sitemap.
+exports.listSlugsForSitemap = catchAsync(async (req, res) => {
+  const movies = await Movie.find({}, 'slug updatedAt').lean();
+  res.json({ success: true, data: movies.map((m) => ({ slug: m.slug, updatedAt: m.updatedAt })) });
+});
+
 exports.listFeatured = catchAsync(async (req, res) => {
   // Um filme por categoria (ver FEATURED_GENRES): dentro de cada categoria,
   // prioriza um filme marcado featured=true manualmente pelo admin, senão o

@@ -34,6 +34,10 @@ export const api = {
     return request(`/movies${query ? `?${query}` : ''}`, { token });
   },
   getMovie: (slug, token) => request(`/movies/${slug}`, { token }),
+  // Pública (sem token) — usada pela página /movie/[slug] renderizada no
+  // servidor, pra funcionar sem login (SEO + quem chega de uma busca).
+  getMoviePublic: (slug) => request(`/movies/public/${slug}`, { revalidate: 300 }),
+  listMovieSlugs: () => request('/movies/sitemap', { revalidate: 3600 }),
   listGenres: (token) => request('/movies/genres', { token }),
   listFeatured: (token) => request('/movies/featured', { token }),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),

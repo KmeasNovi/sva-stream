@@ -21,7 +21,7 @@ export default function AuthGate({ children }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isPublic = PUBLIC_PATHS.includes(pathname) || pathname.startsWith('/admin');
+  const isPublic = PUBLIC_PATHS.includes(pathname) || pathname.startsWith('/admin') || pathname.startsWith('/movie/');
 
   useEffect(() => {
     if (loading || isPublic || user) return;

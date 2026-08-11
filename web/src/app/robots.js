@@ -5,9 +5,10 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      // Tudo daqui pra baixo exige login (a API de filmes também exige, ver
-      // hardening de segurança) — não tem conteúdo pra indexar mesmo.
-      disallow: ['/home', '/catalogo', '/movie/', '/genre/', '/search', '/minha-lista', '/admin/'],
+      // /movie/ é pública e renderizada no servidor (ver web/src/app/movie/[slug]/page.jsx)
+      // — precisa ficar indexável pra quem busca o nome de um filme achar o
+      // site. O resto continua exigindo login e sem conteúdo pra indexar.
+      disallow: ['/home', '/catalogo', '/genre/', '/search', '/minha-lista', '/admin/'],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
