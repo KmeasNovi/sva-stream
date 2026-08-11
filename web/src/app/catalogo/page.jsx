@@ -1,32 +1,29 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useUser } from '../../context/UserContext';
 import { api } from '../../lib/api';
-import { getCached, setCached } from '../../lib/clientCache';
 import Catalog from '../../components/Catalog';
-import LoadingScreen from '../../components/LoadingScreen';
+import MovieDonationPrompt from '../../components/MovieDonationPrompt';
 
-export default function CatalogoPage() {
-  const { token } = useUser();
-  const [movies, setMovies] = useState(() => getCached('catalogo') ?? null);
+export const metadata = {
+  title: 'Catálogo completo — SepiaStream',
+  description: 'Todos os filmes e curtas de animação clássicos do SepiaStream, em domínio público e grátis, num só lugar.',
+  alternates: { canonical: '/catalogo' },
+};
 
-  useEffect(() => {
-    if (!token) return;
-    let cancelled = false;
-    api.listMovies({ limit: 2000 }, token).then(({ data }) => {
-      if (cancelled) return;
-      setMovies(data);
-      setCached('catalogo', data);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [token]);
-
-  if (!movies) {
-    return <LoadingScreen />;
+async function fetchMovies() {
+  try {
+    const { data } = await api.listMoviesPublic();
+    return data || [];
+  } catch {
+    return [];
   }
+}
 
-  return <Catalog movies={movies} />;
+export default async function CatalogoPage() {
+  const movies = await fetchMovies();
+
+  return (
+    <>
+      <Catalog movies={movies} />
+      <MovieDonationPrompt />
+    </>
+  );
 }

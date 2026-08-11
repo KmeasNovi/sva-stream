@@ -14,6 +14,7 @@ const PUBLIC_PATHS = [
   '/redefinir-senha',
   '/privacidade',
   '/doacao',
+  '/catalogo',
 ];
 
 export default function AuthGate({ children }) {

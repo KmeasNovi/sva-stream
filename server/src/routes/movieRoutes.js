@@ -8,6 +8,7 @@ const router = express.Router();
 // filme individuais. Ver comentário em movieController.js.
 router.get('/sitemap', movieController.listSlugsForSitemap);
 router.get('/public/highlights', movieController.listPublicHighlights);
+router.get('/public', movieController.listMoviesPublic);
 router.get('/public/:slug', movieController.getMoviePublicBySlug);
 
 router.get('/genres', requireAdminOrUser, movieController.listGenres);

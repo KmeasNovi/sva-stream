@@ -82,6 +82,20 @@ exports.listMovies = catchAsync(async (req, res) => {
   });
 });
 
+// Rota pública (sem auth) — lista o catálogo inteiro (só os campos usados
+// pelo grid: título, slug, pôster, ano, gêneros), pra /catalogo ser
+// indexável e navegável sem login. Não é uma exposição nova de dado: o
+// sitemap.xml já lista todos os slugs publicamente, e cada filme já tem
+// página pública própria — isso só junta tudo numa lista, sem sinopse.
+exports.listMoviesPublic = catchAsync(async (req, res) => {
+  const movies = await Movie.find({})
+    .sort({ title: 1 })
+    .select('title slug posterUrl backdropUrl year genres')
+    .lean();
+
+  res.json({ success: true, data: movies });
+});
+
 exports.getMovieBySlug = catchAsync(async (req, res, next) => {
   const movie = await Movie.findOneAndUpdate(
     { slug: req.params.slug },
