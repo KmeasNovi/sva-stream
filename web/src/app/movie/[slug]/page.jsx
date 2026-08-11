@@ -5,6 +5,7 @@ import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
 import AdSlot from '../../../components/AdSlot';
+import MovieDonationPrompt from '../../../components/MovieDonationPrompt';
 
 const ADSENSE_SLOT_MOVIE_ABOVE_PLAYER = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_ABOVE_PLAYER;
 const ADSENSE_SLOT_MOVIE_TOP = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_TOP;
@@ -98,6 +99,8 @@ export default async function MoviePage({ params }) {
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_MID} />
 
       {related?.length ? <MovieRow title="Mais como este" movies={related} /> : null}
+
+      <MovieDonationPrompt />
     </div>
   );
 }
