@@ -141,8 +141,11 @@ exports.getMoviePublicBySlug = catchAsync(async (req, res, next) => {
 // ajudar quem chega de uma busca a navegar pro resto do catálogo. Não expõe
 // sinopse nem o catálogo inteiro — só um recorte pequeno (~1 por gênero).
 exports.listPublicHighlights = catchAsync(async (req, res) => {
+  const HIGHLIGHT_COUNT = 30; // múltiplo de 2, 3 e 5 — as colunas do grid em
+  // cada largura de tela — pra nunca sobrar uma última fileira incompleta.
   const movies = await Movie.find({}).sort({ featured: -1, views: -1, title: 1 }).lean();
 
+  // 1ª passada: um filme por gênero primário, pra diversidade.
   const picked = [];
   const seenGenres = new Set();
   for (const movie of movies) {
@@ -150,7 +153,20 @@ exports.listPublicHighlights = catchAsync(async (req, res) => {
     if (genre && seenGenres.has(genre)) continue;
     if (genre) seenGenres.add(genre);
     picked.push(movie);
-    if (picked.length >= 30) break;
+    if (picked.length >= HIGHLIGHT_COUNT) break;
+  }
+
+  // 2ª passada: como o catálogo tem menos gêneros distintos do que
+  // HIGHLIGHT_COUNT, completa o resto com outros filmes (repetindo gênero),
+  // pra sempre fechar em HIGHLIGHT_COUNT itens exatos.
+  if (picked.length < HIGHLIGHT_COUNT) {
+    const pickedIds = new Set(picked.map((m) => String(m._id)));
+    for (const movie of movies) {
+      if (pickedIds.has(String(movie._id))) continue;
+      picked.push(movie);
+      pickedIds.add(String(movie._id));
+      if (picked.length >= HIGHLIGHT_COUNT) break;
+    }
   }
 
   res.json({
