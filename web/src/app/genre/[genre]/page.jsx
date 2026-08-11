@@ -7,6 +7,9 @@ import { api } from '../../../lib/api';
 import { getCached, setCached } from '../../../lib/clientCache';
 import MovieCard from '../../../components/MovieCard';
 import LoadingScreen from '../../../components/LoadingScreen';
+import AdSlot from '../../../components/AdSlot';
+
+const ADSENSE_SLOT_GENRE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_GENRE;
 
 export default function GenrePage({ params }) {
   const { token } = useUser();
@@ -44,14 +47,17 @@ export default function GenrePage({ params }) {
       {movies === null ? (
         <LoadingScreen />
       ) : (
-        <div className="flex flex-wrap gap-4">
-          {movies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie} />
-          ))}
-          {!movies.length ? (
-            <p className="font-body text-body-md text-on-surface-variant">Nenhum filme neste gênero ainda.</p>
-          ) : null}
-        </div>
+        <>
+          {movies.length ? <AdSlot slotId={ADSENSE_SLOT_GENRE} className="mb-8" /> : null}
+          <div className="flex flex-wrap gap-4">
+            {movies.map((movie) => (
+              <MovieCard key={movie._id} movie={movie} />
+            ))}
+            {!movies.length ? (
+              <p className="font-body text-body-md text-on-surface-variant">Nenhum filme neste gênero ainda.</p>
+            ) : null}
+          </div>
+        </>
       )}
     </div>
   );

@@ -2,6 +2,9 @@
 
 import { useMemo, useState } from 'react';
 import MovieCard from './MovieCard';
+import AdSlot from './AdSlot';
+
+const ADSENSE_SLOT_CATALOGO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATALOGO;
 
 const SORT_OPTIONS = [
   { value: 'alpha', label: 'Ordem alfabética' },
@@ -45,6 +48,8 @@ export default function Catalog({ movies }) {
           </select>
         </label>
       </div>
+
+      <AdSlot slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" />
 
       <div className="flex flex-wrap gap-4">
         {sorted.map((movie) => (
