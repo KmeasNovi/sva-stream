@@ -1,9 +1,4 @@
-import CopyPixKey from './CopyPixKey';
-
 const VAKINHA_URL = 'https://www.vakinha.com.br/6263806';
-// Chave PIX da própria Vakinha (não é uma chave pessoal) — o pagamento passa
-// pela infraestrutura deles, então quem doa nunca vê nome nem dados pessoais.
-const VAKINHA_PIX_KEY = '6263806@vakinha.com.br';
 
 export default function DonationContent({ HeadingTag = 'h1' }) {
   return (
@@ -34,17 +29,6 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
         <p className="font-body text-body-sm text-on-surface-variant">
           Aceita PIX e cartão, processado com segurança pela Vakinha.
         </p>
-
-        <div className="flex items-center gap-3 text-on-surface-variant">
-          <span className="h-px flex-1 bg-white/10" />
-          <span className="font-body text-body-sm">ou pague direto por PIX</span>
-          <span className="h-px flex-1 bg-white/10" />
-        </div>
-        <div className="bg-white rounded-2xl p-3 sm:p-4 inline-block">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/pix-qr.png" alt="QR code PIX" className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] max-w-full" />
-        </div>
-        <CopyPixKey value={VAKINHA_PIX_KEY} />
       </div>
     </div>
   );
