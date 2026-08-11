@@ -1,8 +1,8 @@
 import DonationContent from '../../components/DonationContent';
 
 export const metadata = {
-  title: 'Apoie o SepiaStream — Doação via PIX',
-  description: 'Ajude a manter vivo o acesso gratuito a clássicos do cinema e curtas de animação com uma doação via PIX.',
+  title: 'Apoie o SepiaStream — Faça uma doação',
+  description: 'Ajude a manter vivo o acesso gratuito a clássicos do cinema e curtas de animação com uma doação.',
 };
 
 export default function DoacaoPage() {
