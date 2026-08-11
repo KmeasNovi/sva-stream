@@ -9,6 +9,11 @@ const bulkMovies4 = require('./bulkMovies4');
 const bulkMovies5 = require('./bulkMovies5');
 const bulkMovies6 = require('./bulkMovies6');
 const bulkMovies7 = require('./bulkMovies7');
+const bulkMovies8 = require('./bulkMovies8');
+const bulkMovies9 = require('./bulkMovies9');
+const bulkMovies10 = require('./bulkMovies10');
+const bulkMovies11 = require('./bulkMovies11');
+const bulkMovies12 = require('./bulkMovies12');
 const bulkAnimations = require('./bulkAnimations');
 
 // Filmes clássicos em domínio público, hospedados no archive.org.
@@ -84,7 +89,7 @@ const movies = [
 async function run() {
   await connectDB();
 
-  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkAnimations];
+  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkAnimations];
 
   for (const movie of allMovies) {
     await Movie.updateOne({ slug: movie.slug }, { $set: movie }, { upsert: true });

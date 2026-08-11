@@ -203,10 +203,10 @@ module.exports = [
       "Clássico"
     ],
     posterUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/The_Kid_%281921%29_poster.jpg",
-    backdropUrl: "https://archive.org/services/img/BillytheKidReturns",
+    backdropUrl: "https://archive.org/services/img/the-kid_202509",
     source: {
       provider: "archive",
-      id: "BillytheKidReturns"
+      id: "the-kid_202509"
     },
     featured: false
   },
