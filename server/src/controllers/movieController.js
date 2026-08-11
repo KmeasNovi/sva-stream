@@ -120,6 +120,37 @@ exports.getMoviePublicBySlug = catchAsync(async (req, res, next) => {
   res.json({ success: true, data: { movie, related } });
 });
 
+// Rota pública (sem auth) — um punhado de filmes (título, slug, pôster) pra
+// landing page mostrar títulos de verdade com link real, em vez de só
+// decoração sem texto. Isso dá ao Google conteúdo indexável na página de
+// maior autoridade do site associando ela aos nomes dos filmes, além de
+// ajudar quem chega de uma busca a navegar pro resto do catálogo. Não expõe
+// sinopse nem o catálogo inteiro — só um recorte pequeno (~1 por gênero).
+exports.listPublicHighlights = catchAsync(async (req, res) => {
+  const movies = await Movie.find({}).sort({ featured: -1, views: -1, title: 1 }).lean();
+
+  const picked = [];
+  const seenGenres = new Set();
+  for (const movie of movies) {
+    const genre = getPrimaryGenre(movie.genres);
+    if (genre && seenGenres.has(genre)) continue;
+    if (genre) seenGenres.add(genre);
+    picked.push(movie);
+    if (picked.length >= 30) break;
+  }
+
+  res.json({
+    success: true,
+    data: picked.map((m) => ({
+      title: m.title,
+      slug: m.slug,
+      year: m.year,
+      posterUrl: m.posterUrl,
+      backdropUrl: m.backdropUrl,
+    })),
+  });
+});
+
 // Rota pública (sem auth) — só slug + data de atualização, pro sitemap.xml
 // do frontend saber quais URLs de filme existem. Não expõe título, sinopse,
 // pôster nem qualquer outro dado — só o suficiente pra gerar as <url> do

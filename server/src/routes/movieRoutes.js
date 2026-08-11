@@ -7,6 +7,7 @@ const router = express.Router();
 // Públicas (sem auth) — só o necessário pra SEO/indexação das páginas de
 // filme individuais. Ver comentário em movieController.js.
 router.get('/sitemap', movieController.listSlugsForSitemap);
+router.get('/public/highlights', movieController.listPublicHighlights);
 router.get('/public/:slug', movieController.getMoviePublicBySlug);
 
 router.get('/genres', requireAdminOrUser, movieController.listGenres);

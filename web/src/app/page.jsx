@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
+import { api } from '../lib/api';
 
 export const metadata = {
   title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
@@ -15,52 +16,48 @@ export const metadata = {
   },
 };
 
-const POSTERS = [
+// Fallback estático — usado só se a API estiver fora do ar na hora do build/
+// request (ex: Render "dormindo" no plano free). Com a API no ar, a lista
+// real e crescente do catálogo (buscada em fetchHighlights) substitui isso.
+const FALLBACK_POSTERS = [
   {
     title: 'Nosferatu',
+    slug: 'nosferatu',
     src: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Nosferatu_poster_%28Albin_Grau%2C_1922%29_1.jpg/500px-Nosferatu_poster_%28Albin_Grau%2C_1922%29_1.jpg',
   },
   {
     title: 'Night of the Living Dead',
+    slug: 'night-of-the-living-dead',
     src: 'https://upload.wikimedia.org/wikipedia/en/9/91/Night_of_the_Living_Dead_%281968%29_poster.jpg',
   },
   {
     title: 'The Cabinet of Dr. Caligari',
+    slug: 'the-cabinet-of-dr-caligari',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Das_Cabinet_des_Dr._Caligari.JPG/500px-Das_Cabinet_des_Dr._Caligari.JPG',
   },
   {
     title: 'His Girl Friday',
+    slug: 'his-girl-friday',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/His_Girl_Friday_%281940_poster%29_crop.jpg/500px-His_Girl_Friday_%281940_poster%29_crop.jpg',
   },
-  {
-    title: 'Charade',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Charade_%281963_poster%29.jpg',
-  },
-  {
-    title: 'Cyrano de Bergerac',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Cyrano_de_Bergerac_%281951_poster%29.jpg',
-  },
-  {
-    title: 'A Bucket of Blood',
-    src: 'https://upload.wikimedia.org/wikipedia/en/d/da/Bucket_of_blood_affiche.jpg',
-  },
-  {
-    title: 'Attack of the Giant Leeches',
-    src: 'https://upload.wikimedia.org/wikipedia/en/9/99/Giantleeches.jpg',
-  },
-  {
-    title: 'Aladdin and His Wonderful Lamp',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Aladdin_and_His_Wonderful_Lamp_1939.jpg',
-  },
-  {
-    title: 'Angel and the Badman',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Angel_badman.jpg',
-  },
-  {
-    title: 'Os Óculos do Vovô',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Os_%C3%93culos_do_Vov%C3%B4_-_Cena.png',
-  },
 ];
+
+async function fetchHighlights() {
+  try {
+    const { data } = await api.listHighlights();
+    if (data?.length) {
+      return data.map((m) => ({
+        title: m.title,
+        slug: m.slug,
+        year: m.year,
+        src: m.posterUrl || m.backdropUrl,
+      }));
+    }
+  } catch {
+    // segue pro fallback abaixo
+  }
+  return FALLBACK_POSTERS;
+}
 
 const FEATURES = [
   {
@@ -85,15 +82,17 @@ const FEATURES = [
   },
 ];
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const highlights = await fetchHighlights();
+
   return (
     <>
       <LandingRedirect />
       <div className="overflow-x-hidden">
         <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 p-2 opacity-30 -rotate-2 scale-110">
-            {[...POSTERS, ...POSTERS].map((p, i) => (
-              <div key={`${p.title}-${i}`} className="relative aspect-[2/3] rounded-xl overflow-hidden bg-surface-container">
+            {[...highlights, ...highlights].map((p, i) => (
+              <div key={`${p.slug}-${i}`} className="relative aspect-[2/3] rounded-xl overflow-hidden bg-surface-container">
                 <Image src={p.src} alt="" fill sizes="20vw" className="object-cover" />
               </div>
             ))}
@@ -142,6 +141,36 @@ export default function LandingPage() {
                 <h3 className="font-display text-headline-md text-on-background mb-2">{f.title}</h3>
                 <p className="font-body text-body-md text-on-surface-variant">{f.desc}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="container mx-auto px-container-margin py-20">
+          <h2 className="font-display text-headline-lg text-center text-on-background mb-4">Alguns clássicos do catálogo</h2>
+          <p className="font-body text-body-md text-center text-on-surface-variant mb-12 max-w-xl mx-auto">
+            Uma pequena amostra — o catálogo completo tem centenas de filmes e curtas, sempre crescendo.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {highlights.map((m) => (
+              <Link
+                key={m.slug}
+                href={`/movie/${m.slug}`}
+                className="group block rounded-xl overflow-hidden bg-surface-container border border-white/5 hover:border-primary/40 transition-colors"
+              >
+                <div className="relative aspect-[2/3]">
+                  <Image
+                    src={m.src}
+                    alt={`Assistir ${m.title} grátis`}
+                    fill
+                    sizes="(min-width: 768px) 20vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <p className="font-body text-body-sm text-on-background p-2 truncate">
+                  {m.title}
+                  {m.year ? ` (${m.year})` : ''}
+                </p>
+              </Link>
             ))}
           </div>
         </section>

@@ -38,6 +38,9 @@ export const api = {
   // servidor, pra funcionar sem login (SEO + quem chega de uma busca).
   getMoviePublic: (slug) => request(`/movies/public/${slug}`, { revalidate: 300 }),
   listMovieSlugs: () => request('/movies/sitemap', { revalidate: 3600 }),
+  // Pública — usada pela landing page (/) pra mostrar títulos reais com
+  // link, em vez de só decoração sem texto indexável.
+  listHighlights: () => request('/movies/public/highlights', { revalidate: 3600 }),
   listGenres: (token) => request('/movies/genres', { token }),
   listFeatured: (token) => request('/movies/featured', { token }),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),
