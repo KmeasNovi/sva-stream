@@ -7,6 +7,12 @@ export const metadata = {
   metadataBase: new URL('https://sepiastream.com'),
   title: 'SepiaStream',
   description: 'Clássicos do cinema e curtas de animação, de graça, para todo mundo.',
+  verification: {
+    // Google Search Console — arquivo google48a1898dfcb728de.html em
+    // web/public/ é o outro método de verificação já ativo, esse é redundante
+    // de propósito (não custa ter os dois).
+    google: 'qffUP5S7SCV759D1v49AucwzT-y-tKKXyc_XOoHf6oo',
+  },
 };
 
 // Só declara a tag de verificação de propriedade quando a conta existir de
