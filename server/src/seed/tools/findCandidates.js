@@ -3,25 +3,25 @@
  *
  * WHAT THIS DOES
  * ---------------
- * Scrapes five public-domain-movie aggregator/list sites (publicdomainmovie.net,
- * archivewatch.org, emol.org, freemoviescinema.com, openculture.com's
- * "1,000+ Free Movies Online" list), figures out the archive.org identifier
- * for each title it finds, verifies the *real* video duration against
- * archive.org's own metadata API (so trailers/clips get filtered out before
- * anyone wastes time on them), drops anything that's already in our catalog,
- * and writes everything it looked at — approved AND discarded — to a CSV at
- * the repo root. The CSV is checkpointed (rewritten with everything decided
- * so far) every ~100 candidates processed, so you can open it mid-run and
- * see real progress instead of waiting for the whole run to finish.
+ * Scrapes four public-domain-movie aggregator/list sites (publicdomainmovie.net,
+ * archivewatch.org, emol.org, freemoviescinema.com), figures out the
+ * archive.org identifier for each title it finds, verifies the *real* video
+ * duration against archive.org's own metadata API (so trailers/clips get
+ * filtered out before anyone wastes time on them), drops anything that's
+ * already in our catalog, and writes everything it looked at — approved AND
+ * discarded — to a CSV at the repo root. The CSV is checkpointed (rewritten
+ * with everything decided so far) every ~100 candidates processed, so you
+ * can open it mid-run and see real progress instead of waiting for the
+ * whole run to finish.
  *
- * openculture.com note: many of its listed titles only link to YouTube.
- * We don't embed YouTube (no ad-free way to do that, and downloading a
- * YouTube video to rehost it would violate YouTube's Terms of Service) —
- * per an explicit product decision, YouTube-only titles from openculture.com
- * are recorded as DESCARTADO with motivo "só disponível no YouTube (não
- * usamos, ver decisão do usuário)" and never resolved/verified further. Only
- * openculture.com titles that have (or can be matched to) an archive.org
- * copy go through the normal verification pipeline below.
+ * openculture.com was removed as a source (product decision): most of its
+ * listed titles only link to YouTube (which we don't embed — no ad-free way
+ * to do that, and downloading a YouTube video to rehost it would violate
+ * YouTube's Terms of Service), and most of the rest link to collection/
+ * article pages bundling several films together instead of one film per
+ * page, which needed slow manual resolution for a low return. The
+ * expand/scrape code for it is still in this file (harmless no-op with the
+ * source removed from SOURCES below) in case it's ever worth reinstating.
  *
  * WHAT THIS DOES NOT DO
  * ----------------------
@@ -178,9 +178,11 @@ const PAGE_LIMITS = {
     // ephemeral/home-movie noise that isn't a "movie" for our purposes).
     allowedContentTypes: ['feature-film', 'silent-film', 'short-film', 'animation', 'documentary', 'newsreel'],
   },
-  openculture: {
-    url: 'https://www.openculture.com/freemoviesonline',
-  },
+  // openculture.com removida das fontes — a maioria dos links lá é só pro
+  // YouTube (que não usamos, ver nota no topo do arquivo), e boa parte do
+  // resto aponta pra páginas de coleção/artigo com vários filmes juntos em
+  // vez de um filme específico, exigindo resolução manual demorada pra um
+  // retorno baixo. Removida a pedido do usuário.
 };
 
 // Hard safety cap: no matter what the scrapers turn up, never send more than
@@ -925,7 +927,6 @@ async function main() {
     ['archivewatch.org', scrapeArchiveWatch],
     ['emol.org', scrapeEmol],
     ['freemoviescinema.com', scrapeFreeMoviesCinema],
-    ['openculture.com', scrapeOpenCulture],
   ];
 
   let raw = [];
