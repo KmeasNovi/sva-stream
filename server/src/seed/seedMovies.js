@@ -28,6 +28,15 @@ const bulkMovies23 = require('./bulkMovies23');
 const bulkMovies24 = require('./bulkMovies24');
 const bulkMovies25 = require('./bulkMovies25');
 const bulkMovies26 = require('./bulkMovies26');
+const bulkMovies27 = require('./bulkMovies27');
+const bulkMovies28 = require('./bulkMovies28');
+const bulkMovies29 = require('./bulkMovies29');
+const bulkMovies30 = require('./bulkMovies30');
+const bulkMovies31 = require('./bulkMovies31');
+const bulkMovies32 = require('./bulkMovies32');
+const bulkMovies33 = require('./bulkMovies33');
+const bulkMovies34 = require('./bulkMovies34');
+const bulkMovies35 = require('./bulkMovies35');
 const bulkAnimations = require('./bulkAnimations');
 
 // Filmes clássicos em domínio público, hospedados no archive.org.
@@ -103,7 +112,7 @@ const movies = [
 async function run() {
   await connectDB();
 
-  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkAnimations];
+  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkMovies27, ...bulkMovies28, ...bulkMovies29, ...bulkMovies30, ...bulkMovies31, ...bulkMovies32, ...bulkMovies33, ...bulkMovies34, ...bulkMovies35, ...bulkAnimations];
 
   for (const movie of allMovies) {
     await Movie.updateOne({ slug: movie.slug }, { $set: movie }, { upsert: true });
