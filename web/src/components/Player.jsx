@@ -12,6 +12,14 @@ import { useEffect, useRef } from 'react';
 // dentro de uma coleção com vários arquivos (archive.org/embed/<id>/<arquivo>
 // não funciona de verdade — carrega a página geral da coleção, não o arquivo
 // escolhido; só o link direto de download resolve o arquivo certo).
+//
+// Sem o atributo crossOrigin de propósito: alguns nós de armazenamento do
+// archive.org não mandam Access-Control-Allow-Origin no arquivo final (depois
+// do redirect de /download/), e com crossOrigin="anonymous" o navegador exige
+// esse header pra tocar — sem ele, o vídeo carregava a página mas ficava preto/
+// travado. Não precisamos de crossOrigin de verdade (não lemos pixel via
+// canvas, e a legenda é servida do nosso próprio domínio), então tocar sem
+// esse atributo funciona em qualquer nó, com ou sem CORS configurado.
 export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
   const mediaRef = useRef(null);
 
@@ -51,7 +59,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
   if (videoFileUrl) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
-        <video ref={mediaRef} controls className="absolute inset-0 w-full h-full" crossOrigin="anonymous">
+        <video ref={mediaRef} controls className="absolute inset-0 w-full h-full">
           <source src={videoFileUrl} type="video/mp4" />
           {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>
