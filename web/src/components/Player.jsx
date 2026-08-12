@@ -5,10 +5,13 @@ import { useEffect, useRef } from 'react';
 // Renderiza o player embutido do provedor de origem — nunca servimos o arquivo
 // de vídeo nós mesmos, só o metadado + a referência (source.provider/id).
 //
-// Quando o filme tem legenda em pt-BR (videoFileUrl + subtitleUrl), usamos um
-// <video> nativo apontando direto pro arquivo no archive.org, com uma trilha
-// de legenda nossa — não dá pra injetar isso no player embutido em iframe
-// (é de outro domínio). Sem legenda, cai no embed padrão de sempre.
+// Quando existe videoFileUrl (link direto pro arquivo no archive.org), usamos
+// um <video> nativo em vez do iframe de embed padrão — necessário sempre que
+// o filme tem legenda em pt-BR (subtitleUrl, que não dá pra injetar num
+// iframe de outro domínio) E também para itens que são um arquivo específico
+// dentro de uma coleção com vários arquivos (archive.org/embed/<id>/<arquivo>
+// não funciona de verdade — carrega a página geral da coleção, não o arquivo
+// escolhido; só o link direto de download resolve o arquivo certo).
 export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
   const mediaRef = useRef(null);
 
@@ -45,12 +48,12 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
 
   if (!source?.id) return null;
 
-  if (videoFileUrl && subtitleUrl) {
+  if (videoFileUrl) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
         <video ref={mediaRef} controls className="absolute inset-0 w-full h-full" crossOrigin="anonymous">
           <source src={videoFileUrl} type="video/mp4" />
-          <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default />
+          {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>
       </div>
     );

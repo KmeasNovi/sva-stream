@@ -1,11 +1,3 @@
-// Trigésima oitava leva — filmes adicionais da filmografia de Amácio
-// Mazzaropi. A leva anterior havia encontrado uma coleção de 32 filmes do
-// Mazzaropi empacotados em .zip (não jogáveis) no archive.org. Esta leva
-// localizou o mesmo conteúdo hospedado de forma jogável em outro item do
-// archive.org ("mazzaropi-o-gato-de-madame"), que contém os arquivos de vídeo
-// individuais (não compactados) de praticamente toda a filmografia. Somente
-// os títulos que ainda não estavam no catálogo foram incluídos aqui.
-// Duração verificada via archive.org/metadata.
 module.exports = [
   {
     "title": "A Carrocinha",
@@ -23,7 +15,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1955) Mazzaropi - A Carrocinha.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 98
+    "runtimeMinutes": 98,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1955)%20Mazzaropi%20-%20A%20Carrocinha.mp4"
   },
   {
     "title": "Gato de Madame",
@@ -41,7 +34,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1956) Mazzaropi - Gato de Madame.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 86
+    "runtimeMinutes": 86,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1956)%20Mazzaropi%20-%20Gato%20de%20Madame.mp4"
   },
   {
     "title": "Chico Fumaça",
@@ -59,7 +53,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1958) Mazzaropi - Chico Fumaça.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 81
+    "runtimeMinutes": 81,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1958)%20Mazzaropi%20-%20Chico%20Fuma%C3%A7a.mp4"
   },
   {
     "title": "Chofer de Praça",
@@ -77,7 +72,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1959) Mazzaropi - Chofer de Praça.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 97
+    "runtimeMinutes": 97,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1959)%20Mazzaropi%20-%20Chofer%20de%20Pra%C3%A7a.mp4"
   },
   {
     "title": "As Aventuras de Pedro Malazartes",
@@ -95,7 +91,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1960) Mazzaropi - As Aventuras de Pedro Malazartes.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 90
+    "runtimeMinutes": 90,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1960)%20Mazzaropi%20-%20As%20Aventuras%20de%20Pedro%20Malazartes.mp4"
   },
   {
     "title": "Zé Periquito",
@@ -113,7 +110,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1960) Mazzaropi - Zé Periquito.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 86
+    "runtimeMinutes": 86,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1960)%20Mazzaropi%20-%20Z%C3%A9%20Periquito.mp4"
   },
   {
     "title": "Tristeza do Jeca",
@@ -132,7 +130,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1961) Mazzaropi - Tristeza do Jeca.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 93
+    "runtimeMinutes": 93,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1961)%20Mazzaropi%20-%20Tristeza%20do%20Jeca.mp4"
   },
   {
     "title": "O Vendedor de Lingüiça",
@@ -150,7 +149,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1962) Mazzaropi - O Vendedor de Lingüiça.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 94
+    "runtimeMinutes": 94,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1962)%20Mazzaropi%20-%20O%20Vendedor%20de%20Ling%C3%BCi%C3%A7a.mp4"
   },
   {
     "title": "Casinha Pequenina",
@@ -169,7 +169,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1963) Mazzaropi - Casinha Pequenina.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 94
+    "runtimeMinutes": 94,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1963)%20Mazzaropi%20-%20Casinha%20Pequenina.mp4"
   },
   {
     "title": "Meu Japão Brasileiro",
@@ -187,7 +188,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1964) Mazzaropi - Meu Japão Brasileiro.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 99
+    "runtimeMinutes": 99,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1964)%20Mazzaropi%20-%20Meu%20Jap%C3%A3o%20Brasileiro.mp4"
   },
   {
     "title": "O Lamparina",
@@ -205,7 +207,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1964) Mazzaropi - O Lamparina.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 83
+    "runtimeMinutes": 83,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1964)%20Mazzaropi%20-%20O%20Lamparina.mp4"
   },
   {
     "title": "O Puritano da Rua Augusta",
@@ -223,7 +226,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1965) Mazzaropi - O.Puritano.da.rua.augusta.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 95
+    "runtimeMinutes": 95,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1965)%20Mazzaropi%20-%20O.Puritano.da.rua.augusta.mp4"
   },
   {
     "title": "O Jeca e a Freira",
@@ -241,7 +245,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1967) Mazzaropi - O Jeca e a Freira.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 97
+    "runtimeMinutes": 97,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1967)%20Mazzaropi%20-%20O%20Jeca%20e%20a%20Freira.mp4"
   },
   {
     "title": "No Paraíso das Solteironas",
@@ -259,7 +264,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1968) Mazzaropi - No paraiso das solteironas.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 97
+    "runtimeMinutes": 97,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1968)%20Mazzaropi%20-%20No%20paraiso%20das%20solteironas.mp4"
   },
   {
     "title": "Uma Pistola para Djeca",
@@ -278,7 +284,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1969) Mazzaropi - Uma.Pistola.para Djeca.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 103
+    "runtimeMinutes": 103,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1969)%20Mazzaropi%20-%20Uma.Pistola.para%20Djeca.mp4"
   },
   {
     "title": "Betão Ronca Ferro",
@@ -296,7 +303,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1970) Mazzaropi - Betao Ronca Ferro.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 104
+    "runtimeMinutes": 104,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1970)%20Mazzaropi%20-%20Betao%20Ronca%20Ferro.mp4"
   },
   {
     "title": "O Grande Xerife",
@@ -315,7 +323,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1972) Mazzaropi - O Grande Xerife.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 94
+    "runtimeMinutes": 94,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1972)%20Mazzaropi%20-%20O%20Grande%20Xerife.mp4"
   },
   {
     "title": "Portugal... Minha Saudade",
@@ -334,7 +343,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1973) Mazzaropi - Portugal Minha Saudade.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 101
+    "runtimeMinutes": 101,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1973)%20Mazzaropi%20-%20Portugal%20Minha%20Saudade.mp4"
   },
   {
     "title": "O Jeca Macumbeiro",
@@ -352,7 +362,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1974) Mazzaropi - O Jeca Macumbeiro.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 88
+    "runtimeMinutes": 88,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1974)%20Mazzaropi%20-%20O%20Jeca%20Macumbeiro.mp4"
   },
   {
     "title": "O Cineasta das Plateias",
@@ -370,7 +381,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1975) Mazzaropi - O cineasta das plateias.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 52
+    "runtimeMinutes": 52,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1975)%20Mazzaropi%20-%20O%20cineasta%20das%20plateias.mp4"
   },
   {
     "title": "Jeca Contra o Capeta",
@@ -388,7 +400,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1976) Mazzaropi - Jeca contra o Capeta.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 97
+    "runtimeMinutes": 97,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1976)%20Mazzaropi%20-%20Jeca%20contra%20o%20Capeta.mp4"
   },
   {
     "title": "Jeca e Seu Filho Preto",
@@ -407,7 +420,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1978) Mazzaropi - Jeca e Seu Filho Preto.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 103
+    "runtimeMinutes": 103,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1978)%20Mazzaropi%20-%20Jeca%20e%20Seu%20Filho%20Preto.mp4"
   },
   {
     "title": "A Banda das Velhas Virgens",
@@ -425,7 +439,8 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1979) Mazzaropi - A Banda Das Velhas Virgens.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 105
+    "runtimeMinutes": 105,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1979)%20Mazzaropi%20-%20A%20Banda%20Das%20Velhas%20Virgens.mp4"
   },
   {
     "title": "O Jeca e a Égua Milagrosa",
@@ -443,6 +458,7 @@ module.exports = [
       "id": "mazzaropi-o-gato-de-madame/(1980) Mazzaropi - O Jeca e a Egua Milagrosa.mp4"
     },
     "featured": false,
-    "runtimeMinutes": 106
+    "runtimeMinutes": 106,
+    "videoFileUrl": "https://archive.org/download/mazzaropi-o-gato-de-madame/(1980)%20Mazzaropi%20-%20O%20Jeca%20e%20a%20Egua%20Milagrosa.mp4"
   }
 ];
