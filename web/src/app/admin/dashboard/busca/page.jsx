@@ -56,7 +56,16 @@ export default function AdminScrapePage() {
           clearInterval(pollRef.current);
         }
       } catch (err) {
+        // O job some da memória do serviço quando ele reinicia (deploy novo,
+        // ou o free tier do Render reciclando por inatividade) — sem isso,
+        // a tela fica presa pra sempre mostrando o último estado visto
+        // (ex: "em andamento"), tentando de novo a cada 5s sem nunca
+        // desbloquear o botão de iniciar uma busca nova.
+        clearInterval(pollRef.current);
+        setJob(null);
         setError(err.message);
+        localStorage.removeItem(JOB_STORAGE_KEY);
+        setJobId(null);
       }
     }
 
