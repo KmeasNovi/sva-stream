@@ -1,21 +1,28 @@
 """
 finder.py — busca de candidatos a filme em domínio público, em Python.
 
-Porta pra Python de server/src/seed/tools/findCandidates.js (mesma lógica,
-mesmas quatro fontes, mesmas regras de corte), pra poder rodar como um
-serviço web separado (ver app.py) acionado por um botão no /admin em vez de
-precisar rodar `npm run find-movies` na mão.
+Começou como uma porta pra Python de server/src/seed/tools/findCandidates.js
+(mesmas quatro fontes originais), pra poder rodar como um serviço web
+separado (ver app.py) acionado por um botão no /admin em vez de precisar
+rodar `npm run find-movies` na mão. Depois ganhou mais duas fontes (ver
+abaixo) descobertas numa leva manual de animação japonesa.
 
 O QUE ISSO FAZ
 ---------------
-Raspa quatro sites agregadores de filme em domínio público
-(publicdomainmovie.net, archivewatch.org, emol.org, freemoviescinema.com),
-resolve o identifier de cada título no archive.org, verifica a duração real
-do vídeo (pra descartar trailer/clipe), remove duplicata contra o catálogo
-atual (consultado via API, com o mesmo token de admin usado pra disparar a
-busca) e contra o CSV de rodadas anteriores (se o arquivo existir no
-checkout), e devolve uma lista de candidatos com status ADICIONADO/DESCARTADO
-e o motivo de cada decisão.
+Raspa seis fontes de filme em domínio público:
+  - publicdomainmovie.net, archivewatch.org, emol.org, freemoviescinema.com
+    (as quatro originais do findCandidates.js — resolve o identifier de
+    cada título no archive.org via busca por texto)
+  - retroflix.org (busca direto no archive.org pelo uploader fixo deles,
+    upload@retroflix.org — já vem com archive_id certo, sem passo de
+    resolução por título)
+  - archive.org, coleções prelinger/usgovfilms diretamente (filtradas por
+    licenseurl de domínio público explícito)
+Verifica a duração real do vídeo (pra descartar trailer/clipe), remove
+duplicata contra o catálogo atual (consultado via API, com o mesmo token de
+admin usado pra disparar a busca) e contra o CSV de rodadas anteriores (se o
+arquivo existir no checkout), e devolve uma lista de candidatos com status
+ADICIONADO/DESCARTADO e o motivo de cada decisão.
 
 O QUE ISSO NÃO FAZ
 -------------------
@@ -124,6 +131,28 @@ PAGE_LIMITS = {
             "documentary",
             "newsreel",
         },
+    },
+    # RetroFlix.org — descoberto explorando fontes de animação japonesa
+    # antiga: todo o catálogo deles (~3100 títulos) é enviado ao archive.org
+    # por uma única conta (upload@retroflix.org), sempre com licenseurl de
+    # domínio público explícito. Buscar direto no archive.org por esse
+    # uploader é muito mais rápido e confiável do que raspar o site deles
+    # título a título — e já vem com o archive_id certo, sem precisar do
+    # passo de resolução por título (que é onde a maioria dos falsos
+    # positivos acontece nas outras fontes).
+    "retroflix": {
+        "uploader": "upload@retroflix.org",
+        "rows_per_page": 500,
+    },
+    # Coleções do próprio archive.org já usadas manualmente com sucesso em
+    # levas anteriores deste catálogo (prelinger = Prelinger Archives, filmes
+    # industriais/educativos/publicitários americanos; usgovfilms = produção
+    # do governo federal dos EUA, domínio público por lei). Filtradas por
+    # licenseurl de domínio público explícito — sem isso, cada coleção tem
+    # dezenas de milhares de itens de todo tipo, não só filmes de verdade.
+    "archive_collections": {
+        "collections": ["prelinger", "usgovfilms"],
+        "rows_per_page": 500,
     },
 }
 
@@ -417,6 +446,63 @@ def scrape_archivewatch(progress):
     return out
 
 
+def _archive_search_all_pages(query, rows_per_page, progress, source_label):
+    """Pagina o advancedsearch.php do archive.org até esgotar os resultados.
+    Usado pelas fontes que buscam direto no archive.org (retroflix,
+    archive_collections) — essas já vêm com archive_id, title, year e
+    licenseurl prontos, sem precisar do passo de resolução por título."""
+    out = []
+    page = 1
+    while True:
+        url = (
+            "https://archive.org/advancedsearch.php?q="
+            + quote(query)
+            + "&fl[]=identifier&fl[]=title&fl[]=year&fl[]=licenseurl"
+            + f"&rows={rows_per_page}&page={page}&output=json"
+        )
+        try:
+            data = fetch_json(url)
+        except Exception as e:  # noqa: BLE001
+            log(progress, f"[{source_label}] página {page} falhou: {e}")
+            break
+        docs = (data.get("response") or {}).get("docs") or []
+        if not docs:
+            break
+        for d in docs:
+            out.append(
+                {
+                    "title": d.get("title") or d.get("identifier"),
+                    "year": d.get("year"),
+                    "source": source_label,
+                    "archive_id": d.get("identifier"),
+                }
+            )
+        if progress is not None and page % 3 == 0:
+            log(progress, f"[{source_label}] {page * rows_per_page} itens percorridos até agora...")
+        if len(docs) < rows_per_page:
+            break
+        page += 1
+        time.sleep(0.3)  # educado com a API — advancedsearch não gosta de rajada
+    return out
+
+
+def scrape_retroflix(progress):
+    cfg = PAGE_LIMITS["retroflix"]
+    query = f'uploader:("{cfg["uploader"]}") AND mediatype:(movies)'
+    return _archive_search_all_pages(query, cfg["rows_per_page"], progress, "retroflix.org")
+
+
+def scrape_archive_collections(progress):
+    out = []
+    cfg = PAGE_LIMITS["archive_collections"]
+    for coll in cfg["collections"]:
+        query = f"collection:({coll}) AND mediatype:(movies) AND licenseurl:(*publicdomain*)"
+        found = _archive_search_all_pages(query, cfg["rows_per_page"], progress, f"archive.org ({coll})")
+        log(progress, f"[archive.org ({coll})] {len(found)} candidatos brutos")
+        out.extend(found)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Passo 3: resolve o identifier do archive.org pra quem ainda não tem um
 # ---------------------------------------------------------------------------
@@ -604,6 +690,8 @@ def run(progress, backend_url, admin_token, catalog_csv_path=None):
         ("archivewatch.org", scrape_archivewatch),
         ("emol.org", scrape_emol),
         ("freemoviescinema.com", scrape_freemoviescinema),
+        ("retroflix.org", scrape_retroflix),
+        ("archive.org (prelinger/usgovfilms)", scrape_archive_collections),
     ]
 
     raw = []
