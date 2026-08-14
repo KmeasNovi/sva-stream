@@ -42,6 +42,7 @@ const bulkMovies37 = require('./bulkMovies37');
 const bulkMovies38 = require('./bulkMovies38');
 const bulkMovies39 = require('./bulkMovies39');
 const bulkMovies40 = require('./bulkMovies40');
+const bulkMovies41 = require('./bulkMovies41');
 const bulkAnimations = require('./bulkAnimations');
 
 // Filmes clássicos em domínio público, hospedados no archive.org.
@@ -117,7 +118,7 @@ const movies = [
 async function run() {
   await connectDB();
 
-  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkMovies27, ...bulkMovies28, ...bulkMovies29, ...bulkMovies30, ...bulkMovies31, ...bulkMovies32, ...bulkMovies33, ...bulkMovies34, ...bulkMovies35, ...bulkMovies36, ...bulkMovies37, ...bulkMovies38, ...bulkMovies39, ...bulkMovies40, ...bulkAnimations];
+  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkMovies27, ...bulkMovies28, ...bulkMovies29, ...bulkMovies30, ...bulkMovies31, ...bulkMovies32, ...bulkMovies33, ...bulkMovies34, ...bulkMovies35, ...bulkMovies36, ...bulkMovies37, ...bulkMovies38, ...bulkMovies39, ...bulkMovies40, ...bulkMovies41, ...bulkAnimations];
 
   for (const movie of allMovies) {
     await Movie.updateOne({ slug: movie.slug }, { $set: movie }, { upsert: true });
