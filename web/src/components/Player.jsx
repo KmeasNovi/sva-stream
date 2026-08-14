@@ -20,7 +20,7 @@ import { useEffect, useRef } from 'react';
 // travado. Não precisamos de crossOrigin de verdade (não lemos pixel via
 // canvas, e a legenda é servida do nosso próprio domínio), então tocar sem
 // esse atributo funciona em qualquer nó, com ou sem CORS configurado.
-export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
+export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl }) {
   const mediaRef = useRef(null);
 
   // No mobile, o botão de tela cheia é do player do archive.org (dentro do
@@ -59,7 +59,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl }) {
   if (videoFileUrl) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
-        <video ref={mediaRef} controls className="absolute inset-0 w-full h-full">
+        <video ref={mediaRef} controls poster={posterUrl || undefined} className="absolute inset-0 w-full h-full">
           <source src={videoFileUrl} type="video/mp4" />
           {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>

@@ -35,6 +35,49 @@ function buildMovieJsonLd(movie) {
   return JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 }
 
+// Mesma lógica de resolução de URL do Player.jsx (ver comentário lá): quando
+// não há videoFileUrl direto, o filme toca via iframe de embed do provedor —
+// pro archive.org, source.id pode ser "identifier" ou "identifier/arquivo.mp4"
+// quando o filme é um arquivo específico dentro de uma coleção.
+function getEmbedUrl(source) {
+  if (!source?.id) return undefined;
+  if (source.provider === 'youtube') {
+    return `https://www.youtube.com/embed/${source.id}`;
+  }
+  if (source.provider === 'archive') {
+    if (source.id.includes('/')) {
+      const slashIndex = source.id.indexOf('/');
+      const identifier = source.id.slice(0, slashIndex);
+      const filename = source.id.slice(slashIndex + 1);
+      return `https://archive.org/embed/${identifier}/${encodeURIComponent(filename)}`;
+    }
+    return `https://archive.org/embed/${source.id}`;
+  }
+  return undefined;
+}
+
+// Marcação schema.org/VideoObject — campos exigidos pelo relatório de vídeo
+// do Search Console (name, description, thumbnailUrl, uploadDate e um de
+// contentUrl/embedUrl), que o @type Movie sozinho não cobre. uploadDate usa
+// a data em que o filme entrou no catálogo (createdAt) — não existe "data de
+// upload" real pra uma obra de domínio público, essa é a aproximação mais
+// correta disponível (quando o vídeo passou a estar nesta URL).
+function buildVideoJsonLd(movie) {
+  const thumbnails = [movie.posterUrl, movie.backdropUrl].filter(Boolean);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: movie.title,
+    description: movie.synopsis || undefined,
+    thumbnailUrl: thumbnails.length ? thumbnails : undefined,
+    uploadDate: movie.createdAt || undefined,
+    duration: movie.runtimeMinutes ? `PT${movie.runtimeMinutes}M` : undefined,
+    contentUrl: movie.videoFileUrl || undefined,
+    embedUrl: movie.videoFileUrl ? undefined : getEmbedUrl(movie.source),
+  };
+  return JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+}
+
 async function fetchMovie(slug) {
   try {
     const { data } = await api.getMoviePublic(slug);
@@ -84,6 +127,10 @@ export default async function MoviePage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: buildMovieJsonLd(movie) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildVideoJsonLd(movie) }}
+      />
 
       <Link
         href="/"
@@ -100,6 +147,7 @@ export default async function MoviePage({ params }) {
         title={movie.title}
         videoFileUrl={movie.videoFileUrl}
         subtitleUrl={movie.subtitleUrl}
+        posterUrl={movie.posterUrl || movie.backdropUrl}
       />
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />
