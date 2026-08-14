@@ -19,6 +19,7 @@ function getPrimaryGenre(genres = []) {
 // não gênero, só 3 filmes).
 const FEATURED_GENRES = [
   'Animação',
+  'Animes',
   'Aventura',
   'Comédia',
   'Documentário',

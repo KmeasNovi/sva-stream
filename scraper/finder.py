@@ -187,14 +187,28 @@ def norm_title(s):
 
 
 def load_existing_catalog(backend_url, admin_token):
-    res = requests.get(
-        f"{backend_url}/api/movies",
-        params={"limit": 5000},
-        headers={"Authorization": f"Bearer {admin_token}"},
-        timeout=30,
-    )
-    res.raise_for_status()
-    movies = res.json().get("data", [])
+    # GET /api/movies limita `limit` a 2000 por página no backend (ver
+    # movieController.js) — o catálogo já passou disso, então pagina até
+    # esgotar em vez de confiar num único request. Errar aqui é grave: um
+    # catálogo incompleto faz o dedupe deixar passar filme repetido.
+    movies = []
+    page = 1
+    while True:
+        res = requests.get(
+            f"{backend_url}/api/movies",
+            params={"limit": 2000, "page": page},
+            headers={"Authorization": f"Bearer {admin_token}"},
+            timeout=30,
+        )
+        res.raise_for_status()
+        body = res.json()
+        batch = body.get("data", [])
+        movies.extend(batch)
+        pagination = body.get("pagination") or {}
+        if not batch or page >= (pagination.get("pages") or 1):
+            break
+        page += 1
+
     ids = {m["source"]["id"] for m in movies if m.get("source", {}).get("id")}
     titles = {norm_title(m["title"]) for m in movies if m.get("title")}
     return {"ids": ids, "titles": titles}
@@ -242,7 +256,9 @@ def scrape_publicdomainmovie(progress):
     out = []
     cfg = PAGE_LIMITS["publicdomainmovie"]
     for cat in cfg["categories"]:
+        log(progress, f"[publicdomainmovie.net] categoria {cat}: começando (até {cfg['max_pages_per_category']} páginas)")
         consecutive_failures = 0
+        pages_fetched = 0
         for p in range(cfg["max_pages_per_category"]):
             url = (
                 f"https://publicdomainmovie.net/{cat}"
@@ -251,6 +267,7 @@ def scrape_publicdomainmovie(progress):
             )
             try:
                 text = fetch_text(url)
+                pages_fetched += 1
                 consecutive_failures = 0
                 count = 0
                 for m in _PDM_ROW_RE.finditer(text):
@@ -260,6 +277,9 @@ def scrape_publicdomainmovie(progress):
                     title = title.strip("\"'")
                     out.append({"title": title, "year": year, "source": "publicdomainmovie.net"})
                     count += 1
+                if progress is not None and pages_fetched % 10 == 0:
+                    progress.update(candidates_found=len(out))
+                    log(progress, f"[publicdomainmovie.net] {cat}: {pages_fetched} páginas, {len(out)} candidatos até agora")
                 if count == 0:
                     break
             except Exception as e:  # noqa: BLE001
@@ -267,6 +287,7 @@ def scrape_publicdomainmovie(progress):
                 log(progress, f"[publicdomainmovie.net] {cat} pagina {p} falhou ({consecutive_failures}/3): {e}")
                 if consecutive_failures >= 3:
                     break
+        log(progress, f"[publicdomainmovie.net] categoria {cat}: concluída ({pages_fetched} páginas)")
     return out
 
 
