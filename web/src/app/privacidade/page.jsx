@@ -91,8 +91,8 @@ export default function PrivacidadePage() {
           <h2 className="font-display text-headline-md text-on-background">Contato</h2>
           <p>
             Dúvidas sobre esta política? Escreva pra{' '}
-            <a href="mailto:kmeasnovi@gmail.com" className="text-primary hover:text-primary-fixed transition-colors underline">
-              kmeasnovi@gmail.com
+            <a href="mailto:contato@sepiastream.com" className="text-primary hover:text-primary-fixed transition-colors underline">
+              contato@sepiastream.com
             </a>
             .
           </p>
