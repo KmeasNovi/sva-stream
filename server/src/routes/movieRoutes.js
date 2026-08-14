@@ -17,6 +17,7 @@ router.get('/', requireAdminOrUser, movieController.listMovies);
 router.get('/:slug', requireAdminOrUser, movieController.getMovieBySlug);
 
 router.post('/', requireAdmin, movieController.createMovie);
+router.post('/bulk', requireAdmin, movieController.bulkCreateMovies);
 router.patch('/:id', requireAdmin, movieController.updateMovie);
 router.delete('/:id', requireAdmin, movieController.deleteMovie);
 

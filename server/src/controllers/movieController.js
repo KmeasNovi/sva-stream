@@ -237,3 +237,48 @@ exports.deleteMovie = catchAsync(async (req, res, next) => {
   if (!movie) return next(new AppError('Filme não encontrado', 404));
   res.json({ success: true, data: {} });
 });
+
+// Inclusão em lote — mesmo padrão de upsert-por-slug usado em
+// server/src/seed/seedMovies.js, então importar o mesmo filme duas vezes
+// (ex: reimportar um CSV corrigido) atualiza em vez de duplicar. Cada item é
+// processado isoladamente: um erro num item não derruba os outros, e o
+// resumo devolvido diz exatamente quais linhas falharam e por quê.
+exports.bulkCreateMovies = catchAsync(async (req, res, next) => {
+  const { movies } = req.body;
+  if (!Array.isArray(movies) || movies.length === 0) {
+    return next(new AppError('Envie um array "movies" com pelo menos um filme', 400));
+  }
+  if (movies.length > 500) {
+    return next(new AppError('Máximo de 500 filmes por lote', 400));
+  }
+
+  let created = 0;
+  let updated = 0;
+  const errors = [];
+
+  for (let i = 0; i < movies.length; i += 1) {
+    const raw = movies[i];
+    const label = (raw && raw.title) || `item #${i + 1}`;
+    try {
+      const payload = { ...raw };
+      if (!payload.slug && payload.title) payload.slug = slugify(payload.title);
+      if (!payload.slug) throw new Error('título ou slug ausente');
+      if (!payload.synopsis) throw new Error('sinopse ausente');
+      if (!payload.source || !payload.source.id || !payload.source.provider) {
+        throw new Error('source.provider e source.id são obrigatórios');
+      }
+
+      const existing = await Movie.findOne({ slug: payload.slug }).select('_id').lean();
+      await Movie.updateOne({ slug: payload.slug }, { $set: payload }, { upsert: true, runValidators: true });
+      if (existing) updated += 1;
+      else created += 1;
+    } catch (err) {
+      errors.push({ index: i, title: label, message: err.message });
+    }
+  }
+
+  res.status(errors.length ? 207 : 201).json({
+    success: true,
+    data: { created, updated, failed: errors.length, errors },
+  });
+});

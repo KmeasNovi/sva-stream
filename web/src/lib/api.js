@@ -49,6 +49,7 @@ export const api = {
   createMovie: (data, token) => request('/movies', { method: 'POST', body: data, token }),
   updateMovie: (id, data, token) => request(`/movies/${id}`, { method: 'PATCH', body: data, token }),
   deleteMovie: (id, token) => request(`/movies/${id}`, { method: 'DELETE', token }),
+  bulkCreateMovies: (movies, token) => request('/movies/bulk', { method: 'POST', body: { movies }, token }),
   subscribeNewsletter: (email) => request('/newsletter/subscribe', { method: 'POST', body: { email } }),
   register: (data) => request('/users/register', { method: 'POST', body: data }),
   loginUser: (email, password) => request('/users/login', { method: 'POST', body: { email, password } }),
@@ -60,4 +61,13 @@ export const api = {
   getMe: (token) => request('/users/me', { token }),
   addFavorite: (movieId, token) => request(`/users/favorites/${movieId}`, { method: 'POST', token }),
   removeFavorite: (movieId, token) => request(`/users/favorites/${movieId}`, { method: 'DELETE', token }),
+  // Módulo administrativo — gestão de usuários.
+  adminListUsers: (params = {}, token) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/users${query ? `?${query}` : ''}`, { token });
+  },
+  adminCreateUser: (data, token) => request('/users', { method: 'POST', body: data, token }),
+  adminBulkCreateUsers: (users, token) => request('/users/bulk', { method: 'POST', body: { users }, token }),
+  adminUpdateUser: (id, data, token) => request(`/users/${id}`, { method: 'PATCH', body: data, token }),
+  adminDeleteUser: (id, token) => request(`/users/${id}`, { method: 'DELETE', token }),
 };
