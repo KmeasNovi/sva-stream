@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Renderiza o player embutido do provedor de origem — nunca servimos o arquivo
 // de vídeo nós mesmos, só o metadado + a referência (source.provider/id).
@@ -20,8 +22,80 @@ import { useEffect, useRef } from 'react';
 // travado. Não precisamos de crossOrigin de verdade (não lemos pixel via
 // canvas, e a legenda é servida do nosso próprio domínio), então tocar sem
 // esse atributo funciona em qualquer nó, com ou sem CORS configurado.
-export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl }) {
+// A maior parte dos filmes toca via iframe de embed de terceiro
+// (archive.org) — como é cross-origin, não temos acesso ao DOM/eventos de
+// lá dentro, então não dá pra saber com certeza quando o vídeo termina, e o
+// que o player deles mostra ao final (inclusive sugestões de outros itens
+// do archive.org, fora da plataforma) foge do nosso controle. Pra resolver
+// isso, sobrepomos nosso próprio painel de "assista também" (só com filmes
+// do catálogo, sempre levando pra dentro do site) por cima do player:
+// - quando existe <video> nativo (videoFileUrl), disparamos no evento real
+//   `ended`, sem incerteza;
+// - quando é o iframe, aproximamos usando a duração do filme
+//   (runtimeMinutes) como temporizador a partir do início da reprodução.
+//   Não é perfeito (a pessoa pode pausar/voltar), por isso o painel tem um
+//   botão de fechar pra quem ainda está assistindo.
+function UpNextOverlay({ movies, onClose }) {
+  if (!movies?.length) return null;
+
+  return (
+    <div className="absolute inset-0 z-20 bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-8 animate-in fade-in duration-300">
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Fechar e continuar assistindo"
+        className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+      >
+        <span className="material-symbols-outlined">close</span>
+      </button>
+
+      <h3 className="font-display text-headline-sm md:text-headline-md text-on-background mb-6 text-center">
+        Assista também no SepiaStream
+      </h3>
+
+      <div className="flex flex-wrap justify-center gap-4 max-w-3xl">
+        {movies.slice(0, 4).map((movie) => (
+          <Link
+            key={movie._id}
+            href={`/movie/${movie.slug}`}
+            className="w-[120px] md:w-[160px] group"
+          >
+            <div className="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/10 bg-surface-container">
+              {movie.posterUrl || movie.backdropUrl ? (
+                <Image
+                  src={movie.posterUrl || movie.backdropUrl}
+                  alt={movie.title}
+                  fill
+                  sizes="160px"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              ) : null}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
+                <span className="material-symbols-outlined text-white text-3xl">play_arrow</span>
+              </div>
+            </div>
+            <p className="font-body text-on-background text-sm mt-2 leading-snug text-center group-hover:text-primary transition-colors">
+              {movie.title}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes }) {
   const mediaRef = useRef(null);
+  const [showUpNext, setShowUpNext] = useState(false);
+
+  // Iframe (majoria dos filmes): aproxima o "fim" pela duração conhecida do
+  // filme. Só arma o temporizador quando temos runtimeMinutes E o filme não
+  // usa <video> nativo (esse caso já tem o evento `ended` de verdade).
+  useEffect(() => {
+    if (videoFileUrl || !runtimeMinutes || !relatedMovies?.length) return undefined;
+    const timer = setTimeout(() => setShowUpNext(true), runtimeMinutes * 60 * 1000);
+    return () => clearTimeout(timer);
+  }, [videoFileUrl, runtimeMinutes, relatedMovies]);
 
   // No mobile, o botão de tela cheia é do player do archive.org (dentro do
   // iframe) — não temos como colocar um botão nosso ali. Mas o Fullscreen
@@ -59,10 +133,17 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
   if (videoFileUrl) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
-        <video ref={mediaRef} controls poster={posterUrl || undefined} className="absolute inset-0 w-full h-full">
+        <video
+          ref={mediaRef}
+          controls
+          poster={posterUrl || undefined}
+          onEnded={() => setShowUpNext(true)}
+          className="absolute inset-0 w-full h-full"
+        >
           <source src={videoFileUrl} type="video/mp4" />
           {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>
+        {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
       </div>
     );
   }
@@ -94,6 +175,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
         allowFullScreen
         className="absolute inset-0 w-full h-full"
       />
+      {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
     </div>
   );
 }

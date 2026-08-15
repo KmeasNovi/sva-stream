@@ -148,6 +148,8 @@ export default async function MoviePage({ params }) {
         videoFileUrl={movie.videoFileUrl}
         subtitleUrl={movie.subtitleUrl}
         posterUrl={movie.posterUrl || movie.backdropUrl}
+        relatedMovies={related}
+        runtimeMinutes={movie.runtimeMinutes}
       />
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />
