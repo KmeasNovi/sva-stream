@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
 import { getCached, setCached } from '../lib/clientCache';
+import { proxiedImage } from '../lib/imageProxy';
 import MovieCard from './MovieCard';
 import LoadingScreen from './LoadingScreen';
 
@@ -25,7 +26,8 @@ export default function Explore() {
       const tiles = await Promise.all(
         genres.map(async (genre) => {
           const { data } = await api.listMovies({ genre, limit: 1 }, token);
-          const cover = data[0]?.backdropUrl || data[0]?.posterUrl || null;
+          const rawCover = data[0]?.backdropUrl || data[0]?.posterUrl || null;
+          const cover = rawCover ? proxiedImage(rawCover, 400) : null;
           return { genre, cover };
         })
       );

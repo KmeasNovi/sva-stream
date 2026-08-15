@@ -3,6 +3,7 @@ import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
 import AdSlot from '../components/AdSlot';
 import { api } from '../lib/api';
+import { proxiedImage } from '../lib/imageProxy';
 
 const ADSENSE_SLOT_LANDING = process.env.NEXT_PUBLIC_ADSENSE_SLOT_LANDING;
 
@@ -53,13 +54,13 @@ async function fetchHighlights() {
         title: m.title,
         slug: m.slug,
         year: m.year,
-        src: m.posterUrl || m.backdropUrl,
+        src: proxiedImage(m.posterUrl || m.backdropUrl, 400),
       }));
     }
   } catch {
     // segue pro fallback abaixo
   }
-  return FALLBACK_POSTERS;
+  return FALLBACK_POSTERS.map((p) => ({ ...p, src: proxiedImage(p.src, 400) }));
 }
 
 const FEATURES = [

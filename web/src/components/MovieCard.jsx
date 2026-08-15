@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FavoriteButton from './FavoriteButton';
+import { proxiedImage } from '../lib/imageProxy';
 
 export default function MovieCard({ movie }) {
   return (
@@ -9,7 +10,7 @@ export default function MovieCard({ movie }) {
         <FavoriteButton movieId={movie._id} className="absolute top-2 right-2 z-10 w-8 h-8" />
         {movie.posterUrl || movie.backdropUrl ? (
           <Image
-            src={movie.posterUrl || movie.backdropUrl}
+            src={proxiedImage(movie.posterUrl || movie.backdropUrl, 440)}
             alt={movie.title}
             fill
             sizes="(min-width: 768px) 220px, 160px"

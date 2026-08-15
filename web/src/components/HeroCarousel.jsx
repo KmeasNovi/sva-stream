@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { proxiedImage } from '../lib/imageProxy';
 
 const AUTO_ADVANCE_MS = 7000;
 
@@ -45,7 +46,7 @@ export default function HeroCarousel({ movies }) {
           }`}
         >
           <Image
-            src={movie.backdropUrl || movie.posterUrl}
+            src={proxiedImage(movie.backdropUrl || movie.posterUrl, 1600)}
             alt={movie.title}
             fill
             priority={i === 0}

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { proxiedImage } from '../lib/imageProxy';
 
 // Renderiza o player embutido do provedor de origem — nunca servimos o arquivo
 // de vídeo nós mesmos, só o metadado + a referência (source.provider/id).
@@ -63,7 +64,7 @@ function UpNextOverlay({ movies, onClose }) {
             <div className="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/10 bg-surface-container">
               {movie.posterUrl || movie.backdropUrl ? (
                 <Image
-                  src={movie.posterUrl || movie.backdropUrl}
+                  src={proxiedImage(movie.posterUrl || movie.backdropUrl, 320)}
                   alt={movie.title}
                   fill
                   sizes="160px"
@@ -136,7 +137,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
         <video
           ref={mediaRef}
           controls
-          poster={posterUrl || undefined}
+          poster={posterUrl ? proxiedImage(posterUrl, 1280) : undefined}
           onEnded={() => setShowUpNext(true)}
           className="absolute inset-0 w-full h-full"
         >
