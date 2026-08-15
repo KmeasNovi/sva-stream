@@ -42,8 +42,8 @@ import os
 import re
 import time
 import unicodedata
-from concurrent.futures import ThreadPoolExecutor
-from urllib.parse import quote, urljoin
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote, urljoin, urlparse
 
 import requests
 
@@ -176,6 +176,20 @@ def log(progress, message):
         progress.push_log(message)
 
 
+class ScrapeCancelled(Exception):
+    """Levantada quando o usuário clica em "Cancelar busca" no meio do job."""
+
+
+def check_cancel(progress):
+    """Chamado nos pontos de checkpoint de cada loop (entre páginas, entre
+    candidatos verificados, entre fontes) — levanta ScrapeCancelled se o
+    admin pediu cancelamento. `progress` pode não ter esse método (ex: os
+    scripts `_run_real.py`/`_anime_search.py` usam uma classe mais simples
+    sem suporte a cancelamento) — nesse caso, nunca cancela."""
+    if progress is not None and getattr(progress, "should_cancel", None) and progress.should_cancel():
+        raise ScrapeCancelled()
+
+
 def fetch_text(url, retries=2):
     last_err = None
     for attempt in range(retries + 1):
@@ -289,6 +303,7 @@ def scrape_publicdomainmovie(progress):
         consecutive_failures = 0
         pages_fetched = 0
         for p in range(cfg["max_pages_per_category"]):
+            check_cancel(progress)
             url = (
                 f"https://publicdomainmovie.net/{cat}"
                 if p == 0
@@ -348,6 +363,7 @@ def scrape_freemoviescinema(progress):
 
     out = []
     for url in sorted(urls):
+        check_cancel(progress)
         try:
             text = fetch_text(url)
         except Exception as e:  # noqa: BLE001
@@ -384,6 +400,7 @@ _EMOL_ANCHOR_RE = re.compile(
 def scrape_emol(progress):
     out = []
     for url in PAGE_LIMITS["emol"]["pages"]:
+        check_cancel(progress)
         try:
             text = fetch_text(url)
             for m in _EMOL_ANCHOR_RE.finditer(text):
@@ -454,6 +471,7 @@ def _archive_search_all_pages(query, rows_per_page, progress, source_label):
     out = []
     page = 1
     while True:
+        check_cancel(progress)
         url = (
             "https://archive.org/advancedsearch.php?q="
             + quote(query)
@@ -503,6 +521,139 @@ def scrape_archive_collections(progress):
     return out
 
 
+_TITLE_LINK_RE = re.compile(r'<a[^>]*href="[^"]*"[^>]*>([^<]{3,120})</a>')
+_NAV_TEXT_RE = re.compile(
+    r"^(home|about|contact|login|sign ?in|register|next|previous|more|menu|search|"
+    r"privacy|terms|©|copyright|subscribe|donate|facebook|twitter|instagram)\b",
+    re.IGNORECASE,
+)
+
+
+def scrape_custom(url, mode, progress):
+    """Busca avulsa: um único site escolhido pelo admin na hora, em vez das
+    fontes fixas. Não pagina automaticamente — só a URL exata fornecida (se
+    o site tiver várias páginas, rode de novo com cada URL). Dois modos:
+      - "links": só extrai link direto pro archive.org/details ou /embed já
+        presente na página. Funciona em qualquer HTML, mas só acha alguma
+        coisa se o site já linka pro archive.org diretamente (como
+        emol.org) — não serve pra site que só cita o título do filme.
+      - "text": também tenta ler o texto de cada link da página como
+        possível título de filme, e resolve por busca no archive.org (igual
+        publicdomainmovie.net). Bem menos preciso — sem estrutura fixa pra
+        confiar, tende a dar bastante falso positivo em site genérico
+        (título curto/comum casa com item errado).
+    Filtro de palavra-chave é aplicado depois, em run_custom() — só depois
+    de saber o título real do candidato (metadata do archive.org), pra
+    também funcionar no modo "links" (que começa sem título nenhum).
+    """
+    source_label = urlparse(url).netloc or url
+    check_cancel(progress)
+    try:
+        text = fetch_text(url)
+    except Exception as e:  # noqa: BLE001
+        log(progress, f"[{source_label}] falha ao buscar {url}: {e}")
+        return []
+
+    out = []
+    seen_ids = set()
+    for m in re.finditer(r"archive\.org/(?:details|embed)/([a-zA-Z0-9_.\-]+)", text):
+        aid = m.group(1)
+        if aid in seen_ids:
+            continue
+        seen_ids.add(aid)
+        out.append(
+            {
+                "title": None,
+                "year": None,
+                "source": f"{source_label} (link direto)",
+                "archive_id": aid,
+                "needs_title_from_meta": True,
+            }
+        )
+    log(progress, f"[{source_label}] {len(out)} link(s) direto(s) pro archive.org encontrados")
+
+    if mode == "text":
+        text_candidates = 0
+        for m in _TITLE_LINK_RE.finditer(text):
+            raw = decode_entities(m.group(1)).strip()
+            raw = re.sub(r"\s+", " ", raw)
+            if len(raw) < 3 or _NAV_TEXT_RE.match(raw):
+                continue
+            year_match = re.search(r"\((\d{4})\)", raw)
+            title = re.sub(r"\s*\(\d{4}\)\s*$", "", raw).strip()
+            if not title:
+                continue
+            out.append(
+                {
+                    "title": title,
+                    "year": int(year_match.group(1)) if year_match else None,
+                    "source": f"{source_label} (texto)",
+                }
+            )
+            text_candidates += 1
+        log(progress, f"[{source_label}] +{text_candidates} candidato(s) por texto de link (modo texto)")
+
+    return out
+
+
+def run_custom(progress, backend_url, admin_token, url, keywords=None, mode="links", catalog_csv_path=None):
+    """Mesma orquestração de run(), mas com uma única fonte (a URL avulsa) e
+    um filtro de palavra-chave aplicado no final, depois que cada candidato
+    já tem título real (resolvido via metadata do archive.org — necessário
+    porque no modo "links" o candidato começa sem título nenhum)."""
+    already_done = []
+    verified = []
+    cancelled = False
+    try:
+        progress.update(phase="carregando_catalogo")
+        log(progress, "carregando catálogo atual (dedupe)...")
+        existing = load_existing_catalog(backend_url, admin_token)
+        previous_csv = load_previous_csv_decisions(catalog_csv_path)
+
+        progress.update(phase=f"raspando_{urlparse(url).netloc or url}")
+        raw = scrape_custom(url, mode, progress)
+        progress.update(candidates_found=len(raw))
+
+        progress.update(phase="filtrando_duplicatas")
+        filtered = dedupe_and_filter(raw, existing, previous_csv)
+        to_resolve = [c for c in filtered if not c.get("skip_verify")]
+        already_done = [c for c in filtered if c.get("skip_verify")]
+
+        progress.update(phase="verificando_duracao", total_to_verify=len(to_resolve), verified_count=0)
+        log(progress, "resolvendo/verificando duração real no archive.org...")
+        verified = _verify_with_cancel(to_resolve, progress)
+        check_cancel(progress)
+
+        kws = [k.strip().lower() for k in (keywords or []) if k.strip()]
+        if kws:
+            progress.update(phase="filtrando_palavras_chave")
+            before = len(verified)
+            kept = []
+            for r in verified:
+                title_l = (r.get("title") or "").lower()
+                if r.get("status") == "ADICIONADO" and not any(k in title_l for k in kws):
+                    kept.append({**r, "status": "DESCARTADO", "motivo": f"não bate com nenhuma palavra-chave ({', '.join(kws)})"})
+                else:
+                    kept.append(r)
+            verified = kept
+            log(progress, f"filtro de palavra-chave aplicado a {before} candidatos verificados")
+    except ScrapeCancelled:
+        cancelled = True
+        log(progress, "busca cancelada pelo usuário — gerando CSV com o que já foi encontrado até aqui")
+
+    all_rows = already_done + verified
+    added = sum(1 for r in all_rows if r.get("status") == "ADICIONADO")
+    discarded = sum(1 for r in all_rows if r.get("status") == "DESCARTADO")
+    log(
+        progress,
+        f"{'cancelado' if cancelled else 'concluído'}: {added} candidatos aprovados, {discarded} descartados",
+    )
+
+    csv_text = rows_to_csv(all_rows)
+    progress.update(phase="cancelado" if cancelled else "concluido", added=added, discarded=discarded, cancelled=cancelled)
+    return csv_text
+
+
 # ---------------------------------------------------------------------------
 # Passo 3: resolve o identifier do archive.org pra quem ainda não tem um
 # ---------------------------------------------------------------------------
@@ -548,7 +699,9 @@ def verify_duration(candidate):
     if not files:
         return {**candidate, "status": "DESCARTADO", "motivo": "item sem arquivos no archive.org (identifier invalido ou removido)"}
 
-    title = candidate["title"]
+    title = candidate.get("title")
+    if (not title or candidate.get("needs_title_from_meta")) and meta.get("metadata", {}).get("title"):
+        title = meta["metadata"]["title"]
     year = candidate.get("year")
     if not year and meta.get("metadata"):
         raw_year = meta["metadata"].get("year") or (meta["metadata"].get("date") or "")[:4]
@@ -674,72 +827,104 @@ def rows_to_csv(rows):
 # ---------------------------------------------------------------------------
 
 
-def run(progress, backend_url, admin_token, catalog_csv_path=None):
-    """
-    `progress` é um objeto com .push_log(str) e .update(**kwargs) — ver
-    app.py:JobProgress. Devolve o CSV final (string) quando termina.
-    """
-    progress.update(phase="carregando_catalogo")
-    log(progress, "carregando catálogo atual (dedupe)...")
-    existing = load_existing_catalog(backend_url, admin_token)
-    previous_csv = load_previous_csv_decisions(catalog_csv_path)
-    log(progress, f"catálogo atual: {len(existing['ids'])} ids, {len(existing['titles'])} títulos distintos")
-
-    scrapers = [
-        ("publicdomainmovie.net", scrape_publicdomainmovie),
-        ("archivewatch.org", scrape_archivewatch),
-        ("emol.org", scrape_emol),
-        ("freemoviescinema.com", scrape_freemoviescinema),
-        ("retroflix.org", scrape_retroflix),
-        ("archive.org (prelinger/usgovfilms)", scrape_archive_collections),
-    ]
-
-    raw = []
-    for name, fn in scrapers:
-        progress.update(phase=f"raspando_{name}")
-        log(progress, f"raspando {name}...")
-        try:
-            found = fn(progress)
-            log(progress, f"{name}: {len(found)} candidatos brutos")
-            raw.extend(found)
-        except Exception as e:  # noqa: BLE001
-            log(progress, f"{name} falhou por completo, pulando: {e}")
-        progress.update(candidates_found=len(raw))
-
-    progress.update(phase="filtrando_duplicatas")
-    log(progress, f"{len(raw)} candidatos brutos no total, removendo duplicata...")
-    filtered = dedupe_and_filter(raw, existing, previous_csv)
-    to_resolve = [c for c in filtered if not c.get("skip_verify")]
-    already_done = [c for c in filtered if c.get("skip_verify")]
-    log(
-        progress,
-        f"{len(to_resolve)} candidatos precisam checagem no archive.org "
-        f"({len(already_done)} já decididos — duplicata ou ano acima do corte)",
-    )
-
-    if len(to_resolve) > MAX_CANDIDATES_TO_VERIFY:
-        log(
-            progress,
-            f"limitando a {MAX_CANDIDATES_TO_VERIFY} candidatos nesta rodada "
-            f"({len(to_resolve) - MAX_CANDIDATES_TO_VERIFY} ficam de fora — rode de novo pra continuar)",
-        )
-        to_resolve = to_resolve[:MAX_CANDIDATES_TO_VERIFY]
-
-    progress.update(phase="verificando_duracao", total_to_verify=len(to_resolve), verified_count=0)
-    log(progress, "resolvendo identifiers + verificando duração real no archive.org...")
-
+def _verify_with_cancel(to_resolve, progress):
+    """Mesma ideia do antigo executor.map(), mas checando cancelamento entre
+    cada resultado — se cancelado, para de mandar trabalho novo pro pool
+    (o que já estava em voo termina, mas nada novo começa) e devolve só o
+    que já tinha sido verificado até ali."""
     verified = []
     with ThreadPoolExecutor(max_workers=CONCURRENCY) as executor:
-        for result in executor.map(resolve_and_verify, to_resolve):
-            verified.append(result)
-            if len(verified) % 25 == 0 or len(verified) == len(to_resolve):
-                progress.update(verified_count=len(verified))
+        futures = {executor.submit(resolve_and_verify, c): c for c in to_resolve}
+        try:
+            for future in as_completed(futures):
+                verified.append(future.result())
+                if len(verified) % 25 == 0 or len(verified) == len(to_resolve):
+                    progress.update(verified_count=len(verified))
+                if getattr(progress, "should_cancel", None) and progress.should_cancel():
+                    for f in futures:
+                        f.cancel()
+                    break
+        finally:
+            executor.shutdown(wait=False, cancel_futures=True)
+    return verified
+
+
+def run(progress, backend_url, admin_token, catalog_csv_path=None):
+    """
+    `progress` é um objeto com .push_log(str), .update(**kwargs) e
+    (opcionalmente) .should_cancel() — ver app.py:JobProgress. Devolve o CSV
+    final (string) quando termina ou quando é cancelado no meio (nesse caso,
+    com o que já tinha sido encontrado/verificado até o cancelamento).
+    """
+    already_done = []
+    verified = []
+    cancelled = False
+    try:
+        progress.update(phase="carregando_catalogo")
+        log(progress, "carregando catálogo atual (dedupe)...")
+        existing = load_existing_catalog(backend_url, admin_token)
+        previous_csv = load_previous_csv_decisions(catalog_csv_path)
+        log(progress, f"catálogo atual: {len(existing['ids'])} ids, {len(existing['titles'])} títulos distintos")
+
+        scrapers = [
+            ("publicdomainmovie.net", scrape_publicdomainmovie),
+            ("archivewatch.org", scrape_archivewatch),
+            ("emol.org", scrape_emol),
+            ("freemoviescinema.com", scrape_freemoviescinema),
+            ("retroflix.org", scrape_retroflix),
+            ("archive.org (prelinger/usgovfilms)", scrape_archive_collections),
+        ]
+
+        raw = []
+        for name, fn in scrapers:
+            check_cancel(progress)
+            progress.update(phase=f"raspando_{name}")
+            log(progress, f"raspando {name}...")
+            try:
+                found = fn(progress)
+                log(progress, f"{name}: {len(found)} candidatos brutos")
+                raw.extend(found)
+            except ScrapeCancelled:
+                raise
+            except Exception as e:  # noqa: BLE001
+                log(progress, f"{name} falhou por completo, pulando: {e}")
+            progress.update(candidates_found=len(raw))
+
+        progress.update(phase="filtrando_duplicatas")
+        log(progress, f"{len(raw)} candidatos brutos no total, removendo duplicata...")
+        filtered = dedupe_and_filter(raw, existing, previous_csv)
+        to_resolve = [c for c in filtered if not c.get("skip_verify")]
+        already_done = [c for c in filtered if c.get("skip_verify")]
+        log(
+            progress,
+            f"{len(to_resolve)} candidatos precisam checagem no archive.org "
+            f"({len(already_done)} já decididos — duplicata ou ano acima do corte)",
+        )
+
+        if len(to_resolve) > MAX_CANDIDATES_TO_VERIFY:
+            log(
+                progress,
+                f"limitando a {MAX_CANDIDATES_TO_VERIFY} candidatos nesta rodada "
+                f"({len(to_resolve) - MAX_CANDIDATES_TO_VERIFY} ficam de fora — rode de novo pra continuar)",
+            )
+            to_resolve = to_resolve[:MAX_CANDIDATES_TO_VERIFY]
+
+        progress.update(phase="verificando_duracao", total_to_verify=len(to_resolve), verified_count=0)
+        log(progress, "resolvendo identifiers + verificando duração real no archive.org...")
+        verified = _verify_with_cancel(to_resolve, progress)
+        check_cancel(progress)
+    except ScrapeCancelled:
+        cancelled = True
+        log(progress, "busca cancelada pelo usuário — gerando CSV com o que já foi encontrado até aqui")
 
     all_rows = already_done + verified
     added = sum(1 for r in all_rows if r.get("status") == "ADICIONADO")
     discarded = sum(1 for r in all_rows if r.get("status") == "DESCARTADO")
-    log(progress, f"concluído: {added} candidatos aprovados (prontos pra escrever sinopse), {discarded} descartados")
+    log(
+        progress,
+        f"{'cancelado' if cancelled else 'concluído'}: {added} candidatos aprovados, {discarded} descartados",
+    )
 
     csv_text = rows_to_csv(all_rows)
-    progress.update(phase="concluido", added=added, discarded=discarded)
+    progress.update(phase="cancelado" if cancelled else "concluido", added=added, discarded=discarded, cancelled=cancelled)
     return csv_text
