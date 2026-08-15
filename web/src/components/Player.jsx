@@ -39,29 +39,35 @@ import { proxiedImage } from '../lib/imageProxy';
 function UpNextOverlay({ movies, onClose }) {
   if (!movies?.length) return null;
 
+  // Layout pensado pro pior caso: player em aspect-video numa tela de
+  // celular na vertical tem pouca altura disponível (ex: ~210px numa tela
+  // de 375px de largura). overflow-y-auto garante que sempre dá pra rolar
+  // até o fim em vez de cortar cards/título; tamanhos e espaçamentos menores
+  // no mobile (só crescem a partir de sm:) evitam que isso seja necessário
+  // na maioria dos casos.
   return (
-    <div className="absolute inset-0 z-20 bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-8 animate-in fade-in duration-300">
+    <div className="absolute inset-0 z-20 bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center overflow-y-auto p-3 sm:p-6 md:p-8 animate-in fade-in duration-300">
       <button
         type="button"
         onClick={onClose}
         aria-label="Fechar e continuar assistindo"
-        className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+        className="absolute top-2 right-2 sm:top-3 sm:right-3 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
       >
-        <span className="material-symbols-outlined">close</span>
+        <span className="material-symbols-outlined text-lg sm:text-xl">close</span>
       </button>
 
-      <h3 className="font-display text-headline-sm md:text-headline-md text-on-background mb-6 text-center">
+      <h3 className="font-display text-sm sm:text-headline-sm md:text-headline-md text-on-background mb-3 sm:mb-6 text-center px-8">
         Assista também no SepiaStream
       </h3>
 
-      <div className="flex flex-wrap justify-center gap-4 max-w-3xl">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 max-w-3xl">
         {movies.slice(0, 4).map((movie) => (
           <Link
             key={movie._id}
             href={`/movie/${movie.slug}`}
-            className="w-[120px] md:w-[160px] group"
+            className="w-[85px] sm:w-[120px] md:w-[160px] group flex-none"
           >
-            <div className="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/10 bg-surface-container">
+            <div className="relative aspect-[2/3] rounded-lg sm:rounded-xl overflow-hidden border border-white/10 bg-surface-container">
               {movie.posterUrl || movie.backdropUrl ? (
                 <Image
                   src={proxiedImage(movie.posterUrl || movie.backdropUrl, 320)}
@@ -72,10 +78,10 @@ function UpNextOverlay({ movies, onClose }) {
                 />
               ) : null}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40">
-                <span className="material-symbols-outlined text-white text-3xl">play_arrow</span>
+                <span className="material-symbols-outlined text-white text-2xl sm:text-3xl">play_arrow</span>
               </div>
             </div>
-            <p className="font-body text-on-background text-sm mt-2 leading-snug text-center group-hover:text-primary transition-colors">
+            <p className="font-body text-on-background text-xs sm:text-sm mt-1 sm:mt-2 leading-snug text-center line-clamp-2 group-hover:text-primary transition-colors">
               {movie.title}
             </p>
           </Link>
@@ -89,13 +95,35 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
   const mediaRef = useRef(null);
   const [showUpNext, setShowUpNext] = useState(false);
 
-  // Iframe (majoria dos filmes): aproxima o "fim" pela duração conhecida do
-  // filme. Só arma o temporizador quando temos runtimeMinutes E o filme não
-  // usa <video> nativo (esse caso já tem o evento `ended` de verdade).
+  // Iframe (maioria dos filmes): aproxima o "fim" pela duração conhecida do
+  // filme, mas o temporizador só começa a contar quando a pessoa de fato
+  // clica no player pra dar o play — não quando a página carrega (antes
+  // disso, ela pode ler a sinopse, rolar a página, etc., e o painel acabava
+  // aparecendo cedo ou fora de hora).
+  //
+  // Não dá pra escutar eventos de dentro do iframe (cross-origin), mas um
+  // clique nele muda o foco do documento pro <iframe> — e essa mudança de
+  // foco dispara um evento `blur` na window do documento PAI, que a gente
+  // enxerga normalmente. Detectando isso, sabemos o momento real do clique
+  // sem precisar acessar nada de dentro do iframe.
   useEffect(() => {
     if (videoFileUrl || !runtimeMinutes || !relatedMovies?.length) return undefined;
-    const timer = setTimeout(() => setShowUpNext(true), runtimeMinutes * 60 * 1000);
-    return () => clearTimeout(timer);
+
+    let timer;
+    let started = false;
+
+    function handleWindowBlur() {
+      if (started || document.activeElement !== mediaRef.current) return;
+      started = true;
+      timer = setTimeout(() => setShowUpNext(true), runtimeMinutes * 60 * 1000);
+      window.removeEventListener('blur', handleWindowBlur);
+    }
+
+    window.addEventListener('blur', handleWindowBlur);
+    return () => {
+      window.removeEventListener('blur', handleWindowBlur);
+      clearTimeout(timer);
+    };
   }, [videoFileUrl, runtimeMinutes, relatedMovies]);
 
   // No mobile, o botão de tela cheia é do player do archive.org (dentro do
