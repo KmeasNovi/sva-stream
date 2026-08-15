@@ -44,6 +44,15 @@ const bulkMovies39 = require('./bulkMovies39');
 const bulkMovies40 = require('./bulkMovies40');
 const bulkMovies41 = require('./bulkMovies41');
 const bulkMovies42 = require('./bulkMovies42');
+const bulkMovies43 = require('./bulkMovies43');
+const bulkMovies44 = require('./bulkMovies44');
+const bulkMovies45 = require('./bulkMovies45');
+const bulkMovies46 = require('./bulkMovies46');
+const bulkMovies47 = require('./bulkMovies47');
+const bulkMovies48 = require('./bulkMovies48');
+const bulkMovies49 = require('./bulkMovies49');
+const bulkMovies50 = require('./bulkMovies50');
+const bulkMovies51 = require('./bulkMovies51');
 const bulkAnimations = require('./bulkAnimations');
 
 // Filmes clássicos em domínio público, hospedados no archive.org.
@@ -119,7 +128,7 @@ const movies = [
 async function run() {
   await connectDB();
 
-  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkMovies27, ...bulkMovies28, ...bulkMovies29, ...bulkMovies30, ...bulkMovies31, ...bulkMovies32, ...bulkMovies33, ...bulkMovies34, ...bulkMovies35, ...bulkMovies36, ...bulkMovies37, ...bulkMovies38, ...bulkMovies39, ...bulkMovies40, ...bulkMovies41, ...bulkMovies42, ...bulkAnimations];
+  const allMovies = [...movies, ...bulkMovies, ...bulkMovies2, ...bulkMovies3, ...bulkMovies4, ...bulkMovies5, ...bulkMovies6, ...bulkMovies7, ...bulkMovies8, ...bulkMovies9, ...bulkMovies10, ...bulkMovies11, ...bulkMovies12, ...bulkMovies13, ...bulkMovies14, ...bulkMovies15, ...bulkMovies16, ...bulkMovies17, ...bulkMovies18, ...bulkMovies19, ...bulkMovies20, ...bulkMovies21, ...bulkMovies22, ...bulkMovies23, ...bulkMovies24, ...bulkMovies25, ...bulkMovies26, ...bulkMovies27, ...bulkMovies28, ...bulkMovies29, ...bulkMovies30, ...bulkMovies31, ...bulkMovies32, ...bulkMovies33, ...bulkMovies34, ...bulkMovies35, ...bulkMovies36, ...bulkMovies37, ...bulkMovies38, ...bulkMovies39, ...bulkMovies40, ...bulkMovies41, ...bulkMovies42, ...bulkMovies43, ...bulkMovies44, ...bulkMovies45, ...bulkMovies46, ...bulkMovies47, ...bulkMovies48, ...bulkMovies49, ...bulkMovies50, ...bulkMovies51, ...bulkAnimations];
 
   for (const movie of allMovies) {
     await Movie.updateOne({ slug: movie.slug }, { $set: movie }, { upsert: true });
