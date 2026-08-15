@@ -18,6 +18,25 @@ async function scraperFetch(path, token, opts = {}) {
   return json;
 }
 
+async function downloadCsv(jobId, token) {
+  const res = await fetch(`${SCRAPER_URL}/scrape/download/${jobId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) {
+    const json = await res.json().catch(() => ({}));
+    throw new Error(json.message || `Erro ao baixar (${res.status})`);
+  }
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `novos-filmes-encontrados-${jobId.slice(0, 8)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 function phaseLabel(phase) {
   const labels = {
     iniciando: 'Iniciando…',
@@ -54,6 +73,22 @@ export default function AdminScrapePage() {
         setError('');
         if (data.status !== 'running') {
           clearInterval(pollRef.current);
+          // Baixa sozinho assim que termina, em vez de esperar um clique.
+          // Enquanto a busca está rodando, o polling a cada 5s mantém o
+          // serviço (Render free tier) acordado — mas assim que o job
+          // termina o polling para, e se a pessoa demorar mais de ~15min
+          // pra clicar "Baixar CSV", o serviço já reciclou por inatividade
+          // e o resultado (só em memória, nunca gravado em disco) se perde
+          // pra sempre. Baixar na hora elimina essa janela de risco.
+          if (data.status === 'done') {
+            try {
+              await downloadCsv(jobId, token);
+            } catch (downloadErr) {
+              // Job continua "done" na tela (o botão "Baixar CSV" manual
+              // ainda funciona como retentativa) — só o auto-download falhou.
+              setError(`Busca terminou, mas o download automático falhou: ${downloadErr.message}`);
+            }
+          }
         }
       } catch (err) {
         // O job some da memória do serviço quando ele reinicia (deploy novo,
@@ -92,22 +127,7 @@ export default function AdminScrapePage() {
 
   async function handleDownload() {
     try {
-      const res = await fetch(`${SCRAPER_URL}/scrape/download/${jobId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json.message || `Erro ao baixar (${res.status})`);
-      }
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `novos-filmes-encontrados-${jobId.slice(0, 8)}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      await downloadCsv(jobId, token);
     } catch (err) {
       setError(err.message);
     }
@@ -137,10 +157,11 @@ export default function AdminScrapePage() {
       ) : (
         <div className="glass-panel rounded-2xl p-8 max-w-2xl space-y-6">
           <p className="font-body text-body-md text-on-surface-variant">
-            Raspa publicdomainmovie.net, archivewatch.org, emol.org e freemoviescinema.com, verifica a
-            duração real de cada título no archive.org e remove o que já está no catálogo. Não decide
-            sozinho sobre risco de direito autoral (estúdio grande, ano, etc.) — isso continua exigindo
-            revisão manual no CSV gerado, igual já é hoje.
+            Raspa seis fontes (publicdomainmovie.net, archivewatch.org, emol.org, freemoviescinema.com,
+            retroflix.org e as coleções prelinger/usgovfilms do archive.org), verifica a duração real de
+            cada título no archive.org e remove o que já está no catálogo. Não decide sozinho sobre risco
+            de direito autoral (estúdio grande, ano, etc.) — isso continua exigindo revisão manual no CSV
+            gerado, igual já é hoje. O CSV baixa sozinho assim que a busca termina.
           </p>
 
           <div className="flex gap-3">
