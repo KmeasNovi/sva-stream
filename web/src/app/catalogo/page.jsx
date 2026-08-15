@@ -8,21 +8,23 @@ export const metadata = {
   alternates: { canonical: '/catalogo' },
 };
 
-async function fetchMovies() {
+const PAGE_SIZE = 60;
+
+async function fetchFirstPage() {
   try {
-    const { data } = await api.listMoviesPublic();
-    return data || [];
+    const { data, pagination } = await api.listMoviesPublic({ page: 1, limit: PAGE_SIZE, sort: 'alpha' });
+    return { movies: data || [], pagination: pagination || null };
   } catch {
-    return [];
+    return { movies: [], pagination: null };
   }
 }
 
 export default async function CatalogoPage() {
-  const movies = await fetchMovies();
+  const { movies, pagination } = await fetchFirstPage();
 
   return (
     <>
-      <Catalog movies={movies} />
+      <Catalog initialMovies={movies} initialPagination={pagination} pageSize={PAGE_SIZE} />
       <MovieDonationPrompt />
     </>
   );

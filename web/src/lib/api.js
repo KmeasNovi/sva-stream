@@ -41,8 +41,13 @@ export const api = {
   // Pública — usada pela landing page (/) pra mostrar títulos reais com
   // link, em vez de só decoração sem texto indexável.
   listHighlights: () => request('/movies/public/highlights', { revalidate: 3600 }),
-  // Pública — usada por /catalogo renderizado no servidor (sem login).
-  listMoviesPublic: () => request('/movies/public', { revalidate: 300 }),
+  // Pública — usada por /catalogo (paginada, scroll infinito). A primeira
+  // página é renderizada no servidor (sem login, com cache); as próximas
+  // são buscadas direto do navegador conforme a pessoa rola a tela.
+  listMoviesPublic: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/movies/public${query ? `?${query}` : ''}`, { revalidate: 300 });
+  },
   listGenres: (token) => request('/movies/genres', { token }),
   listFeatured: (token) => request('/movies/featured', { token }),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),

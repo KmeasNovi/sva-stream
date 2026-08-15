@@ -61,10 +61,40 @@ exports.listMovies = catchAsync(async (req, res) => {
     // Filtra pelo gênero primário, não só por "genres contém X" — garante
     // que cada filme só apareça na categoria em que ele é listado (evita o
     // mesmo filme repetido em várias fileiras, ex: Terror e Clássico).
-    const candidates = await Movie.find(query).sort({ createdAt: -1 }).lean();
-    const filtered = candidates.filter((m) => getPrimaryGenre(m.genres) === genre);
-    total = filtered.length;
-    movies = filtered.slice((pageNum - 1) * limitNum, (pageNum - 1) * limitNum + limitNum);
+    //
+    // Antes isso buscava TODOS os filmes com a tag (ex: 1.138 pra "Comédia")
+    // pro Node só pra filtrar e devolver 12 — com o catálogo grande isso
+    // sobrecarregava a home a cada visita. Agora o filtro por gênero
+    // primário e a paginação acontecem dentro do próprio MongoDB via
+    // aggregation, então só os documentos da página pedida trafegam.
+    const primaryGenreExpr = {
+      $let: {
+        vars: {
+          nonCatchAll: {
+            $filter: { input: '$genres', cond: { $ne: ['$$this', CATCH_ALL_GENRE] } },
+          },
+        },
+        in: {
+          $ifNull: [{ $arrayElemAt: ['$$nonCatchAll', 0] }, { $arrayElemAt: ['$genres', 0] }],
+        },
+      },
+    };
+
+    const [result] = await Movie.aggregate([
+      { $match: query },
+      { $addFields: { primaryGenre: primaryGenreExpr } },
+      { $match: { primaryGenre: genre } },
+      { $sort: { createdAt: -1 } },
+      {
+        $facet: {
+          data: [{ $skip: (pageNum - 1) * limitNum }, { $limit: limitNum }],
+          totalCount: [{ $count: 'count' }],
+        },
+      },
+    ]);
+
+    movies = result.data;
+    total = result.totalCount[0]?.count || 0;
   } else {
     [movies, total] = await Promise.all([
       Movie.find(query)
@@ -83,18 +113,36 @@ exports.listMovies = catchAsync(async (req, res) => {
   });
 });
 
-// Rota pública (sem auth) — lista o catálogo inteiro (só os campos usados
-// pelo grid: título, slug, pôster, ano, gêneros), pra /catalogo ser
-// indexável e navegável sem login. Não é uma exposição nova de dado: o
-// sitemap.xml já lista todos os slugs publicamente, e cada filme já tem
-// página pública própria — isso só junta tudo numa lista, sem sinopse.
+// Rota pública (sem auth) — lista o catálogo (só os campos usados pelo
+// grid: título, slug, pôster, ano, gêneros), pra /catalogo ser indexável e
+// navegável sem login. Não é uma exposição nova de dado: o sitemap.xml já
+// lista todos os slugs publicamente, e cada filme já tem página pública
+// própria — isso só junta tudo numa lista, sem sinopse.
+//
+// Paginada (scroll infinito no front) — antes devolvia o catálogo inteiro
+// numa resposta só, o que virou 1MB+ de JSON e milhares de cards montados
+// de uma vez assim que o catálogo passou de ~3.000 títulos.
 exports.listMoviesPublic = catchAsync(async (req, res) => {
-  const movies = await Movie.find({})
-    .sort({ title: 1 })
-    .select('title slug posterUrl backdropUrl year genres')
-    .lean();
+  const { page = 1, limit = 60, sort = 'alpha' } = req.query;
+  const pageNum = Math.max(1, parseInt(page, 10) || 1);
+  const limitNum = Math.min(120, Math.max(1, parseInt(limit, 10) || 60));
+  const sortSpec = sort === 'year' ? { year: 1, title: 1 } : { title: 1 };
 
-  res.json({ success: true, data: movies });
+  const [movies, total] = await Promise.all([
+    Movie.find({})
+      .sort(sortSpec)
+      .skip((pageNum - 1) * limitNum)
+      .limit(limitNum)
+      .select('title slug posterUrl backdropUrl year genres')
+      .lean(),
+    Movie.countDocuments({}),
+  ]);
+
+  res.json({
+    success: true,
+    data: movies,
+    pagination: { page: pageNum, limit: limitNum, total, pages: Math.ceil(total / limitNum) },
+  });
 });
 
 exports.getMovieBySlug = catchAsync(async (req, res, next) => {
