@@ -145,14 +145,14 @@ function PlayerChoice({ onChoose }) {
           onClick={() => onChoose('native')}
           className="px-5 py-3 rounded-lg bg-primary text-on-primary font-body text-label-bold hover:opacity-90 transition-opacity"
         >
-          Player do site
+          Player interno
         </button>
         <button
           type="button"
           onClick={() => onChoose('archive')}
           className="px-5 py-3 rounded-lg bg-white/10 text-white font-body text-label-bold hover:bg-white/20 transition-colors"
         >
-          Player do archive.org
+          Player externo
         </button>
       </div>
     </div>
