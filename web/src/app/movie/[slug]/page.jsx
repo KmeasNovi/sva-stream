@@ -10,6 +10,7 @@ import MovieDonationPrompt from '../../../components/MovieDonationPrompt';
 const ADSENSE_SLOT_MOVIE_ABOVE_PLAYER = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_ABOVE_PLAYER;
 const ADSENSE_SLOT_MOVIE_TOP = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_TOP;
 const ADSENSE_SLOT_MOVIE_MID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_MID;
+const ADSENSE_SLOT_MOVIE_PREROLL = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_PREROLL;
 
 const SITE_URL = 'https://sepiastream.com';
 
@@ -150,6 +151,7 @@ export default async function MoviePage({ params }) {
         posterUrl={movie.posterUrl || movie.backdropUrl}
         relatedMovies={related}
         runtimeMinutes={movie.runtimeMinutes}
+        preRollSlotId={ADSENSE_SLOT_MOVIE_PREROLL}
       />
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />

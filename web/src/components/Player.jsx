@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { proxiedImage } from '../lib/imageProxy';
+import AdSlot from './AdSlot';
+
+const PREROLL_SKIP_SECONDS = 5;
 
 // Renderiza o player embutido do provedor de origem — nunca servimos o arquivo
 // de vídeo nós mesmos, só o metadado + a referência (source.provider/id).
@@ -91,9 +94,44 @@ function UpNextOverlay({ movies, onClose }) {
   );
 }
 
-export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes }) {
+// Anúncio exibido por cima do player antes de liberar o filme — não é um
+// vídeo publicitário de verdade (tipo pré-roll do YouTube): isso exigiria o
+// SDK do Google Ad Manager acoplado a um <video> que a gente controla
+// diretamente, e o player de quase todo o catálogo é um iframe de terceiro
+// (archive.org), onde não dá pra injetar nada. Em vez disso, mostra um
+// bloco de anúncio de imagem/banner do AdSense (que o site já usa em outros
+// pontos) por alguns segundos antes de revelar o player.
+function PreRollAd({ slotId, onSkip }) {
+  const [secondsLeft, setSecondsLeft] = useState(PREROLL_SKIP_SECONDS);
+
+  useEffect(() => {
+    if (secondsLeft <= 0) return undefined;
+    const timer = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [secondsLeft]);
+
+  return (
+    <div className="absolute inset-0 z-30 bg-black flex flex-col items-center justify-center p-4">
+      <p className="font-body text-label-bold text-on-surface-variant mb-3 uppercase tracking-wider">Anúncio</p>
+      <div className="w-full max-w-sm">
+        <AdSlot slotId={slotId} />
+      </div>
+      <button
+        type="button"
+        onClick={onSkip}
+        disabled={secondsLeft > 0}
+        className="mt-4 px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 disabled:hover:bg-white/10 disabled:opacity-60 disabled:cursor-not-allowed text-white font-body text-label-bold transition-colors"
+      >
+        {secondsLeft > 0 ? `Pular em ${secondsLeft}s` : 'Pular anúncio'}
+      </button>
+    </div>
+  );
+}
+
+export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes, preRollSlotId }) {
   const mediaRef = useRef(null);
   const [showUpNext, setShowUpNext] = useState(false);
+  const [showAd, setShowAd] = useState(!!preRollSlotId);
 
   // Iframe (maioria dos filmes): aproxima o "fim" pela duração conhecida do
   // filme, mas o temporizador só começa a contar quando a pessoa de fato
@@ -172,6 +210,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
           <source src={videoFileUrl} type="video/mp4" />
           {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>
+        {showAd ? <PreRollAd slotId={preRollSlotId} onSkip={() => setShowAd(false)} /> : null}
         {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
       </div>
     );
@@ -204,6 +243,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
         allowFullScreen
         className="absolute inset-0 w-full h-full"
       />
+      {showAd ? <PreRollAd slotId={preRollSlotId} onSkip={() => setShowAd(false)} /> : null}
       {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
     </div>
   );
