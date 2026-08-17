@@ -137,7 +137,7 @@ function PlayerChoice({ onChoose }) {
   return (
     <div className="absolute inset-0 z-10 bg-black flex flex-col items-center justify-center gap-4 p-4">
       <p className="font-body text-body-md text-on-surface-variant text-center max-w-sm">
-        Esse filme está com instabilidade em um dos players. Escolha qual usar:
+        Escolha o player
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <button
