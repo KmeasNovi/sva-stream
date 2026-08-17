@@ -91,40 +91,56 @@ function UpNextOverlay({ movies, onClose }) {
   );
 }
 
+// Capa clicável que substitui o player até a pessoa decidir assistir — o
+// <iframe> do archive.org carrega uma página inteira de terceiro (HTML, CSS,
+// JS do player deles), e sem isso ele começava a baixar tudo isso assim que
+// a página do filme abria, mesmo que a pessoa só estivesse lendo a sinopse.
+// Mesmo padrão usado por embeds de vídeo profissionais (YouTube, Vimeo).
+function PlayFacade({ posterUrl, title, onPlay }) {
+  return (
+    <button
+      type="button"
+      onClick={onPlay}
+      aria-label={`Assistir ${title}`}
+      className="group absolute inset-0 w-full h-full cursor-pointer"
+    >
+      {posterUrl ? (
+        <Image
+          src={proxiedImage(posterUrl, 1280)}
+          alt={title}
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+      ) : null}
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors flex items-center justify-center">
+        <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 group-hover:bg-primary group-hover:scale-110 transition-all flex items-center justify-center shadow-2xl">
+          <span className="material-symbols-outlined text-on-primary text-4xl sm:text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>
+            play_arrow
+          </span>
+        </span>
+      </div>
+    </button>
+  );
+}
+
 export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes }) {
   const mediaRef = useRef(null);
   const [showUpNext, setShowUpNext] = useState(false);
+  const [started, setStarted] = useState(false);
 
   // Iframe (maioria dos filmes): aproxima o "fim" pela duração conhecida do
-  // filme, mas o temporizador só começa a contar quando a pessoa de fato
-  // clica no player pra dar o play — não quando a página carrega (antes
-  // disso, ela pode ler a sinopse, rolar a página, etc., e o painel acabava
-  // aparecendo cedo ou fora de hora).
-  //
-  // Não dá pra escutar eventos de dentro do iframe (cross-origin), mas um
-  // clique nele muda o foco do documento pro <iframe> — e essa mudança de
-  // foco dispara um evento `blur` na window do documento PAI, que a gente
-  // enxerga normalmente. Detectando isso, sabemos o momento real do clique
-  // sem precisar acessar nada de dentro do iframe.
+  // filme. O temporizador só começa a contar quando `started` vira true —
+  // ou seja, no clique real na capa (ver PlayFacade acima), não quando a
+  // página carrega (antes disso a pessoa pode só estar lendo a sinopse).
+  // Como a capa clicável já nos dá o momento exato do clique, não precisa
+  // mais da heurística de detectar foco entrando no iframe.
   useEffect(() => {
-    if (videoFileUrl || !runtimeMinutes || !relatedMovies?.length) return undefined;
-
-    let timer;
-    let started = false;
-
-    function handleWindowBlur() {
-      if (started || document.activeElement !== mediaRef.current) return;
-      started = true;
-      timer = setTimeout(() => setShowUpNext(true), runtimeMinutes * 60 * 1000);
-      window.removeEventListener('blur', handleWindowBlur);
-    }
-
-    window.addEventListener('blur', handleWindowBlur);
-    return () => {
-      window.removeEventListener('blur', handleWindowBlur);
-      clearTimeout(timer);
-    };
-  }, [videoFileUrl, runtimeMinutes, relatedMovies]);
+    if (!started || videoFileUrl || !runtimeMinutes || !relatedMovies?.length) return undefined;
+    const timer = setTimeout(() => setShowUpNext(true), runtimeMinutes * 60 * 1000);
+    return () => clearTimeout(timer);
+  }, [started, videoFileUrl, runtimeMinutes, relatedMovies]);
 
   // No mobile, o botão de tela cheia é do player do archive.org (dentro do
   // iframe) — não temos como colocar um botão nosso ali. Mas o Fullscreen
@@ -162,16 +178,22 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
   if (videoFileUrl) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
-        <video
-          ref={mediaRef}
-          controls
-          poster={posterUrl ? proxiedImage(posterUrl, 1280) : undefined}
-          onEnded={() => setShowUpNext(true)}
-          className="absolute inset-0 w-full h-full"
-        >
-          <source src={videoFileUrl} type="video/mp4" />
-          {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
-        </video>
+        {started ? (
+          <video
+            ref={mediaRef}
+            controls
+            autoPlay
+            preload="metadata"
+            poster={posterUrl ? proxiedImage(posterUrl, 1280) : undefined}
+            onEnded={() => setShowUpNext(true)}
+            className="absolute inset-0 w-full h-full"
+          >
+            <source src={videoFileUrl} type="video/mp4" />
+            {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
+          </video>
+        ) : (
+          <PlayFacade posterUrl={posterUrl} title={title} onPlay={() => setStarted(true)} />
+        )}
         {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
       </div>
     );
@@ -191,19 +213,23 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
 
   const embedSrc =
     source.provider === 'youtube'
-      ? `https://www.youtube.com/embed/${source.id}`
-      : `https://archive.org/embed/${archiveEmbedPath}`;
+      ? `https://www.youtube.com/embed/${source.id}?autoplay=1`
+      : `https://archive.org/embed/${archiveEmbedPath}?autoplay=1`;
 
   return (
     <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
-      <iframe
-        ref={mediaRef}
-        src={embedSrc}
-        title={title}
-        allow="autoplay; fullscreen"
-        allowFullScreen
-        className="absolute inset-0 w-full h-full"
-      />
+      {started ? (
+        <iframe
+          ref={mediaRef}
+          src={embedSrc}
+          title={title}
+          allow="autoplay; fullscreen"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+        />
+      ) : (
+        <PlayFacade posterUrl={posterUrl} title={title} onPlay={() => setStarted(true)} />
+      )}
       {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
     </div>
   );

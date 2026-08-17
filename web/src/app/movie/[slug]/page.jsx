@@ -123,6 +123,10 @@ export default async function MoviePage({ params }) {
 
   return (
     <div className="container mx-auto px-container-margin py-8 space-y-10">
+      {/* O player só carrega de verdade quando a pessoa clica em play (ver
+          PlayFacade em Player.jsx), mas a conexão em si (DNS + TCP + TLS)
+          pode começar antes — evita esperar isso tudo bem na hora do clique. */}
+      <link rel="preconnect" href="https://archive.org" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: buildMovieJsonLd(movie) }}
