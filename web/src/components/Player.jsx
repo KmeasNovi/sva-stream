@@ -128,10 +128,49 @@ function PreRollAd({ slotId, onSkip }) {
   );
 }
 
+// Tela de escolha entre os dois players — só aparece quando o filme tem
+// tanto videoFileUrl quanto source.id resolvidos ao mesmo tempo (hoje só
+// usado como teste pontual num título específico com problema conhecido no
+// player padrão do archive.org: se um player falhar, a pessoa consegue
+// tentar o outro sem depender de nós descobrirmos qual funciona de antemão).
+function PlayerChoice({ onChoose }) {
+  return (
+    <div className="absolute inset-0 z-10 bg-black flex flex-col items-center justify-center gap-4 p-4">
+      <p className="font-body text-body-md text-on-surface-variant text-center max-w-sm">
+        Esse filme está com instabilidade em um dos players. Escolha qual usar:
+      </p>
+      <div className="flex flex-wrap justify-center gap-3">
+        <button
+          type="button"
+          onClick={() => onChoose('native')}
+          className="px-5 py-3 rounded-lg bg-primary text-on-primary font-body text-label-bold hover:opacity-90 transition-opacity"
+        >
+          Player do site
+        </button>
+        <button
+          type="button"
+          onClick={() => onChoose('archive')}
+          className="px-5 py-3 rounded-lg bg-white/10 text-white font-body text-label-bold hover:bg-white/20 transition-colors"
+        >
+          Player do archive.org
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes, preRollSlotId }) {
   const mediaRef = useRef(null);
   const [showUpNext, setShowUpNext] = useState(false);
   const [showAd, setShowAd] = useState(!!preRollSlotId);
+
+  // Quando o filme tem os dois disponíveis, deixa a pessoa escolher em vez
+  // de decidir por ela — `playerChoice` fica null até a escolha, e só então
+  // vira 'native' ou 'archive'. Filmes com só uma opção (a grande maioria)
+  // pulam essa etapa e usam a que existe, como sempre.
+  const hasChoice = Boolean(videoFileUrl) && Boolean(source?.id);
+  const [playerChoice, setPlayerChoice] = useState(null);
+  const useNative = hasChoice ? playerChoice === 'native' : Boolean(videoFileUrl);
 
   // Iframe (maioria dos filmes): aproxima o "fim" pela duração conhecida do
   // filme, mas o temporizador só começa a contar quando a pessoa de fato
@@ -145,7 +184,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
   // enxerga normalmente. Detectando isso, sabemos o momento real do clique
   // sem precisar acessar nada de dentro do iframe.
   useEffect(() => {
-    if (videoFileUrl || !runtimeMinutes || !relatedMovies?.length) return undefined;
+    if (useNative || !runtimeMinutes || !relatedMovies?.length) return undefined;
 
     let timer;
     let started = false;
@@ -162,7 +201,7 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
       window.removeEventListener('blur', handleWindowBlur);
       clearTimeout(timer);
     };
-  }, [videoFileUrl, runtimeMinutes, relatedMovies]);
+  }, [useNative, runtimeMinutes, relatedMovies]);
 
   // No mobile, o botão de tela cheia é do player do archive.org (dentro do
   // iframe) — não temos como colocar um botão nosso ali. Mas o Fullscreen
@@ -195,9 +234,19 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
     };
   }, []);
 
-  if (!source?.id) return null;
+  if (!source?.id && !videoFileUrl) return null;
 
-  if (videoFileUrl) {
+  // A escolha aparece antes de decidir qual player renderizar de verdade —
+  // assim não carrega os dois à toa, só o que a pessoa escolher.
+  if (hasChoice && !playerChoice) {
+    return (
+      <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
+        <PlayerChoice onChoose={setPlayerChoice} />
+      </div>
+    );
+  }
+
+  if (useNative) {
     return (
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl shadow-primary/10">
         <video
