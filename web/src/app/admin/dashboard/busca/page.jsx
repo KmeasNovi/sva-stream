@@ -222,7 +222,7 @@ export default function AdminScrapePage() {
           </p>
           <button
             onClick={handleDownload}
-            className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+            className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
           >
             Baixar CSV
           </button>
@@ -273,7 +273,7 @@ export default function AdminScrapePage() {
               <button
                 onClick={handleStart}
                 disabled={starting || isRunning}
-                className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isRunning ? 'Busca em andamento…' : 'Iniciar busca'}
               </button>
@@ -351,7 +351,7 @@ export default function AdminScrapePage() {
               <button
                 type="submit"
                 disabled={starting || isRunning}
-                className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isRunning ? 'Busca em andamento…' : 'Iniciar busca personalizada'}
               </button>

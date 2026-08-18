@@ -24,7 +24,7 @@ export default function MinhaListaPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/entrar?next=/minha-lista"
-              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
             >
               Entrar
             </Link>

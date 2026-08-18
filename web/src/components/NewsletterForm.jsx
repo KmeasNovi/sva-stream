@@ -40,7 +40,7 @@ export default function NewsletterForm() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-full hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:scale-105 transition-all duration-300 disabled:opacity-50"
+            className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-full hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] hover:scale-105 transition-all duration-300 disabled:opacity-50"
           >
             Inscrever
           </button>

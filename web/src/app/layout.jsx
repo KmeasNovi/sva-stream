@@ -28,6 +28,22 @@ export const metadata = {
 // AdSlot.jsx, usado hoje só em /movie/[slug].
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
+// SepiaStream Pro (pro.sepiastream.com) é o mesmo app/deploy, só com o tema
+// trocado (ver [data-variant="pro"] em globals.css) e acesso fechado pra
+// quem não é assinante Premium (ver AuthGate.jsx). O host só é conhecido em
+// runtime no navegador — decidir isso no servidor (via headers()) forçaria
+// TODA página do site a virar server-rendered a cada request (perderíamos a
+// geração estática que já existe em /, /catalogo, /movie/[slug] etc, já que
+// Next.js não sabe em build time qual host vai servir cada página). Em vez
+// disso, um script bloqueante roda antes do primeiro paint (mesma técnica
+// de bibliotecas de dark-mode) — sem flash de cor errada, sem custo de SSR.
+const PRO_THEME_SCRIPT = `
+  if (location.hostname.startsWith('pro.')) {
+    document.documentElement.setAttribute('data-variant', 'pro');
+    document.title = document.title.replace(/^SepiaStream/, 'SepiaStream Pro');
+  }
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html className="dark" lang="pt-BR">
@@ -37,6 +53,7 @@ export default function RootLayout({ children }) {
         {ADSENSE_CLIENT_ID ? (
           <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
         ) : null}
+        <script dangerouslySetInnerHTML={{ __html: PRO_THEME_SCRIPT }} />
       </head>
       <body className="bg-background text-on-background min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-primary">
         <UserProvider>

@@ -122,7 +122,7 @@ export default async function LandingPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/cadastro"
-                className="bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all"
+                className="bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
               >
                 Criar conta grátis
               </Link>

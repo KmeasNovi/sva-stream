@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="px-6 mb-12 flex items-center gap-3">
             <Image src="/logo-icon.png" alt="" width={40} height={40} className="flex-none" />
             <div>
-              <h1 className="font-display text-headline-md text-secondary">SepiaStream</h1>
+              <h1 className="font-display text-headline-md text-secondary sepia-brand">SepiaStream</h1>
               <p className="font-body text-body-md text-on-surface-variant mt-1">Cinema clássico, grátis</p>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Navbar() {
         <div className="flex items-center md:hidden">
           <Link href={user ? '/home' : '/'} className="flex items-center gap-2">
             <Image src="/logo-icon.png" alt="" width={28} height={28} />
-            <span className="font-display text-headline-md text-primary">SepiaStream</span>
+            <span className="font-display text-headline-md text-primary sepia-brand">SepiaStream</span>
           </Link>
         </div>
         {user ? (
@@ -111,7 +111,7 @@ export default function Navbar() {
             </span>
             <input
               name="q"
-              className="w-full bg-[#111111] text-on-background rounded-full pl-12 pr-4 py-2 border-none focus:outline-none focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(221,183,255,0.2)] transition-all font-body text-body-md placeholder:text-on-surface-variant/50"
+              className="w-full bg-[#111111] text-on-background rounded-full pl-12 pr-4 py-2 border-none focus:outline-none focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(var(--color-primary),0.2)] transition-all font-body text-body-md placeholder:text-on-surface-variant/50"
               placeholder="Buscar filmes, gêneros..."
               type="search"
             />
@@ -120,7 +120,7 @@ export default function Navbar() {
           <div className="flex-1 hidden md:flex items-center justify-center gap-2 pointer-events-none">
             <Image src="/logo-icon.png" alt="" width={28} height={28} />
             <div className="flex flex-col items-start leading-tight">
-              <span className="font-display text-headline-md text-secondary">SepiaStream</span>
+              <span className="font-display text-headline-md text-secondary sepia-brand">SepiaStream</span>
               <span className="font-body text-body-sm text-on-surface-variant mt-0.5">Cinema clássico, grátis</span>
             </div>
           </div>

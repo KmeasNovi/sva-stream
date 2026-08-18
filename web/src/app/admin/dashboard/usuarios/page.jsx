@@ -177,7 +177,7 @@ export default function AdminUsersPage() {
         {notice ? <p className="text-primary font-body text-body-md break-words">{notice}</p> : null}
         <button
           type="submit"
-          className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+          className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
         >
           {editingId ? 'Salvar alterações' : 'Salvar'}
         </button>
@@ -237,7 +237,7 @@ export default function AdminUsersPage() {
             ) : null}
             <button
               type="submit"
-              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
             >
               Importar
             </button>

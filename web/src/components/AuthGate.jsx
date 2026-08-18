@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import LoadingScreen from './LoadingScreen';
+import ProLockScreen from './ProLockScreen';
 
 const PUBLIC_PATHS = [
   '/',
@@ -17,12 +18,36 @@ const PUBLIC_PATHS = [
   '/catalogo',
 ];
 
+// Páginas de autenticação/admin ficam sempre acessíveis, em qualquer host —
+// no Pro, é por elas que dá pra entrar/criar conta antes de existir sessão;
+// /admin usa login próprio (Admin, não User), nunca depende de assinatura.
+const AUTH_EXEMPT_PATHS = ['/entrar', '/cadastro', '/verificar-email', '/esqueci-senha', '/redefinir-senha'];
+
 export default function AuthGate({ children }) {
   const { user, loading } = useUser();
   const pathname = usePathname();
   const router = useRouter();
 
-  const isPublic = PUBLIC_PATHS.includes(pathname) || pathname.startsWith('/admin') || pathname.startsWith('/movie/');
+  // pro.sepiastream.com é o mesmo deploy do site normal, só com acesso
+  // fechado pra quem não é assinante Premium (mesmo catálogo, mesmos
+  // recursos, sem anúncios — ver server/src/config/plans.js). O host só é
+  // conhecido no navegador (não no servidor — ver comentário equivalente em
+  // layout.jsx). Começa em `false` (mesmo comportamento de sempre no site
+  // normal, sem flash de "carregando" nas páginas públicas) e usa
+  // useLayoutEffect (roda antes do navegador pintar a tela, ao contrário de
+  // useEffect) pra corrigir pro Pro sem chance de mostrar conteúdo real
+  // antes da correção.
+  const [isPro, setIsPro] = useState(false);
+
+  useLayoutEffect(() => {
+    if (window.location.hostname.startsWith('pro.')) setIsPro(true);
+  }, []);
+
+  const isAdminOrAuthExempt = pathname.startsWith('/admin') || AUTH_EXEMPT_PATHS.includes(pathname);
+  // No site normal, PUBLIC_PATHS continua liberando navegação sem login. No
+  // Pro, isso não vale — só as páginas de auth/admin acima ficam de fora do
+  // bloqueio, tudo o resto exige login E assinatura ativa.
+  const isPublic = isAdminOrAuthExempt || (!isPro && PUBLIC_PATHS.includes(pathname)) || (!isPro && pathname.startsWith('/movie/'));
 
   useEffect(() => {
     if (loading || isPublic || user) return;
@@ -33,6 +58,10 @@ export default function AuthGate({ children }) {
 
   if (loading || !user) {
     return <LoadingScreen />;
+  }
+
+  if (isPro && !user.isPremium) {
+    return <ProLockScreen />;
   }
 
   return children;

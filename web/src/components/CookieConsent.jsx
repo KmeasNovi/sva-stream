@@ -37,7 +37,7 @@ export default function CookieConsent() {
         <button
           type="button"
           onClick={accept}
-          className="flex-none bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all whitespace-nowrap"
+          className="flex-none bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all whitespace-nowrap"
         >
           Entendi
         </button>

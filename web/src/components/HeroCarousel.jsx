@@ -85,7 +85,7 @@ export default function HeroCarousel({ movies }) {
           <div className="flex flex-wrap gap-4">
             <a
               href={`/movie/${highlight.slug}`}
-              className="flex items-center gap-2 bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:scale-105 transition-all duration-300"
+              className="flex items-center gap-2 bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:bg-primary-fixed hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] hover:scale-105 transition-all duration-300"
             >
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
                 play_arrow

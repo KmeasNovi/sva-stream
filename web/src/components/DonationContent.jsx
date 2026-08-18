@@ -32,7 +32,7 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
             href={VAKINHA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+            className="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
           >
             <span className="material-symbols-outlined">volunteer_activism</span>
             Fazer uma doação

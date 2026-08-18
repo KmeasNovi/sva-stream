@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
         {error ? <p className="text-error font-body text-body-md">{error}</p> : null}
         <button
           type="submit"
-          className="w-full bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+          className="w-full bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
         >
           Entrar
         </button>

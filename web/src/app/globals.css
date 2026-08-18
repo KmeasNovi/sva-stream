@@ -2,9 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cores da família "primary" como variáveis (RGB space-separated, pro
+   Tailwind rgb(var(--x) / <alpha-value>)) — só essa família muda entre
+   SepiaStream (roxo) e SepiaStream Pro (azul, ver [data-variant="pro"]
+   abaixo). "secondary" (verde) é igual nos dois, então fica direto no
+   tailwind.config.js sem precisar de variável. */
+:root {
+  --color-primary: 221 183 255;
+  --color-on-primary: 73 0 128;
+  --color-primary-container: 183 109 255;
+  --color-on-primary-container: 64 0 113;
+  --color-primary-fixed: 240 219 255;
+  --color-primary-fixed-dim: 221 183 255;
+  --color-on-primary-fixed: 44 0 81;
+  --color-on-primary-fixed-variant: 105 0 179;
+  --color-inverse-primary: 132 43 210;
+  --color-surface-tint: 221 183 255;
+  --glow-primary: 168 85 247;
+}
+
+[data-variant='pro'] {
+  --color-primary: 184 211 255;
+  --color-on-primary: 0 49 128;
+  --color-primary-container: 107 164 255;
+  --color-on-primary-container: 0 43 112;
+  --color-primary-fixed: 219 233 255;
+  --color-primary-fixed-dim: 184 211 255;
+  --color-on-primary-fixed: 0 31 82;
+  --color-on-primary-fixed-variant: 0 68 179;
+  --color-inverse-primary: 43 108 212;
+  --color-surface-tint: 184 211 255;
+  --glow-primary: 85 147 247;
+}
+
 body {
   background-color: #091421;
   color: #d9e3f6;
+}
+
+[data-variant='pro'] .sepia-brand::after {
+  content: ' Pro';
 }
 
 .material-symbols-outlined {
@@ -31,13 +68,13 @@ body {
 }
 
 .neon-glow-primary:hover {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 20px rgb(var(--glow-primary) / 0.4);
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
 
 .glow-hover:hover {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 20px rgb(var(--glow-primary) / 0.4);
   transform: scale(1.02);
 }
 

@@ -63,7 +63,7 @@ export default function SubscribeCard() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all disabled:opacity-60"
+            className="w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all disabled:opacity-60"
           >
             {submitting ? 'Preparando...' : `Assinar por ${PREMIUM_PRICE_LABEL}`}
           </button>
@@ -77,7 +77,7 @@ export default function SubscribeCard() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/entrar?next=/doacao"
-              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
             >
               Entrar
             </Link>
