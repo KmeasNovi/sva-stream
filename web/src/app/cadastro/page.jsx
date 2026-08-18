@@ -54,7 +54,7 @@ export default function CadastroPage() {
 
   if (success) {
     return (
-      <div className="container mx-auto px-container-margin py-16 max-w-md">
+      <div className="container mx-auto px-container-margin py-16 max-w-md min-h-[calc(100vh-72px)] flex flex-col justify-center">
         <div className="glass-panel rounded-2xl p-8 space-y-4 text-center">
           <span className="material-symbols-outlined text-secondary text-5xl">mark_email_read</span>
           <h1 className="font-display text-headline-md text-on-background">Quase lá!</h1>
@@ -71,7 +71,7 @@ export default function CadastroPage() {
   }
 
   return (
-    <div className="container mx-auto px-container-margin py-16 max-w-md">
+    <div className="container mx-auto px-container-margin py-16 max-w-md min-h-[calc(100vh-72px)] flex flex-col justify-center">
       <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-8 space-y-4">
         <h1 className="font-display text-headline-md text-on-background mb-2">Criar conta</h1>
         <input

@@ -38,7 +38,7 @@ function VerifyEmailContent() {
   }, [token]);
 
   return (
-    <div className="container mx-auto px-container-margin py-16 max-w-md">
+    <div className="container mx-auto px-container-margin py-16 max-w-md min-h-[calc(100vh-72px)] flex flex-col justify-center">
       <div className="glass-panel rounded-2xl p-8 space-y-4 text-center">
         {status === 'loading' ? (
           <p className="font-body text-body-md text-on-surface-variant">Confirmando seu email...</p>
