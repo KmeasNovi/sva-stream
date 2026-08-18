@@ -272,7 +272,9 @@ export default function AdminDashboardPage() {
       <AdminNav />
       <h1 className="font-display text-headline-lg text-on-background">Catálogo de filmes</h1>
 
-      <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-8 space-y-4 max-w-2xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      <div className="space-y-6">
+      <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-8 space-y-4">
         <div className="flex items-center justify-between mb-2">
           <h2 className="font-display text-headline-md text-on-background">
             {editingId ? 'Editar filme' : 'Adicionar filme'}
@@ -413,7 +415,7 @@ export default function AdminDashboardPage() {
         </button>
       </form>
 
-      <div className="glass-panel rounded-2xl p-8 max-w-2xl space-y-4">
+      <div className="glass-panel rounded-2xl p-8 space-y-4">
         <button
           type="button"
           onClick={() => setShowBulk((v) => !v)}
@@ -461,6 +463,7 @@ export default function AdminDashboardPage() {
             </button>
           </form>
         ) : null}
+      </div>
       </div>
 
       <div className="space-y-4">
@@ -539,6 +542,7 @@ export default function AdminDashboardPage() {
         </div>
 
         <Pagination page={page} totalPages={totalPages} onChange={goToPage} />
+      </div>
       </div>
     </div>
   );
