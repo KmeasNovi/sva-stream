@@ -25,6 +25,17 @@ const emptyForm = {
 
 const PAGE_SIZE_OPTIONS = [100, 1000, 10000];
 
+const labelClass = 'font-body text-body-sm text-on-surface-variant block mb-1';
+
+function Field({ label, children }) {
+  return (
+    <div>
+      <label className={labelClass}>{label}</label>
+      {children}
+    </div>
+  );
+}
+
 const inputClass =
   'w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary';
 
@@ -211,99 +222,114 @@ export default function AdminDashboardPage() {
             </button>
           ) : null}
         </div>
-        <input
-          placeholder="Título"
-          value={form.title}
-          onChange={(e) => handleChange('title', e.target.value)}
-          required
-          className={inputClass}
-        />
-        <textarea
-          placeholder="Sinopse"
-          value={form.synopsis}
-          onChange={(e) => handleChange('synopsis', e.target.value)}
-          required
-          rows={3}
-          className={inputClass}
-        />
-        <div className="grid grid-cols-2 gap-4">
+        <Field label="Título">
           <input
-            placeholder="Ano"
-            value={form.year}
-            onChange={(e) => handleChange('year', e.target.value)}
-            className={inputClass}
-          />
-          <input
-            placeholder="Duração (min)"
-            value={form.runtimeMinutes}
-            onChange={(e) => handleChange('runtimeMinutes', e.target.value)}
-            className={inputClass}
-          />
-        </div>
-        <input
-          placeholder="Diretor"
-          value={form.director}
-          onChange={(e) => handleChange('director', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="Elenco (separado por vírgula)"
-          value={form.cast}
-          onChange={(e) => handleChange('cast', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="Idioma (ex: pt, en)"
-          value={form.language}
-          onChange={(e) => handleChange('language', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="Gêneros (separados por vírgula)"
-          value={form.genres}
-          onChange={(e) => handleChange('genres', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="URL do pôster"
-          value={form.posterUrl}
-          onChange={(e) => handleChange('posterUrl', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="URL do backdrop"
-          value={form.backdropUrl}
-          onChange={(e) => handleChange('backdropUrl', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="URL do arquivo de vídeo (player nativo)"
-          value={form.videoFileUrl}
-          onChange={(e) => handleChange('videoFileUrl', e.target.value)}
-          className={inputClass}
-        />
-        <input
-          placeholder="URL da legenda .vtt"
-          value={form.subtitleUrl}
-          onChange={(e) => handleChange('subtitleUrl', e.target.value)}
-          className={inputClass}
-        />
-        <div className="grid grid-cols-[auto_1fr] gap-4">
-          <select
-            value={form.sourceProvider}
-            onChange={(e) => handleChange('sourceProvider', e.target.value)}
-            className={inputClass}
-          >
-            <option value="archive">archive.org</option>
-            <option value="youtube">YouTube</option>
-          </select>
-          <input
-            placeholder="ID na fonte (identifier / videoId)"
-            value={form.sourceId}
-            onChange={(e) => handleChange('sourceId', e.target.value)}
+            value={form.title}
+            onChange={(e) => handleChange('title', e.target.value)}
             required
             className={inputClass}
           />
+        </Field>
+        <Field label="Sinopse">
+          <textarea
+            value={form.synopsis}
+            onChange={(e) => handleChange('synopsis', e.target.value)}
+            required
+            rows={3}
+            className={inputClass}
+          />
+        </Field>
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="Ano">
+            <input
+              value={form.year}
+              onChange={(e) => handleChange('year', e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Duração (min)">
+            <input
+              value={form.runtimeMinutes}
+              onChange={(e) => handleChange('runtimeMinutes', e.target.value)}
+              className={inputClass}
+            />
+          </Field>
+        </div>
+        <Field label="Diretor">
+          <input
+            value={form.director}
+            onChange={(e) => handleChange('director', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="Elenco (separado por vírgula)">
+          <input
+            value={form.cast}
+            onChange={(e) => handleChange('cast', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="Idioma (ex: pt, en)">
+          <input
+            value={form.language}
+            onChange={(e) => handleChange('language', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="Gêneros (separados por vírgula)">
+          <input
+            value={form.genres}
+            onChange={(e) => handleChange('genres', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="URL do pôster">
+          <input
+            value={form.posterUrl}
+            onChange={(e) => handleChange('posterUrl', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="URL do backdrop">
+          <input
+            value={form.backdropUrl}
+            onChange={(e) => handleChange('backdropUrl', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="URL do arquivo de vídeo (player nativo)">
+          <input
+            value={form.videoFileUrl}
+            onChange={(e) => handleChange('videoFileUrl', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <Field label="URL da legenda .vtt">
+          <input
+            value={form.subtitleUrl}
+            onChange={(e) => handleChange('subtitleUrl', e.target.value)}
+            className={inputClass}
+          />
+        </Field>
+        <div className="grid grid-cols-[auto_1fr] gap-4">
+          <Field label="Fonte">
+            <select
+              value={form.sourceProvider}
+              onChange={(e) => handleChange('sourceProvider', e.target.value)}
+              className={inputClass}
+            >
+              <option value="archive">archive.org</option>
+              <option value="youtube">YouTube</option>
+            </select>
+          </Field>
+          <Field label="ID na fonte (identifier / videoId)">
+            <input
+              value={form.sourceId}
+              onChange={(e) => handleChange('sourceId', e.target.value)}
+              required
+              className={inputClass}
+            />
+          </Field>
         </div>
         <label className="flex items-center gap-2 font-body text-body-md text-on-surface-variant">
           <input
