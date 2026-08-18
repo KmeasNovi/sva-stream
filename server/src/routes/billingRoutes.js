@@ -5,6 +5,7 @@ const { requireUser } = require('../middleware/auth');
 const router = express.Router();
 
 router.post('/subscribe', requireUser, billingController.subscribe);
+router.post('/cancel', requireUser, billingController.cancel);
 // Sem requireUser — quem chama é o Asaas, autenticado pelo token de webhook (ver controller).
 router.post('/webhook', billingController.webhook);
 

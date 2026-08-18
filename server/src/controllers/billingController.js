@@ -75,6 +75,32 @@ exports.subscribe = catchAsync(async (req, res, next) => {
   res.status(201).json({ success: true, data: { invoiceUrl } });
 });
 
+// Cancela a renovação — a assinatura é removida no Asaas (nenhuma cobrança
+// nova é gerada), mas o acesso Premium continua até currentPeriodEnd, já que
+// esse período já foi pago. isPremiumActive() já checa essa data sozinho,
+// então não precisa de nenhum job/cron pra "desligar" o acesso depois.
+exports.cancel = catchAsync(async (req, res, next) => {
+  if (!isAsaasConfigured()) {
+    return next(new AppError('Assinaturas ainda não estão disponíveis.', 503));
+  }
+
+  const subscriptionId = req.user.subscription?.providerSubscriptionId;
+  if (!subscriptionId) {
+    return next(new AppError('Você não tem uma assinatura pra cancelar', 400));
+  }
+
+  if (req.user.subscription.cancelAtPeriodEnd) {
+    return next(new AppError('Sua assinatura já está marcada pra não renovar', 400));
+  }
+
+  await asaasRequest('DELETE', `/subscriptions/${subscriptionId}`);
+
+  req.user.subscription.cancelAtPeriodEnd = true;
+  await req.user.save();
+
+  res.json({ success: true, data: { currentPeriodEnd: req.user.subscription.currentPeriodEnd } });
+});
+
 // Webhook do Asaas — notifica mudanças de status de cobrança. Validado por um
 // token compartilhado configurado em Asaas > Integrações > Webhooks, enviado
 // de volta no header `asaas-access-token` a cada notificação recebida.

@@ -6,6 +6,12 @@ import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
 
 const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
+const SUPPORT_EMAIL = 'contato@sepiastream.com';
+
+function formatDate(value) {
+  if (!value) return null;
+  return new Date(value).toLocaleDateString('pt-BR');
+}
 
 export default function SubscribeCard() {
   const { user, token, loading, refreshUser } = useUser();
@@ -36,6 +42,26 @@ export default function SubscribeCard() {
     }
   }
 
+  async function handleCancel() {
+    if (!window.confirm('Cancelar a renovação da sua assinatura? Você continua com acesso Premium até o fim do período já pago.')) {
+      return;
+    }
+
+    setError('');
+    setNotice('');
+    setSubmitting(true);
+
+    try {
+      await api.cancelPremium(token);
+      setNotice('Renovação cancelada. Seu acesso Premium continua ativo até o fim do período já pago.');
+      refreshUser();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 h-full space-y-5 sm:space-y-6">
       <div className="text-center space-y-2">
@@ -47,9 +73,48 @@ export default function SubscribeCard() {
       </div>
 
       {user?.isPremium ? (
-        <p className="text-center font-body text-label-bold text-primary">
-          Você já é assinante Premium. Obrigado por apoiar o SepiaStream! 🎉
-        </p>
+        <div className="space-y-4">
+          <p className="text-center font-body text-label-bold text-primary">
+            Você já é assinante Premium. Obrigado por apoiar o SepiaStream! 🎉
+          </p>
+
+          <div className="glass-panel rounded-xl p-4 space-y-3">
+            <div className="flex items-center justify-between gap-3">
+              <span className="font-body text-body-sm text-on-surface-variant">Validade do plano</span>
+              <span className="font-body text-label-bold text-on-background text-right">
+                {formatDate(user.subscription?.currentPeriodEnd) || 'Sem data de expiração'}
+              </span>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="font-body text-body-sm text-on-surface-variant">Renovação</span>
+              <span className="font-body text-label-bold text-on-background text-right">
+                {user.subscription?.cancelAtPeriodEnd ? 'Não renova' : 'Automática'}
+              </span>
+            </div>
+          </div>
+
+          {error ? <p className="text-error font-body text-body-sm text-center">{error}</p> : null}
+          {notice ? <p className="text-primary font-body text-body-sm text-center">{notice}</p> : null}
+
+          {!user.subscription?.cancelAtPeriodEnd ? (
+            <button
+              type="button"
+              onClick={handleCancel}
+              disabled={submitting}
+              className="w-full border border-error/30 text-error font-body text-label-bold px-6 py-3 rounded-lg hover:bg-error/10 transition-colors disabled:opacity-60"
+            >
+              Cancelar assinatura
+            </button>
+          ) : null}
+
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="flex items-center justify-center gap-2 font-body text-body-sm text-on-surface-variant hover:text-primary transition-colors"
+          >
+            <span className="material-symbols-outlined text-base">support_agent</span>
+            Fale com o suporte: {SUPPORT_EMAIL}
+          </a>
+        </div>
       ) : user ? (
         <form onSubmit={handleSubmit} className="space-y-4">
           <input

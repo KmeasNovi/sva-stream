@@ -264,6 +264,13 @@ exports.getMe = catchAsync(async (req, res) => {
       email: user.email,
       favorites: user.favorites,
       isPremium: user.isPremiumActive(),
+      // Só o suficiente pra tela "Assine o Premium" mostrar validade/cancelamento
+      // — nunca os IDs do provedor (providerCustomerId/providerSubscriptionId).
+      subscription: {
+        status: user.subscription?.status || 'none',
+        currentPeriodEnd: user.subscription?.currentPeriodEnd || null,
+        cancelAtPeriodEnd: Boolean(user.subscription?.cancelAtPeriodEnd),
+      },
     },
   });
 });

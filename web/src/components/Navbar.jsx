@@ -146,7 +146,7 @@ export default function Navbar() {
             className="flex items-center gap-1 font-body text-label-bold text-secondary hover:text-primary transition-colors whitespace-nowrap"
           >
             <span className="material-symbols-outlined text-lg">volunteer_activism</span>
-            <span className="hidden sm:inline">Apoie</span>
+            <span className="hidden sm:inline">Plano</span>
           </Link>
           <AccountControl />
         </div>
