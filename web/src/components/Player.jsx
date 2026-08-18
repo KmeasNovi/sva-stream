@@ -163,6 +163,11 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
   const mediaRef = useRef(null);
   const [showUpNext, setShowUpNext] = useState(false);
   const [showAd, setShowAd] = useState(!!preRollSlotId);
+  // Botão de play grande e centralizado por cima do <video> nativo — some
+  // quando toca, volta a aparecer sempre que pausa (incluindo o estado
+  // inicial, antes do primeiro play), reaproveitando os eventos nativos do
+  // elemento em vez de tentar adivinhar o estado.
+  const [isPaused, setIsPaused] = useState(true);
 
   // Quando o filme tem os dois disponíveis, deixa a pessoa escolher em vez
   // de decidir por ela — `playerChoice` fica null até a escolha, e só então
@@ -254,11 +259,27 @@ export default function Player({ source, title, videoFileUrl, subtitleUrl, poste
           controls
           poster={posterUrl ? proxiedImage(posterUrl, 1280) : undefined}
           onEnded={() => setShowUpNext(true)}
+          onPlay={() => setIsPaused(false)}
+          onPause={() => setIsPaused(true)}
           className="absolute inset-0 w-full h-full"
         >
           <source src={videoFileUrl} type="video/mp4" />
           {subtitleUrl ? <track kind="subtitles" src={subtitleUrl} srcLang="pt-BR" label="Português" default /> : null}
         </video>
+        {isPaused ? (
+          <button
+            type="button"
+            onClick={() => mediaRef.current?.play()}
+            aria-label="Assistir"
+            className="absolute inset-0 z-10 flex items-center justify-center group"
+          >
+            <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 group-hover:bg-primary group-hover:scale-110 transition-all flex items-center justify-center shadow-2xl">
+              <span className="material-symbols-outlined text-on-primary text-4xl sm:text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>
+                play_arrow
+              </span>
+            </span>
+          </button>
+        ) : null}
         {showAd ? <PreRollAd slotId={preRollSlotId} onSkip={() => setShowAd(false)} /> : null}
         {showUpNext ? <UpNextOverlay movies={relatedMovies} onClose={() => setShowUpNext(false)} /> : null}
       </div>
