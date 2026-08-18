@@ -424,8 +424,19 @@ exports.adminBulkCreateUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+const SUBSCRIPTION_STATUSES = ['none', 'pending', 'active', 'canceled', 'past_due'];
+
 exports.adminUpdateUser = catchAsync(async (req, res, next) => {
-  const { name, email, password, emailVerified, isPremium } = req.body;
+  const {
+    name,
+    email,
+    password,
+    emailVerified,
+    isPremium,
+    subscriptionStatus,
+    subscriptionCurrentPeriodEnd,
+    subscriptionProvider,
+  } = req.body;
   const update = {};
 
   if (name !== undefined) {
@@ -441,14 +452,26 @@ exports.adminUpdateUser = catchAsync(async (req, res, next) => {
     if (password.length < 8) return next(new AppError('A senha precisa ter pelo menos 8 caracteres', 400));
     update.passwordHash = await User.hashPassword(password);
   }
-  // Outorga manual — só existe pra liberar/revogar acesso enquanto não há
-  // gateway de pagamento configurado (ex: teste, cortesia). Uma vez que o
-  // checkout de verdade existir, o status passa a vir do webhook do
-  // provedor, não mais daqui.
+  // Outorga manual (via tabela) — atalho pra liberar/revogar acesso rápido,
+  // sem precisar preencher os campos individuais abaixo.
   if (isPremium !== undefined) {
     update['subscription.status'] = isPremium ? 'active' : 'none';
     update['subscription.provider'] = isPremium ? 'manual' : null;
     update['subscription.currentPeriodEnd'] = null;
+  }
+  // Edição granular (via linha em modo de edição) — mexe só nos campos da
+  // assinatura enviados, sem resetar os outros como o atalho acima faz.
+  if (subscriptionStatus !== undefined) {
+    if (!SUBSCRIPTION_STATUSES.includes(subscriptionStatus)) {
+      return next(new AppError('Status de assinatura inválido', 400));
+    }
+    update['subscription.status'] = subscriptionStatus;
+  }
+  if (subscriptionCurrentPeriodEnd !== undefined) {
+    update['subscription.currentPeriodEnd'] = subscriptionCurrentPeriodEnd ? new Date(subscriptionCurrentPeriodEnd) : null;
+  }
+  if (subscriptionProvider !== undefined) {
+    update['subscription.provider'] = subscriptionProvider || null;
   }
 
   const user = await User.findByIdAndUpdate(req.params.id, update, {

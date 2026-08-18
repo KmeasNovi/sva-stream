@@ -119,8 +119,13 @@ exports.webhook = catchAsync(async (req, res, next) => {
     if (user) {
       if (event === 'PAYMENT_CONFIRMED' || event === 'PAYMENT_RECEIVED') {
         user.subscription.status = 'active';
-        // Acesso vale até o vencimento da próxima cobrança da assinatura.
-        user.subscription.currentPeriodEnd = new Date(payment.nextDueDate || payment.dueDate);
+        // O objeto payment do Asaas não tem um campo "próximo vencimento" —
+        // como toda assinatura aqui é sempre mensal (cycle: 'MONTHLY' em
+        // exports.subscribe), a validade é o vencimento desta cobrança + 1
+        // mês, replicando o próprio agendamento que o Asaas usa internamente.
+        const periodEnd = new Date(payment.dueDate);
+        periodEnd.setMonth(periodEnd.getMonth() + 1);
+        user.subscription.currentPeriodEnd = periodEnd;
       } else if (event === 'PAYMENT_OVERDUE') {
         user.subscription.status = 'past_due';
       } else if (event === 'SUBSCRIPTION_DELETED' || event === 'PAYMENT_DELETED') {

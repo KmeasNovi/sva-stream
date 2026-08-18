@@ -1,14 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { api } from '../../../../lib/api';
 import AdminNav from '../../AdminNav';
 import useAdminToken from '../../useAdminToken';
 
 const emptyForm = { name: '', email: '', password: '' };
+const emptyEditForm = { name: '', email: '', password: '', status: 'none', currentPeriodEnd: '', provider: '' };
 
 const inputClass =
   'w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary';
+
+const smallInputClass =
+  'w-full bg-[#111111] border border-white/10 rounded-lg px-3 py-2 text-on-background font-body text-body-sm focus:outline-none focus:ring-1 focus:ring-primary';
+
+const SUBSCRIPTION_STATUSES = ['none', 'pending', 'active', 'canceled', 'past_due'];
 
 const BULK_PLACEHOLDER = `[
   { "name": "Fulano de Tal", "email": "fulano@example.com" },
@@ -19,7 +25,6 @@ export default function AdminUsersPage() {
   const token = useAdminToken();
   const [users, setUsers] = useState([]);
   const [form, setForm] = useState(emptyForm);
-  const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [search, setSearch] = useState('');
@@ -28,12 +33,25 @@ export default function AdminUsersPage() {
   const [bulkError, setBulkError] = useState('');
   const [showBulk, setShowBulk] = useState(false);
 
+  // Edição inline (por linha) — separada do formulário do topo, que agora
+  // só cria usuário novo.
+  const [editingRowId, setEditingRowId] = useState(null);
+  const [editForm, setEditForm] = useState(emptyEditForm);
+  const [rowError, setRowError] = useState('');
+  const [rowSaving, setRowSaving] = useState(false);
+
+  // Seleção múltipla — pra aplicar Premium em lote sem precisar editar
+  // usuário por usuário.
+  const [selectedIds, setSelectedIds] = useState(new Set());
+  const [bulkActionBusy, setBulkActionBusy] = useState(false);
+
   async function loadUsers(searchTerm) {
     const { data } = await api.adminListUsers(
       searchTerm ? { search: searchTerm, limit: 200 } : { limit: 100 },
       token
     );
     setUsers(data);
+    setSelectedIds(new Set());
   }
 
   useEffect(() => {
@@ -45,41 +63,20 @@ export default function AdminUsersPage() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function startEdit(user) {
-    setEditingId(user._id);
-    setForm({ name: user.name || '', email: user.email || '', password: '' });
-    setError('');
-    setNotice('');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function cancelEdit() {
-    setEditingId(null);
-    setForm(emptyForm);
-    setError('');
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
     setNotice('');
 
     try {
-      if (editingId) {
-        const payload = { name: form.name, email: form.email };
-        if (form.password) payload.password = form.password;
-        await api.adminUpdateUser(editingId, payload, token);
-        cancelEdit();
-      } else {
-        const { data } = await api.adminCreateUser(
-          { name: form.name, email: form.email, password: form.password || undefined },
-          token
-        );
-        if (data.generatedPassword) {
-          setNotice(`Usuário criado. Senha gerada: ${data.generatedPassword} (só aparece uma vez — copie agora)`);
-        }
-        setForm(emptyForm);
+      const { data } = await api.adminCreateUser(
+        { name: form.name, email: form.email, password: form.password || undefined },
+        token
+      );
+      if (data.generatedPassword) {
+        setNotice(`Usuário criado. Senha gerada: ${data.generatedPassword} (só aparece uma vez — copie agora)`);
       }
+      setForm(emptyForm);
       loadUsers(search);
     } catch (err) {
       setError(err.message);
@@ -89,15 +86,7 @@ export default function AdminUsersPage() {
   async function handleDelete(id) {
     if (!confirm('Remover este usuário? Essa ação não pode ser desfeita.')) return;
     await api.adminDeleteUser(id, token);
-    if (editingId === id) cancelEdit();
-    loadUsers(search);
-  }
-
-  // Outorga manual do plano Premium (remove anúncios) — só existe enquanto
-  // não há gateway de pagamento configurado. Uma vez integrado, o status
-  // passa a vir do webhook do provedor, e isso vira só leitura ou some.
-  async function togglePremium(user) {
-    await api.adminUpdateUser(user._id, { isPremium: user.subscription?.status !== 'active' }, token);
+    if (editingRowId === id) setEditingRowId(null);
     loadUsers(search);
   }
 
@@ -129,6 +118,78 @@ export default function AdminUsersPage() {
     }
   }
 
+  function startRowEdit(user) {
+    setEditingRowId(user._id);
+    setEditForm({
+      name: user.name || '',
+      email: user.email || '',
+      password: '',
+      status: user.subscription?.status || 'none',
+      currentPeriodEnd: user.subscription?.currentPeriodEnd ? user.subscription.currentPeriodEnd.slice(0, 10) : '',
+      provider: user.subscription?.provider || '',
+    });
+    setRowError('');
+  }
+
+  function cancelRowEdit() {
+    setEditingRowId(null);
+    setEditForm(emptyEditForm);
+    setRowError('');
+  }
+
+  function handleEditChange(field, value) {
+    setEditForm((prev) => ({ ...prev, [field]: value }));
+  }
+
+  async function saveRowEdit(id) {
+    setRowError('');
+    setRowSaving(true);
+
+    try {
+      const payload = {
+        name: editForm.name,
+        email: editForm.email,
+        subscriptionStatus: editForm.status,
+        subscriptionCurrentPeriodEnd: editForm.currentPeriodEnd || null,
+        subscriptionProvider: editForm.provider || null,
+      };
+      if (editForm.password) payload.password = editForm.password;
+
+      await api.adminUpdateUser(id, payload, token);
+      cancelRowEdit();
+      loadUsers(search);
+    } catch (err) {
+      setRowError(err.message);
+    } finally {
+      setRowSaving(false);
+    }
+  }
+
+  function toggleSelect(id) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function toggleSelectAll() {
+    setSelectedIds((prev) => (prev.size === users.length ? new Set() : new Set(users.map((u) => u._id))));
+  }
+
+  // Mesmo atalho de outorga manual do botão único de antes, só que aplicado
+  // a todos os usuários selecionados de uma vez.
+  async function applyBulkPremium(isPremium) {
+    setBulkActionBusy(true);
+    try {
+      await Promise.all([...selectedIds].map((id) => api.adminUpdateUser(id, { isPremium }, token)));
+      loadUsers(search);
+    } finally {
+      setBulkActionBusy(false);
+    }
+  }
+
   if (!token) return null;
 
   return (
@@ -137,20 +198,7 @@ export default function AdminUsersPage() {
       <h1 className="font-display text-headline-lg text-on-background">Usuários</h1>
 
       <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-8 space-y-4 max-w-md">
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="font-display text-headline-md text-on-background">
-            {editingId ? 'Editar usuário' : 'Adicionar usuário'}
-          </h2>
-          {editingId ? (
-            <button
-              type="button"
-              onClick={cancelEdit}
-              className="text-on-surface-variant hover:text-on-background font-body text-label-bold"
-            >
-              Cancelar edição
-            </button>
-          ) : null}
-        </div>
+        <h2 className="font-display text-headline-md text-on-background">Adicionar usuário</h2>
         <input
           placeholder="Nome"
           value={form.name}
@@ -168,7 +216,7 @@ export default function AdminUsersPage() {
         />
         <input
           type="text"
-          placeholder={editingId ? 'Nova senha (deixe em branco pra manter)' : 'Senha (deixe em branco pra gerar uma)'}
+          placeholder="Senha (deixe em branco pra gerar uma)"
           value={form.password}
           onChange={(e) => handleChange('password', e.target.value)}
           className={inputClass}
@@ -179,7 +227,7 @@ export default function AdminUsersPage() {
           type="submit"
           className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
         >
-          {editingId ? 'Salvar alterações' : 'Salvar'}
+          Salvar
         </button>
       </form>
 
@@ -265,10 +313,49 @@ export default function AdminUsersPage() {
           ({users.length})
         </p>
 
+        {selectedIds.size > 0 ? (
+          <div className="glass-panel rounded-xl p-4 flex flex-wrap items-center gap-3">
+            <span className="font-body text-body-sm text-on-surface-variant">
+              {selectedIds.size} selecionado{selectedIds.size > 1 ? 's' : ''}
+            </span>
+            <button
+              type="button"
+              disabled={bulkActionBusy}
+              onClick={() => applyBulkPremium(true)}
+              className="px-3 py-1.5 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-colors font-body text-label-bold text-xs disabled:opacity-50"
+            >
+              Marcar Premium em lote
+            </button>
+            <button
+              type="button"
+              disabled={bulkActionBusy}
+              onClick={() => applyBulkPremium(false)}
+              className="px-3 py-1.5 rounded-lg bg-white/5 text-on-surface-variant border border-white/10 hover:bg-white/10 transition-colors font-body text-label-bold text-xs disabled:opacity-50"
+            >
+              Remover Premium em lote
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedIds(new Set())}
+              className="font-body text-label-bold text-xs text-on-surface-variant hover:text-on-background ml-auto"
+            >
+              Limpar seleção
+            </button>
+          </div>
+        ) : null}
+
         <div className="glass-panel rounded-2xl overflow-x-auto">
-          <table className="w-full min-w-[640px]">
+          <table className="w-full min-w-[760px]">
             <thead>
               <tr className="text-left font-body text-label-bold text-on-surface-variant border-b border-white/10">
+                <th className="p-4 w-10">
+                  <input
+                    type="checkbox"
+                    checked={users.length > 0 && selectedIds.size === users.length}
+                    onChange={toggleSelectAll}
+                    className="accent-primary"
+                  />
+                </th>
                 <th className="p-4">Nome</th>
                 <th className="p-4">Email</th>
                 <th className="p-4">Verificado</th>
@@ -278,40 +365,152 @@ export default function AdminUsersPage() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr key={user._id} className="border-b border-white/5 font-body text-body-md text-on-background">
-                  <td className="p-4 max-w-[200px] truncate">{user.name}</td>
-                  <td className="p-4 max-w-[240px] truncate text-on-surface-variant">{user.email}</td>
-                  <td className="p-4">{user.emailVerified ? 'Sim' : 'Não'}</td>
-                  <td className="p-4">
-                    <button
-                      onClick={() => togglePremium(user)}
-                      className={`px-3 py-1 rounded-full font-body text-label-bold text-xs transition-colors ${
-                        user.subscription?.status === 'active'
-                          ? 'bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30'
-                          : 'bg-white/5 text-on-surface-variant border border-white/10 hover:bg-white/10'
-                      }`}
-                    >
-                      {user.subscription?.status === 'active' ? 'Sim' : 'Não'}
-                    </button>
-                  </td>
-                  <td className="p-4">{user.favorites?.length || 0}</td>
-                  <td className="p-4 flex gap-2 justify-end">
-                    <button
-                      onClick={() => startEdit(user)}
-                      className="px-3 py-1 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold whitespace-nowrap"
-                    >
-                      Editar
-                    </button>
-                    <button
-                      onClick={() => handleDelete(user._id)}
-                      className="px-3 py-1 rounded-lg border border-error/30 text-error hover:bg-error/10 transition-colors font-body text-label-bold whitespace-nowrap"
-                    >
-                      Remover
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {users.map((user) => {
+                const isEditing = editingRowId === user._id;
+                return (
+                  <Fragment key={user._id}>
+                    <tr className="border-b border-white/5 font-body text-body-md text-on-background">
+                      <td className="p-4">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.has(user._id)}
+                          onChange={() => toggleSelect(user._id)}
+                          className="accent-primary"
+                        />
+                      </td>
+                      <td className="p-4 max-w-[200px]">
+                        {isEditing ? (
+                          <input
+                            value={editForm.name}
+                            onChange={(e) => handleEditChange('name', e.target.value)}
+                            className={smallInputClass}
+                          />
+                        ) : (
+                          <span className="truncate block">{user.name}</span>
+                        )}
+                      </td>
+                      <td className="p-4 max-w-[240px] text-on-surface-variant">
+                        {isEditing ? (
+                          <input
+                            type="email"
+                            value={editForm.email}
+                            onChange={(e) => handleEditChange('email', e.target.value)}
+                            className={smallInputClass}
+                          />
+                        ) : (
+                          <span className="truncate block">{user.email}</span>
+                        )}
+                      </td>
+                      <td className="p-4">{user.emailVerified ? 'Sim' : 'Não'}</td>
+                      <td className="p-4">
+                        <span
+                          className={`px-3 py-1 rounded-full font-body text-label-bold text-xs ${
+                            user.subscription?.status === 'active'
+                              ? 'bg-primary/20 text-primary border border-primary/30'
+                              : 'bg-white/5 text-on-surface-variant border border-white/10'
+                          }`}
+                        >
+                          {user.subscription?.status || 'none'}
+                        </span>
+                      </td>
+                      <td className="p-4">{user.favorites?.length || 0}</td>
+                      <td className="p-4">
+                        <div className="flex gap-2 justify-end">
+                          {isEditing ? (
+                            <>
+                              <button
+                                onClick={() => saveRowEdit(user._id)}
+                                disabled={rowSaving}
+                                className="px-3 py-1 rounded-lg bg-primary text-on-primary hover:shadow-[0_0_15px_rgba(var(--glow-primary),0.4)] transition-all font-body text-label-bold whitespace-nowrap disabled:opacity-60"
+                              >
+                                Salvar
+                              </button>
+                              <button
+                                onClick={cancelRowEdit}
+                                className="px-3 py-1 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold whitespace-nowrap"
+                              >
+                                Cancelar
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button
+                                onClick={() => startRowEdit(user)}
+                                className="px-3 py-1 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold whitespace-nowrap"
+                              >
+                                Editar
+                              </button>
+                              <button
+                                onClick={() => handleDelete(user._id)}
+                                className="px-3 py-1 rounded-lg border border-error/30 text-error hover:bg-error/10 transition-colors font-body text-label-bold whitespace-nowrap"
+                              >
+                                Remover
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                    {isEditing ? (
+                      <tr className="border-b border-white/10 bg-white/[0.02]">
+                        <td colSpan={7} className="p-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                            <div>
+                              <label className="font-body text-body-sm text-on-surface-variant block mb-1">
+                                Status da assinatura
+                              </label>
+                              <select
+                                value={editForm.status}
+                                onChange={(e) => handleEditChange('status', e.target.value)}
+                                className={smallInputClass}
+                              >
+                                {SUBSCRIPTION_STATUSES.map((s) => (
+                                  <option key={s} value={s}>
+                                    {s}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                            <div>
+                              <label className="font-body text-body-sm text-on-surface-variant block mb-1">
+                                Validade do plano
+                              </label>
+                              <input
+                                type="date"
+                                value={editForm.currentPeriodEnd}
+                                onChange={(e) => handleEditChange('currentPeriodEnd', e.target.value)}
+                                className={smallInputClass}
+                              />
+                            </div>
+                            <div>
+                              <label className="font-body text-body-sm text-on-surface-variant block mb-1">Provedor</label>
+                              <input
+                                placeholder="manual, asaas..."
+                                value={editForm.provider}
+                                onChange={(e) => handleEditChange('provider', e.target.value)}
+                                className={smallInputClass}
+                              />
+                            </div>
+                            <div>
+                              <label className="font-body text-body-sm text-on-surface-variant block mb-1">
+                                Nova senha
+                              </label>
+                              <input
+                                type="text"
+                                placeholder="deixe em branco pra manter"
+                                value={editForm.password}
+                                onChange={(e) => handleEditChange('password', e.target.value)}
+                                className={smallInputClass}
+                              />
+                            </div>
+                          </div>
+                          {rowError ? <p className="text-error font-body text-body-sm mt-3">{rowError}</p> : null}
+                        </td>
+                      </tr>
+                    ) : null}
+                  </Fragment>
+                );
+              })}
             </tbody>
           </table>
         </div>
