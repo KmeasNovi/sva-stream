@@ -2,9 +2,9 @@
 
 import { useLayoutEffect, useState } from 'react';
 
-// Selo "PRO" ao lado da marca no Navbar, só em pro.sepiastream.com. Mesmo
-// padrão de detecção de host client-side do AuthGate.jsx (evita forçar SSR
-// dinâmico em todo o site — ver comentário lá).
+// "Pro" estilizado (gradiente + coroa) ao lado da marca no Navbar, só em
+// pro.sepiastream.com. Mesmo padrão de detecção de host client-side do
+// AuthGate.jsx (evita forçar SSR dinâmico em todo o site — ver comentário lá).
 export default function ProBadge() {
   const [isPro, setIsPro] = useState(false);
 
@@ -15,14 +15,13 @@ export default function ProBadge() {
   if (!isPro) return null;
 
   return (
-    <span className="inline-flex items-center gap-1 ml-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-primary/25 to-primary-container/25 border border-primary/50 shadow-[0_0_12px_rgba(var(--glow-primary),0.35)] align-middle">
-      <span
-        className="material-symbols-outlined text-primary text-[13px] leading-none"
-        style={{ fontVariationSettings: "'FILL' 1" }}
-      >
-        workspace_premium
+    <span className="relative inline-flex ml-1.5 align-baseline">
+      <span className="bg-gradient-to-r from-[rgb(var(--color-primary))] to-[#ffd54f] bg-clip-text text-transparent font-display font-extrabold italic">
+        Pro
       </span>
-      <span className="font-display text-[11px] font-extrabold tracking-wider text-primary leading-none">PRO</span>
+      <span className="absolute -top-2.5 -right-3 text-xs rotate-12 select-none" aria-hidden="true">
+        👑
+      </span>
     </span>
   );
 }
