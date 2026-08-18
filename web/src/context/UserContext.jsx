@@ -42,8 +42,11 @@ export function UserProvider({ children }) {
     localStorage.setItem(TOKEN_KEY, data.token);
     sessionStorage.setItem(JUST_LOGGED_IN_KEY, '1');
     setToken(data.token);
-    setUser(data.user);
-    return data.user;
+    // O login não devolve isPremium/subscription (só getMe faz esse cálculo)
+    // — busca o usuário completo em vez de confiar no payload do login, senão
+    // quem acabou de entrar aparece como não-Premium até recarregar a página
+    // (isso quebrava o gate do Pro logo após "Continuar com o Google").
+    await loadUser(data.token);
   }
 
   async function loginWithGoogle(idToken) {
@@ -51,8 +54,7 @@ export function UserProvider({ children }) {
     localStorage.setItem(TOKEN_KEY, data.token);
     sessionStorage.setItem(JUST_LOGGED_IN_KEY, '1');
     setToken(data.token);
-    setUser(data.user);
-    return data.user;
+    await loadUser(data.token);
   }
 
   function logout() {
