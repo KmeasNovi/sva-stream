@@ -1,0 +1,99 @@
+'use client';
+
+import Link from 'next/link';
+import { useState } from 'react';
+import { useUser } from '../context/UserContext';
+import { api } from '../lib/api';
+
+const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
+
+export default function SubscribeCard() {
+  const { user, token, loading, refreshUser } = useUser();
+  const [cpfCnpj, setCpfCnpj] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
+
+  if (loading) return null;
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError('');
+    setNotice('');
+    setSubmitting(true);
+
+    try {
+      const { data } = await api.subscribePremium({ cpfCnpj }, token);
+      if (data.invoiceUrl) {
+        window.location.href = data.invoiceUrl;
+        return;
+      }
+      setNotice('Assinatura criada! Estamos gerando sua cobrança — confira seu email em instantes.');
+      refreshUser();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 max-w-md mx-auto space-y-5 sm:space-y-6">
+      <div className="text-center space-y-2">
+        <span className="material-symbols-outlined text-primary text-4xl sm:text-5xl inline-block">workspace_premium</span>
+        <h2 className="font-display text-headline-sm sm:text-headline-md text-on-background">Assine o Premium</h2>
+        <p className="font-body text-body-md text-on-surface-variant">
+          Por {PREMIUM_PRICE_LABEL}, sem anúncios em todo o site.
+        </p>
+      </div>
+
+      {user?.isPremium ? (
+        <p className="text-center font-body text-label-bold text-primary">
+          Você já é assinante Premium. Obrigado por apoiar o SepiaStream! 🎉
+        </p>
+      ) : user ? (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            inputMode="numeric"
+            placeholder="CPF ou CNPJ"
+            value={cpfCnpj}
+            onChange={(e) => setCpfCnpj(e.target.value)}
+            required
+            className="w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary"
+          />
+          {error ? <p className="text-error font-body text-body-sm">{error}</p> : null}
+          {notice ? <p className="text-primary font-body text-body-sm">{notice}</p> : null}
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all disabled:opacity-60"
+          >
+            {submitting ? 'Preparando...' : `Assinar por ${PREMIUM_PRICE_LABEL}`}
+          </button>
+          <p className="font-body text-body-sm text-on-surface-variant text-center">
+            Pagamento recorrente processado com segurança pelo Asaas.
+          </p>
+        </form>
+      ) : (
+        <div className="text-center space-y-4">
+          <p className="font-body text-body-md text-on-surface-variant">Entre na sua conta pra assinar.</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/entrar?next=/doacao"
+              className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+            >
+              Entrar
+            </Link>
+            <Link
+              href="/cadastro"
+              className="border border-primary/30 text-primary font-body text-label-bold px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors"
+            >
+              Criar conta
+            </Link>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

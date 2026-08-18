@@ -23,9 +23,11 @@ const userSchema = new mongoose.Schema(
     // nova. Enquanto não há gateway configurado, status só muda via admin
     // (outorga manual) — não existe checkout ainda.
     subscription: {
+      // 'pending' = assinatura criada no gateway, aguardando confirmação do
+      // primeiro pagamento (webhook ainda não chegou ou fatura ainda não paga).
       status: {
         type: String,
-        enum: ['none', 'active', 'canceled', 'past_due'],
+        enum: ['none', 'pending', 'active', 'canceled', 'past_due'],
         default: 'none',
       },
       provider: { type: String }, // 'stripe' | 'mercadopago' | 'manual' — preenchido quando um gateway for integrado

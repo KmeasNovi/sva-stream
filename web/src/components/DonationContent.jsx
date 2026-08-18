@@ -1,4 +1,5 @@
 import CopyPixKey from './CopyPixKey';
+import SubscribeCard from './SubscribeCard';
 
 const VAKINHA_URL = 'https://www.vakinha.com.br/6263806';
 // Chave PIX da própria Vakinha (não é uma chave pessoal) — o pagamento passa
@@ -42,6 +43,14 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
         </div>
         <CopyPixKey value={VAKINHA_PIX_KEY} />
       </div>
+
+      <div className="flex items-center gap-3 text-on-surface-variant max-w-md mx-auto my-6 sm:my-10">
+        <span className="h-px flex-1 bg-white/10" />
+        <span className="font-body text-body-sm">ou apoie todo mês</span>
+        <span className="h-px flex-1 bg-white/10" />
+      </div>
+
+      <SubscribeCard />
     </div>
   );
 }

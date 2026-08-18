@@ -75,4 +75,7 @@ export const api = {
   adminBulkCreateUsers: (users, token) => request('/users/bulk', { method: 'POST', body: { users }, token }),
   adminUpdateUser: (id, data, token) => request(`/users/${id}`, { method: 'PATCH', body: data, token }),
   adminDeleteUser: (id, token) => request(`/users/${id}`, { method: 'DELETE', token }),
+  // Assinatura do plano Premium (ver server/src/config/plans.js) — devolve
+  // um erro 503 tratável enquanto o Asaas não estiver configurado no backend.
+  subscribePremium: (data, token) => request('/billing/subscribe', { method: 'POST', body: data, token }),
 };
