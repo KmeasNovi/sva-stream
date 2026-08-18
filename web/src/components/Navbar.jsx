@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 import ProBadge from './ProBadge';
 
 const NAV_ITEMS = [
@@ -52,6 +53,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const { user } = useUser();
+  const isPro = useIsPro();
 
   function handleSearchSubmit(e) {
     e.preventDefault();
@@ -146,7 +148,7 @@ export default function Navbar() {
             className="flex items-center gap-1 font-body text-label-bold text-secondary hover:text-primary transition-colors whitespace-nowrap"
           >
             <span className="material-symbols-outlined text-lg">volunteer_activism</span>
-            <span className="hidden sm:inline">Plano</span>
+            <span className="hidden sm:inline">{isPro ? 'Plano' : 'Apoie'}</span>
           </Link>
           <AccountControl />
         </div>

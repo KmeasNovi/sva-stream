@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 import LoadingScreen from './LoadingScreen';
 import ProLockScreen from './ProLockScreen';
 
@@ -30,18 +31,8 @@ export default function AuthGate({ children }) {
 
   // pro.sepiastream.com é o mesmo deploy do site normal, só com acesso
   // fechado pra quem não é assinante Premium (mesmo catálogo, mesmos
-  // recursos, sem anúncios — ver server/src/config/plans.js). O host só é
-  // conhecido no navegador (não no servidor — ver comentário equivalente em
-  // layout.jsx). Começa em `false` (mesmo comportamento de sempre no site
-  // normal, sem flash de "carregando" nas páginas públicas) e usa
-  // useLayoutEffect (roda antes do navegador pintar a tela, ao contrário de
-  // useEffect) pra corrigir pro Pro sem chance de mostrar conteúdo real
-  // antes da correção.
-  const [isPro, setIsPro] = useState(false);
-
-  useLayoutEffect(() => {
-    if (window.location.hostname.startsWith('pro.')) setIsPro(true);
-  }, []);
+  // recursos, sem anúncios — ver server/src/config/plans.js).
+  const isPro = useIsPro();
 
   const isAdminOrAuthExempt = pathname.startsWith('/admin') || AUTH_EXEMPT_PATHS.includes(pathname);
   // No site normal, PUBLIC_PATHS continua liberando navegação sem login. No

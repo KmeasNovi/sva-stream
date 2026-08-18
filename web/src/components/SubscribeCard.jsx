@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 import { api } from '../lib/api';
 
 const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
@@ -15,6 +16,7 @@ function formatDate(value) {
 
 export default function SubscribeCard() {
   const { user, token, loading, refreshUser } = useUser();
+  const isPro = useIsPro();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
@@ -78,42 +80,46 @@ export default function SubscribeCard() {
             Você já é assinante Premium. Obrigado por apoiar o SepiaStream! 🎉
           </p>
 
-          <div className="glass-panel rounded-xl p-4 space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <span className="font-body text-body-sm text-on-surface-variant">Validade do plano</span>
-              <span className="font-body text-label-bold text-on-background text-right">
-                {formatDate(user.subscription?.currentPeriodEnd) || 'Sem data de expiração'}
-              </span>
-            </div>
-            <div className="flex items-center justify-between gap-3">
-              <span className="font-body text-body-sm text-on-surface-variant">Renovação</span>
-              <span className="font-body text-label-bold text-on-background text-right">
-                {user.subscription?.cancelAtPeriodEnd ? 'Não renova' : 'Automática'}
-              </span>
-            </div>
-          </div>
+          {isPro ? (
+            <>
+              <div className="glass-panel rounded-xl p-4 space-y-3">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-body text-body-sm text-on-surface-variant">Validade do plano</span>
+                  <span className="font-body text-label-bold text-on-background text-right">
+                    {formatDate(user.subscription?.currentPeriodEnd) || 'Sem data de expiração'}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-body text-body-sm text-on-surface-variant">Renovação</span>
+                  <span className="font-body text-label-bold text-on-background text-right">
+                    {user.subscription?.cancelAtPeriodEnd ? 'Não renova' : 'Automática'}
+                  </span>
+                </div>
+              </div>
 
-          {error ? <p className="text-error font-body text-body-sm text-center">{error}</p> : null}
-          {notice ? <p className="text-primary font-body text-body-sm text-center">{notice}</p> : null}
+              {error ? <p className="text-error font-body text-body-sm text-center">{error}</p> : null}
+              {notice ? <p className="text-primary font-body text-body-sm text-center">{notice}</p> : null}
 
-          {!user.subscription?.cancelAtPeriodEnd ? (
-            <button
-              type="button"
-              onClick={handleCancel}
-              disabled={submitting}
-              className="w-full border border-error/30 text-error font-body text-label-bold px-6 py-3 rounded-lg hover:bg-error/10 transition-colors disabled:opacity-60"
-            >
-              Cancelar assinatura
-            </button>
+              {!user.subscription?.cancelAtPeriodEnd ? (
+                <button
+                  type="button"
+                  onClick={handleCancel}
+                  disabled={submitting}
+                  className="w-full border border-error/30 text-error font-body text-label-bold px-6 py-3 rounded-lg hover:bg-error/10 transition-colors disabled:opacity-60"
+                >
+                  Cancelar assinatura
+                </button>
+              ) : null}
+
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                className="flex items-center justify-center gap-2 font-body text-body-sm text-on-surface-variant hover:text-primary transition-colors"
+              >
+                <span className="material-symbols-outlined text-base">support_agent</span>
+                Fale com o suporte: {SUPPORT_EMAIL}
+              </a>
+            </>
           ) : null}
-
-          <a
-            href={`mailto:${SUPPORT_EMAIL}`}
-            className="flex items-center justify-center gap-2 font-body text-body-sm text-on-surface-variant hover:text-primary transition-colors"
-          >
-            <span className="material-symbols-outlined text-base">support_agent</span>
-            Fale com o suporte: {SUPPORT_EMAIL}
-          </a>
         </div>
       ) : user ? (
         <form onSubmit={handleSubmit} className="space-y-4">

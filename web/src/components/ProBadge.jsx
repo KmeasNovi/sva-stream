@@ -1,16 +1,11 @@
 'use client';
 
-import { useLayoutEffect, useState } from 'react';
+import useIsPro from '../lib/useIsPro';
 
 // "Pro" estilizado (gradiente + coroa) ao lado da marca no Navbar, só em
-// pro.sepiastream.com. Mesmo padrão de detecção de host client-side do
-// AuthGate.jsx (evita forçar SSR dinâmico em todo o site — ver comentário lá).
+// pro.sepiastream.com.
 export default function ProBadge() {
-  const [isPro, setIsPro] = useState(false);
-
-  useLayoutEffect(() => {
-    if (window.location.hostname.startsWith('pro.')) setIsPro(true);
-  }, []);
+  const isPro = useIsPro();
 
   if (!isPro) return null;
 
