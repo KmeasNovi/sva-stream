@@ -93,6 +93,14 @@ export default function AdminUsersPage() {
     loadUsers(search);
   }
 
+  // Outorga manual do plano Premium (remove anúncios) — só existe enquanto
+  // não há gateway de pagamento configurado. Uma vez integrado, o status
+  // passa a vir do webhook do provedor, e isso vira só leitura ou some.
+  async function togglePremium(user) {
+    await api.adminUpdateUser(user._id, { isPremium: user.subscription?.status !== 'active' }, token);
+    loadUsers(search);
+  }
+
   function handleSearchSubmit(e) {
     e.preventDefault();
     loadUsers(search.trim());
@@ -264,6 +272,7 @@ export default function AdminUsersPage() {
                 <th className="p-4">Nome</th>
                 <th className="p-4">Email</th>
                 <th className="p-4">Verificado</th>
+                <th className="p-4">Premium</th>
                 <th className="p-4">Favoritos</th>
                 <th className="p-4"></th>
               </tr>
@@ -274,6 +283,18 @@ export default function AdminUsersPage() {
                   <td className="p-4 max-w-[200px] truncate">{user.name}</td>
                   <td className="p-4 max-w-[240px] truncate text-on-surface-variant">{user.email}</td>
                   <td className="p-4">{user.emailVerified ? 'Sim' : 'Não'}</td>
+                  <td className="p-4">
+                    <button
+                      onClick={() => togglePremium(user)}
+                      className={`px-3 py-1 rounded-full font-body text-label-bold text-xs transition-colors ${
+                        user.subscription?.status === 'active'
+                          ? 'bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30'
+                          : 'bg-white/5 text-on-surface-variant border border-white/10 hover:bg-white/10'
+                      }`}
+                    >
+                      {user.subscription?.status === 'active' ? 'Sim' : 'Não'}
+                    </button>
+                  </td>
                   <td className="p-4">{user.favorites?.length || 0}</td>
                   <td className="p-4 flex gap-2 justify-end">
                     <button

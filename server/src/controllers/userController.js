@@ -263,6 +263,7 @@ exports.getMe = catchAsync(async (req, res) => {
       name: user.name,
       email: user.email,
       favorites: user.favorites,
+      isPremium: user.isPremiumActive(),
     },
   });
 });
@@ -283,7 +284,7 @@ exports.removeFavorite = catchAsync(async (req, res) => {
 // ---------------------------------------------------------------------------
 
 const ADMIN_SAFE_FIELDS =
-  'name email authProvider emailVerified avatarUrl favorites createdAt updatedAt';
+  'name email authProvider emailVerified avatarUrl favorites subscription createdAt updatedAt';
 
 exports.adminListUsers = catchAsync(async (req, res) => {
   const { search, page = 1, limit = 50 } = req.query;
@@ -417,7 +418,7 @@ exports.adminBulkCreateUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.adminUpdateUser = catchAsync(async (req, res, next) => {
-  const { name, email, password, emailVerified } = req.body;
+  const { name, email, password, emailVerified, isPremium } = req.body;
   const update = {};
 
   if (name !== undefined) {
@@ -432,6 +433,15 @@ exports.adminUpdateUser = catchAsync(async (req, res, next) => {
   if (password) {
     if (password.length < 8) return next(new AppError('A senha precisa ter pelo menos 8 caracteres', 400));
     update.passwordHash = await User.hashPassword(password);
+  }
+  // Outorga manual — só existe pra liberar/revogar acesso enquanto não há
+  // gateway de pagamento configurado (ex: teste, cortesia). Uma vez que o
+  // checkout de verdade existir, o status passa a vir do webhook do
+  // provedor, não mais daqui.
+  if (isPremium !== undefined) {
+    update['subscription.status'] = isPremium ? 'active' : 'none';
+    update['subscription.provider'] = isPremium ? 'manual' : null;
+    update['subscription.currentPeriodEnd'] = null;
   }
 
   const user = await User.findByIdAndUpdate(req.params.id, update, {

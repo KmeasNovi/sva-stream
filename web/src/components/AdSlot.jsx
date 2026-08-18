@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
+import { useUser } from '../context/UserContext';
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
@@ -19,18 +20,22 @@ const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 // AdSlot na mesma página (ver /movie/[slug]) só baixam o arquivo uma vez.
 export default function AdSlot({ slotId, className = '' }) {
   const pushed = useRef(false);
+  // Quem assina o plano Premium (ver server/src/config/plans.js) não vê
+  // anúncio nenhum no site — essa é a única coisa que o plano desbloqueia.
+  const { user } = useUser();
+  const isPremium = Boolean(user?.isPremium);
 
   useEffect(() => {
-    if (!ADSENSE_CLIENT_ID || !slotId || pushed.current) return;
+    if (!ADSENSE_CLIENT_ID || !slotId || isPremium || pushed.current) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
     } catch {
       // se o script do AdSense falhar ao carregar, não quebra a página
     }
-  }, [slotId]);
+  }, [slotId, isPremium]);
 
-  if (!ADSENSE_CLIENT_ID || !slotId) return null;
+  if (!ADSENSE_CLIENT_ID || !slotId || isPremium) return null;
 
   return (
     <>
