@@ -36,6 +36,71 @@ function Field({ label, children }) {
   );
 }
 
+// Números de página com reticências pros extremos (mesmo padrão do Google:
+// sempre mostra a primeira, a última, e uma janela ao redor da atual).
+function getPageNumbers(current, total) {
+  const delta = 2;
+  const pages = [];
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+      pages.push(i);
+    }
+  }
+
+  const withDots = [];
+  let last;
+  for (const p of pages) {
+    if (last !== undefined && p - last > 1) withDots.push('…');
+    withDots.push(p);
+    last = p;
+  }
+  return withDots;
+}
+
+function Pagination({ page, totalPages, onChange }) {
+  if (totalPages <= 1) return null;
+
+  return (
+    <div className="flex items-center justify-center gap-1.5 flex-wrap">
+      <button
+        type="button"
+        onClick={() => onChange(page - 1)}
+        disabled={page <= 1}
+        className="px-3 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        Anterior
+      </button>
+      {getPageNumbers(page, totalPages).map((p, i) =>
+        p === '…' ? (
+          <span key={`dots-${i}`} className="px-1 font-body text-body-sm text-on-surface-variant">
+            …
+          </span>
+        ) : (
+          <button
+            key={p}
+            type="button"
+            onClick={() => onChange(p)}
+            className={`min-w-[36px] h-9 px-2 rounded-lg font-body text-label-bold text-sm transition-colors ${
+              p === page ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:bg-white/10'
+            }`}
+          >
+            {p}
+          </button>
+        )
+      )}
+      <button
+        type="button"
+        onClick={() => onChange(page + 1)}
+        disabled={page >= totalPages}
+        className="px-3 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        Próxima
+      </button>
+    </div>
+  );
+}
+
 const inputClass =
   'w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary';
 
@@ -430,9 +495,10 @@ export default function AdminDashboardPage() {
           </label>
         </div>
         <p className="font-body text-body-sm text-on-surface-variant">
-          {search ? `Resultados para "${search}"` : 'Filmes do catálogo'} — {totalMovies} no total, página {page} de{' '}
-          {totalPages}
+          {search ? `Resultados para "${search}"` : 'Filmes do catálogo'} — {totalMovies} no total
         </p>
+
+        <Pagination page={page} totalPages={totalPages} onChange={goToPage} />
 
         <div className="glass-panel rounded-2xl overflow-x-auto">
           <table className="w-full min-w-[560px]">
@@ -472,29 +538,7 @@ export default function AdminDashboardPage() {
           </table>
         </div>
 
-        {totalPages > 1 ? (
-          <div className="flex items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => goToPage(page - 1)}
-              disabled={page <= 1}
-              className="px-4 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              Anterior
-            </button>
-            <span className="font-body text-body-sm text-on-surface-variant whitespace-nowrap">
-              Página {page} de {totalPages}
-            </span>
-            <button
-              type="button"
-              onClick={() => goToPage(page + 1)}
-              disabled={page >= totalPages}
-              className="px-4 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              Próxima
-            </button>
-          </div>
-        ) : null}
+        <Pagination page={page} totalPages={totalPages} onChange={goToPage} />
       </div>
     </div>
   );
