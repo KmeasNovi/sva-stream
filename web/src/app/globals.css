@@ -40,10 +40,6 @@ body {
   color: #d9e3f6;
 }
 
-[data-variant='pro'] .sepia-brand::after {
-  content: ' Pro';
-}
-
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
