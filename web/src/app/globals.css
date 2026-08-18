@@ -4,9 +4,10 @@
 
 /* Cores da família "primary" como variáveis (RGB space-separated, pro
    Tailwind rgb(var(--x) / <alpha-value>)) — só essa família muda entre
-   SepiaStream (roxo) e SepiaStream Pro (azul, ver [data-variant="pro"]
-   abaixo). "secondary" (verde) é igual nos dois, então fica direto no
-   tailwind.config.js sem precisar de variável. */
+   SepiaStream (roxo), SepiaStream Pro (azul, [data-variant="pro"]) e o
+   admin (vermelho, [data-variant="admin"]). "secondary" (verde) é igual
+   nos três, então fica direto no tailwind.config.js sem precisar de
+   variável. */
 :root {
   --color-primary: 221 183 255;
   --color-on-primary: 73 0 128;
@@ -33,6 +34,20 @@
   --color-inverse-primary: 43 108 212;
   --color-surface-tint: 184 211 255;
   --glow-primary: 85 147 247;
+}
+
+[data-variant='admin'] {
+  --color-primary: 255 188 184;
+  --color-on-primary: 128 8 0;
+  --color-primary-container: 255 117 107;
+  --color-on-primary-container: 112 7 0;
+  --color-primary-fixed: 255 222 219;
+  --color-primary-fixed-dim: 255 188 184;
+  --color-on-primary-fixed: 82 5 0;
+  --color-on-primary-fixed-variant: 179 12 0;
+  --color-inverse-primary: 212 55 43;
+  --color-surface-tint: 255 188 184;
+  --glow-primary: 247 95 85;
 }
 
 body {

@@ -41,6 +41,8 @@ const PRO_THEME_SCRIPT = `
   if (location.hostname.startsWith('pro.')) {
     document.documentElement.setAttribute('data-variant', 'pro');
     document.title = document.title.replace(/^SepiaStream/, 'SepiaStream Pro');
+  } else if (location.hostname.startsWith('admin.')) {
+    document.documentElement.setAttribute('data-variant', 'admin');
   }
 `;
 
