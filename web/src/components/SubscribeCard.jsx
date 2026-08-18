@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useUser } from '../context/UserContext';
 import useIsPro from '../lib/useIsPro';
+import ProWordmark from './ProWordmark';
 import { api } from '../lib/api';
 
 const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
@@ -122,10 +123,9 @@ export default function SubscribeCard() {
           ) : (
             <a
               href="https://pro.sepiastream.com"
-              className="flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
+              className="flex items-center justify-center gap-1.5 w-full bg-[#111111] border border-primary/40 text-on-background font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
             >
-              <span className="material-symbols-outlined">workspace_premium</span>
-              Mudar para o Pro
+              Mudar para o <ProWordmark />
             </a>
           )}
         </div>
