@@ -15,17 +15,19 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
       <HeadingTag className="font-display text-headline-md sm:text-headline-lg text-on-background mb-3 sm:mb-4">
         Apoie o SepiaStream
       </HeadingTag>
-      <p className="font-body text-body-md sm:text-body-lg text-on-surface-variant mb-2 max-w-lg mx-auto">
-        Centenas de clássicos e curtas raros, catalogados, organizados e disponíveis de graça pra qualquer pessoa
-        assistir — sem mensalidade, sem enrolação. Se o SepiaStream te ajudou a redescobrir o cinema, uma doação
-        ajuda a manter esse acesso livre.
+      <p className="font-body text-body-md sm:text-body-lg text-on-surface-variant mb-6 sm:mb-10 max-w-lg mx-auto">
+        Catálogo grátis, mantido por quem quiser apoiar.
       </p>
-      <p className="font-body text-body-md text-on-surface-variant mb-6 sm:mb-10">Qualquer valor é bem-vindo. Obrigado!</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto items-stretch">
         <SubscribeCard />
 
         <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 h-full space-y-5 sm:space-y-6">
+          <div className="text-center space-y-2">
+            <span className="material-symbols-outlined text-secondary text-4xl sm:text-5xl inline-block">favorite</span>
+            <h2 className="font-display text-headline-sm sm:text-headline-md text-on-background">Doação avulsa</h2>
+            <p className="font-body text-body-md text-on-surface-variant">Qualquer valor é bem-vindo, sem compromisso.</p>
+          </div>
           <a
             href={VAKINHA_URL}
             target="_blank"
