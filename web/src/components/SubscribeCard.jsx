@@ -119,7 +119,15 @@ export default function SubscribeCard() {
                 Fale com o suporte: {SUPPORT_EMAIL}
               </a>
             </>
-          ) : null}
+          ) : (
+            <a
+              href="https://pro.sepiastream.com"
+              className="flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
+            >
+              <span className="material-symbols-outlined">workspace_premium</span>
+              Mudar para o Pro
+            </a>
+          )}
         </div>
       ) : user ? (
         <form onSubmit={handleSubmit} className="space-y-4">
