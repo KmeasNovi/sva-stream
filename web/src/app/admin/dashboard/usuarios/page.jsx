@@ -350,7 +350,7 @@ export default function AdminUsersPage() {
         ) : null}
 
         <div className="glass-panel rounded-2xl overflow-x-auto">
-          <table className="w-full min-w-[1400px]">
+          <table className="w-full min-w-[1650px]">
             <thead>
               <tr className="text-left font-body text-label-bold text-on-surface-variant border-b border-white/10">
                 <th className="p-4 w-10">
@@ -365,6 +365,8 @@ export default function AdminUsersPage() {
                 <th className="p-4">Email</th>
                 <th className="p-4">Verificado</th>
                 <th className="p-4">Premium</th>
+                <th className="p-4">Validade do plano</th>
+                <th className="p-4">Provedor</th>
                 <th className="p-4">Cadastro</th>
                 <th className="p-4">Atualizado</th>
                 <th className="p-4">ID cliente Asaas</th>
@@ -422,6 +424,8 @@ export default function AdminUsersPage() {
                           {user.subscription?.status || 'none'}
                         </span>
                       </td>
+                      <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.subscription?.currentPeriodEnd)}</td>
+                      <td className="p-4 text-on-surface-variant whitespace-nowrap">{user.subscription?.provider || '—'}</td>
                       <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.createdAt)}</td>
                       <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.updatedAt)}</td>
                       <td className="p-4 font-mono text-body-sm text-on-surface-variant max-w-[160px] truncate" title={user.subscription?.providerCustomerId || ''}>
@@ -470,7 +474,7 @@ export default function AdminUsersPage() {
                     </tr>
                     {isEditing ? (
                       <tr className="border-b border-white/10 bg-white/[0.02]">
-                        <td colSpan={11} className="p-4">
+                        <td colSpan={13} className="p-4">
                           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                             <div>
                               <label className="font-body text-body-sm text-on-surface-variant block mb-1">
