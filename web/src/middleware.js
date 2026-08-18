@@ -26,7 +26,14 @@ export function middleware(request) {
   const isAdminHost = host.startsWith('admin.');
   const { pathname } = request.nextUrl;
 
+  // Arquivos estáticos (logo, ícones, manifest etc.) nunca podem ser
+  // reescritos — só rotas de página. Sem essa checagem, /logo-icon.png no
+  // subdomínio admin virava /admin/dashboard/logo-icon.png (inexistente).
+  const isStaticAsset = /\.[a-zA-Z0-9]+$/.test(pathname);
+
   if (isAdminHost) {
+    if (isStaticAsset) return NextResponse.next();
+
     const url = request.nextUrl.clone();
     if (!pathname.startsWith('/admin')) {
       url.pathname = ADMIN_SHORT_PATHS[pathname] || `/admin/dashboard${pathname}`;

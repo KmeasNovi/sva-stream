@@ -10,14 +10,20 @@ const emptyForm = {
   synopsis: '',
   year: '',
   director: '',
+  cast: '',
+  language: '',
   genres: '',
   runtimeMinutes: '',
   posterUrl: '',
   backdropUrl: '',
+  videoFileUrl: '',
+  subtitleUrl: '',
   sourceProvider: 'archive',
   sourceId: '',
   featured: false,
 };
+
+const PAGE_SIZE_OPTIONS = [100, 1000, 10000];
 
 const inputClass =
   'w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary';
@@ -39,10 +45,14 @@ function movieToForm(movie) {
     synopsis: movie.synopsis || '',
     year: movie.year || '',
     director: movie.director || '',
+    cast: (movie.cast || []).join(', '),
+    language: movie.language || '',
     genres: (movie.genres || []).join(', '),
     runtimeMinutes: movie.runtimeMinutes || '',
     posterUrl: movie.posterUrl || '',
     backdropUrl: movie.backdropUrl || '',
+    videoFileUrl: movie.videoFileUrl || '',
+    subtitleUrl: movie.subtitleUrl || '',
     sourceProvider: movie.source?.provider || 'archive',
     sourceId: movie.source?.id || '',
     featured: Boolean(movie.featured),
@@ -60,19 +70,37 @@ export default function AdminDashboardPage() {
   const [bulkResult, setBulkResult] = useState(null);
   const [bulkError, setBulkError] = useState('');
   const [showBulk, setShowBulk] = useState(false);
+  const [pageSize, setPageSize] = useState(100);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalMovies, setTotalMovies] = useState(0);
 
-  async function loadMovies(searchTerm) {
-    const { data } = await api.listMovies(
-      searchTerm ? { search: searchTerm, limit: 200 } : { limit: 100 },
+  async function loadMovies(searchTerm = search, pageNum = page, limit = pageSize) {
+    const { data, pagination } = await api.listMovies(
+      { ...(searchTerm ? { search: searchTerm } : {}), page: pageNum, limit },
       token
     );
     setMovies(data);
+    setTotalPages(pagination?.pages || 1);
+    setTotalMovies(pagination?.total || 0);
   }
 
   useEffect(() => {
-    if (token) loadMovies();
+    if (token) loadMovies(search, page, pageSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  function handlePageSizeChange(size) {
+    setPageSize(size);
+    setPage(1);
+    loadMovies(search, 1, size);
+  }
+
+  function goToPage(nextPage) {
+    const clamped = Math.min(Math.max(1, nextPage), totalPages);
+    setPage(clamped);
+    loadMovies(search, clamped, pageSize);
+  }
 
   function handleChange(field, value) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -100,10 +128,14 @@ export default function AdminDashboardPage() {
       synopsis: form.synopsis,
       year: form.year ? Number(form.year) : undefined,
       director: form.director || undefined,
+      cast: form.cast ? form.cast.split(',').map((c) => c.trim()).filter(Boolean) : [],
+      language: form.language || undefined,
       genres: form.genres ? form.genres.split(',').map((g) => g.trim()).filter(Boolean) : [],
       runtimeMinutes: form.runtimeMinutes ? Number(form.runtimeMinutes) : undefined,
       posterUrl: form.posterUrl || undefined,
       backdropUrl: form.backdropUrl || undefined,
+      videoFileUrl: form.videoFileUrl || undefined,
+      subtitleUrl: form.subtitleUrl || undefined,
       source: { provider: form.sourceProvider, id: form.sourceId },
       featured: form.featured,
     };
@@ -130,7 +162,8 @@ export default function AdminDashboardPage() {
 
   function handleSearchSubmit(e) {
     e.preventDefault();
-    loadMovies(search.trim());
+    setPage(1);
+    loadMovies(search.trim(), 1);
   }
 
   async function handleBulkImport(e) {
@@ -214,6 +247,18 @@ export default function AdminDashboardPage() {
           className={inputClass}
         />
         <input
+          placeholder="Elenco (separado por vírgula)"
+          value={form.cast}
+          onChange={(e) => handleChange('cast', e.target.value)}
+          className={inputClass}
+        />
+        <input
+          placeholder="Idioma (ex: pt, en)"
+          value={form.language}
+          onChange={(e) => handleChange('language', e.target.value)}
+          className={inputClass}
+        />
+        <input
           placeholder="Gêneros (separados por vírgula)"
           value={form.genres}
           onChange={(e) => handleChange('genres', e.target.value)}
@@ -229,6 +274,18 @@ export default function AdminDashboardPage() {
           placeholder="URL do backdrop"
           value={form.backdropUrl}
           onChange={(e) => handleChange('backdropUrl', e.target.value)}
+          className={inputClass}
+        />
+        <input
+          placeholder="URL do arquivo de vídeo (player nativo)"
+          value={form.videoFileUrl}
+          onChange={(e) => handleChange('videoFileUrl', e.target.value)}
+          className={inputClass}
+        />
+        <input
+          placeholder="URL da legenda .vtt"
+          value={form.subtitleUrl}
+          onChange={(e) => handleChange('subtitleUrl', e.target.value)}
           className={inputClass}
         />
         <div className="grid grid-cols-[auto_1fr] gap-4">
@@ -316,23 +373,39 @@ export default function AdminDashboardPage() {
       </div>
 
       <div className="space-y-4">
-        <form onSubmit={handleSearchSubmit} className="flex gap-3 max-w-md">
-          <input
-            placeholder="Buscar por título..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className={inputClass}
-          />
-          <button
-            type="submit"
-            className="px-5 py-3 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold whitespace-nowrap"
-          >
-            Buscar
-          </button>
-        </form>
+        <div className="flex flex-wrap items-center gap-3">
+          <form onSubmit={handleSearchSubmit} className="flex gap-3 max-w-md">
+            <input
+              placeholder="Buscar por título..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className={inputClass}
+            />
+            <button
+              type="submit"
+              className="px-5 py-3 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold whitespace-nowrap"
+            >
+              Buscar
+            </button>
+          </form>
+          <label className="flex items-center gap-2 font-body text-body-sm text-on-surface-variant whitespace-nowrap">
+            Exibir
+            <select
+              value={pageSize}
+              onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+              className="bg-[#111111] border border-white/10 rounded-lg px-3 py-2 text-on-background font-body text-body-sm focus:outline-none focus:ring-1 focus:ring-primary"
+            >
+              {PAGE_SIZE_OPTIONS.map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
         <p className="font-body text-body-sm text-on-surface-variant">
-          {search ? `Resultados para "${search}"` : 'Mostrando os 100 filmes mais recentes — use a busca para achar outros.'}{' '}
-          ({movies.length})
+          {search ? `Resultados para "${search}"` : 'Filmes do catálogo'} — {totalMovies} no total, página {page} de{' '}
+          {totalPages}
         </p>
 
         <div className="glass-panel rounded-2xl overflow-x-auto">
@@ -372,6 +445,30 @@ export default function AdminDashboardPage() {
             </tbody>
           </table>
         </div>
+
+        {totalPages > 1 ? (
+          <div className="flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => goToPage(page - 1)}
+              disabled={page <= 1}
+              className="px-4 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Anterior
+            </button>
+            <span className="font-body text-body-sm text-on-surface-variant whitespace-nowrap">
+              Página {page} de {totalPages}
+            </span>
+            <button
+              type="button"
+              onClick={() => goToPage(page + 1)}
+              disabled={page >= totalPages}
+              className="px-4 py-2 rounded-lg border border-white/20 text-on-background hover:bg-white/10 transition-colors font-body text-label-bold disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Próxima
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );

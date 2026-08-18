@@ -50,9 +50,9 @@ exports.listMovies = catchAsync(async (req, res) => {
   if (search && typeof search === 'string') query.$text = { $search: search };
 
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
-  // Teto alto o bastante pra pedir o catálogo inteiro numa página só (ex: a
-  // página /catalogo, que lista todos os filmes sem filtro de gênero).
-  const limitNum = Math.min(2000, Math.max(1, parseInt(limit, 10) || 24));
+  // Teto alto o bastante pra pedir o catálogo inteiro numa página só (usado
+  // pelo admin ao escolher "10000 por página").
+  const limitNum = Math.min(10000, Math.max(1, parseInt(limit, 10) || 24));
 
   let movies;
   let total;
