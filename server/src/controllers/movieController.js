@@ -1,6 +1,7 @@
 const Movie = require('../models/Movie');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
+const { revalidateMovie } = require('../utils/revalidate');
 
 // "Clássico" está em ~2/3 do catálogo (é mais uma tag de "domínio público"
 // do que um gênero) e sempre é o último item quando presente (seed data),
@@ -268,6 +269,7 @@ exports.createMovie = catchAsync(async (req, res, next) => {
   if (!payload.slug && payload.title) payload.slug = slugify(payload.title);
 
   const movie = await Movie.create(payload);
+  await revalidateMovie(movie.slug);
   res.status(201).json({ success: true, data: movie });
 });
 
@@ -278,12 +280,14 @@ exports.updateMovie = catchAsync(async (req, res, next) => {
   });
 
   if (!movie) return next(new AppError('Filme não encontrado', 404));
+  await revalidateMovie(movie.slug);
   res.json({ success: true, data: movie });
 });
 
 exports.deleteMovie = catchAsync(async (req, res, next) => {
   const movie = await Movie.findByIdAndDelete(req.params.id);
   if (!movie) return next(new AppError('Filme não encontrado', 404));
+  await revalidateMovie(movie.slug);
   res.json({ success: true, data: {} });
 });
 
@@ -325,6 +329,11 @@ exports.bulkCreateMovies = catchAsync(async (req, res, next) => {
       errors.push({ index: i, title: label, message: err.message });
     }
   }
+
+  // Lote pode ter dezenas/centenas de filmes — revalida só as páginas gerais
+  // (catálogo, home) em vez de uma por slug, senão isso vira centenas de
+  // requisições sequenciais pro Next.js.
+  await revalidateMovie();
 
   res.status(errors.length ? 207 : 201).json({
     success: true,
