@@ -16,6 +16,11 @@ const smallInputClass =
 
 const SUBSCRIPTION_STATUSES = ['none', 'pending', 'active', 'canceled', 'past_due'];
 
+function formatDate(value) {
+  if (!value) return '—';
+  return new Date(value).toLocaleDateString('pt-BR');
+}
+
 const BULK_PLACEHOLDER = `[
   { "name": "Fulano de Tal", "email": "fulano@example.com" },
   { "name": "Ciclana", "email": "ciclana@example.com", "password": "opcional-8-caracteres" }
@@ -345,7 +350,7 @@ export default function AdminUsersPage() {
         ) : null}
 
         <div className="glass-panel rounded-2xl overflow-x-auto">
-          <table className="w-full min-w-[760px]">
+          <table className="w-full min-w-[1400px]">
             <thead>
               <tr className="text-left font-body text-label-bold text-on-surface-variant border-b border-white/10">
                 <th className="p-4 w-10">
@@ -360,6 +365,10 @@ export default function AdminUsersPage() {
                 <th className="p-4">Email</th>
                 <th className="p-4">Verificado</th>
                 <th className="p-4">Premium</th>
+                <th className="p-4">Cadastro</th>
+                <th className="p-4">Atualizado</th>
+                <th className="p-4">ID cliente Asaas</th>
+                <th className="p-4">ID assinatura Asaas</th>
                 <th className="p-4">Favoritos</th>
                 <th className="p-4"></th>
               </tr>
@@ -413,6 +422,14 @@ export default function AdminUsersPage() {
                           {user.subscription?.status || 'none'}
                         </span>
                       </td>
+                      <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.createdAt)}</td>
+                      <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.updatedAt)}</td>
+                      <td className="p-4 font-mono text-body-sm text-on-surface-variant max-w-[160px] truncate" title={user.subscription?.providerCustomerId || ''}>
+                        {user.subscription?.providerCustomerId || '—'}
+                      </td>
+                      <td className="p-4 font-mono text-body-sm text-on-surface-variant max-w-[160px] truncate" title={user.subscription?.providerSubscriptionId || ''}>
+                        {user.subscription?.providerSubscriptionId || '—'}
+                      </td>
                       <td className="p-4">{user.favorites?.length || 0}</td>
                       <td className="p-4">
                         <div className="flex gap-2 justify-end">
@@ -453,7 +470,7 @@ export default function AdminUsersPage() {
                     </tr>
                     {isEditing ? (
                       <tr className="border-b border-white/10 bg-white/[0.02]">
-                        <td colSpan={7} className="p-4">
+                        <td colSpan={11} className="p-4">
                           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                             <div>
                               <label className="font-body text-body-sm text-on-surface-variant block mb-1">
