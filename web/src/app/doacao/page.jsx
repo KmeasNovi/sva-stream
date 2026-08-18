@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function DoacaoPage() {
   return (
-    <div className="container mx-auto px-container-margin py-16 max-w-2xl">
+    <div className="container mx-auto px-container-margin py-16 max-w-4xl">
       <DonationContent HeadingTag="h1" />
     </div>
   );

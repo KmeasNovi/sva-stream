@@ -12,4 +12,10 @@ const PREMIUM_PLAN = {
   benefits: ['Sem anúncios em todo o site'],
 };
 
-module.exports = { PREMIUM_PLAN };
+// CNPJ do próprio SepiaStream, usado pra criar o registro de cliente de
+// TODOS os assinantes no Asaas — evita pedir CPF/CNPJ de cada pessoa que
+// assina (decisão explícita do dono da plataforma: quem recebe a cobrança
+// é sempre a mesma empresa, então é ela quem se identifica, não quem paga).
+const ASAAS_OWNER_CPF_CNPJ = '66527927000192';
+
+module.exports = { PREMIUM_PLAN, ASAAS_OWNER_CPF_CNPJ };

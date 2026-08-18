@@ -22,35 +22,31 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
       </p>
       <p className="font-body text-body-md text-on-surface-variant mb-6 sm:mb-10">Qualquer valor é bem-vindo. Obrigado!</p>
 
-      <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 max-w-md mx-auto space-y-5 sm:space-y-6">
-        <a
-          href={VAKINHA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
-        >
-          <span className="material-symbols-outlined">volunteer_activism</span>
-          Fazer uma doação
-        </a>
-        <p className="font-body text-body-sm text-on-surface-variant">
-          Aceita PIX e cartão, processado com segurança pela Vakinha.
-        </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto items-stretch">
+        <SubscribeCard />
 
-        <div className="flex items-center gap-3 text-on-surface-variant">
-          <span className="h-px flex-1 bg-white/10" />
-          <span className="font-body text-body-sm">ou pague direto por PIX</span>
-          <span className="h-px flex-1 bg-white/10" />
+        <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 h-full space-y-5 sm:space-y-6">
+          <a
+            href={VAKINHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-body text-label-bold px-6 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all"
+          >
+            <span className="material-symbols-outlined">volunteer_activism</span>
+            Fazer uma doação
+          </a>
+          <p className="font-body text-body-sm text-on-surface-variant">
+            Aceita PIX e cartão, processado com segurança pela Vakinha.
+          </p>
+
+          <div className="flex items-center gap-3 text-on-surface-variant">
+            <span className="h-px flex-1 bg-white/10" />
+            <span className="font-body text-body-sm">ou pague direto por PIX</span>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+          <CopyPixKey value={VAKINHA_PIX_KEY} />
         </div>
-        <CopyPixKey value={VAKINHA_PIX_KEY} />
       </div>
-
-      <div className="flex items-center gap-3 text-on-surface-variant max-w-md mx-auto my-6 sm:my-10">
-        <span className="h-px flex-1 bg-white/10" />
-        <span className="font-body text-body-sm">ou apoie todo mês</span>
-        <span className="h-px flex-1 bg-white/10" />
-      </div>
-
-      <SubscribeCard />
     </div>
   );
 }

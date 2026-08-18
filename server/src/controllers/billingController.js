@@ -2,11 +2,13 @@ const User = require('../models/User');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 const { isAsaasConfigured, asaasRequest } = require('../config/asaas');
-const { PREMIUM_PLAN } = require('../config/plans');
+const { PREMIUM_PLAN, ASAAS_OWNER_CPF_CNPJ } = require('../config/plans');
 
 // Reaproveita o cliente Asaas já criado pro usuário (subscription.providerCustomerId)
 // ou cria um novo — evita duplicar cliente a cada tentativa de assinatura.
-async function ensureAsaasCustomer(user, cpfCnpj) {
+// cpfCnpj é sempre o do SepiaStream (ver config/plans.js) — não pedimos
+// documento de cada assinante, só o email/nome já cadastrados na conta.
+async function ensureAsaasCustomer(user) {
   if (user.subscription?.providerCustomerId) {
     return user.subscription.providerCustomerId;
   }
@@ -14,7 +16,7 @@ async function ensureAsaasCustomer(user, cpfCnpj) {
   const customer = await asaasRequest('POST', '/customers', {
     name: user.name,
     email: user.email,
-    cpfCnpj,
+    cpfCnpj: ASAAS_OWNER_CPF_CNPJ,
     externalReference: String(user._id),
   });
 
@@ -29,16 +31,13 @@ exports.subscribe = catchAsync(async (req, res, next) => {
     return next(new AppError('Assinaturas ainda não estão disponíveis. Volte em breve!', 503));
   }
 
-  const { cpfCnpj, billingType } = req.body;
-  if (typeof cpfCnpj !== 'string' || !cpfCnpj.replace(/\D/g, '')) {
-    return next(new AppError('Informe um CPF ou CNPJ válido', 400));
-  }
+  const { billingType } = req.body;
 
   if (req.user.isPremiumActive()) {
     return next(new AppError('Você já é assinante Premium', 400));
   }
 
-  const customerId = await ensureAsaasCustomer(req.user, cpfCnpj.replace(/\D/g, ''));
+  const customerId = await ensureAsaasCustomer(req.user);
 
   const nextDueDate = new Date();
   nextDueDate.setDate(nextDueDate.getDate() + 1);

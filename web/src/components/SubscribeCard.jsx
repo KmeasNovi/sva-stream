@@ -9,7 +9,6 @@ const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
 
 export default function SubscribeCard() {
   const { user, token, loading, refreshUser } = useUser();
-  const [cpfCnpj, setCpfCnpj] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
@@ -23,7 +22,7 @@ export default function SubscribeCard() {
     setSubmitting(true);
 
     try {
-      const { data } = await api.subscribePremium({ cpfCnpj }, token);
+      const { data } = await api.subscribePremium({}, token);
       if (data.invoiceUrl) {
         window.location.href = data.invoiceUrl;
         return;
@@ -38,7 +37,7 @@ export default function SubscribeCard() {
   }
 
   return (
-    <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 max-w-md mx-auto space-y-5 sm:space-y-6">
+    <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 h-full space-y-5 sm:space-y-6">
       <div className="text-center space-y-2">
         <span className="material-symbols-outlined text-primary text-4xl sm:text-5xl inline-block">workspace_premium</span>
         <h2 className="font-display text-headline-sm sm:text-headline-md text-on-background">Assine o Premium</h2>
@@ -54,13 +53,10 @@ export default function SubscribeCard() {
       ) : user ? (
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
-            type="text"
-            inputMode="numeric"
-            placeholder="CPF ou CNPJ"
-            value={cpfCnpj}
-            onChange={(e) => setCpfCnpj(e.target.value)}
-            required
-            className="w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary"
+            type="email"
+            value={user.email}
+            disabled
+            className="w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-surface-variant font-body text-body-md cursor-not-allowed"
           />
           {error ? <p className="text-error font-body text-body-sm">{error}</p> : null}
           {notice ? <p className="text-primary font-body text-body-sm">{notice}</p> : null}
@@ -72,7 +68,7 @@ export default function SubscribeCard() {
             {submitting ? 'Preparando...' : `Assinar por ${PREMIUM_PRICE_LABEL}`}
           </button>
           <p className="font-body text-body-sm text-on-surface-variant text-center">
-            Pagamento recorrente processado com segurança pelo Asaas.
+            Assinatura mensal processada com segurança pelo Asaas.
           </p>
         </form>
       ) : (
