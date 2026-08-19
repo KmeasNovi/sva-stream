@@ -9,6 +9,10 @@ import MovieRow from '../../components/MovieRow';
 import NewsletterForm from '../../components/NewsletterForm';
 import LoadingScreen from '../../components/LoadingScreen';
 import DonationModal from '../../components/DonationModal';
+import AdSlot from '../../components/AdSlot';
+import AdsterraBanner from '../../components/AdsterraBanner';
+
+const ADSENSE_SLOT_HOME = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME;
 
 export default function HomePage() {
   const { token } = useUser();
@@ -57,6 +61,10 @@ export default function HomePage() {
       <div className="container mx-auto px-container-margin py-12 space-y-16 -mt-16 relative z-20">
         <MovieRow title="Em destaque" movies={featured} icon="local_fire_department" />
         <MovieRow title="Adicionados recentemente" movies={recent} />
+        <div>
+          <AdSlot slotId={ADSENSE_SLOT_HOME} />
+          <AdsterraBanner size="728x90" />
+        </div>
         {genres.map((genre) => (
           <GenreRow key={genre} genre={genre} token={token} />
         ))}
