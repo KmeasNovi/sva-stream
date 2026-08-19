@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
@@ -7,6 +8,21 @@ import { api } from '../lib/api';
 import { proxiedImage } from '../lib/imageProxy';
 
 const ADSENSE_SLOT_LANDING = process.env.NEXT_PUBLIC_ADSENSE_SLOT_LANDING;
+
+// A cada N pôsteres insere uma fileira de anúncio inteira dentro da grade —
+// col-span-full força a linha a ocupar a largura toda do CSS grid, então
+// sempre cai "entre fileiras" independente de quantas colunas cabem na
+// largura atual da tela (2/3/5, ver a classe da grade abaixo).
+const HIGHLIGHTS_PER_AD = 10;
+
+function LandingHighlightsAdRow() {
+  return (
+    <div className="col-span-full flex flex-col items-center gap-4 py-2">
+      <AdSlot slotId={ADSENSE_SLOT_LANDING} />
+      <AdsterraBanner size="300x250" />
+    </div>
+  );
+}
 
 export const metadata = {
   title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
@@ -156,26 +172,28 @@ export default async function LandingPage() {
             Uma pequena amostra — o catálogo completo tem centenas de filmes e curtas, sempre crescendo.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            {highlights.map((m) => (
-              <Link
-                key={m.slug}
-                href={`/movie/${m.slug}`}
-                className="group block rounded-xl overflow-hidden bg-surface-container border border-white/5 hover:border-primary/40 transition-colors"
-              >
-                <div className="relative aspect-[2/3]">
-                  <Image
-                    src={m.src}
-                    alt={`Assistir ${m.title} grátis`}
-                    fill
-                    sizes="(min-width: 768px) 20vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <p className="font-body text-body-sm text-on-background p-2 truncate">
-                  {m.title}
-                  {m.year ? ` (${m.year})` : ''}
-                </p>
-              </Link>
+            {highlights.map((m, i) => (
+              <Fragment key={m.slug}>
+                <Link
+                  href={`/movie/${m.slug}`}
+                  className="group block rounded-xl overflow-hidden bg-surface-container border border-white/5 hover:border-primary/40 transition-colors"
+                >
+                  <div className="relative aspect-[2/3]">
+                    <Image
+                      src={m.src}
+                      alt={`Assistir ${m.title} grátis`}
+                      fill
+                      sizes="(min-width: 768px) 20vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <p className="font-body text-body-sm text-on-background p-2 truncate">
+                    {m.title}
+                    {m.year ? ` (${m.year})` : ''}
+                  </p>
+                </Link>
+                {(i + 1) % HIGHLIGHTS_PER_AD === 0 ? <LandingHighlightsAdRow /> : null}
+              </Fragment>
             ))}
           </div>
         </section>
