@@ -414,15 +414,29 @@ export default function AdminUsersPage() {
                       </td>
                       <td className="p-4">{user.emailVerified ? 'Sim' : 'Não'}</td>
                       <td className="p-4">
-                        <span
-                          className={`px-3 py-1 rounded-full font-body text-label-bold text-xs ${
-                            user.subscription?.status === 'active'
-                              ? 'bg-primary/20 text-primary border border-primary/30'
-                              : 'bg-white/5 text-on-surface-variant border border-white/10'
-                          }`}
-                        >
-                          {user.subscription?.status || 'none'}
-                        </span>
+                        {isEditing ? (
+                          <label className="flex items-center gap-2 cursor-pointer w-fit">
+                            <input
+                              type="checkbox"
+                              checked={editForm.status === 'active'}
+                              onChange={(e) => handleEditChange('status', e.target.checked ? 'active' : 'none')}
+                              className="accent-primary"
+                            />
+                            <span className="font-body text-body-sm text-on-background whitespace-nowrap">
+                              Premium ativo
+                            </span>
+                          </label>
+                        ) : (
+                          <span
+                            className={`px-3 py-1 rounded-full font-body text-label-bold text-xs ${
+                              user.subscription?.status === 'active'
+                                ? 'bg-primary/20 text-primary border border-primary/30'
+                                : 'bg-white/5 text-on-surface-variant border border-white/10'
+                            }`}
+                          >
+                            {user.subscription?.status || 'none'}
+                          </span>
+                        )}
                       </td>
                       <td className="p-4 text-on-surface-variant whitespace-nowrap">{formatDate(user.subscription?.currentPeriodEnd)}</td>
                       <td className="p-4 text-on-surface-variant whitespace-nowrap">{user.subscription?.provider || '—'}</td>
@@ -476,21 +490,6 @@ export default function AdminUsersPage() {
                       <tr className="border-b border-white/10 bg-white/[0.02]">
                         <td colSpan={13} className="p-4">
                           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-                            <div className="flex items-center gap-2 sm:col-span-4">
-                              <input
-                                type="checkbox"
-                                id={`premium-toggle-${user._id}`}
-                                checked={editForm.status === 'active'}
-                                onChange={(e) => handleEditChange('status', e.target.checked ? 'active' : 'none')}
-                                className="accent-primary"
-                              />
-                              <label
-                                htmlFor={`premium-toggle-${user._id}`}
-                                className="font-body text-body-sm text-on-background"
-                              >
-                                Premium ativo (atalho — mexe no "Status da assinatura" abaixo pra "active"/"none")
-                              </label>
-                            </div>
                             <div>
                               <label className="font-body text-body-sm text-on-surface-variant block mb-1">
                                 Status da assinatura
