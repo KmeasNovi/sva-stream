@@ -476,6 +476,21 @@ export default function AdminUsersPage() {
                       <tr className="border-b border-white/10 bg-white/[0.02]">
                         <td colSpan={13} className="p-4">
                           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                            <div className="flex items-center gap-2 sm:col-span-4">
+                              <input
+                                type="checkbox"
+                                id={`premium-toggle-${user._id}`}
+                                checked={editForm.status === 'active'}
+                                onChange={(e) => handleEditChange('status', e.target.checked ? 'active' : 'none')}
+                                className="accent-primary"
+                              />
+                              <label
+                                htmlFor={`premium-toggle-${user._id}`}
+                                className="font-body text-body-sm text-on-background"
+                              >
+                                Premium ativo (atalho — mexe no "Status da assinatura" abaixo pra "active"/"none")
+                              </label>
+                            </div>
                             <div>
                               <label className="font-body text-body-sm text-on-surface-variant block mb-1">
                                 Status da assinatura
