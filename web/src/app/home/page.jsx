@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useUser, consumeJustLoggedIn } from '../../context/UserContext';
 import { api } from '../../lib/api';
 import { getCached, setCached } from '../../lib/clientCache';
@@ -60,19 +60,29 @@ export default function HomePage() {
 
       <div className="container mx-auto px-container-margin py-12 space-y-16 -mt-16 relative z-20">
         <MovieRow title="Em destaque" movies={featured} icon="local_fire_department" />
+        <HomeAdBlock />
         <MovieRow title="Adicionados recentemente" movies={recent} />
-        <div>
-          <AdSlot slotId={ADSENSE_SLOT_HOME} />
-          <AdsterraBanner size="728x90" />
-        </div>
+        <HomeAdBlock />
         {genres.map((genre) => (
-          <GenreRow key={genre} genre={genre} token={token} />
+          <Fragment key={genre}>
+            <GenreRow genre={genre} token={token} />
+            <HomeAdBlock />
+          </Fragment>
         ))}
       </div>
 
       <NewsletterForm />
       {showDonation ? <DonationModal onClose={() => setShowDonation(false)} /> : null}
     </>
+  );
+}
+
+function HomeAdBlock() {
+  return (
+    <div>
+      <AdSlot slotId={ADSENSE_SLOT_HOME} />
+      <AdsterraBanner size="728x90" />
+    </div>
   );
 }
 
