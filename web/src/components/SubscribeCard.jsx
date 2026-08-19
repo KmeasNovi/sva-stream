@@ -7,7 +7,7 @@ import useIsPro from '../lib/useIsPro';
 import ProWordmark from './ProWordmark';
 import { api } from '../lib/api';
 
-const PREMIUM_PRICE_LABEL = 'R$ 5,00/mês';
+const PREMIUM_PRICE_LABEL = 'R$ 4,99/mês';
 const SUPPORT_EMAIL = 'contato@sepiastream.com';
 
 function formatDate(value) {

@@ -6,7 +6,7 @@
 const PREMIUM_PLAN = {
   id: 'premium',
   name: 'Premium',
-  priceCents: 500, // R$5,00
+  priceCents: 499, // R$4,99
   currency: 'BRL',
   interval: 'month',
   benefits: ['Sem anúncios em todo o site'],
