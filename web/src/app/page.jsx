@@ -149,6 +149,12 @@ export default async function LandingPage() {
               >
                 Já tenho conta
               </Link>
+              <Link
+                href="/catalogo"
+                className="text-on-surface-variant font-body text-label-bold px-8 py-4 rounded-lg border border-white/10 hover:border-white/30 hover:text-on-background transition-colors"
+              >
+                Assistir sem conta
+              </Link>
             </div>
           </div>
         </section>
