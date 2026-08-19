@@ -59,6 +59,7 @@ export default function HomePage() {
       <HeroCarousel movies={heroMovies} />
 
       <div className="container mx-auto px-container-margin py-12 space-y-16 -mt-16 relative z-20">
+        <HomeAdBlock />
         <MovieRow title="Em destaque" movies={featured} icon="local_fire_department" />
         <HomeAdBlock />
         <MovieRow title="Adicionados recentemente" movies={recent} />
@@ -79,9 +80,10 @@ export default function HomePage() {
 
 function HomeAdBlock() {
   return (
-    <div>
+    <div className="flex flex-wrap items-start gap-4">
       <AdSlot slotId={ADSENSE_SLOT_HOME} />
       <AdsterraBanner size="728x90" />
+      <AdsterraBanner size="300x250" />
     </div>
   );
 }
