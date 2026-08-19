@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
 import AdSlot from '../components/AdSlot';
+import AdsterraBanner from '../components/AdsterraBanner';
 import { api } from '../lib/api';
 import { proxiedImage } from '../lib/imageProxy';
 
@@ -181,6 +182,7 @@ export default async function LandingPage() {
 
         <section className="container mx-auto px-container-margin">
           <AdSlot slotId={ADSENSE_SLOT_LANDING} />
+          <AdsterraBanner size="728x90" />
         </section>
 
         <section className="container mx-auto px-container-margin pb-24">

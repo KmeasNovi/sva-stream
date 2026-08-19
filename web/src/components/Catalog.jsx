@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import MovieCard from './MovieCard';
 import AdSlot from './AdSlot';
+import AdsterraBanner from './AdsterraBanner';
 import { api } from '../lib/api';
 
 const ADSENSE_SLOT_CATALOGO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATALOGO;
@@ -96,6 +97,7 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
       </div>
 
       <AdSlot slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" />
+      <AdsterraBanner size="300x250" className="mb-8" />
 
       <div className="flex flex-wrap gap-4">
         {movies.map((movie) => (

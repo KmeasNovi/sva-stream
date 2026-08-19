@@ -5,6 +5,8 @@ import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
 import AdSlot from '../../../components/AdSlot';
+import AdsterraBanner from '../../../components/AdsterraBanner';
+import AdsterraNativeBanner from '../../../components/AdsterraNativeBanner';
 import MovieDonationPrompt from '../../../components/MovieDonationPrompt';
 
 const ADSENSE_SLOT_MOVIE_ABOVE_PLAYER = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MOVIE_ABOVE_PLAYER;
@@ -142,6 +144,7 @@ export default async function MoviePage({ params }) {
       </Link>
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
+      <AdsterraBanner size="728x90" />
 
       <Player
         source={movie.source}
@@ -155,6 +158,7 @@ export default async function MoviePage({ params }) {
       />
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />
+      <AdsterraBanner size="728x90" />
 
       <div className="max-w-3xl space-y-4">
         <div className="flex flex-wrap gap-2">
@@ -178,6 +182,7 @@ export default async function MoviePage({ params }) {
       </div>
 
       <AdSlot slotId={ADSENSE_SLOT_MOVIE_MID} />
+      <AdsterraNativeBanner />
 
       {related?.length ? <MovieRow title="Mais como este" movies={related} /> : null}
 

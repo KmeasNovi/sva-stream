@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { proxiedImage } from '../lib/imageProxy';
 import AdSlot from './AdSlot';
+import AdsterraBanner from './AdsterraBanner';
 
 const PREROLL_SKIP_SECONDS = 5;
 
@@ -113,8 +114,9 @@ function PreRollAd({ slotId, onSkip }) {
   return (
     <div className="absolute inset-0 z-30 bg-black flex flex-col items-center justify-center p-4">
       <p className="font-body text-label-bold text-on-surface-variant mb-3 uppercase tracking-wider">Anúncio</p>
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm space-y-3">
         <AdSlot slotId={slotId} />
+        <AdsterraBanner size="300x250" />
       </div>
       <button
         type="button"
