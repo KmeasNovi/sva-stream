@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
@@ -20,22 +21,25 @@ const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 // AdSlot na mesma página (ver /movie/[slug]) só baixam o arquivo uma vez.
 export default function AdSlot({ slotId, className = '' }) {
   const pushed = useRef(false);
-  // Quem assina o plano Premium (ver server/src/config/plans.js) não vê
-  // anúncio nenhum no site — essa é a única coisa que o plano desbloqueia.
+  // Quem assina o Premium não vê anúncio — mas só em pro.sepiastream.com.
+  // Em sepiastream.com o anúncio aparece pra todo mundo, assinante ou não
+  // (decisão explícita do usuário: o "sem anúncio" é um benefício do
+  // domínio Pro, não da conta em qualquer lugar).
   const { user } = useUser();
-  const isPremium = Boolean(user?.isPremium);
+  const isPro = useIsPro();
+  const hideAds = Boolean(user?.isPremium) && isPro;
 
   useEffect(() => {
-    if (!ADSENSE_CLIENT_ID || !slotId || isPremium || pushed.current) return;
+    if (!ADSENSE_CLIENT_ID || !slotId || hideAds || pushed.current) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
     } catch {
       // se o script do AdSense falhar ao carregar, não quebra a página
     }
-  }, [slotId, isPremium]);
+  }, [slotId, hideAds]);
 
-  if (!ADSENSE_CLIENT_ID || !slotId || isPremium) return null;
+  if (!ADSENSE_CLIENT_ID || !slotId || hideAds) return null;
 
   return (
     <>

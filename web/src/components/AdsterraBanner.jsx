@@ -1,6 +1,7 @@
 'use client';
 
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 
 // Anúncio "Banner" do Adsterra — empilhado junto com o AdSense nos mesmos
 // espaços (ver AdSlot.jsx), nunca substituindo. Cada tamanho usa uma "key"
@@ -37,11 +38,13 @@ function buildSrcDoc(key, width, height) {
 }
 
 export default function AdsterraBanner({ size, className = '' }) {
+  // Mesma regra do AdSlot.jsx: Premium só some com anúncio em pro.sepiastream.com.
   const { user } = useUser();
-  const isPremium = Boolean(user?.isPremium);
+  const isPro = useIsPro();
+  const hideAds = Boolean(user?.isPremium) && isPro;
   const config = SIZES[size];
 
-  if (!config?.key || isPremium) return null;
+  if (!config?.key || hideAds) return null;
 
   return (
     <iframe

@@ -2,6 +2,7 @@
 
 import Script from 'next/script';
 import { useUser } from '../context/UserContext';
+import useIsPro from '../lib/useIsPro';
 
 const SCRIPT_SRC = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SCRIPT_SRC;
 const CONTAINER_ID = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_CONTAINER_ID;
@@ -12,10 +13,12 @@ const CONTAINER_ID = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_CONTAINER_ID;
 // componente na mesma página duplicaria o id e só o primeiro seria
 // preenchido. Hoje só é usado no meio da página de filme.
 export default function AdsterraNativeBanner({ className = '' }) {
+  // Mesma regra do AdSlot.jsx: Premium só some com anúncio em pro.sepiastream.com.
   const { user } = useUser();
-  const isPremium = Boolean(user?.isPremium);
+  const isPro = useIsPro();
+  const hideAds = Boolean(user?.isPremium) && isPro;
 
-  if (!SCRIPT_SRC || !CONTAINER_ID || isPremium) return null;
+  if (!SCRIPT_SRC || !CONTAINER_ID || hideAds) return null;
 
   return (
     <div className={className}>
