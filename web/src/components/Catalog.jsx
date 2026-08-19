@@ -1,12 +1,26 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import MovieCard from './MovieCard';
 import AdSlot from './AdSlot';
 import AdsterraBanner from './AdsterraBanner';
 import { api } from '../lib/api';
 
 const ADSENSE_SLOT_CATALOGO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATALOGO;
+
+// A cada N cards insere uma fileira de anúncio inteira (w-full força quebra
+// de linha no flex-wrap, então sempre cai "entre fileiras" mesmo sem um
+// número fixo de colunas por linha, que varia com a largura da tela).
+const CARDS_PER_AD = 12;
+
+function CatalogAdRow() {
+  return (
+    <div className="w-full flex flex-col items-center gap-4 py-2">
+      <AdSlot slotId={ADSENSE_SLOT_CATALOGO} />
+      <AdsterraBanner size="300x250" />
+    </div>
+  );
+}
 
 const SORT_OPTIONS = [
   { value: 'alpha', label: 'Ordem alfabética' },
@@ -100,8 +114,11 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
       <AdsterraBanner size="300x250" className="mb-8" />
 
       <div className="flex flex-wrap gap-4">
-        {movies.map((movie) => (
-          <MovieCard key={movie._id} movie={movie} />
+        {movies.map((movie, i) => (
+          <Fragment key={movie._id}>
+            <MovieCard movie={movie} />
+            {(i + 1) % CARDS_PER_AD === 0 ? <CatalogAdRow /> : null}
+          </Fragment>
         ))}
         {!movies.length ? (
           <p className="font-body text-body-md text-on-surface-variant">Nenhum filme no catálogo.</p>
