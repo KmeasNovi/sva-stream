@@ -9,7 +9,7 @@ const PREMIUM_PLAN = {
   priceCents: 500, // R$5,00
   currency: 'BRL',
   interval: 'month',
-  benefits: ['Sem anúncios em todo o site'],
+  benefits: ['Sem anúncios no Pro'],
 };
 
 // CNPJ do próprio SepiaStream, usado pra criar o registro de cliente de

@@ -71,7 +71,7 @@ export default function SubscribeCard() {
         <span className="material-symbols-outlined text-primary text-4xl sm:text-5xl inline-block">workspace_premium</span>
         <h2 className="font-display text-headline-sm sm:text-headline-md text-on-background">Assine o Premium</h2>
         <p className="font-body text-body-md text-on-surface-variant">
-          Por {PREMIUM_PRICE_LABEL}, sem anúncios em todo o site.
+          Por {PREMIUM_PRICE_LABEL}, sem anúncios no Pro.
         </p>
       </div>
 
