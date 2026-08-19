@@ -1,9 +1,28 @@
 'use client';
 
+import { Fragment } from 'react';
 import Link from 'next/link';
 import { useUser } from '../../context/UserContext';
 import MovieCard from '../../components/MovieCard';
 import LoadingScreen from '../../components/LoadingScreen';
+import AdSlot from '../../components/AdSlot';
+import AdsterraBanner from '../../components/AdsterraBanner';
+
+const ADSENSE_SLOT_MINHA_LISTA = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MINHA_LISTA;
+
+// Mesma ideia do Catalog.jsx — a cada N cards insere uma fileira de anúncio
+// inteira (w-full quebra a linha do flex-wrap independente de quantas
+// colunas cabem na largura atual da tela).
+const CARDS_PER_AD = 12;
+
+function MinhaListaAdRow() {
+  return (
+    <div className="w-full flex flex-col items-center gap-4 py-2">
+      <AdSlot slotId={ADSENSE_SLOT_MINHA_LISTA} />
+      <AdsterraBanner size="300x250" />
+    </div>
+  );
+}
 
 export default function MinhaListaPage() {
   const { user, loading } = useUser();
@@ -43,9 +62,18 @@ export default function MinhaListaPage() {
   return (
     <div className="container mx-auto px-container-margin py-12">
       <h1 className="font-display text-headline-lg mb-8 text-on-background">Minha Lista</h1>
+      {user.favorites?.length ? (
+        <>
+          <AdSlot slotId={ADSENSE_SLOT_MINHA_LISTA} className="mb-8" />
+          <AdsterraBanner size="300x250" className="mb-8" />
+        </>
+      ) : null}
       <div className="flex flex-wrap gap-4">
-        {(user.favorites || []).map((movie) => (
-          <MovieCard key={movie._id} movie={movie} />
+        {(user.favorites || []).map((movie, i) => (
+          <Fragment key={movie._id}>
+            <MovieCard movie={movie} />
+            {(i + 1) % CARDS_PER_AD === 0 ? <MinhaListaAdRow /> : null}
+          </Fragment>
         ))}
         {!user.favorites?.length ? (
           <p className="font-body text-body-md text-on-surface-variant">
