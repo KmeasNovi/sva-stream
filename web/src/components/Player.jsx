@@ -113,9 +113,7 @@ function PreRollAd({ slotId, onSkip }) {
   return (
     <div className="absolute inset-0 z-30 bg-black flex flex-col items-center justify-center p-4">
       <p className="font-body text-label-bold text-on-surface-variant mb-3 uppercase tracking-wider">Anúncio</p>
-      <div className="w-full max-w-full overflow-x-auto">
-        <AdBand slotId={slotId} />
-      </div>
+      <AdBand slotId={slotId} />
       <button
         type="button"
         onClick={onSkip}
