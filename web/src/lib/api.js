@@ -90,4 +90,8 @@ export const api = {
   // baixado à parte (blob), não passa pelo `request` acima.
   startHealthCheck: (token) => request('/health-check/start', { method: 'POST', token }),
   getHealthCheckStatus: (jobId, token) => request(`/health-check/${jobId}`, { token }),
+  // Correção automática a partir do CSV da checagem acima — busca substituto
+  // no archive.org e já aplica no banco (ver healthCheckController.js).
+  startHealthCheckFix: (items, token) => request('/health-check/fix/start', { method: 'POST', body: { items }, token }),
+  getHealthCheckFixStatus: (jobId, token) => request(`/health-check/fix/${jobId}`, { token }),
 };

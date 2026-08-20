@@ -3,10 +3,33 @@
 import { useEffect, useRef, useState } from 'react';
 import AdminNav from '../../AdminNav';
 import useAdminToken from '../../useAdminToken';
+import { api } from '../../../../lib/api';
+import { parseHealthCheckCsv, groupBrokenBySlug } from '../../../../lib/parseHealthCheckCsv';
 
 const SCRAPER_URL = process.env.NEXT_PUBLIC_SCRAPER_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 const JOB_STORAGE_KEY = 'sva_admin_scrape_job';
+const FIX_JOB_STORAGE_KEY = 'sva_admin_fix_job';
 const POLL_INTERVAL_MS = 5000;
+
+async function downloadFixCsv(jobId, token) {
+  const res = await fetch(`${API_URL}/api/health-check/fix/${jobId}/csv`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) {
+    const json = await res.json().catch(() => ({}));
+    throw new Error(json.message || `Erro ao baixar (${res.status})`);
+  }
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `filmes-corrigidos-${jobId.slice(0, 8)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
 
 const inputClass =
   'w-full bg-[#111111] border border-white/10 rounded-lg px-4 py-3 text-on-background font-body text-body-md focus:outline-none focus:ring-1 focus:ring-primary';
@@ -70,9 +93,22 @@ export default function AdminScrapePage() {
   const [customKeywords, setCustomKeywords] = useState('');
   const [customMode, setCustomMode] = useState('links');
 
+  // Corrigir filmes (CSV da aba "Verificar links" → busca substituto no
+  // archive.org → aplica direto no banco, ver healthCheckController.js)
+  const [csvFileName, setCsvFileName] = useState('');
+  const [brokenEntries, setBrokenEntries] = useState(null);
+  const [fixMode, setFixMode] = useState('both');
+  const [fixJobId, setFixJobId] = useState(null);
+  const [fixJob, setFixJob] = useState(null);
+  const [fixError, setFixError] = useState('');
+  const [fixStarting, setFixStarting] = useState(false);
+  const fixPollRef = useRef(null);
+
   useEffect(() => {
     const stored = localStorage.getItem(JOB_STORAGE_KEY);
     if (stored) setJobId(stored);
+    const storedFix = localStorage.getItem(FIX_JOB_STORAGE_KEY);
+    if (storedFix) setFixJobId(storedFix);
   }, []);
 
   useEffect(() => {
@@ -189,6 +225,105 @@ export default function AdminScrapePage() {
     clearInterval(pollRef.current);
   }
 
+  // --- Corrigir filmes ---
+
+  async function handleCsvSelected(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setCsvFileName(file.name);
+    setFixError('');
+    try {
+      const text = await file.text();
+      const rows = parseHealthCheckCsv(text);
+      setBrokenEntries(groupBrokenBySlug(rows));
+    } catch (err) {
+      setFixError(`Não consegui ler esse CSV: ${err.message}`);
+      setBrokenEntries(null);
+    }
+  }
+
+  function filteredFixEntries() {
+    if (!brokenEntries) return [];
+    return brokenEntries
+      .filter((e) => {
+        if (fixMode === 'poster') return e.needsPoster;
+        if (fixMode === 'video') return e.needsVideo;
+        return e.needsPoster || e.needsVideo;
+      })
+      .map((e) => ({
+        slug: e.slug,
+        title: e.title,
+        needsPoster: fixMode !== 'video' && e.needsPoster,
+        needsVideo: fixMode !== 'poster' && e.needsVideo,
+      }));
+  }
+
+  async function handleStartFix() {
+    setFixError('');
+    setFixStarting(true);
+    try {
+      const items = filteredFixEntries();
+      const { data } = await api.startHealthCheckFix(items, token);
+      localStorage.setItem(FIX_JOB_STORAGE_KEY, data.jobId);
+      setFixJobId(data.jobId);
+      setFixJob(null);
+    } catch (err) {
+      setFixError(err.message);
+    } finally {
+      setFixStarting(false);
+    }
+  }
+
+  async function handleDownloadFix() {
+    try {
+      await downloadFixCsv(fixJobId, token);
+    } catch (err) {
+      setFixError(err.message);
+    }
+  }
+
+  function handleForgetFix() {
+    localStorage.removeItem(FIX_JOB_STORAGE_KEY);
+    setFixJobId(null);
+    setFixJob(null);
+    setBrokenEntries(null);
+    setCsvFileName('');
+    clearInterval(fixPollRef.current);
+  }
+
+  useEffect(() => {
+    if (!token || !fixJobId) return undefined;
+
+    async function poll() {
+      try {
+        const { data } = await api.getHealthCheckFixStatus(fixJobId, token);
+        setFixJob(data);
+        setFixError('');
+        if (data.status !== 'running') {
+          clearInterval(fixPollRef.current);
+          if (data.status === 'done') {
+            try {
+              await downloadFixCsv(fixJobId, token);
+            } catch (downloadErr) {
+              setFixError(`Correção terminou, mas o download automático falhou: ${downloadErr.message}`);
+            }
+          }
+        }
+      } catch (err) {
+        clearInterval(fixPollRef.current);
+        setFixJob(null);
+        setFixError(err.message);
+        localStorage.removeItem(FIX_JOB_STORAGE_KEY);
+        setFixJobId(null);
+      }
+    }
+
+    poll();
+    fixPollRef.current = setInterval(poll, POLL_INTERVAL_MS);
+    return () => clearInterval(fixPollRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, fixJobId]);
+
   if (!token) return null;
 
   const isRunning = job?.status === 'running';
@@ -246,6 +381,10 @@ export default function AdminScrapePage() {
       inativo)…
     </p>
   ) : null;
+
+  const isFixRunning = fixJob?.status === 'running';
+  const fixCandidateCount = filteredFixEntries().length;
+  const fixPct = fixJob?.total ? Math.round((fixJob.checked / fixJob.total) * 100) : 0;
 
   return (
     <div className="container mx-auto px-container-margin py-12 space-y-10">
@@ -367,6 +506,129 @@ export default function AdminScrapePage() {
           ) : null}
         </>
       )}
+
+      <div className="glass-panel rounded-2xl p-8 max-w-2xl space-y-6">
+        <h2 className="font-display text-headline-md text-on-background">Corrigir filmes</h2>
+        <p className="font-body text-body-md text-on-surface-variant">
+          Sobe o CSV baixado na aba "Verificar links" (pôster/backdrop/vídeo quebrado). Pra cada filme,
+          busca um substituto no archive.org — só aceita se a duração real bater com a já cadastrada
+          (evita trocar pela obra errada, mesmo título). O pôster novo é o thumbnail automático do
+          próprio archive.org, mais confiável que procurar imagem solta por aí. Aplica direto no banco
+          (sem revisão antes) e gera um CSV de auditoria com o que mudou — nome, link antigo, link novo.
+        </p>
+
+        <div className="space-y-3">
+          <input
+            type="file"
+            accept=".csv"
+            onChange={handleCsvSelected}
+            disabled={isFixRunning}
+            className="block w-full font-body text-body-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary/20 file:text-primary file:font-body file:text-label-bold hover:file:bg-primary/30"
+          />
+          {csvFileName ? (
+            <p className="font-body text-body-sm text-on-surface-variant">
+              Arquivo: {csvFileName} — {brokenEntries?.length ?? 0} filme(s) com problema encontrado(s) no CSV
+            </p>
+          ) : null}
+        </div>
+
+        {brokenEntries?.length ? (
+          <>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 font-body text-body-md text-on-surface-variant">
+                <input
+                  type="radio"
+                  name="fixMode"
+                  value="both"
+                  checked={fixMode === 'both'}
+                  onChange={() => setFixMode('both')}
+                  disabled={isFixRunning}
+                />
+                Corrigir pôster e vídeo
+              </label>
+              <label className="flex items-center gap-2 font-body text-body-md text-on-surface-variant">
+                <input
+                  type="radio"
+                  name="fixMode"
+                  value="poster"
+                  checked={fixMode === 'poster'}
+                  onChange={() => setFixMode('poster')}
+                  disabled={isFixRunning}
+                />
+                Só pôster/imagem
+              </label>
+              <label className="flex items-center gap-2 font-body text-body-md text-on-surface-variant">
+                <input
+                  type="radio"
+                  name="fixMode"
+                  value="video"
+                  checked={fixMode === 'video'}
+                  onChange={() => setFixMode('video')}
+                  disabled={isFixRunning}
+                />
+                Só vídeo
+              </label>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleStartFix}
+                disabled={fixStarting || isFixRunning || !fixCandidateCount}
+                className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isFixRunning ? 'Corrigindo…' : `Corrigir ${fixCandidateCount} filme(s)`}
+              </button>
+              {fixJobId && !isFixRunning ? (
+                <button
+                  onClick={handleForgetFix}
+                  className="px-4 py-2 rounded-lg border border-white/20 text-on-surface-variant hover:bg-white/10 transition-colors font-body text-label-bold"
+                >
+                  Esquecer essa correção
+                </button>
+              ) : null}
+            </div>
+          </>
+        ) : null}
+
+        {fixError ? <p className="text-error font-body text-body-md">{fixError}</p> : null}
+
+        {fixJob ? (
+          <div className="space-y-3 pt-2 border-t border-white/10">
+            {fixJob.status === 'running' ? (
+              <div className="space-y-2">
+                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div className="h-full bg-primary transition-all" style={{ width: `${fixPct}%` }} />
+                </div>
+                <p className="font-body text-body-sm text-on-surface-variant">
+                  {fixJob.checked}/{fixJob.total} verificados ({fixPct}%) · {fixJob.fixedCount} corrigido(s) ·{' '}
+                  {fixJob.unfixedCount} sem substituto até agora
+                </p>
+              </div>
+            ) : null}
+
+            {fixJob.status === 'done' ? (
+              <div className="space-y-3">
+                <p className="font-body text-body-md text-on-background">
+                  Concluído — {fixJob.fixedCount} corrigido(s), {fixJob.unfixedCount} sem substituto
+                  encontrado.
+                </p>
+                <button
+                  onClick={handleDownloadFix}
+                  className="bg-primary text-on-primary font-body text-label-bold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(var(--glow-primary),0.4)] transition-all"
+                >
+                  Baixar relatório (CSV)
+                </button>
+              </div>
+            ) : null}
+
+            {fixJob.status === 'error' ? (
+              <p className="text-error font-body text-body-md">Erro na correção: {fixJob.error}</p>
+            ) : null}
+          </div>
+        ) : fixJobId ? (
+          <p className="font-body text-body-md text-on-surface-variant">Carregando status da correção…</p>
+        ) : null}
+      </div>
     </div>
   );
 }
