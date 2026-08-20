@@ -1,6 +1,9 @@
 'use client';
 
 import DonationContent from './DonationContent';
+import AdBand from './AdBand';
+
+const ADSENSE_SLOT_DOACAO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_DOACAO;
 
 export default function DonationModal({ onClose }) {
   return (
@@ -16,6 +19,7 @@ export default function DonationModal({ onClose }) {
       <div className="min-h-full flex items-center justify-center p-4 py-16 sm:py-20">
         <div className="w-full max-w-3xl animate-hero-in" onClick={(e) => e.stopPropagation()}>
           <DonationContent HeadingTag="h2" />
+          <AdBand slotId={ADSENSE_SLOT_DOACAO} className="mt-10" />
         </div>
       </div>
     </div>
