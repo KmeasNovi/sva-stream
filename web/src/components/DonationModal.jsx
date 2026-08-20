@@ -2,13 +2,15 @@
 
 import DonationContent from './DonationContent';
 import AdBand from './AdBand';
+import AdsterraBanner from './AdsterraBanner';
 import useIsNarrowScreen from '../lib/useIsNarrowScreen';
 
 const ADSENSE_SLOT_DOACAO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_DOACAO;
 
 export default function DonationModal({ onClose }) {
-  // Faixa de cima só no desktop — no mobile o modal já é bem apertado
-  // verticalmente, empilhar ads em cima e embaixo dos cards fica espremido.
+  // Desktop: só as duas faixas 728x90 (sem quadrados, sem AdSlot) em cima e
+  // embaixo do conteúdo. Mobile: mantém o AdBand cheio (sanduíche) só
+  // embaixo, como já era — o modal já é apertado verticalmente lá.
   const isDesktop = !useIsNarrowScreen();
 
   return (
@@ -23,9 +25,22 @@ export default function DonationModal({ onClose }) {
       </button>
       <div className="min-h-full flex items-center justify-center p-4 py-16 sm:py-20">
         <div className="w-full max-w-3xl animate-hero-in" onClick={(e) => e.stopPropagation()}>
-          {isDesktop ? <AdBand slotId={ADSENSE_SLOT_DOACAO} className="mb-10" /> : null}
-          <DonationContent HeadingTag="h2" />
-          <AdBand slotId={ADSENSE_SLOT_DOACAO} className="mt-10" />
+          {isDesktop ? (
+            <>
+              <div className="flex justify-center mb-10">
+                <AdsterraBanner size="728x90" />
+              </div>
+              <DonationContent HeadingTag="h2" />
+              <div className="flex justify-center mt-10">
+                <AdsterraBanner size="728x90" />
+              </div>
+            </>
+          ) : (
+            <>
+              <DonationContent HeadingTag="h2" />
+              <AdBand slotId={ADSENSE_SLOT_DOACAO} className="mt-10" />
+            </>
+          )}
         </div>
       </div>
     </div>
