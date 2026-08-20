@@ -136,25 +136,27 @@ export default async function LandingPage() {
             <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
               Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Sem mensalidade — só criar conta e assistir.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/cadastro"
-                className="bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
-              >
-                Criar conta grátis
-              </Link>
-              <Link
-                href="/entrar"
-                className="glass-panel text-on-background font-body text-label-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors"
-              >
-                Já tenho conta
-              </Link>
+            <div className="flex flex-col items-center gap-4">
               <Link
                 href="/catalogo"
-                className="text-on-surface-variant font-body text-label-bold px-8 py-4 rounded-lg border border-white/10 hover:border-white/30 hover:text-on-background transition-colors"
+                className="bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
               >
                 Assistir sem conta
               </Link>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/cadastro"
+                  className="text-on-surface-variant font-body text-body-sm px-5 py-2 rounded-lg border border-white/10 hover:border-white/30 hover:text-on-background transition-colors"
+                >
+                  Criar conta grátis
+                </Link>
+                <Link
+                  href="/entrar"
+                  className="text-on-surface-variant font-body text-body-sm px-5 py-2 rounded-lg border border-white/10 hover:border-white/30 hover:text-on-background transition-colors"
+                >
+                  Já tenho conta
+                </Link>
+              </div>
             </div>
           </div>
         </section>
