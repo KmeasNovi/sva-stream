@@ -33,7 +33,6 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
   const [page, setPage] = useState(initialPagination?.page || 1);
   const [hasMore, setHasMore] = useState((initialPagination?.pages || 1) > (initialPagination?.page || 1));
   const [loading, setLoading] = useState(false);
-  const total = initialPagination?.total ?? movies.length;
   const sentinelRef = useRef(null);
   const loadingRef = useRef(false);
 
@@ -91,7 +90,7 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
         <div>
           <h1 className="font-display text-headline-lg text-on-background">Catálogo</h1>
           <p className="font-body text-body-md text-on-surface-variant mt-1">
-            {total} filmes e curtas, sem filtro de categoria.
+            Filmes e curtas, sem filtro de categoria.
           </p>
         </div>
         <label className="flex items-center gap-3 font-body text-label-bold text-on-surface-variant">
