@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
-import { useUser } from '../context/UserContext';
 import useIsPro from '../lib/useIsPro';
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
@@ -21,13 +20,11 @@ const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 // AdSlot na mesma página (ver /movie/[slug]) só baixam o arquivo uma vez.
 export default function AdSlot({ slotId, className = '' }) {
   const pushed = useRef(false);
-  // Quem assina o Premium não vê anúncio — mas só em pro.sepiastream.com.
-  // Em sepiastream.com o anúncio aparece pra todo mundo, assinante ou não
-  // (decisão explícita do usuário: o "sem anúncio" é um benefício do
-  // domínio Pro, não da conta em qualquer lugar).
-  const { user } = useUser();
+  // Nunca tem anúncio em pro.sepiastream.com, ponto — independente de
+  // isPremium (decisão explícita do usuário). Em sepiastream.com o anúncio
+  // aparece pra todo mundo, assinante ou não.
   const isPro = useIsPro();
-  const hideAds = Boolean(user?.isPremium) && isPro;
+  const hideAds = isPro;
 
   useEffect(() => {
     if (!ADSENSE_CLIENT_ID || !slotId || hideAds || pushed.current) return;
