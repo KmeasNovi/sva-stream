@@ -11,6 +11,7 @@ const authRoutes = require('./routes/authRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const userRoutes = require('./routes/userRoutes');
 const billingRoutes = require('./routes/billingRoutes');
+const healthCheckRoutes = require('./routes/healthCheckRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const { apiLimiter } = require('./middleware/rateLimit');
 
@@ -52,6 +53,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/billing', billingRoutes);
+app.use('/api/health-check', healthCheckRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Rota não encontrada' });

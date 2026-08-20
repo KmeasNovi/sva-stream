@@ -85,4 +85,9 @@ export const api = {
   // um erro 503 tratável enquanto o Asaas não estiver configurado no backend.
   subscribePremium: (data, token) => request('/billing/subscribe', { method: 'POST', body: data, token }),
   cancelPremium: (token) => request('/billing/cancel', { method: 'POST', token }),
+  // Verificação de links quebrados (pôster/backdrop/vídeo) — job assíncrono,
+  // ver server/src/controllers/healthCheckController.js. O CSV final é
+  // baixado à parte (blob), não passa pelo `request` acima.
+  startHealthCheck: (token) => request('/health-check/start', { method: 'POST', token }),
+  getHealthCheckStatus: (jobId, token) => request(`/health-check/${jobId}`, { token }),
 };

@@ -7,6 +7,7 @@ const links = [
   { href: '/admin/dashboard', label: 'Filmes' },
   { href: '/admin/dashboard/usuarios', label: 'Usuários' },
   { href: '/admin/dashboard/busca', label: 'Buscar filmes' },
+  { href: '/admin/dashboard/verificacao', label: 'Verificar links' },
 ];
 
 export default function AdminNav() {
