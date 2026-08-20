@@ -1,16 +1,14 @@
 'use client';
 
 import DonationContent from './DonationContent';
-import AdBand from './AdBand';
 import AdsterraBanner from './AdsterraBanner';
 import useIsNarrowScreen from '../lib/useIsNarrowScreen';
 
-const ADSENSE_SLOT_DOACAO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_DOACAO;
-
 export default function DonationModal({ onClose }) {
-  // Desktop: só as duas faixas 728x90 (sem quadrados, sem AdSlot) em cima e
-  // embaixo do conteúdo. Mobile: mantém o AdBand cheio (sanduíche) só
-  // embaixo, como já era — o modal já é apertado verticalmente lá.
+  // Desktop: só as duas faixas 728x90 (sem quadrado) em cima e embaixo do
+  // conteúdo. Mobile: um único quadrado 300x250 entre os dois cards (ver
+  // adBetweenCards em DonationContent.jsx) — nada em cima/embaixo, o modal
+  // já é apertado verticalmente lá.
   const isDesktop = !useIsNarrowScreen();
 
   return (
@@ -37,8 +35,7 @@ export default function DonationModal({ onClose }) {
             </>
           ) : (
             <>
-              <DonationContent HeadingTag="h2" />
-              <AdBand slotId={ADSENSE_SLOT_DOACAO} className="mt-10" />
+              <DonationContent HeadingTag="h2" adBetweenCards />
             </>
           )}
         </div>

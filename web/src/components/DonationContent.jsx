@@ -1,12 +1,17 @@
 import CopyPixKey from './CopyPixKey';
 import SubscribeCard from './SubscribeCard';
+import AdsterraBanner from './AdsterraBanner';
 
 const VAKINHA_URL = 'https://www.vakinha.com.br/6263806';
 // Chave PIX da própria Vakinha (não é uma chave pessoal) — o pagamento passa
 // pela infraestrutura deles, então quem doa nunca vê nome nem dados pessoais.
 const VAKINHA_PIX_KEY = '6263806@vakinha.com.br';
 
-export default function DonationContent({ HeadingTag = 'h1' }) {
+// adBetweenCards: usado só pelo DonationModal no mobile — insere um único
+// quadrado de anúncio entre os dois cards (no grid de 1 coluna do mobile,
+// isso cai entre eles empilhados). md:hidden garante que nunca aparece no
+// desktop, mesmo antes do JS decidir se é mobile (ver DonationModal.jsx).
+export default function DonationContent({ HeadingTag = 'h1', adBetweenCards = false }) {
   return (
     <div className="text-center px-2">
       <span className="material-symbols-outlined text-secondary text-4xl sm:text-5xl mb-3 sm:mb-4 inline-block">
@@ -21,6 +26,12 @@ export default function DonationContent({ HeadingTag = 'h1' }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto items-stretch">
         <SubscribeCard />
+
+        {adBetweenCards ? (
+          <div className="md:hidden flex justify-center">
+            <AdsterraBanner size="300x250" />
+          </div>
+        ) : null}
 
         <div className="glass-panel rounded-3xl p-5 sm:p-8 md:p-10 h-full space-y-5 sm:space-y-6">
           <div className="text-center space-y-2">
