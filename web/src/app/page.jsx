@@ -136,7 +136,7 @@ export default async function LandingPage() {
             </p>
             <div className="flex flex-col items-center gap-4">
               <Link
-                href="/catalogo"
+                href="/home"
                 className="bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
               >
                 Assistir sem conta

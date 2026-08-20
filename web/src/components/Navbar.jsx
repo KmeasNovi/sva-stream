@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import useIsPro from '../lib/useIsPro';
+import isChromeLessPath from '../lib/chromeLessPaths';
 import ProBadge from './ProBadge';
 
 const NAV_ITEMS = [
@@ -52,8 +53,11 @@ function AccountControl() {
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { user } = useUser();
   const isPro = useIsPro();
+  // Navegação (barra lateral, menu inferior, busca) é igual pra quem tem
+  // conta ou não — a única coisa que muda com login é favoritar (ver
+  // FavoriteButton.jsx). Só a landing/telas de auth/admin não mostram isso.
+  const showChrome = !isChromeLessPath(pathname);
 
   function handleSearchSubmit(e) {
     e.preventDefault();
@@ -64,7 +68,7 @@ export default function Navbar() {
   return (
     <>
       {/* Sidebar (Desktop) */}
-      {user ? (
+      {showChrome ? (
         <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[280px] pt-24 pb-8 flex-col z-30 bg-surface/5 backdrop-blur-3xl border-r border-white/5 shadow-2xl shadow-primary/20">
           <div className="px-6 mb-12 flex items-center gap-3">
             <Image src="/logo-icon.png" alt="" width={40} height={40} className="flex-none" />
@@ -102,10 +106,10 @@ export default function Navbar() {
 
       {/* Top App Bar */}
       <header
-        className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 ${user ? 'md:pl-[304px]' : ''}`}
+        className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 ${showChrome ? 'md:pl-[304px]' : ''}`}
       >
         <div className="flex items-center md:hidden">
-          <Link href={user ? '/home' : '/'} className="flex items-center gap-2">
+          <Link href={showChrome ? '/home' : '/'} className="flex items-center gap-2">
             <Image src="/logo-icon.png" alt="" width={28} height={28} />
             <span className="font-display text-headline-md text-primary">
               SepiaStream
@@ -113,7 +117,7 @@ export default function Navbar() {
             </span>
           </Link>
         </div>
-        {user ? (
+        {showChrome ? (
           <form onSubmit={handleSearchSubmit} className="flex-1 max-w-xl hidden md:flex items-center mx-8 relative group">
             <span className="material-symbols-outlined absolute left-4 text-on-surface-variant group-focus-within:text-primary transition-colors">
               search
@@ -138,7 +142,7 @@ export default function Navbar() {
           </div>
         )}
         <div className="flex items-center gap-4">
-          {user ? (
+          {showChrome ? (
             <Link href="/search" className="md:hidden text-on-surface-variant hover:text-secondary transition-colors">
               <span className="material-symbols-outlined">search</span>
             </Link>
@@ -155,7 +159,7 @@ export default function Navbar() {
       </header>
 
       {/* Bottom Nav (Mobile) */}
-      {user ? (
+      {showChrome ? (
         <nav className="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-highest/90 backdrop-blur-xl border-t border-white/10 z-50 px-6 py-3 flex justify-around items-center">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;

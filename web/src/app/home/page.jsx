@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useEffect, useState } from 'react';
-import { useUser, consumeJustLoggedIn } from '../../context/UserContext';
+import { consumeJustLoggedIn } from '../../context/UserContext';
 import { api } from '../../lib/api';
 import { getCached, setCached } from '../../lib/clientCache';
 import HeroCarousel from '../../components/HeroCarousel';
@@ -14,7 +14,6 @@ import AdBand from '../../components/AdBand';
 const ADSENSE_SLOT_HOME = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME;
 
 export default function HomePage() {
-  const { token } = useUser();
   const cached = getCached('home');
   const [featured, setFeatured] = useState(cached?.featured ?? null);
   const [recent, setRecent] = useState(cached?.recent ?? null);
@@ -26,21 +25,22 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (!token) return;
     let cancelled = false;
-    Promise.all([api.listFeatured(token), api.listMovies({ limit: 12 }, token), api.listGenres(token)]).then(
-      ([{ data: featuredData }, { data: recentData }, { data: genresData }]) => {
-        if (cancelled) return;
-        setFeatured(featuredData);
-        setRecent(recentData);
-        setGenres(genresData);
-        setCached('home', { featured: featuredData, recent: recentData, genres: genresData });
-      }
-    );
+    Promise.all([
+      api.listFeaturedPublic(),
+      api.listMoviesPublic({ limit: 12, sort: 'recent' }),
+      api.listGenresPublic(),
+    ]).then(([{ data: featuredData }, { data: recentData }, { data: genresData }]) => {
+      if (cancelled) return;
+      setFeatured(featuredData);
+      setRecent(recentData);
+      setGenres(genresData);
+      setCached('home', { featured: featuredData, recent: recentData, genres: genresData });
+    });
     return () => {
       cancelled = true;
     };
-  }, [token]);
+  }, []);
 
   if (!featured || !recent || !genres) {
     return (
@@ -65,7 +65,7 @@ export default function HomePage() {
         <HomeAdBlock />
         {genres.map((genre) => (
           <Fragment key={genre}>
-            <GenreRow genre={genre} token={token} />
+            <GenreRow genre={genre} />
             <HomeAdBlock />
           </Fragment>
         ))}
@@ -81,13 +81,13 @@ function HomeAdBlock() {
   return <AdBand slotId={ADSENSE_SLOT_HOME} />;
 }
 
-function GenreRow({ genre, token }) {
+function GenreRow({ genre }) {
   const cacheKey = `home-genre-row:${genre}`;
   const [movies, setMovies] = useState(() => getCached(cacheKey) ?? null);
 
   useEffect(() => {
     let cancelled = false;
-    api.listMovies({ genre, limit: 12 }, token).then(({ data }) => {
+    api.listMoviesPublic({ genre, limit: 12 }).then(({ data }) => {
       if (cancelled) return;
       setMovies(data);
       setCached(cacheKey, data);
@@ -95,7 +95,7 @@ function GenreRow({ genre, token }) {
     return () => {
       cancelled = true;
     };
-  }, [genre, token]);
+  }, [genre]);
 
   if (!movies) return null;
   return <MovieRow title={genre} movies={movies} viewAllHref={`/genre/${encodeURIComponent(genre)}`} />;

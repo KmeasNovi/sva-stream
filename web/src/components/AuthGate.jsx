@@ -7,6 +7,11 @@ import useIsPro from '../lib/useIsPro';
 import LoadingScreen from './LoadingScreen';
 import ProLockScreen from './ProLockScreen';
 
+// Navegação livre pra quem não tem conta é igual à de quem tem — a única
+// coisa que exige login de verdade é favoritar (ver FavoriteButton.jsx, que
+// manda pra /entrar só nesse clique). /minha-lista entra aqui também: sem
+// conta, o componente já mostra um prompt de login próprio em vez de listar
+// favoritos vazios — não precisa do redirect do gate pra isso.
 const PUBLIC_PATHS = [
   '/',
   '/entrar',
@@ -17,6 +22,9 @@ const PUBLIC_PATHS = [
   '/privacidade',
   '/doacao',
   '/catalogo',
+  '/home',
+  '/search',
+  '/minha-lista',
 ];
 
 // Páginas de autenticação/admin ficam sempre acessíveis, em qualquer host —
@@ -38,7 +46,10 @@ export default function AuthGate({ children }) {
   // No site normal, PUBLIC_PATHS continua liberando navegação sem login. No
   // Pro, isso não vale — só as páginas de auth/admin acima ficam de fora do
   // bloqueio, tudo o resto exige login E assinatura ativa.
-  const isPublic = isAdminOrAuthExempt || (!isPro && PUBLIC_PATHS.includes(pathname)) || (!isPro && pathname.startsWith('/movie/'));
+  const isPublic =
+    isAdminOrAuthExempt ||
+    (!isPro && PUBLIC_PATHS.includes(pathname)) ||
+    (!isPro && (pathname.startsWith('/movie/') || pathname.startsWith('/genre/')));
 
   useEffect(() => {
     if (loading || isPublic || user) return;

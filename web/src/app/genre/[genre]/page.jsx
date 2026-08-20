@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useUser } from '../../../context/UserContext';
 import { api } from '../../../lib/api';
 import { getCached, setCached } from '../../../lib/clientCache';
 import MovieCard from '../../../components/MovieCard';
@@ -10,27 +9,75 @@ import LoadingScreen from '../../../components/LoadingScreen';
 import AdBand from '../../../components/AdBand';
 
 const ADSENSE_SLOT_GENRE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_GENRE;
+const PAGE_SIZE = 60;
 
 export default function GenrePage({ params }) {
-  const { token } = useUser();
   const decoded = decodeURIComponent(params.genre);
   const cacheKey = `genre:${decoded}`;
-  const [movies, setMovies] = useState(() => getCached(cacheKey) ?? null);
+  const cached = getCached(cacheKey);
+  const [movies, setMovies] = useState(cached?.movies ?? null);
+  const [page, setPage] = useState(cached?.page ?? 1);
+  const [hasMore, setHasMore] = useState(cached?.hasMore ?? true);
+  const [loading, setLoading] = useState(false);
+  const sentinelRef = useRef(null);
+  const loadingRef = useRef(false);
 
+  // Troca de gênero (navegação entre categorias) recomeça do zero.
   useEffect(() => {
-    setMovies(getCached(cacheKey) ?? null);
+    const fresh = getCached(cacheKey);
+    setMovies(fresh?.movies ?? null);
+    setPage(fresh?.page ?? 1);
+    setHasMore(fresh?.hasMore ?? true);
 
-    if (!token) return;
+    if (fresh) return;
     let cancelled = false;
-    api.listMovies({ genre: decoded, limit: 2000 }, token).then(({ data }) => {
+    api.listMoviesPublic({ genre: decoded, page: 1, limit: PAGE_SIZE }).then(({ data, pagination }) => {
       if (cancelled) return;
-      setMovies(data);
-      setCached(cacheKey, data);
+      const hasMoreNow = (pagination?.pages || 1) > 1;
+      setMovies(data || []);
+      setHasMore(hasMoreNow);
+      setCached(cacheKey, { movies: data || [], page: 1, hasMore: hasMoreNow });
     });
     return () => {
       cancelled = true;
     };
-  }, [decoded, token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [decoded]);
+
+  const loadMore = useCallback(() => {
+    if (loadingRef.current || !hasMore) return;
+    loadingRef.current = true;
+    setLoading(true);
+    const nextPage = page + 1;
+    api
+      .listMoviesPublic({ genre: decoded, page: nextPage, limit: PAGE_SIZE })
+      .then(({ data, pagination }) => {
+        setMovies((prev) => {
+          const next = [...(prev || []), ...(data || [])];
+          setCached(cacheKey, { movies: next, page: nextPage, hasMore: (pagination?.pages || 1) > nextPage });
+          return next;
+        });
+        setPage(nextPage);
+        setHasMore((pagination?.pages || 1) > nextPage);
+      })
+      .finally(() => {
+        setLoading(false);
+        loadingRef.current = false;
+      });
+  }, [decoded, page, hasMore, cacheKey]);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadMore();
+      },
+      { rootMargin: '600px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [loadMore]);
 
   return (
     <div className="container mx-auto px-container-margin py-12">
@@ -57,6 +104,13 @@ export default function GenrePage({ params }) {
               <p className="font-body text-body-md text-on-surface-variant">Nenhum filme neste gênero ainda.</p>
             ) : null}
           </div>
+          {hasMore ? (
+            <div ref={sentinelRef} className="flex justify-center py-10">
+              {loading ? (
+                <span className="font-body text-body-md text-on-surface-variant">Carregando mais filmes…</span>
+              ) : null}
+            </div>
+          ) : null}
         </>
       )}
     </div>

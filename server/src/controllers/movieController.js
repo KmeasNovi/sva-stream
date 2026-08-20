@@ -123,20 +123,71 @@ exports.listMovies = catchAsync(async (req, res) => {
 // Paginada (scroll infinito no front) — antes devolvia o catálogo inteiro
 // numa resposta só, o que virou 1MB+ de JSON e milhares de cards montados
 // de uma vez assim que o catálogo passou de ~3.000 títulos.
+const PUBLIC_LIST_FIELDS = 'title slug posterUrl backdropUrl year genres';
+
 exports.listMoviesPublic = catchAsync(async (req, res) => {
-  const { page = 1, limit = 60, sort = 'alpha' } = req.query;
+  const { page = 1, limit = 60, sort = 'alpha', genre, search } = req.query;
   const pageNum = Math.max(1, parseInt(page, 10) || 1);
   const limitNum = Math.min(120, Math.max(1, parseInt(limit, 10) || 60));
-  const sortSpec = sort === 'year' ? { year: 1, title: 1 } : { title: 1 };
+  // 'recent' = mais recém-adicionado primeiro, usado pela fileira "Adicionados
+  // recentemente" de /home (equivalente ao default do listMovies acima, que
+  // exige login — essa é a versão pública, mesmo critério).
+  const sortSpec =
+    sort === 'year' ? { year: 1, title: 1 } : sort === 'recent' ? { createdAt: -1 } : { title: 1 };
+
+  // Filtro por gênero (usado por /genre/[genre] sem exigir login) — mesma
+  // lógica de "gênero primário" do listMovies acima (ver comentário lá),
+  // só que com o teto de 120 por página e os campos limitados da versão
+  // pública, pra não reabrir a brecha de scraping que o teto existe pra evitar.
+  if (genre && typeof genre === 'string') {
+    const primaryGenreExpr = {
+      $let: {
+        vars: {
+          nonCatchAll: {
+            $filter: { input: '$genres', cond: { $ne: ['$$this', CATCH_ALL_GENRE] } },
+          },
+        },
+        in: {
+          $ifNull: [{ $arrayElemAt: ['$$nonCatchAll', 0] }, { $arrayElemAt: ['$genres', 0] }],
+        },
+      },
+    };
+
+    const [result] = await Movie.aggregate([
+      { $addFields: { primaryGenre: primaryGenreExpr } },
+      { $match: { primaryGenre: genre } },
+      { $sort: { createdAt: -1 } },
+      {
+        $facet: {
+          data: [
+            { $skip: (pageNum - 1) * limitNum },
+            { $limit: limitNum },
+            { $project: { title: 1, slug: 1, posterUrl: 1, backdropUrl: 1, year: 1, genres: 1 } },
+          ],
+          totalCount: [{ $count: 'count' }],
+        },
+      },
+    ]);
+
+    const total = result.totalCount[0]?.count || 0;
+    return res.json({
+      success: true,
+      data: result.data,
+      pagination: { page: pageNum, limit: limitNum, total, pages: Math.ceil(total / limitNum) },
+    });
+  }
+
+  const query = {};
+  if (search && typeof search === 'string') query.$text = { $search: search };
 
   const [movies, total] = await Promise.all([
-    Movie.find({})
+    Movie.find(query)
       .sort(sortSpec)
       .skip((pageNum - 1) * limitNum)
       .limit(limitNum)
-      .select('title slug posterUrl backdropUrl year genres')
+      .select(PUBLIC_LIST_FIELDS)
       .lean(),
-    Movie.countDocuments({}),
+    Movie.countDocuments(query),
   ]);
 
   res.json({
@@ -262,6 +313,29 @@ exports.listGenres = catchAsync(async (req, res) => {
   const movies = await Movie.find({}, 'genres').lean();
   const primaryGenres = new Set(movies.map((m) => getPrimaryGenre(m.genres)).filter(Boolean));
   res.json({ success: true, data: [...primaryGenres].sort() });
+});
+
+// Rota pública (sem auth) — mesma lista de categorias acima, usada por
+// /home e /search sem exigir login (navegação livre, só favoritar exige
+// conta — ver FavoriteButton.jsx).
+exports.listGenresPublic = exports.listGenres;
+
+// Rota pública (sem auth) — mesma seleção de "Em destaque" do listFeatured
+// acima, com os campos limitados da versão pública (sem sinopse), usada
+// pela Hero Carousel de /home sem exigir login.
+exports.listFeaturedPublic = catchAsync(async (req, res) => {
+  const movies = await Movie.find({})
+    .sort({ featured: -1, views: -1, title: 1 })
+    .select(PUBLIC_LIST_FIELDS)
+    .lean();
+
+  const picked = [];
+  for (const genre of FEATURED_GENRES) {
+    const candidate = movies.find((m) => getPrimaryGenre(m.genres) === genre);
+    if (candidate) picked.push(candidate);
+  }
+
+  res.json({ success: true, data: picked });
 });
 
 exports.createMovie = catchAsync(async (req, res, next) => {

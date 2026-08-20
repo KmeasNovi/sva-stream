@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useUser } from '../context/UserContext';
 import { api } from '../lib/api';
 import { getCached, setCached } from '../lib/clientCache';
 import { proxiedImage } from '../lib/imageProxy';
@@ -14,18 +13,16 @@ const TILE_ACCENTS = ['text-white', 'text-secondary', 'text-error', 'text-white'
 
 export default function Explore() {
   const searchParams = useSearchParams();
-  const { token } = useUser();
   const [term, setTerm] = useState(searchParams.get('q') || '');
   const [results, setResults] = useState([]);
   const [genreTiles, setGenreTiles] = useState(() => getCached('explore-genre-tiles') ?? null);
 
   useEffect(() => {
-    if (!token) return;
     let cancelled = false;
-    api.listGenres(token).then(async ({ data: genres }) => {
+    api.listGenresPublic().then(async ({ data: genres }) => {
       const tiles = await Promise.all(
         genres.map(async (genre) => {
-          const { data } = await api.listMovies({ genre, limit: 1 }, token);
+          const { data } = await api.listMoviesPublic({ genre, limit: 1 });
           const rawCover = data[0]?.backdropUrl || data[0]?.posterUrl || null;
           const cover = rawCover ? proxiedImage(rawCover, 400) : null;
           return { genre, cover };
@@ -38,23 +35,23 @@ export default function Explore() {
     return () => {
       cancelled = true;
     };
-  }, [token]);
+  }, []);
 
   useEffect(() => {
-    if (!token || term.trim().length < 2) {
+    if (term.trim().length < 2) {
       setResults([]);
       return;
     }
 
     let cancelled = false;
-    api.listMovies({ search: term, limit: 300 }, token).then(({ data }) => {
+    api.listMoviesPublic({ search: term, limit: 120 }).then(({ data }) => {
       if (!cancelled) setResults(data);
     });
 
     return () => {
       cancelled = true;
     };
-  }, [term, token]);
+  }, [term]);
 
   if (!genreTiles) {
     return <LoadingScreen />;

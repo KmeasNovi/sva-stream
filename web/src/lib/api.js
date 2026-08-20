@@ -41,7 +41,8 @@ export const api = {
   // Pública — usada pela landing page (/) pra mostrar títulos reais com
   // link, em vez de só decoração sem texto indexável.
   listHighlights: () => request('/movies/public/highlights', { revalidate: 3600 }),
-  // Pública — usada por /catalogo (paginada, scroll infinito). A primeira
+  // Pública — usada por /catalogo (paginada, scroll infinito) e por
+  // /genre/[genre] (mesma rota, passando genre nos params). A primeira
   // página é renderizada no servidor (sem login, com cache); as próximas
   // são buscadas direto do navegador conforme a pessoa rola a tela.
   listMoviesPublic: (params = {}) => {
@@ -50,6 +51,11 @@ export const api = {
   },
   listGenres: (token) => request('/movies/genres', { token }),
   listFeatured: (token) => request('/movies/featured', { token }),
+  // Públicas — mesmos dados de listGenres/listFeatured acima, sem exigir
+  // login. Usadas por /home e /search, que agora navegam sem conta (só
+  // favoritar exige — ver FavoriteButton.jsx).
+  listGenresPublic: () => request('/movies/public/genres', { revalidate: 300 }),
+  listFeaturedPublic: () => request('/movies/public/featured', { revalidate: 300 }),
   login: (email, password) => request('/auth/login', { method: 'POST', body: { email, password } }),
   createMovie: (data, token) => request('/movies', { method: 'POST', body: data, token }),
   updateMovie: (id, data, token) => request(`/movies/${id}`, { method: 'PATCH', body: data, token }),
