@@ -26,6 +26,11 @@ const SIZES = {
     width: 300,
     height: 250,
   },
+  '320x50': {
+    key: process.env.NEXT_PUBLIC_ADSTERRA_BANNER_320X50_KEY,
+    width: 320,
+    height: 50,
+  },
 };
 
 function buildSrcDoc(key, width, height) {
