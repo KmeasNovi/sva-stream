@@ -34,7 +34,13 @@ const corsOrigin = !process.env.CORS_ORIGIN || process.env.CORS_ORIGIN === '*'
   : process.env.CORS_ORIGIN.split(',');
 
 app.use(cors({ origin: corsOrigin }));
-app.use(express.json());
+// Padrão do express é 100kb — estoura fácil em lote grande (ex: corrigir
+// filmes com o catálogo inteiro quebrado manda 1000+ itens de uma vez, ou
+// bulkCreateMovies com sinopse de cada filme). Acima do limite o body-parser
+// rejeita a requisição inteira antes dela chegar em qualquer rota, e o
+// errorHandler devolve só "Erro interno do servidor" sem pista nenhuma do
+// motivo real.
+app.use(express.json({ limit: '5mb' }));
 app.use(mongoSanitize());
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
