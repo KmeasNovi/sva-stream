@@ -143,7 +143,7 @@ export default async function MoviePage({ params }) {
         Voltar
       </Link>
 
-      <AdBand slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
+      <AdBand slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} compact />
 
       <Player
         slug={movie.slug}

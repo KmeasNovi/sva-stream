@@ -95,7 +95,7 @@ export default function GenrePage({ params }) {
         <LoadingScreen />
       ) : (
         <>
-          {movies.length ? <AdBand slotId={ADSENSE_SLOT_GENRE} className="mb-8" /> : null}
+          {movies.length ? <AdBand slotId={ADSENSE_SLOT_GENRE} className="mb-8" compact /> : null}
           <div className="flex flex-wrap gap-4">
             {movies.map((movie) => (
               <MovieCard key={movie._id} movie={movie} />

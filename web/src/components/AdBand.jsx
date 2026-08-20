@@ -18,7 +18,10 @@ import useIsNarrowScreen from '../lib/useIsNarrowScreen';
 // 728px não cabe num celular, e antes disso a pessoa precisava arrastar o
 // dedo pra ver o resto do banner. Troca via useIsNarrowScreen (não CSS puro)
 // pra só carregar UM dos dois tamanhos por vez, não os dois escondendo um.
-export default function AdBand({ slotId, className = '' }) {
+//
+// compact: sem os dois quadrados do meio, só as duas faixas largas — usado
+// no primeiro bloco de anúncio de cada página de filme/catálogo/gênero.
+export default function AdBand({ slotId, className = '', compact = false }) {
   const isNarrow = useIsNarrowScreen();
   const wideBannerSize = isNarrow ? '320x50' : '728x90';
 
@@ -28,10 +31,12 @@ export default function AdBand({ slotId, className = '' }) {
       <div className="max-w-full overflow-x-auto">
         <div className="flex flex-col items-center w-max mx-auto">
           <AdsterraBanner size={wideBannerSize} />
-          <div className="flex">
-            <AdsterraBanner size="300x250" />
-            <AdsterraBanner size="300x250" />
-          </div>
+          {compact ? null : (
+            <div className="flex">
+              <AdsterraBanner size="300x250" />
+              <AdsterraBanner size="300x250" />
+            </div>
+          )}
           <AdsterraBanner size={wideBannerSize} />
         </div>
       </div>

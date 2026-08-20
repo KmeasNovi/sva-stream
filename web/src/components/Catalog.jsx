@@ -107,7 +107,7 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
         </label>
       </div>
 
-      <AdBand slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" />
+      <AdBand slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" compact />
 
       <div className="flex flex-wrap gap-4">
         {movies.map((movie, i) => (
