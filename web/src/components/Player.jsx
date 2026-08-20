@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { proxiedImage } from '../lib/imageProxy';
+import { markMovieOpened } from '../lib/donationPrompt';
 import AdBand from './AdBand';
 
 const PREROLL_SKIP_SECONDS = 5;
@@ -157,8 +158,15 @@ function PlayerChoice({ onChoose }) {
   );
 }
 
-export default function Player({ source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes, preRollSlotId }) {
+export default function Player({ slug, source, title, videoFileUrl, subtitleUrl, posterUrl, relatedMovies, runtimeMinutes, preRollSlotId }) {
   const mediaRef = useRef(null);
+
+  // Arma o modal de doação pra aparecer na próxima vez que a pessoa voltar
+  // pra /home — só na primeira vez que ELA abre ESSE filme (ver
+  // lib/donationPrompt.js). Reabrir o mesmo filme de novo não repete.
+  useEffect(() => {
+    markMovieOpened(slug);
+  }, [slug]);
   const [showUpNext, setShowUpNext] = useState(false);
   const [showAd, setShowAd] = useState(!!preRollSlotId);
   // Botão de play grande e centralizado por cima do <video> nativo — some

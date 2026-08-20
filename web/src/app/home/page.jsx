@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useState } from 'react';
 import { consumeJustLoggedIn } from '../../context/UserContext';
+import { consumePendingDonationPrompt } from '../../lib/donationPrompt';
 import { api } from '../../lib/api';
 import { getCached, setCached } from '../../lib/clientCache';
 import HeroCarousel from '../../components/HeroCarousel';
@@ -21,7 +22,7 @@ export default function HomePage() {
   const [showDonation, setShowDonation] = useState(false);
 
   useEffect(() => {
-    if (consumeJustLoggedIn()) setShowDonation(true);
+    if (consumeJustLoggedIn() || consumePendingDonationPrompt()) setShowDonation(true);
   }, []);
 
   useEffect(() => {

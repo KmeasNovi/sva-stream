@@ -146,6 +146,7 @@ export default async function MoviePage({ params }) {
       <AdBand slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
 
       <Player
+        slug={movie.slug}
         source={movie.source}
         title={movie.title}
         videoFileUrl={movie.videoFileUrl}
