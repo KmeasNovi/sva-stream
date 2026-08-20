@@ -7,8 +7,7 @@ import { api } from '../../../lib/api';
 import { getCached, setCached } from '../../../lib/clientCache';
 import MovieCard from '../../../components/MovieCard';
 import LoadingScreen from '../../../components/LoadingScreen';
-import AdSlot from '../../../components/AdSlot';
-import AdsterraBanner from '../../../components/AdsterraBanner';
+import AdBand from '../../../components/AdBand';
 
 const ADSENSE_SLOT_GENRE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_GENRE;
 
@@ -49,12 +48,7 @@ export default function GenrePage({ params }) {
         <LoadingScreen />
       ) : (
         <>
-          {movies.length ? (
-            <>
-              <AdSlot slotId={ADSENSE_SLOT_GENRE} className="mb-8" />
-              <AdsterraBanner size="300x250" className="mb-8" />
-            </>
-          ) : null}
+          {movies.length ? <AdBand slotId={ADSENSE_SLOT_GENRE} className="mb-8" /> : null}
           <div className="flex flex-wrap gap-4">
             {movies.map((movie) => (
               <MovieCard key={movie._id} movie={movie} />

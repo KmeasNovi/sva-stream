@@ -5,7 +5,7 @@ import Player from '../../../components/Player';
 import MovieRow from '../../../components/MovieRow';
 import FavoriteButton from '../../../components/FavoriteButton';
 import AdSlot from '../../../components/AdSlot';
-import AdsterraBanner from '../../../components/AdsterraBanner';
+import AdBand from '../../../components/AdBand';
 import AdsterraNativeBanner from '../../../components/AdsterraNativeBanner';
 import MovieDonationPrompt from '../../../components/MovieDonationPrompt';
 
@@ -143,8 +143,7 @@ export default async function MoviePage({ params }) {
         Voltar
       </Link>
 
-      <AdSlot slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
-      <AdsterraBanner size="728x90" />
+      <AdBand slotId={ADSENSE_SLOT_MOVIE_ABOVE_PLAYER} />
 
       <Player
         source={movie.source}
@@ -157,8 +156,7 @@ export default async function MoviePage({ params }) {
         preRollSlotId={ADSENSE_SLOT_MOVIE_PREROLL}
       />
 
-      <AdSlot slotId={ADSENSE_SLOT_MOVIE_TOP} />
-      <AdsterraBanner size="728x90" />
+      <AdBand slotId={ADSENSE_SLOT_MOVIE_TOP} />
 
       <div className="max-w-3xl space-y-4">
         <div className="flex flex-wrap gap-2">

@@ -9,8 +9,7 @@ import MovieRow from '../../components/MovieRow';
 import NewsletterForm from '../../components/NewsletterForm';
 import LoadingScreen from '../../components/LoadingScreen';
 import DonationModal from '../../components/DonationModal';
-import AdSlot from '../../components/AdSlot';
-import AdsterraBanner from '../../components/AdsterraBanner';
+import AdBand from '../../components/AdBand';
 
 const ADSENSE_SLOT_HOME = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME;
 
@@ -79,13 +78,7 @@ export default function HomePage() {
 }
 
 function HomeAdBlock() {
-  return (
-    <div className="flex flex-wrap items-start gap-4">
-      <AdSlot slotId={ADSENSE_SLOT_HOME} />
-      <AdsterraBanner size="728x90" />
-      <AdsterraBanner size="300x250" />
-    </div>
-  );
+  return <AdBand slotId={ADSENSE_SLOT_HOME} />;
 }
 
 function GenreRow({ genre, token }) {

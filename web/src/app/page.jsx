@@ -2,8 +2,7 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import LandingRedirect from '../components/LandingRedirect';
-import AdSlot from '../components/AdSlot';
-import AdsterraBanner from '../components/AdsterraBanner';
+import AdBand from '../components/AdBand';
 import { api } from '../lib/api';
 import { proxiedImage } from '../lib/imageProxy';
 
@@ -17,9 +16,8 @@ const HIGHLIGHTS_PER_AD = 10;
 
 function LandingHighlightsAdRow() {
   return (
-    <div className="col-span-full flex flex-col items-center gap-4 py-2">
-      <AdSlot slotId={ADSENSE_SLOT_LANDING} />
-      <AdsterraBanner size="300x250" />
+    <div className="col-span-full py-2">
+      <AdBand slotId={ADSENSE_SLOT_LANDING} />
     </div>
   );
 }
@@ -207,8 +205,7 @@ export default async function LandingPage() {
         </section>
 
         <section className="container mx-auto px-container-margin">
-          <AdSlot slotId={ADSENSE_SLOT_LANDING} />
-          <AdsterraBanner size="728x90" />
+          <AdBand slotId={ADSENSE_SLOT_LANDING} />
         </section>
 
         <section className="container mx-auto px-container-margin pb-24">

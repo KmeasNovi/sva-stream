@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { useUser } from '../../context/UserContext';
 import MovieCard from '../../components/MovieCard';
 import LoadingScreen from '../../components/LoadingScreen';
-import AdSlot from '../../components/AdSlot';
-import AdsterraBanner from '../../components/AdsterraBanner';
+import AdBand from '../../components/AdBand';
 
 const ADSENSE_SLOT_MINHA_LISTA = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MINHA_LISTA;
 
@@ -17,9 +16,8 @@ const CARDS_PER_AD = 12;
 
 function MinhaListaAdRow() {
   return (
-    <div className="w-full flex flex-col items-center gap-4 py-2">
-      <AdSlot slotId={ADSENSE_SLOT_MINHA_LISTA} />
-      <AdsterraBanner size="300x250" />
+    <div className="w-full py-2">
+      <AdBand slotId={ADSENSE_SLOT_MINHA_LISTA} />
     </div>
   );
 }
@@ -62,12 +60,7 @@ export default function MinhaListaPage() {
   return (
     <div className="container mx-auto px-container-margin py-12">
       <h1 className="font-display text-headline-lg mb-8 text-on-background">Minha Lista</h1>
-      {user.favorites?.length ? (
-        <>
-          <AdSlot slotId={ADSENSE_SLOT_MINHA_LISTA} className="mb-8" />
-          <AdsterraBanner size="300x250" className="mb-8" />
-        </>
-      ) : null}
+      {user.favorites?.length ? <AdBand slotId={ADSENSE_SLOT_MINHA_LISTA} className="mb-8" /> : null}
       <div className="flex flex-wrap gap-4">
         {(user.favorites || []).map((movie, i) => (
           <Fragment key={movie._id}>

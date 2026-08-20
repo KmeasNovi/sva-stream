@@ -2,8 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import MovieCard from './MovieCard';
-import AdSlot from './AdSlot';
-import AdsterraBanner from './AdsterraBanner';
+import AdBand from './AdBand';
 import { api } from '../lib/api';
 
 const ADSENSE_SLOT_CATALOGO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATALOGO;
@@ -15,9 +14,8 @@ const CARDS_PER_AD = 12;
 
 function CatalogAdRow() {
   return (
-    <div className="w-full flex flex-col items-center gap-4 py-2">
-      <AdSlot slotId={ADSENSE_SLOT_CATALOGO} />
-      <AdsterraBanner size="300x250" />
+    <div className="w-full py-2">
+      <AdBand slotId={ADSENSE_SLOT_CATALOGO} />
     </div>
   );
 }
@@ -109,8 +107,7 @@ export default function Catalog({ initialMovies, initialPagination, pageSize }) 
         </label>
       </div>
 
-      <AdSlot slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" />
-      <AdsterraBanner size="300x250" className="mb-8" />
+      <AdBand slotId={ADSENSE_SLOT_CATALOGO} className="mb-8" />
 
       <div className="flex flex-wrap gap-4">
         {movies.map((movie, i) => (
