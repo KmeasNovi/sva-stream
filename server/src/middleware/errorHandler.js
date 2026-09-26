@@ -6,7 +6,7 @@ function errorHandler(err, req, res, next) { // eslint-disable-line no-unused-va
     console.error(err);
   }
 
-  res.status(statusCode).json({ success: false, message });
+  res.status(statusCode).json({ success: false, message, ...(err.isOperational && err.code ? { code: err.code } : {}) });
 }
 
 module.exports = errorHandler;

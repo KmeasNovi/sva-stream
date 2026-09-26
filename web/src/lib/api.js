@@ -22,7 +22,12 @@ async function request(path, { method = 'GET', body, token, revalidate = 60 } = 
   const json = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    throw new Error(json.message || `Erro na requisição (${res.status})`);
+    const err = new Error(json.message || `Erro na requisição (${res.status})`);
+    // status/code permitem distinguir, por ex., sessão derrubada por login em
+    // outro dispositivo (401 SESSION_REPLACED) de API fora do ar.
+    err.status = res.status;
+    err.code = json.code;
+    throw err;
   }
 
   return json;

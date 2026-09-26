@@ -19,11 +19,19 @@ export function UserProvider({ children }) {
     try {
       const { data } = await api.getMe(currentToken);
       setUser(data);
-    } catch {
-      // token inválido/expirado — desloga silenciosamente
+    } catch (err) {
+      // Só desloga quando o backend recusou o token (401). Falha de rede ou
+      // API dormindo (Render free) não pode derrubar a sessão — senão a
+      // rechecagem ao voltar pra aba (abaixo) deslogaria à toa.
+      if (err.status !== 401) return;
       localStorage.removeItem(TOKEN_KEY);
       setToken(null);
       setUser(null);
+      // Conta gratuita = um acesso por vez: outro dispositivo entrou e este
+      // caiu. Leva pro login explicando o motivo, em vez de sumir calado.
+      if (err.code === 'SESSION_REPLACED' && window.location.pathname !== '/entrar') {
+        window.location.assign('/entrar?motivo=outro-dispositivo');
+      }
     }
   }, []);
 
@@ -36,6 +44,18 @@ export function UserProvider({ children }) {
     setToken(stored);
     loadUser(stored).finally(() => setLoading(false));
   }, [loadUser]);
+
+  // Reconfere a sessão quando a pessoa volta pra aba — é aí que um
+  // dispositivo derrubado por login em outro lugar descobre isso, sem ficar
+  // fazendo polling (o backend no plano free não aguenta chamada à toa).
+  useEffect(() => {
+    if (!token) return undefined;
+    function onVisible() {
+      if (document.visibilityState === 'visible') loadUser(token);
+    }
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
+  }, [token, loadUser]);
 
   async function login(email, password) {
     const { data } = await api.loginUser(email, password);

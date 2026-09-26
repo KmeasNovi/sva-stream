@@ -68,6 +68,16 @@ function EntrarForm() {
     <div className="container mx-auto px-container-margin py-16 max-w-md min-h-[calc(100vh-72px)] flex flex-col justify-center">
       <form onSubmit={handleSubmit} className="glass-panel rounded-2xl p-8 space-y-4">
         <h1 className="font-display text-headline-md text-on-background mb-2">Entrar</h1>
+        {searchParams.get('motivo') === 'outro-dispositivo' ? (
+          <p className="font-body text-body-md text-on-surface-variant bg-surface-container-low border-l-4 border-primary/60 rounded-lg p-3">
+            Sua conta foi acessada em outro dispositivo. Contas gratuitas permitem um acesso por vez — entre de novo
+            pra continuar aqui, ou{' '}
+            <Link href="/doacao" className="text-primary hover:underline">
+              assine o Premium
+            </Link>{' '}
+            pra usar em vários dispositivos.
+          </p>
+        ) : null}
         <input
           type="email"
           placeholder="Email"

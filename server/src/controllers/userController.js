@@ -15,8 +15,15 @@ function generateVerificationToken() {
   return crypto.randomBytes(32).toString('hex');
 }
 
-function signUserToken(user) {
-  return jwt.sign({ id: user._id, email: user.email, name: user.name }, process.env.JWT_SECRET, {
+// Todo login abre uma sessão nova e ela passa a ser a única válida pra conta
+// sem Premium (User.hasValidSession) — o dispositivo anterior cai no próximo
+// request autenticado. updateOne em vez de save() pra não revalidar/regravar
+// o documento inteiro só por causa desse campo.
+async function startUserSession(user) {
+  const sid = crypto.randomBytes(16).toString('hex');
+  await User.updateOne({ _id: user._id }, { activeSessionId: sid });
+  user.activeSessionId = sid;
+  return jwt.sign({ id: user._id, email: user.email, name: user.name, sid }, process.env.JWT_SECRET, {
     expiresIn: '30d',
   });
 }
@@ -88,7 +95,7 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('Confirme seu email antes de entrar. Verifique sua caixa de entrada.', 403));
   }
 
-  const token = signUserToken(user);
+  const token = await startUserSession(user);
   await user.populate({ path: 'favorites', select: 'title slug posterUrl backdropUrl year' });
   res.json({
     success: true,
@@ -140,7 +147,7 @@ exports.googleAuth = catchAsync(async (req, res, next) => {
     });
   }
 
-  const token = signUserToken(user);
+  const token = await startUserSession(user);
   await user.populate({ path: 'favorites', select: 'title slug posterUrl backdropUrl year' });
   res.json({
     success: true,

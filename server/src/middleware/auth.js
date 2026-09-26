@@ -3,6 +3,17 @@ const AppError = require('../utils/AppError');
 const Admin = require('../models/Admin');
 const User = require('../models/User');
 
+// Conta sem Premium só tem um acesso por vez (ver User.hasValidSession): o
+// login mais recente derruba os anteriores. Código próprio pro frontend
+// diferenciar de token expirado e avisar o motivo.
+function sessionReplacedError() {
+  return new AppError(
+    'Sua conta foi acessada em outro dispositivo. Contas gratuitas permitem um acesso por vez.',
+    401,
+    'SESSION_REPLACED'
+  );
+}
+
 async function requireAdmin(req, res, next) {
   const header = req.headers.authorization || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : null;
@@ -37,6 +48,7 @@ async function requireUser(req, res, next) {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findById(payload.id);
     if (!user) return next(new AppError('Não autenticado', 401));
+    if (!user.hasValidSession(payload.sid)) return next(sessionReplacedError());
     req.user = user;
     next();
   } catch (err) {
@@ -67,6 +79,7 @@ async function requireAdminOrUser(req, res, next) {
 
     const user = await User.findById(payload.id);
     if (user) {
+      if (!user.hasValidSession(payload.sid)) return next(sessionReplacedError());
       req.user = user;
       return next();
     }

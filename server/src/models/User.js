@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema(
     resetPasswordToken: { type: String },
     resetPasswordTokenExpires: { type: Date },
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
+    // Id da sessão do último login (vai no JWT como `sid`). Conta sem Premium
+    // só tem um acesso por vez: um login novo troca esse id e derruba o
+    // dispositivo anterior — ver hasValidSession() e middleware/auth.js.
+    activeSessionId: { type: String },
     // Estrutura da assinatura paga (plano Premium, ver server/src/config/plans.js)
     // — campos escolhidos pra espelhar de perto o que qualquer gateway de
     // pagamento por assinatura (Stripe, Mercado Pago, etc.) já expõe, então a
@@ -51,7 +55,16 @@ userSchema.methods.isPremiumActive = function isPremiumActive() {
   return true;
 };
 
-userSchema.methods.comparePassword = function comparePassword(candidate) {
+// Premium pode ficar logado em vários dispositivos; conta comum só no do
+// último login. Sem activeSessionId (conta que não loga desde antes dessa
+// regra existir) aceita o token até o próximo login gravar um.
+userSchema.methods.hasValidSession = function hasValidSession(sid) {
+  if (this.isPremiumActive()) return true;
+  if (!this.activeSessionId) return true;
+  return sid === this.activeSessionId;
+};
+
+userSchema.methods.comparePassword =function comparePassword(candidate) {
   // Contas via Google não têm passwordHash — nunca "batem" com senha nenhuma.
   if (!this.passwordHash) return Promise.resolve(false);
   return bcrypt.compare(candidate, this.passwordHash);
