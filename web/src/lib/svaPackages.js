@@ -1,7 +1,7 @@
 // Pacotes de licença do SVA SepiaStream pra provedores — usados no flyer
 // (app/sva/page.jsx) e no simulador, que sugere o pacote pelo nº de
 // assinantes. O preço por licença é sempre o mesmo (a vantagem vendida é o
-// R$ 2,00); o pacote só define quantas licenças ativas estão incluídas.
+// R$ 2,00); o pacote só define quantas licenças estão incluídas.
 export const PRECO_LICENCA = 2;
 
 export const PACOTES_SVA = [

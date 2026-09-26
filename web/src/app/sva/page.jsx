@@ -70,7 +70,7 @@ const VANTAGENS = [
   {
     icon: 'support_agent',
     titulo: 'Suporte direto com a gente',
-    desc: 'Atendimento sem intermediário pra sua equipe e relatório mensal das licenças ativas.',
+    desc: 'Atendimento sem intermediário pra sua equipe e relatório mensal das licenças.',
   },
 ];
 
@@ -78,7 +78,7 @@ const PASSOS = [
   { icon: 'handshake', titulo: 'Contrato', desc: 'Definimos o pacote e assinamos digitalmente.' },
   { icon: 'group_add', titulo: 'Ativação', desc: 'Seus assinantes são cadastrados por lista ou integração.' },
   { icon: 'play_circle', titulo: 'Assinante assiste', desc: 'Acesso pelo navegador, no celular, TV ou computador.' },
-  { icon: 'request_quote', titulo: 'Fatura mensal', desc: `Você paga ${VALOR_LICENCA} por licença ativa no mês.` },
+  { icon: 'request_quote', titulo: 'Fatura mensal', desc: `Você paga ${VALOR_LICENCA} por licença no mês.` },
 ];
 
 function BotaoContato({ className = '', children }) {
@@ -170,8 +170,8 @@ export default function SvaFlyerPage() {
           Pacotes de licença
         </h2>
         <p className="font-body text-body-md text-center text-on-surface-variant mb-12 max-w-2xl mx-auto">
-          Todo pacote sai a {VALOR_LICENCA} por licença. Escolha o que cobre a sua base; licenças além do pacote
-          também custam {VALOR_LICENCA} cada.
+          Todo pacote sai a {VALOR_LICENCA} por licença. Escolha o que cobre a sua base; precisou de mais, é só
+          contratar licenças adicionais pelo mesmo valor.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {PACOTES_SVA.map((p) => (
@@ -187,10 +187,9 @@ export default function SvaFlyerPage() {
                 </span>
               ) : null}
               <h3 className="font-display text-headline-md text-on-background mb-4">{p.nome}</h3>
-              <p className="font-body text-body-sm text-on-surface-variant">até</p>
               <p className="mb-1">
                 <span className="font-display text-headline-lg text-secondary">{p.licencas.toLocaleString('pt-BR')}</span>
-                <span className="font-body text-body-md text-on-surface-variant ml-2">licenças ativas</span>
+                <span className="font-body text-body-md text-on-surface-variant ml-2">licenças</span>
               </p>
               <p className="font-body text-body-sm text-on-surface-variant mb-6">
                 {moeda(precoPacote(p), 0)}/mês · {VALOR_LICENCA} por licença
