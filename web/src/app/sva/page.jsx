@@ -186,15 +186,15 @@ export default function SvaFlyerPage() {
                   Mais escolhido
                 </span>
               ) : null}
-              <h3 className="font-display text-headline-md text-on-background mb-1">{p.nome}</h3>
-              <p className="font-body text-body-md text-on-surface-variant mb-4">
-                até <strong className="text-on-background">{p.licencas.toLocaleString('pt-BR')}</strong> licenças ativas
-              </p>
+              <h3 className="font-display text-headline-md text-on-background mb-4">{p.nome}</h3>
+              <p className="font-body text-body-sm text-on-surface-variant">até</p>
               <p className="mb-1">
-                <span className="font-display text-headline-lg text-secondary">{moeda(precoPacote(p), 0)}</span>
-                <span className="font-body text-body-sm text-on-surface-variant ml-2">/ mês</span>
+                <span className="font-display text-headline-lg text-secondary">{p.licencas.toLocaleString('pt-BR')}</span>
+                <span className="font-body text-body-md text-on-surface-variant ml-2">licenças ativas</span>
               </p>
-              <p className="font-body text-body-sm text-on-surface-variant mb-6">{VALOR_LICENCA} por licença</p>
+              <p className="font-body text-body-sm text-on-surface-variant mb-6">
+                {moeda(precoPacote(p), 0)}/mês · {VALOR_LICENCA} por licença
+              </p>
               <ul className="flex flex-col gap-3 mb-8 flex-1">
                 {p.itens.map((item) => (
                   <li key={item} className="flex gap-2 font-body text-body-md text-on-surface-variant">
