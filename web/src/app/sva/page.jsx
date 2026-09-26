@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import SvaSimulator from '../../components/SvaSimulator';
+import { LIMITE_PACOTES, PACOTES_SVA, PRECO_LICENCA, moeda, precoPacote } from '../../lib/svaPackages';
 
 // Flyer comercial pra provedores de internet — servido só na raiz de
 // flyer.sepiastream.com (reescrita em middleware.js), sem a navegação do app
 // (ver AppShell.jsx). Não é pra assinante final: é o material de venda da
 // licença SepiaStream como SVA.
 
-// Contato comercial — preencher antes de publicar. Sem WhatsApp, o botão
-// cai no e-mail.
+// Contato comercial — e-mail confirmado; WhatsApp ainda a definir. Sem
+// WhatsApp, os botões caem no e-mail.
 const CONTATO = {
   whatsapp: '', // só dígitos com DDI+DDD, ex: '5511999999999'
   email: 'contato@sepiastream.com',
@@ -19,7 +20,7 @@ const LINK_CONTATO = CONTATO.whatsapp
   ? `https://wa.me/${CONTATO.whatsapp}?text=${encodeURIComponent(MENSAGEM_WHATSAPP)}`
   : `mailto:${CONTATO.email}?subject=${encodeURIComponent('SVA SepiaStream para provedores')}`;
 
-const VALOR_LICENCA = 'R$ 2,00';
+const VALOR_LICENCA = moeda(PRECO_LICENCA);
 
 export const metadata = {
   title: 'SepiaStream para provedores — SVA de streaming por R$ 2,00 a licença',
@@ -70,45 +71,6 @@ const VANTAGENS = [
     icon: 'support_agent',
     titulo: 'Suporte direto com a gente',
     desc: 'Atendimento sem intermediário pra sua equipe e relatório mensal das licenças ativas.',
-  },
-];
-
-const PACOTES = [
-  {
-    nome: 'Essencial',
-    preco: VALOR_LICENCA,
-    sufixo: '/ licença ativa',
-    destaque: false,
-    itens: [
-      'Acesso completo ao catálogo',
-      'Ativação por lista de assinantes',
-      'Relatório mensal de licenças',
-      'Suporte por WhatsApp e e-mail',
-    ],
-  },
-  {
-    nome: 'Integrado',
-    preco: VALOR_LICENCA,
-    sufixo: '/ licença ativa',
-    destaque: true,
-    itens: [
-      'Tudo do Essencial',
-      'Ativação e cancelamento automáticos via API',
-      'Integração com o seu ERP',
-      'Acompanhamento na homologação',
-    ],
-  },
-  {
-    nome: 'Marca parceira',
-    preco: 'Sob consulta',
-    sufixo: '',
-    destaque: false,
-    itens: [
-      'Tudo do Integrado',
-      'Sua marca junto com a SepiaStream',
-      'Domínio próprio pros seus assinantes',
-      'Condições para grandes volumes',
-    ],
   },
 ];
 
@@ -208,10 +170,11 @@ export default function SvaFlyerPage() {
           Pacotes de licença
         </h2>
         <p className="font-body text-body-md text-center text-on-surface-variant mb-12 max-w-2xl mx-auto">
-          Mesmo preço por licença, do primeiro ao milésimo assinante. Você só paga pelas licenças ativas no mês.
+          Todo pacote sai a {VALOR_LICENCA} por licença. Escolha o que cobre a sua base; licenças além do pacote
+          também custam {VALOR_LICENCA} cada.
         </p>
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
-          {PACOTES.map((p) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {PACOTES_SVA.map((p) => (
             <div
               key={p.nome}
               className={`relative rounded-2xl p-8 flex flex-col ${
@@ -223,11 +186,15 @@ export default function SvaFlyerPage() {
                   Mais escolhido
                 </span>
               ) : null}
-              <h3 className="font-display text-headline-md text-on-background mb-4">{p.nome}</h3>
-              <p className="mb-6">
-                <span className="font-display text-headline-lg text-secondary">{p.preco}</span>
-                {p.sufixo ? <span className="font-body text-body-sm text-on-surface-variant ml-2">{p.sufixo}</span> : null}
+              <h3 className="font-display text-headline-md text-on-background mb-1">{p.nome}</h3>
+              <p className="font-body text-body-md text-on-surface-variant mb-4">
+                até <strong className="text-on-background">{p.licencas.toLocaleString('pt-BR')}</strong> licenças ativas
               </p>
+              <p className="mb-1">
+                <span className="font-display text-headline-lg text-secondary">{moeda(precoPacote(p), 0)}</span>
+                <span className="font-body text-body-sm text-on-surface-variant ml-2">/ mês</span>
+              </p>
+              <p className="font-body text-body-sm text-on-surface-variant mb-6">{VALOR_LICENCA} por licença</p>
               <ul className="flex flex-col gap-3 mb-8 flex-1">
                 {p.itens.map((item) => (
                   <li key={item} className="flex gap-2 font-body text-body-md text-on-surface-variant">
@@ -250,6 +217,23 @@ export default function SvaFlyerPage() {
               </a>
             </div>
           ))}
+        </div>
+        <div className="glass-panel rounded-2xl p-6 mt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div>
+            <h3 className="font-display text-headline-md text-on-background mb-1">Corporativo</h3>
+            <p className="font-body text-body-md text-on-surface-variant">
+              Mais de {LIMITE_PACOTES.toLocaleString('pt-BR')} assinantes? Montamos uma proposta com condições para
+              grandes volumes, domínio próprio e integração dedicada.
+            </p>
+          </div>
+          <a
+            href={LINK_CONTATO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 border border-primary/40 text-primary font-body text-label-bold px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors"
+          >
+            Pedir proposta
+          </a>
         </div>
       </section>
 
