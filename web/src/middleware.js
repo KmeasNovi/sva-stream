@@ -24,9 +24,8 @@ export function middleware(request) {
   const host = request.headers.get('host') || '';
   const isPro = host.startsWith('pro.');
   const isAdminHost = host.startsWith('admin.');
-  // Flyer comercial pra provedores (ver app/sva/page.jsx) — dois nomes pro
-  // mesmo destino, pra divulgar o que soar melhor.
-  const isSvaHost = host.startsWith('sva.') || host.startsWith('flyer.');
+  // Flyer comercial pra provedores (ver app/sva/page.jsx).
+  const isFlyerHost = host.startsWith('flyer.');
   const { pathname } = request.nextUrl;
 
   // Arquivos estáticos (logo, ícones, manifest etc.) nunca podem ser
@@ -55,14 +54,27 @@ export function middleware(request) {
     return NextResponse.rewrite(url);
   }
 
-  // Redirect (não rewrite) de propósito: com rewrite o usePathname() continua
-  // vendo "/", e o AppShell renderizaria a navbar/gate da landing por cima
-  // do flyer. O subdomínio só serve o flyer — qualquer outra rota cai nele.
-  if (isSvaHost && !isStaticAsset && pathname !== '/sva') {
+  // O flyer só existe na raiz de flyer.sepiastream.com: "/" é reescrito pra
+  // rota interna /sva (endereço continua limpo) e qualquer outro caminho
+  // volta pra raiz. AppShell/CookieConsent identificam o flyer pelo segmento
+  // renderizado (useSelectedLayoutSegment), não pelo pathname — com rewrite,
+  // o pathname continua sendo "/".
+  if (isFlyerHost && !isStaticAsset) {
     const url = request.nextUrl.clone();
-    url.pathname = '/sva';
+    if (pathname === '/') {
+      url.pathname = '/sva';
+      return NextResponse.rewrite(url);
+    }
+    url.pathname = '/';
     url.search = '';
     return NextResponse.redirect(url);
+  }
+
+  // Fora do subdomínio, /sva nem responde (mesma ideia do /admin acima).
+  if (pathname === '/sva') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/sva-indisponivel-neste-dominio';
+    return NextResponse.rewrite(url);
   }
 
   const response = NextResponse.next();

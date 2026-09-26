@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import SvaSimulator from '../../components/SvaSimulator';
 
-// Flyer comercial pra provedores de internet — servido em sva.sepiastream.com
-// e flyer.sepiastream.com (reescrita em middleware.js), sem a navegação do app
+// Flyer comercial pra provedores de internet — servido só na raiz de
+// flyer.sepiastream.com (reescrita em middleware.js), sem a navegação do app
 // (ver AppShell.jsx). Não é pra assinante final: é o material de venda da
 // licença SepiaStream como SVA.
 

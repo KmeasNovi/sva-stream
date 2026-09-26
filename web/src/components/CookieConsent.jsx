@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 
 const STORAGE_KEY = 'sva_cookie_consent';
@@ -10,8 +10,9 @@ const STORAGE_KEY = 'sva_cookie_consent';
 export default function CookieConsent() {
   const { user } = useUser();
   const [visible, setVisible] = useState(false);
-  // O flyer pra provedores (/sva) não tem login nem anúncio — o aviso não se aplica.
-  const isSvaFlyer = usePathname() === '/sva';
+  // O flyer pra provedores (flyer.sepiastream.com, rota interna /sva) não tem
+  // login nem anúncio — o aviso não se aplica.
+  const isSvaFlyer = useSelectedLayoutSegment() === 'sva';
 
   useEffect(() => {
     if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
