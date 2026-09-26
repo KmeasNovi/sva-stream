@@ -24,6 +24,9 @@ export function middleware(request) {
   const host = request.headers.get('host') || '';
   const isPro = host.startsWith('pro.');
   const isAdminHost = host.startsWith('admin.');
+  // Flyer comercial pra provedores (ver app/sva/page.jsx) — dois nomes pro
+  // mesmo destino, pra divulgar o que soar melhor.
+  const isSvaHost = host.startsWith('sva.') || host.startsWith('flyer.');
   const { pathname } = request.nextUrl;
 
   // Arquivos estáticos (logo, ícones, manifest etc.) nunca podem ser
@@ -50,6 +53,16 @@ export function middleware(request) {
     const url = request.nextUrl.clone();
     url.pathname = '/admin-indisponivel-neste-dominio';
     return NextResponse.rewrite(url);
+  }
+
+  // Redirect (não rewrite) de propósito: com rewrite o usePathname() continua
+  // vendo "/", e o AppShell renderizaria a navbar/gate da landing por cima
+  // do flyer. O subdomínio só serve o flyer — qualquer outra rota cai nele.
+  if (isSvaHost && !isStaticAsset && pathname !== '/sva') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/sva';
+    url.search = '';
+    return NextResponse.redirect(url);
   }
 
   const response = NextResponse.next();

@@ -9,6 +9,12 @@ export default function AppShell({ children }) {
   const pathname = usePathname();
   const showChrome = !isChromeLessPath(pathname);
 
+  // Flyer pra provedores (sva./flyer.sepiastream.com) — página de venda B2B,
+  // sem navbar, login nem gate do app de streaming.
+  if (pathname === '/sva') {
+    return <main className="min-h-screen">{children}</main>;
+  }
+
   return (
     <>
       <Navbar />

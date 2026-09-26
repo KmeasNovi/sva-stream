@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 
 const STORAGE_KEY = 'sva_cookie_consent';
@@ -9,6 +10,8 @@ const STORAGE_KEY = 'sva_cookie_consent';
 export default function CookieConsent() {
   const { user } = useUser();
   const [visible, setVisible] = useState(false);
+  // O flyer pra provedores (/sva) não tem login nem anúncio — o aviso não se aplica.
+  const isSvaFlyer = usePathname() === '/sva';
 
   useEffect(() => {
     if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
@@ -19,7 +22,7 @@ export default function CookieConsent() {
     setVisible(false);
   }
 
-  if (!visible) return null;
+  if (!visible || isSvaFlyer) return null;
 
   return (
     <div className="fixed bottom-0 left-0 w-full z-[60] p-4 md:p-6">
