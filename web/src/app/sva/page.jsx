@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import Link from 'next/link';
+import SvaFlyerHeader from '../../components/SvaFlyerHeader';
 import SvaSimulator from '../../components/SvaSimulator';
 import { LIMITE_PACOTES, PACOTES_SVA, PRECO_LICENCA, moeda, precoPacote } from '../../lib/svaPackages';
 
@@ -98,17 +99,7 @@ function BotaoContato({ className = '', children }) {
 export default function SvaFlyerPage() {
   return (
     <div className="overflow-x-hidden">
-      <header className="container mx-auto px-container-margin py-5 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <Image src="/logo-icon.png" alt="" width={40} height={40} />
-          <span className="font-display text-body-lg font-bold text-on-background">
-            SepiaStream <span className="text-secondary">SVA</span>
-          </span>
-        </div>
-        <a href="#contato" className="font-body text-label-bold text-on-surface-variant hover:text-primary transition-colors">
-          Fale com a gente
-        </a>
-      </header>
+      <SvaFlyerHeader acao={{ href: '/contratar', label: 'Contratar agora', destaque: true }} />
 
       <section className="relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--glow-primary),0.18),transparent_60%)]" />
@@ -124,7 +115,13 @@ export default function SvaFlyerPage() {
             mensalidade de forma mais eficiente. O menor custo de licença do mercado.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <BotaoContato>Quero oferecer aos meus assinantes</BotaoContato>
+            <Link
+              href="/contratar"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
+            >
+              <span className="material-symbols-outlined">rocket_launch</span>
+              Contratar agora
+            </Link>
             <a
               href="#simulador"
               className="inline-flex items-center gap-2 text-on-background font-body text-label-bold px-6 py-4 rounded-lg border border-white/15 hover:border-white/40 transition-colors"
@@ -202,10 +199,8 @@ export default function SvaFlyerPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={LINK_CONTATO}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/contratar?pacote=${encodeURIComponent(p.nome)}`}
                 className={`text-center font-body text-label-bold px-6 py-3 rounded-lg transition-all ${
                   p.destaque
                     ? 'bg-primary text-on-primary hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)]'
@@ -213,7 +208,7 @@ export default function SvaFlyerPage() {
                 }`}
               >
                 Contratar {p.nome}
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -225,14 +220,12 @@ export default function SvaFlyerPage() {
               grandes volumes, domínio próprio e integração dedicada.
             </p>
           </div>
-          <a
-            href={LINK_CONTATO}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contratar?pacote=Corporativo"
             className="shrink-0 border border-primary/40 text-primary font-body text-label-bold px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors"
           >
             Pedir proposta
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -261,6 +254,43 @@ export default function SvaFlyerPage() {
               <p className="font-body text-body-md text-on-surface-variant">{p.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="contratar" className="container mx-auto px-container-margin py-20 scroll-mt-8">
+        <div className="relative overflow-hidden rounded-2xl border-2 border-primary bg-surface-container p-8 md:p-14 shadow-[0_0_40px_rgba(var(--glow-primary),0.25)]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(var(--glow-primary),0.2),transparent_60%)]" />
+          <div className="relative grid md:grid-cols-[1.3fr_1fr] gap-10 items-center">
+            <div>
+              <p className="font-body text-label-bold uppercase text-secondary mb-3">Contratar agora</p>
+              <h2 className="font-display text-headline-lg-mobile md:text-headline-lg text-on-background mb-4">
+                Pronto pra oferecer o SepiaStream?
+              </h2>
+              <p className="font-body text-body-lg text-on-surface-variant mb-6">
+                Informe os dados da sua operação, simule os ganhos com os números do seu provedor e receba a proposta
+                e o contrato em até 1 dia útil.
+              </p>
+              <Link
+                href="/contratar"
+                className="inline-flex items-center gap-2 bg-primary text-on-primary font-body text-label-bold px-8 py-4 rounded-lg hover:shadow-[0_0_25px_rgba(var(--glow-primary),0.5)] transition-all"
+              >
+                <span className="material-symbols-outlined">rocket_launch</span>
+                Começar contratação
+              </Link>
+            </div>
+            <ol className="flex flex-col gap-4">
+              {['Simule os ganhos no seu plano', 'Informe os dados do provedor', 'Receba proposta e contrato', 'Ative seus assinantes'].map(
+                (etapa, i) => (
+                  <li key={etapa} className="flex items-center gap-4">
+                    <span className="flex-none w-9 h-9 rounded-full bg-primary/15 border border-primary/40 text-primary font-display font-bold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                    <span className="font-body text-body-md text-on-background">{etapa}</span>
+                  </li>
+                )
+              )}
+            </ol>
+          </div>
         </div>
       </section>
 

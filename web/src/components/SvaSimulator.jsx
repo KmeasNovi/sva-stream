@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PRECO_LICENCA, moeda, pacoteSugerido, precoPacote } from '../lib/svaPackages';
 
 // Versão interativa da "calculadora sva.html" (raiz do repositório). A
@@ -108,7 +108,9 @@ function TabelaCenario({ titulo, cor, c, rotuloCusto }) {
   );
 }
 
-export default function SvaSimulator() {
+// onResultado (opcional): a página /contratar usa pra pré-preencher o
+// formulário (assinantes, pacote indicado) e anexar a simulação ao pedido.
+export default function SvaSimulator({ onResultado }) {
   const [valores, setValores] = useState(DEFAULTS);
 
   function onChange(key, raw) {
@@ -120,6 +122,18 @@ export default function SvaSimulator() {
   const numeros = Object.fromEntries(Object.entries(valores).map(([k, v]) => [k, Number(v) || 0]));
   const r = calcular(numeros);
   const pacote = pacoteSugerido(numeros.assinantes);
+
+  const chave = JSON.stringify(numeros);
+  useEffect(() => {
+    if (!onResultado) return;
+    onResultado({
+      ...numeros,
+      pacote: pacote ? pacote.nome : 'Corporativo',
+      ganhoLiquidoMes: r.mes.liquido,
+    });
+    // chave resume numeros (e, portanto, pacote e r) — evita disparar a cada render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chave, onResultado]);
 
   return (
     <div className="grid lg:grid-cols-[1fr_1.1fr] gap-6">

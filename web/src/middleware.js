@@ -10,6 +10,12 @@ const ADMIN_SHORT_PATHS = {
   '/login': '/admin/login',
   '/usuarios': '/admin/dashboard/usuarios',
   '/busca': '/admin/dashboard/busca',
+  '/provedores': '/admin/dashboard/provedores',
+};
+
+const FLYER_PATHS = {
+  '/': '/sva',
+  '/contratar': '/sva/contratar',
 };
 
 // pro.sepiastream.com e admin.sepiastream.com são o mesmo deploy do site
@@ -54,15 +60,16 @@ export function middleware(request) {
     return NextResponse.rewrite(url);
   }
 
-  // O flyer só existe na raiz de flyer.sepiastream.com: "/" é reescrito pra
-  // rota interna /sva (endereço continua limpo) e qualquer outro caminho
-  // volta pra raiz. AppShell/CookieConsent identificam o flyer pelo segmento
-  // renderizado (useSelectedLayoutSegment), não pelo pathname — com rewrite,
-  // o pathname continua sendo "/".
+  // Páginas de flyer.sepiastream.com, mapeadas pras rotas internas em /sva
+  // (endereço continua limpo); qualquer outro caminho volta pra raiz.
+  // AppShell/CookieConsent identificam o flyer pelo segmento renderizado
+  // (useSelectedLayoutSegment), não pelo pathname — com rewrite, o pathname
+  // continua sendo o do endereço ("/", "/contratar").
   if (isFlyerHost && !isStaticAsset) {
     const url = request.nextUrl.clone();
-    if (pathname === '/') {
-      url.pathname = '/sva';
+    const rota = FLYER_PATHS[pathname];
+    if (rota) {
+      url.pathname = rota;
       return NextResponse.rewrite(url);
     }
     url.pathname = '/';
@@ -70,8 +77,8 @@ export function middleware(request) {
     return NextResponse.redirect(url);
   }
 
-  // Fora do subdomínio, /sva nem responde (mesma ideia do /admin acima).
-  if (pathname === '/sva') {
+  // Fora do subdomínio, /sva/* nem responde (mesma ideia do /admin acima).
+  if (pathname === '/sva' || pathname.startsWith('/sva/')) {
     const url = request.nextUrl.clone();
     url.pathname = '/sva-indisponivel-neste-dominio';
     return NextResponse.rewrite(url);

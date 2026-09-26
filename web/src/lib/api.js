@@ -88,6 +88,10 @@ export const api = {
   adminDeleteUser: (id, token) => request(`/users/${id}`, { method: 'DELETE', token }),
   // Assinatura do plano Premium (ver server/src/config/plans.js) — devolve
   // um erro 503 tratável enquanto o Asaas não estiver configurado no backend.
+  // Pedido de contratação do SVA (flyer.sepiastream.com/contratar) — público.
+  createProviderLead: (data) => request('/providers/leads', { method: 'POST', body: data }),
+  adminListProviderLeads: (token) => request('/providers/leads', { token }),
+  adminUpdateProviderLead: (id, data, token) => request(`/providers/leads/${id}`, { method: 'PATCH', body: data, token }),
   subscribePremium: (data, token) => request('/billing/subscribe', { method: 'POST', body: data, token }),
   cancelPremium: (token) => request('/billing/cancel', { method: 'POST', token }),
   // Verificação de links quebrados (pôster/backdrop/vídeo) — job assíncrono,

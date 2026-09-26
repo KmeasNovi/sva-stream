@@ -20,4 +20,14 @@ const authLimiter = rateLimit({
   message: { success: false, message: 'Muitas tentativas. Tente novamente em 15 minutos.' },
 });
 
-module.exports = { apiLimiter, authLimiter };
+// Pedido de contratação de provedor (flyer) — gera e-mail pra nós e pro
+// provedor, então segura spam sem atrapalhar quem erra um campo e reenvia.
+const leadLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Muitos envios. Tente novamente em uma hora ou fale com contato@sepiastream.com.' },
+});
+
+module.exports = { apiLimiter, authLimiter, leadLimiter };

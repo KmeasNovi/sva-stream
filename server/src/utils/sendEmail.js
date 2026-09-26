@@ -84,4 +84,78 @@ async function sendPasswordResetEmail(email, name, token) {
   }
 }
 
-module.exports = { sendVerificationEmail, sendPasswordResetEmail };
+// Dados do pedido vêm de formulário público — escapar antes de pôr em HTML.
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+}
+
+async function sendBrevo(payload, contexto) {
+  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'api-key': process.env.BREVO_API_KEY },
+    body: JSON.stringify({ sender: { name: 'SepiaStream', email: process.env.BREVO_SENDER_EMAIL }, ...payload }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    console.error(`Falha ao enviar ${contexto} via Brevo:`, res.status, body);
+  }
+}
+
+// Pedido de contratação do SVA (flyer.sepiastream.com/contratar): avisa o
+// comercial (SVA_LEADS_EMAIL, padrão contato@sepiastream.com) e confirma o
+// recebimento pro provedor. Opcional como os outros — sem Brevo, o pedido
+// continua salvo e visível no admin.
+async function sendProviderLeadEmails(lead) {
+  if (!process.env.BREVO_API_KEY || !process.env.BREVO_SENDER_EMAIL) {
+    console.warn('Brevo não configurado — pulando e-mails do pedido de provedor.');
+    return;
+  }
+
+  const e = escapeHtml;
+  const moeda = (v) => (Number.isFinite(v) ? v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '—');
+  const cnpj = lead.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+  const linhas = [
+    ['Razão social', lead.razaoSocial],
+    ['Nome fantasia', lead.nomeFantasia || '—'],
+    ['CNPJ', cnpj],
+    ['Cidade/UF', `${lead.cidade}/${lead.uf}`],
+    ['Responsável', `${lead.responsavel}${lead.cargo ? ` (${lead.cargo})` : ''}`],
+    ['E-mail', lead.email],
+    ['Telefone', lead.telefone],
+    ['Assinantes na base', lead.assinantes.toLocaleString('pt-BR')],
+    ['Pacote desejado', lead.pacote],
+    ['Ativação', { lista: 'Lista de assinantes', api: 'API / integração com ERP', indefinido: 'Ainda não sabe' }[lead.ativacao]],
+    ['ERP', lead.erp || '—'],
+    ['Ganho mensal simulado', moeda(lead.simulacao?.ganhoLiquidoMes)],
+    ['Observações', lead.observacoes || '—'],
+  ];
+  const tabela = `<table cellpadding="6" style="border-collapse:collapse">${linhas
+    .map(([k, v]) => `<tr><td style="border:1px solid #ddd"><b>${e(k)}</b></td><td style="border:1px solid #ddd">${e(v)}</td></tr>`)
+    .join('')}</table>`;
+
+  await Promise.all([
+    sendBrevo(
+      {
+        to: [{ email: process.env.SVA_LEADS_EMAIL || 'contato@sepiastream.com' }],
+        replyTo: { email: lead.email, name: lead.responsavel },
+        subject: `Novo provedor quer contratar o SVA — ${lead.razaoSocial} (${lead.pacote})`,
+        htmlContent: `<p>Novo pedido de contratação recebido em flyer.sepiastream.com/contratar:</p>${tabela}<p>Também disponível no painel admin, aba Provedores.</p>`,
+      },
+      'aviso de pedido de provedor'
+    ),
+    sendBrevo(
+      {
+        to: [{ email: lead.email, name: lead.responsavel }],
+        subject: 'Recebemos seu pedido — SVA SepiaStream',
+        htmlContent: `<p>Olá, ${e(lead.responsavel)}!</p>
+          <p>Recebemos o pedido de contratação do SVA SepiaStream para a <b>${e(lead.razaoSocial)}</b>, pacote <b>${e(lead.pacote)}</b>.</p>
+          <p>Nossa equipe vai revisar os dados e enviar a proposta e o contrato em até 1 dia útil. Se quiser adiantar alguma informação, é só responder este e-mail ou escrever para contato@sepiastream.com.</p>
+          <p>Resumo do que você enviou:</p>${tabela}
+          <p>— Equipe SepiaStream</p>`,
+      },
+      'confirmação de pedido de provedor'
+    ),
+  ]);
+}
+
+module.exports = { sendVerificationEmail, sendPasswordResetEmail, sendProviderLeadEmails };

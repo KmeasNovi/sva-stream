@@ -12,6 +12,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes');
 const userRoutes = require('./routes/userRoutes');
 const billingRoutes = require('./routes/billingRoutes');
 const healthCheckRoutes = require('./routes/healthCheckRoutes');
+const providerRoutes = require('./routes/providerRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const { apiLimiter } = require('./middleware/rateLimit');
 
@@ -29,9 +30,15 @@ app.use(compression());
 // batia com "*" e o header Access-Control-Allow-Origin nunca era enviado
 // (todo fetch autenticado do browser falhava silenciosamente com "Failed to
 // fetch", mesmo funcionando via curl). Aqui tratamos "*"/vazio à parte.
+//
+// Além da lista do env, qualquer subdomínio https de sepiastream.com é aceito
+// (flyer., pro., admin. etc.) — senão cada subdomínio novo exigia lembrar de
+// editar CORS_ORIGIN no Render, e o flyer chegou a ir ao ar bloqueado.
+const SEPIASTREAM_ORIGIN = /^https:\/\/([a-z0-9-]+\.)?sepiastream\.com$/;
+const corsAllowList = (process.env.CORS_ORIGIN || '').split(',').map((o) => o.trim()).filter(Boolean);
 const corsOrigin = !process.env.CORS_ORIGIN || process.env.CORS_ORIGIN === '*'
   ? true
-  : process.env.CORS_ORIGIN.split(',');
+  : (origin, callback) => callback(null, !origin || corsAllowList.includes(origin) || SEPIASTREAM_ORIGIN.test(origin));
 
 app.use(cors({ origin: corsOrigin }));
 // Padrão do express é 100kb — estoura fácil em lote grande (ex: corrigir
@@ -60,6 +67,7 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/billing', billingRoutes);
 app.use('/api/health-check', healthCheckRoutes);
+app.use('/api/providers', providerRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Rota não encontrada' });
