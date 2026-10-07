@@ -129,7 +129,7 @@ export default async function LandingPage() {
               className="mx-auto mb-4 w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
             />
             <h1 className="font-display text-headline-lg-mobile md:text-display-xl text-on-background mb-6">
-              Filmes <span className="text-secondary">clássicos</span>, <span className="text-primary">animações</span> e muito mais
+              Assista a filmes <span className="text-secondary">clássicos</span>, <span className="text-primary">animações</span> e muito mais
             </h1>
             <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
               Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. É só criar conta e assistir.
