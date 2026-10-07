@@ -23,13 +23,13 @@ function LandingHighlightsAdRow() {
 }
 
 export const metadata = {
-  title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
+  title: 'SepiaStream — Cinema clássico e curtas de animação',
   description:
-    'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Sem mensalidade. Crie sua conta e assista agora.',
+    'Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Crie sua conta e assista agora.',
   openGraph: {
-    title: 'SepiaStream — Cinema clássico e curtas de animação, grátis',
+    title: 'SepiaStream — Cinema clássico e curtas de animação',
     description:
-      'Centenas de filmes e curtas de animação clássicos, 100% gratuitos, num catálogo estilo streaming. Crie sua conta e assista agora.',
+      'Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Crie sua conta e assista agora.',
     type: 'website',
     images: ['/logo-icon.png'],
   },
@@ -90,9 +90,9 @@ const FEATURES = [
     desc: 'Centenas de clássicos e curtas raros, sempre crescendo — tem coisa nova toda semana.',
   },
   {
-    icon: 'payments',
-    title: 'Sem mensalidade',
-    desc: 'Conta grátis pra sempre. Sem cartão de crédito, sem pegadinha, sem cobrança escondida.',
+    icon: 'verified',
+    title: '100% legal',
+    desc: 'Só obras em domínio público: assista tranquilo, sem pirataria.',
   },
   {
     icon: 'video_library',
@@ -129,10 +129,10 @@ export default async function LandingPage() {
               className="mx-auto mb-4 w-[100px] h-[100px] md:w-[140px] md:h-[140px]"
             />
             <h1 className="font-display text-headline-lg-mobile md:text-display-xl text-on-background mb-6">
-              Cinema <span className="text-secondary">clássico</span>, <span className="text-primary">grátis</span> pra sempre
+              Cinema <span className="text-secondary">clássico</span> e curtas de <span className="text-primary">animação</span>
             </h1>
             <p className="font-body text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
-              Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. Sem mensalidade — só criar conta e assistir.
+              Centenas de filmes e curtas de animação clássicos, num catálogo estilo streaming. É só criar conta e assistir.
             </p>
             <div className="flex flex-col items-center gap-4">
               <Link
@@ -228,7 +228,7 @@ export default async function LandingPage() {
               <span className="font-display text-headline-md text-secondary">SepiaStream</span>
             </div>
             <p className="font-body text-body-md text-on-surface-variant text-center sm:text-right">
-              Cinema clássico e curtas de animação, sempre grátis.
+              Cinema clássico e curtas de animação.
             </p>
             <div className="flex items-center gap-6">
               <Link href="/doacao" className="font-body text-body-md text-secondary hover:text-primary transition-colors">
